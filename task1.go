@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 //function checks if the string is a palindrome
 func checkPalindrome(s string) {
@@ -48,6 +51,28 @@ func matrixSum(m [][]int) int {
 	return sum
 }
 
+//function reverses characters in parentheses
+func reversChar(s string) string {
+	par := make(map[int]int)
+	var x int
+	for n, i := range s {
+		if string(i) == "(" {
+			x = n
+			par[x] = 0
+		} else if string(i) == ")" {
+			par[x] = n
+		}
+	}
+	for start, stop := range par {
+		var reverse []rune
+		for i := stop - 1; i > start; i-- {
+			reverse = append(reverse, rune(s[i]))
+		}
+		s = strings.Replace(s, string(s[start+1:stop]), string(reverse), 1)
+	}
+	return s
+}
+
 func main() {
 	str1 := "aabaa"
 	str2 := "abac"
@@ -66,4 +91,7 @@ func main() {
 	fmt.Println(matrixSum(matrix))
 	fmt.Println(matrixSum(matrix2))
 	//________________________________________________
+	s := "asdf(qwerty)jjkk(kldsf)jgj(fg)"
+	fmt.Println(reversChar(s))
+
 }
