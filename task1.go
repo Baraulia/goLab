@@ -6,21 +6,23 @@ import (
 )
 
 //function checks if the string is a palindrome
-func checkPalindrome(s string) {
+func CheckPalindrome(s string) string {
 	var reverse []byte
 	for i := len(s) - 1; i >= 0; i-- {
 		reverse = append(reverse, s[i])
 	}
+	var response string
 	switch s == string(reverse) {
 	case true:
-		fmt.Printf("Строка %s является палиндромом\n", s)
+		response = fmt.Sprintf("Строка %s является палиндромом\n", s)
 	case false:
-		fmt.Printf("Строка %s не является палиндромом\n", s)
+		response = fmt.Sprintf("Строка %s не является палиндромом\n", s)
 	}
+	return response
 }
 
 //function sums the elements of the matrix
-func matrixSum(m [][]int) int {
+func MatrixSum(m [][]int) int {
 	var sum int
 	var index = make(map[int]string)
 	for i := range m {
@@ -52,7 +54,7 @@ func matrixSum(m [][]int) int {
 }
 
 //function reverses characters in parentheses
-func reversChar(s string) string {
+func ReversChar(s string) string {
 	par := make(map[int]int)
 	var x int
 	for n, i := range s {
@@ -71,27 +73,4 @@ func reversChar(s string) string {
 		s = strings.Replace(s, string(s[start+1:stop]), string(reverse), 1)
 	}
 	return s
-}
-
-func main() {
-	str1 := "aabaa"
-	str2 := "abac"
-	str3 := "a"
-	checkPalindrome(str1)
-	checkPalindrome(str2)
-	checkPalindrome(str3)
-	//________________________________________________
-	matrix := [][]int{{0, 2, 3, 4},
-		{0, 0, 0, 1},
-		{1, 1, 4, 8},
-	}
-	matrix2 := [][]int{{1, 1, 1, 0},
-		{0, 5, 0, 1},
-		{2, 1, 3, 10}}
-	fmt.Println(matrixSum(matrix))
-	fmt.Println(matrixSum(matrix2))
-	//________________________________________________
-	s := "asdf(qwerty)jjkk(kldsf)jgj(fg)"
-	fmt.Println(reversChar(s))
-
 }
