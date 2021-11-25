@@ -1,4 +1,4 @@
-module github.com/Baraulia/goLab/Lesson1.git
+module github.com/Baraulia/goLab.git
 
 go 1.17
 
