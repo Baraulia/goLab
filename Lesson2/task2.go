@@ -48,14 +48,20 @@ type Circle struct {
 	Center Point
 }
 
-func CreateField(height, weight int) Field {
-	var NewField = Field{
-		Size: make([][]int, height),
+func CreateField(height, weight int) (Field, error) {
+	var e error
+	var NewField = Field{}
+	if height <= 0 || weight <= 0 {
+		e = fmt.Errorf("введите положительные значения размера поля")
+	} else {
+		NewField = Field{
+			Size: make([][]int, height),
+		}
+		for i := 0; i <= (height - 1); i++ {
+			NewField.Size[i] = make([]int, weight)
+		}
 	}
-	for i := 0; i <= (height - 1); i++ {
-		NewField.Size[i] = make([]int, weight)
-	}
-	return NewField
+	return NewField, e
 }
 
 func (p *Point) SetColor() {
@@ -67,7 +73,6 @@ func (p *Point) SetColor() {
 }
 
 func (f *Field) ThreePoint() *Field {
-	f.Points = []Point{}
 	for i := 0; i < 3; i++ {
 		f.Points = append(f.Points, Point{
 			X: rand.Intn(len(f.Size[0])),
@@ -83,6 +88,7 @@ func (f *Field) ThreePoint() *Field {
 	return f
 }
 func (p *Parallelogram) SetFourthPoint() error {
+	var err error
 	if len(p.Field.Points) != 3 {
 		p.Field.ThreePoint()
 	} else {
@@ -90,28 +96,43 @@ func (p *Parallelogram) SetFourthPoint() error {
 		p.B = p.Field.Points[1]
 		p.C = p.Field.Points[2]
 	}
-	if x := (p.A.X + p.B.X) - p.C.X; x <= len(p.Field.Size[0]) {
-		if y := (p.A.Y + p.B.Y) - p.C.Y; y <= len(p.Field.Size) {
+	switch x := (p.A.X + p.B.X) - p.C.X; x <= len(p.Field.Size[0])-1 && x >= 0 {
+	case true:
+		switch y := (p.A.Y + p.B.Y) - p.C.Y; y <= len(p.Field.Size)-1 && y >= 0 {
+		case true:
 			p.D.X = x
 			p.D.Y = y
 			p.Field.Size[y][x] = 1
+		case false:
+			break
 		}
-	} else if x := (p.B.X + p.C.X) - p.A.X; x <= len(p.Field.Size[0]) {
-		if y := (p.B.Y + p.C.Y) - p.A.Y; y <= len(p.Field.Size) {
-			p.D.X = x
-			p.D.Y = y
-			p.Field.Size[y][x] = 1
+	case false:
+		switch x := (p.B.X + p.C.X) - p.A.X; x <= len(p.Field.Size[0])-1 && x >= 0 {
+		case true:
+			switch y := (p.B.Y + p.C.Y) - p.A.Y; y <= len(p.Field.Size)-1 && y >= 0 {
+			case true:
+				p.D.X = x
+				p.D.Y = y
+				p.Field.Size[y][x] = 1
+			case false:
+				break
+			}
+		case false:
+			switch x := (p.A.X + p.C.X) - p.B.X; x <= len(p.Field.Size[0])-1 && x >= 0 {
+			case true:
+				switch y := (p.A.Y + p.C.Y) - p.B.Y; y <= len(p.Field.Size)-1 && y >= 0 {
+				case true:
+					p.D.X = x
+					p.D.Y = y
+					p.Field.Size[y][x] = 1
+				case false:
+					err = fmt.Errorf("при заданных координатах трех точек и размера поля невозможно построить четвертую точку параллелограмма")
+				}
+			}
 		}
-	} else if x := (p.A.X + p.C.X) - p.B.X; x <= len(p.Field.Size[0]) {
-		if y := (p.A.Y + p.C.Y) - p.B.Y; y <= len(p.Field.Size) {
-			p.D.X = x
-			p.D.Y = y
-			p.Field.Size[y][x] = 1
-		}
-	} else {
-		return fmt.Errorf("При заданных координатах трех точек и размера поля невозможно построить четвертую точку параллелограмма")
 	}
-	return nil
+
+	return err
 }
 
 func (p *Parallelogram) CenterCalc() Point {
@@ -157,10 +178,10 @@ func BuildCircle(p *Parallelogram) (c Circle) {
 	return c
 }
 
-func (c Circle) SetColor() {
+func (c *Circle) SetColor() {
 	if len(c.Color) == 0 {
 		s := len(c.Field.Size[0]) * len(c.Field.Size)
-		color := c.Area / float64(s)
+		color := c.GetArea() / float64(s)
 		for color > 7 {
 			color = color / 2
 		}
@@ -169,7 +190,7 @@ func (c Circle) SetColor() {
 }
 
 func main() {
-	var v = CreateField(10, 10)
+	var v, _ = CreateField(10, 10)
 	v.ThreePoint()
 	var p = Parallelogram{
 		Field: v,
@@ -185,5 +206,4 @@ func main() {
 	}
 	c := BuildCircle(&p)
 	c.SetColor()
-	fmt.Println(c)
 }
