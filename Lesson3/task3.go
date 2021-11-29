@@ -9,6 +9,7 @@ import (
 	"log"
 	"net"
 	"net/http"
+	"os"
 	"strconv"
 )
 
@@ -60,25 +61,33 @@ func CreateJsonFile() {
 	if err != nil {
 		log.Fatal("Cannot write updated file:", err)
 	}
-
 }
 
-func allStudents(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
+func ReadJson() Students {
 	var students Students
+	f, err := os.Open(Filename)
+	if err != nil {
+		log.Fatal("Cannot open file", err)
+	}
+	defer f.Close()
 	data, err := ioutil.ReadFile(Filename)
 	if err != nil {
-		log.Fatal("Cannot load settings:", err)
+		log.Fatal("Cannot load file:", err)
 	}
 	err = json.Unmarshal(data, &students)
 	if err != nil {
 		log.Fatal("Invalid data format:", err)
 	}
+	return students
+}
+
+func allStudents(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
+	students := ReadJson()
 	tmpl, err := template.ParseFiles("templates/allstudents.html")
 	if err != nil {
 		http.Error(w, err.Error(), 400)
 		return
 	}
-
 	var GradeStudents Students
 	if par, err := strconv.Atoi(r.URL.Query().Get("grade")); err == nil {
 		for _, i := range students.ListStudents {
@@ -91,7 +100,6 @@ func allStudents(w http.ResponseWriter, r *http.Request, params httprouter.Param
 			return
 		}
 	} else {
-		fmt.Println(err)
 		if err := tmpl.Execute(w, students.ListStudents); err != nil {
 			http.Error(w, err.Error(), 400)
 			return
@@ -100,15 +108,7 @@ func allStudents(w http.ResponseWriter, r *http.Request, params httprouter.Param
 }
 
 func index(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
-	var students Students
-	data, err := ioutil.ReadFile(Filename)
-	if err != nil {
-		log.Fatal("Cannot load settings:", err)
-	}
-	err = json.Unmarshal(data, &students)
-	if err != nil {
-		log.Fatal("Invalid data format:", err)
-	}
+	students := ReadJson()
 	var grades = make(map[int]int)
 	for _, i := range students.ListStudents {
 		grades[i.Grade] = i.Grade
@@ -125,15 +125,7 @@ func index(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
 }
 
 func oneStudents(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
-	var students Students
-	data, err := ioutil.ReadFile(Filename)
-	if err != nil {
-		log.Fatal("Cannot load settings:", err)
-	}
-	err = json.Unmarshal(data, &students)
-	if err != nil {
-		log.Fatal("Invalid data format:", err)
-	}
+	students := ReadJson()
 	id, _ := strconv.Atoi(params.ByName("id"))
 	tmpl, err := template.ParseFiles("templates/onestudents.html")
 	if err != nil {
