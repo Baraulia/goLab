@@ -9,22 +9,72 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>Students</title>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+         <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/students">Все студенты</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--<script>-->
+<!--function sendJson() {-->
+<!--// с помощью jQuery обращаемся к элементам на странице по их именам-->
+<!--let id = document.querySelector('#id');-->
+<!--let name = document.querySelector('#name');-->
+<!--let surname = document.querySelector('#surname');-->
+<!--let grade = document.querySelector('#grade');-->
+<!--// создаём новый экземпляр запроса XHR-->
+<!--let xhr = new XMLHttpRequest();-->
+<!--// адрес, куда мы отправим нашу JSON-строку-->
+<!--let url = '/create';-->
+<!--// открываем соединение-->
+<!--xhr.open('POST', url, true);-->
+<!--// устанавливаем заголовок — выбираем тип контента, который отправится на сервер, в нашем случае мы явно пишем, что это JSON-->
+<!--xhr.setRequestHeader('Content-Type', 'application/json');-->
+<!--// преобразуем наши данные JSON в строку-->
+<!--var data = JSON.stringify({'id': id.value, 'name': name.value, 'surname': surname.value, 'grade': grade.value });-->
+<!--// когда всё готово, отправляем JSON на сервер-->
+<!--xhr.send(data);-->
+<!--}-->
+<!--</script>-->
+
 <div class="container">
-    <h1>Привет! Выбери действие:</h1>
-    <a href="http://localhost:8000/students"><button class="button">Посмотреть всех студентов</button></a>
+    <h1>Привет! Можно посмотреть студентов по классам:</h1>
     <br>
     <br>
-    <br>
-    <br>
-    <p>Посмотреть учеников в классе:</p>
     {{ range . }}
     <a href="http://localhost:8000/students?grade={{.}}"><button class="button">Класс {{.}}</button></a>
 
     {{ end }}
-</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<h2> Добавить нового студента:</h2>
+<form method="post" action="/create" >
+        <p>Введите id студента <input type="number" name="id"></p>
+        <p>Введите имя студента <input type="text" name="name"></p>
+        <p>Введите фамилию студента <input type="text" name="surname"></p>
+        <p>Введите класс студента <input type="number" name="grade"></p>
+        <button>Добавить студента</button>
+    </form>
 
+
+
+</div>
 
 
 </body>

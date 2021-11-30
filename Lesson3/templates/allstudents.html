@@ -11,8 +11,24 @@
     <title>Students</title>
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/students">Все студенты</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
 <div class="container">
-    <h1>Все студенты:</h1>
+    <h1>Список студентов:</h1>
     {{range .}}
     <p>id:{{.Id}}  name:{{.Name}}  surname: {{.Surname}}  grade: {{.Grade}}</p>
     {{end}}

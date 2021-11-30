@@ -25,6 +25,11 @@ type Students struct {
 
 const Filename = "mock/db.json"
 
+var students = []Student{{1, "Bacилий", "Иванов", 11},
+	{2, "Петр", "Петров", 10},
+	{3, "Надежда", "Сидорова", 11},
+}
+
 func main() {
 	r := httprouter.New()
 	port := "0.0.0.0:8000"
@@ -32,6 +37,7 @@ func main() {
 	r.GET("/students", allStudents)
 	r.GET("/students?:grade", allStudents)
 	r.GET("/students/:id", oneStudents)
+	r.POST("/create", createStudent)
 	fmt.Printf("Server listen on port:%s", port)
 	listener, err := net.Listen("tcp", port)
 	if err != nil {
@@ -47,13 +53,8 @@ func main() {
 
 }
 
-func CreateJsonFile() {
-	var students Students
-	students.ListStudents = []Student{{1, "Bacилий", "Иванов", 11},
-		{2, "Петр", "Петров", 10},
-		{3, "Надежда", "Сидорова", 11},
-	}
-	buf, err := json.Marshal(students)
+func CreateJsonFile(s Students) {
+	buf, err := json.Marshal(s.ListStudents)
 	if err != nil {
 		log.Fatal("JSON marshaling failed:", err)
 	}
@@ -74,11 +75,37 @@ func ReadJson() Students {
 	if err != nil {
 		log.Fatal("Cannot load file:", err)
 	}
-	err = json.Unmarshal(data, &students)
+	err = json.Unmarshal(data, &students.ListStudents)
 	if err != nil {
 		log.Fatal("Invalid data format:", err)
 	}
 	return students
+}
+
+func createStudent(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
+	var student Student
+	r.ParseForm()
+	var st = make(map[string]interface{})
+	for key, value := range r.Form {
+		if key == "grade" || key == "id" {
+			v, _ := strconv.Atoi(value[0])
+			st[key] = v
+		} else {
+			st[key] = value[0]
+		}
+	}
+	js, err := json.Marshal(st)
+	if err != nil {
+		log.Fatal("Cannot decode Json:", err)
+	}
+	err = json.Unmarshal(js, &student)
+	if err != nil {
+		log.Fatal("Cannot decode Json:", err)
+	}
+	students := ReadJson()
+	students.ListStudents = append(students.ListStudents, student)
+	CreateJsonFile(students)
+	allStudents(w, r, params)
 }
 
 func allStudents(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
