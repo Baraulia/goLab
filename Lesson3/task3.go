@@ -50,36 +50,39 @@ func main() {
 	if err != nil {
 		log.Fatal("server", err)
 	}
-
 }
 
-func CreateJsonFile(s Students) {
+func CreateJsonFile(filename string, s Students) error {
 	buf, err := json.Marshal(s.ListStudents)
 	if err != nil {
-		log.Fatal("JSON marshaling failed:", err)
+		return err
+	} else {
+		err = ioutil.WriteFile(filename, buf, 0777)
+		if err != nil {
+			return err
+		}
 	}
-	err = ioutil.WriteFile(Filename, buf, 0777)
-	if err != nil {
-		log.Fatal("Cannot write updated file:", err)
-	}
+	return err
 }
 
-func ReadJson() Students {
+func ReadJson(filename string) (Students, error) {
 	var students Students
-	f, err := os.Open(Filename)
+	f, err := os.Open(filename)
 	if err != nil {
-		log.Fatal("Cannot open file", err)
+		return students, err
+	} else {
+		defer f.Close()
+		data, err := ioutil.ReadFile(filename)
+		if err != nil {
+			return students, err
+		} else {
+			err = json.Unmarshal(data, &students.ListStudents)
+			if err != nil {
+				return students, err
+			}
+		}
 	}
-	defer f.Close()
-	data, err := ioutil.ReadFile(Filename)
-	if err != nil {
-		log.Fatal("Cannot load file:", err)
-	}
-	err = json.Unmarshal(data, &students.ListStudents)
-	if err != nil {
-		log.Fatal("Invalid data format:", err)
-	}
-	return students
+	return students, err
 }
 
 func createStudent(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
@@ -102,14 +105,14 @@ func createStudent(w http.ResponseWriter, r *http.Request, params httprouter.Par
 	if err != nil {
 		log.Fatal("Cannot decode Json:", err)
 	}
-	students := ReadJson()
+	students, _ := ReadJson(Filename)
 	students.ListStudents = append(students.ListStudents, student)
-	CreateJsonFile(students)
+	CreateJsonFile(Filename, students)
 	allStudents(w, r, params)
 }
 
 func allStudents(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
-	students := ReadJson()
+	students, _ := ReadJson(Filename)
 	tmpl, err := template.ParseFiles("templates/allstudents.html")
 	if err != nil {
 		http.Error(w, err.Error(), 400)
@@ -135,7 +138,7 @@ func allStudents(w http.ResponseWriter, r *http.Request, params httprouter.Param
 }
 
 func index(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
-	students := ReadJson()
+	students, _ := ReadJson(Filename)
 	var grades = make(map[int]int)
 	for _, i := range students.ListStudents {
 		grades[i.Grade] = i.Grade
@@ -152,7 +155,7 @@ func index(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
 }
 
 func oneStudents(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
-	students := ReadJson()
+	students, _ := ReadJson(Filename)
 	id, _ := strconv.Atoi(params.ByName("id"))
 	tmpl, err := template.ParseFiles("templates/onestudents.html")
 	if err != nil {
