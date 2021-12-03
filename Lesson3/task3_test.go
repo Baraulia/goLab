@@ -47,20 +47,3 @@ func TestReadJson(t *testing.T) {
 
 	})
 }
-
-//func TestCreateStudent(t *testing.T) {
-//	Convey("Read Json file", t, func() {
-//		filename:="mock/test_db.json"
-//		res:=httptest.NewRecorder()
-//		req,_:=http.NewRequest("POST", fmt.Sprintf("/create"), strings.NewReader("id=`1`&name=`Petr`&surmane=`Petrov`&grade=`11`"))
-//		req.ParseForm()
-//		fmt.Println(req.PostFormValue("id"))
-//		Convey("Read non-existent Json file", func() {
-//			createStudent(res,req,[]httprouter.Param{})
-//			s,_:=ReadJson(filename)
-//			So(s.ListStudents, ShouldEqual, []Student{{1,"Petr","Petrov",11}})
-//		})
-//		os.Remove(filename)
-//
-//	})
-//}

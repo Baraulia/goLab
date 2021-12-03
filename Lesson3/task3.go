@@ -32,14 +32,14 @@ var students = []Student{{1, "Bacилий", "Иванов", 11},
 
 func main() {
 	r := httprouter.New()
-	port := "0.0.0.0:8000"
+	PORT := "0.0.0.0:8000"
 	r.GET("/", index)
 	r.GET("/students", allStudents)
 	r.GET("/students?:grade", allStudents)
 	r.GET("/students/:id", oneStudents)
 	r.POST("/create", createStudent)
-	fmt.Printf("Server listen on port:%s", port)
-	listener, err := net.Listen("tcp", port)
+	fmt.Printf("Server listen on port:%s", PORT)
+	listener, err := net.Listen("tcp", PORT)
 	if err != nil {
 		log.Fatal("net.Listen", err)
 	}
@@ -138,7 +138,10 @@ func allStudents(w http.ResponseWriter, r *http.Request, params httprouter.Param
 }
 
 func index(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
-	students, _ := ReadJson(Filename)
+	students, err := ReadJson(Filename)
+	if err != nil {
+		log.Fatal("It is impossible to Read Json:", err)
+	}
 	var grades = make(map[int]int)
 	for _, i := range students.ListStudents {
 		grades[i.Grade] = i.Grade
