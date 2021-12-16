@@ -1,53 +1,46 @@
 package handler
 
-import "github.com/gin-gonic/gin"
+import (
+	"net/http"
+)
 
 //handlers for books
 
-func (h *Handler) getBooks(c *gin.Context) {
+func (h *Handler) getBooks(w http.ResponseWriter, req *http.Request) {
 
 }
 
-func (h *Handler) createBook(c *gin.Context) {
+func (h *Handler) createBook(w http.ResponseWriter, req *http.Request) {
 
 }
 
-func (h *Handler) updateBook(c *gin.Context) {
+func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
+	if req.Method == "PUT" {
 
-}
-
-func (h *Handler) deleteBook(c *gin.Context) {
+	}
 
 }
 
 //handlers for users
 
-func (h *Handler) getUsers(c *gin.Context) {
+func (h *Handler) getUsers(w http.ResponseWriter, req *http.Request) {
 
 }
 
-func (h *Handler) createUser(c *gin.Context) {
+func (h *Handler) createUser(w http.ResponseWriter, req *http.Request) {
 
 }
 
-func (h *Handler) getUser(c *gin.Context) {
-
-}
-
-func (h *Handler) updateUser(c *gin.Context) {
-
-}
-
-func (h *Handler) deleteUser(c *gin.Context) {
+func (h *Handler) changeUser(w http.ResponseWriter, req *http.Request) {
 
 }
 
 //handlers for movement books
 
-func (h *Handler) moveInBook(c *gin.Context) {
+func (h *Handler) moveInBook(w http.ResponseWriter, req *http.Request) {
 
 }
 
-func (h *Handler) moveOutBook(c *gin.Context) {
+func (h *Handler) moveOutBook(w http.ResponseWriter, req *http.Request) {
 
 }

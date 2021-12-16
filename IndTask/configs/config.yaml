@@ -1,0 +1,3 @@
+#Для работы с файлом .yaml устанавливаем библиотеку go get -u github.com/spf13/viper
+
+port: "8000"

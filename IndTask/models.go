@@ -1,63 +1,70 @@
 package IndTask
 
 import (
-	"os"
 	"time"
 )
 
 type Book struct {
-	Id          int       `json:"id"`
-	Name        string    `json:"name"`
-	GenreName   string    `json:"genre_name"`
-	Cost        float32   `json:"cost"`
-	Authors     string    `json:"authors"`
-	Cover       os.File   `json:"cover"`
-	AuthorsFoto []os.File `json:"authors_foto"`
-	RentCost    float32   `json:"rent_cost"`
-	Published   time.Time `json:"published"`
-	RegDate     time.Time `json:"reg_date"`
-	Pages       int       `json:"pages"`
-	Condition   int       `json:"condition"`
-	Rating      []int     `json:"rating"`
+	Id        int     `json:"id"`
+	BookName  string  `json:"book_name"`
+	GenreId   []int   `json:"genre_id"`
+	Cost      float32 `json:"cost"`
+	AuthorsId []int   `json:"authors"`
+	Cover     string  `json:"cover"`
+	Published int     `json:"published"`
+	Pages     int     `json:"pages"`
+}
+
+type Author struct {
+	Id         int    `json:"id"`
+	AuthorName string `json:"author_name"`
+	AuthorFoto string `json:"author_foto"`
 }
 
 type User struct {
-	Surname    string    `json:"surname"`
-	Name       string    `json:"name"`
-	Patronymic string    `json:"patronymic"`
-	PaspNumber string    `json:"pasp_number"`
-	Email      string    `json:"email"`
-	Adress     string    `json:"adress"`
-	BirthDate  time.Time `json:"birth_date"`
+	Id         int       `json:"id"`
+	Surname    string    `json:"surname" json:"surname"`
+	UserName   string    `json:"name" json:"user_name"`
+	Patronymic string    `json:"patronymic" json:"patronymic"`
+	PaspNumber string    `json:"pasp_number" json:"pasp_number"`
+	Email      string    `json:"email" json:"email"`
+	Adress     string    `json:"adress" json:"adress"`
+	BirthDate  time.Time `json:"birth_date" json:"birth_date"`
 }
 
 type Genre struct {
-	Id   int    `json:"id"`
-	Name string `json:"name"`
+	Id        int    `json:"id"`
+	GenreName string `json:"genre_name"`
 }
 
 type ListBooks struct {
-	Id         int  `json:"id"`
-	BookId     int  `json:"book_id"`
-	Issued     bool `json:"issued"`
-	RentNumber int  `json:"rent_number"`
+	Id         int       `json:"id"`
+	BookId     int       `json:"book_id"`
+	Issued     bool      `json:"issued"`
+	RentNumber int       `json:"rent_number"`
+	RentCost   float32   `json:"rent_cost"`
+	RegDate    time.Time `json:"reg_date"`
+	Condition  int       `json:"condition"`
 }
 
 type IssueAct struct {
+	Id         int           `json:"id"`
 	UserId     int           `json:"user_id"`
+	BookId     int           `json:"book_id"`
 	RentalTime time.Duration `json:"rental_time"`
 	ReturnDate time.Time     `json:"return_date"`
 	PreCost    float32       `json:"pre_cost"`
-	BookId     int           `json:"book_id"`
 	Status     bool          `json:"status"`
 }
 
 type ReturnAct struct {
+	Id               int       `json:"id"`
 	UserId           int       `json:"user_id"`
 	BookId           int       `json:"book_id"`
 	Cost             float32   `json:"cost"`
 	ReturnDate       time.Time `json:"return_date"`
-	Foto             []os.File `json:"foto"`
+	Foto             []string  `json:"foto"`
 	Fine             float32   `json:"fine"`
 	ConditionDecrese int       `json:"condition_decrese"`
+	Rating           int       `json:"rating"`
 }
