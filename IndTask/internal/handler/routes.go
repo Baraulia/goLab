@@ -20,34 +20,19 @@ func (h *Handler) InitRoutes() *http.ServeMux {
 	router.HandleFunc("/:book_id", h.changeBook)
 
 	router.HandleFunc("/users", h.getUsers)
-	router.HandleFunc("/create", h.createUser)
-	router.HandleFunc("/:user_id", h.changeUser) //реализовать методы GET, PUT, DELETE
+	router.HandleFunc("/users/create_user", h.createUser)
+	router.HandleFunc("/users/:user_id", h.changeUser) //реализовать методы GET, PUT, DELETE
 
 	router.HandleFunc("/in", h.moveInBook)
 	router.HandleFunc("/out", h.moveOutBook)
 
-	//books := router.Group("/")
-	//{
-	//	books.GET("/", h.getBooks)
-	//	books.POST("/new_book", h.createBook)
-	//	books.PUT("/:book_id", h.updateBook)
-	//	books.DELETE("/:book_id", h.deleteBook)
-	//}
-	//
-	//users := router.Group("/users")
-	//{
-	//	users.GET("/", h.getUsers)
-	//	users.POST("/create", h.createUser)
-	//	users.GET("/:user_id", h.getUser)
-	//	users.PUT("/:user_id", h.updateUser)
-	//	users.DELETE("/:user_id", h.deleteUser)
-	//}
-	//
-	//moveBook := router.Group("/move")
-	//{
-	//	moveBook.POST("/in", h.moveInBook)
-	//	moveBook.POST("/out", h.moveOutBook)
-	//}
+	router.HandleFunc("/authors", h.getAuthors)
+	router.HandleFunc("/authors/create", h.createAuthor)
+	router.HandleFunc("/authors/:user_id", h.changeAuthor) //реализовать методы GET, PUT, DELETE
+
+	router.HandleFunc("/genres", h.getGenres)
+	router.HandleFunc("/genres/create", h.createGenre)
+	router.HandleFunc("/genres/:user_id", h.changeGenre) //реализовать методы GET, PUT, DELETE
 
 	return router
 }

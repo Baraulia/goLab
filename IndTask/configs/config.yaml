@@ -1,3 +1,10 @@
 #Для работы с файлом .yaml устанавливаем библиотеку go get -u github.com/spf13/viper
 
 port: "8000"
+
+db:
+  username: "postgres"
+  host: "localhost"
+  port: "5436"
+  dbname: "postgres"
+  sslmode: "disable"

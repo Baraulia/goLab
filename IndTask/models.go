@@ -13,6 +13,17 @@ type Book struct {
 	Cover     string  `json:"cover"`
 	Published int     `json:"published"`
 	Pages     int     `json:"pages"`
+	Amount    int     `json:"amount"`
+}
+
+type ListBooks struct {
+	Id         int       `json:"id"`
+	BookId     int       `json:"book_id"`
+	Issued     bool      `json:"issued"`
+	RentNumber int       `json:"rent_number"`
+	RentCost   float32   `json:"rent_cost"`
+	RegDate    time.Time `json:"reg_date"`
+	Condition  int       `json:"condition"`
 }
 
 type Author struct {
@@ -35,16 +46,6 @@ type User struct {
 type Genre struct {
 	Id        int    `json:"id"`
 	GenreName string `json:"genre_name"`
-}
-
-type ListBooks struct {
-	Id         int       `json:"id"`
-	BookId     int       `json:"book_id"`
-	Issued     bool      `json:"issued"`
-	RentNumber int       `json:"rent_number"`
-	RentCost   float32   `json:"rent_cost"`
-	RegDate    time.Time `json:"reg_date"`
-	Condition  int       `json:"condition"`
 }
 
 type IssueAct struct {
