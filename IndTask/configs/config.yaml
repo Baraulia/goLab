@@ -1,10 +1,14 @@
-#Для работы с файлом .yaml устанавливаем библиотеку go get -u github.com/spf13/viper
+#Для работы с файлом .yaml устанавливаем библиотеку  go get -u github.com/ilyakaznacheev/cleanenv
+is_debug: true
 
-port: "8000"
+listen:
+  type: "port"
+  port: "8080"
+  bind_ip: "0.0.0.0"
 
 db:
-  username: "postgres"
   host: "localhost"
   port: "5436"
-  dbname: "postgres"
+  username: "baraulia"
+  dbname: "baraulia"
   sslmode: "disable"

@@ -1,14 +1,13 @@
 CREATE TABLE books
 (
     id serial not null unique primary key,
-    book_name varchar(255) not null unique,
+    book_name varchar(255) not null,
     cost decimal not null,
     cover varchar(255) not null,
     published int not null,
     pages integer not null,
-    amount integer not null
-    authors_id []integer not null,
-    genres_id []integer not null
+    amount integer not null,
+    rent_cost int not null
 
 );
 
@@ -47,16 +46,17 @@ CREATE TABLE genre
 
 CREATE TABLE book_genre
 (
-    id serial not null unique primary key,
     book_id int references books(id) on delete set null,
-    genre_id int references genre(id) on delete set null
+    genre_id int references genre(id) on delete set null,
+    PRIMARY KEY(book_id, genre_id)
+
 );
 
 CREATE TABLE list_books
 (
     id serial not null unique primary key,
     book_id int references books(id) not null,
-    issued bool default false not null,
+    issued bool not null,
     rent_number int not null,
     rent_cost int not null,
     reg_date timestamp with time zone not null,
@@ -67,7 +67,7 @@ CREATE TABLE issue_act
 (
     id serial not null unique primary key,
     user_id int references users(id) not null,
-    book_id int references books(id) not null,
+    listbook_id int references books(id) not null,
     rental_time interval not null,
     return_date timestamp with time zone not null,
     pre_cost decimal not null,
@@ -87,4 +87,4 @@ CREATE TABLE return_act
     rating int
 );
 
-
+insert into genre (genre_name) values ('Novel'), ('Fantasy'), ('Detective'), ('Advanture'), ('Erotic'), ('Thriller'), ('Philosophical'), ('Satire'), ('Comedy'), ('Crime'), ('Horror'), ('Business');

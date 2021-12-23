@@ -1,53 +1,40 @@
 package main
 
 import (
-	"github.com/Baraulia/goLab/IndTask.git"
+	"github.com/Baraulia/goLab/IndTask.git/internal/config"
 	"github.com/Baraulia/goLab/IndTask.git/internal/handler"
 	"github.com/Baraulia/goLab/IndTask.git/internal/repository"
 	"github.com/Baraulia/goLab/IndTask.git/internal/service"
-	"github.com/joho/godotenv"
+	"github.com/Baraulia/goLab/IndTask.git/pkg/logging"
+	"github.com/Baraulia/goLab/IndTask.git/pkg/postgres"
+	"github.com/Baraulia/goLab/IndTask.git/pkg/server"
 	_ "github.com/lib/pq"
-	"github.com/sirupsen/logrus"
-	"github.com/spf13/viper"
-	"os"
 )
 
 func main() {
-	logrus.SetFormatter(new(logrus.JSONFormatter))
-	if err := initConfig(); err != nil {
-		logrus.Fatalf("error initializing configs: %s", err.Error())
-	}
+	logger := logging.GetLogger()
 
-	if err := godotenv.Load(); err != nil {
-		logrus.Fatalf("error loading env variables:%s", err.Error())
-	}
+	cfg := config.GetConfig()
 
-	db, err := repository.NewPostgresDB(repository.Config{
-		Host:     viper.GetString("db.host"),
-		Port:     viper.GetString("db.port"),
-		Username: viper.GetString("db.username"),
-		Password: os.Getenv("DB_PASSWORD"),
-		DBName:   viper.GetString("db.dbname"),
-		SSLMode:  viper.GetString("db.sslmode"),
+	db, err := postgres.NewPostgresDB(postgres.PostgresDB{
+		Host:     cfg.DB.Host,
+		Port:     cfg.DB.Port,
+		Username: cfg.DB.Username,
+		Password: cfg.DB.Password,
+		DBName:   cfg.DB.DBName,
+		SSLMode:  cfg.DB.SSLMode,
 	})
 	if err != nil {
-		logrus.Fatalf("failed to initialize db:%s", err.Error())
+		logger.Fatalf("failed to initialize db:%s", err.Error())
 	}
 
 	rep := repository.NewRepository(db)
 	services := service.NewService(rep)
-	handlers := handler.NewHandler(services)
-	srv := new(IndTask.Server)
-	if err := srv.Run(viper.GetString("port"), handlers.InitRoutes()); err != nil {
-		logrus.Fatalf("Error occured while running http server: %s", err.Error())
+	handlers := handler.NewHandler(logger, services)
+	srv := new(server.Server)
+	logger.Infof("Running server on %s:%s...", cfg.Listen.BindIp, cfg.Listen.Port)
+	if err := srv.Run(cfg.Listen.BindIp, cfg.Listen.Port, handlers.InitRoutes()); err != nil {
+		logger.Fatalf("Error occured while running http server: %s", err.Error())
 	}
 
-	logrus.Println("Running server...")
-
-}
-
-func initConfig() error {
-	viper.AddConfigPath("configs")
-	viper.SetConfigName("config")
-	return viper.ReadInConfig()
 }

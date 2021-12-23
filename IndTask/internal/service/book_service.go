@@ -13,14 +13,14 @@ func NewBookService(repo repository.AppBook) *BookService {
 	return &BookService{repo: repo}
 }
 
-func (s *BookService) GetBooks() []IndTask.Book {
+func (s *BookService) GetBooks() ([]IndTask.Book, error) {
 	return s.repo.GetBooks()
 }
 
-func (s *BookService) CreateBook() {
-
+func (s *BookService) CreateBook(book *IndTask.Book) (int, error) {
+	return s.repo.CreateBook(book)
 }
 
-func (s *BookService) ChangeBook() {
-
+func (s *BookService) ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.Book, error) {
+	return s.repo.ChangeBook(book, bookId, method)
 }

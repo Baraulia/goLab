@@ -14,16 +14,16 @@ type Book struct {
 	Published int     `json:"published"`
 	Pages     int     `json:"pages"`
 	Amount    int     `json:"amount"`
+	RentCost  int     `json:"rent_cost"`
 }
 
 type ListBooks struct {
-	Id         int       `json:"id"`
-	BookId     int       `json:"book_id"`
-	Issued     bool      `json:"issued"`
-	RentNumber int       `json:"rent_number"`
-	RentCost   float32   `json:"rent_cost"`
-	RegDate    time.Time `json:"reg_date"`
-	Condition  int       `json:"condition"`
+	Id         int     `json:"id"`
+	BookId     int     `json:"book_id"`
+	Issued     bool    `json:"issued"`
+	RentNumber int     `json:"rent_number"`
+	RentCost   float32 `json:"rent_cost"`
+	Condition  int     `json:"condition"`
 }
 
 type Author struct {
@@ -34,18 +34,18 @@ type Author struct {
 
 type User struct {
 	Id         int       `json:"id"`
-	Surname    string    `json:"surname" json:"surname"`
-	UserName   string    `json:"name" json:"user_name"`
-	Patronymic string    `json:"patronymic" json:"patronymic"`
-	PaspNumber string    `json:"pasp_number" json:"pasp_number"`
-	Email      string    `json:"email" json:"email"`
-	Adress     string    `json:"adress" json:"adress"`
-	BirthDate  time.Time `json:"birth_date" json:"birth_date"`
+	Surname    string    `json:"surname"`
+	UserName   string    `json:"name"`
+	Patronymic string    `json:"patronymic"`
+	PaspNumber string    `json:"pasp_number"`
+	Email      string    `json:"email"`
+	Adress     string    `json:"adress"`
+	BirthDate  time.Time `json:"birth_date"`
 }
 
 type Genre struct {
-	Id        int    `json:"id"`
-	GenreName string `json:"genre_name"`
+	Id        int    `json:"id" db:"id"`
+	GenreName string `json:"genre_name" db:"genre_name"`
 }
 
 type IssueAct struct {
