@@ -48,10 +48,10 @@ type Repository struct {
 
 func NewRepository(db *sql.DB) *Repository {
 	return &Repository{
-		NewUserPostgres(db, logger),
-		NewBookPostgres(db, logger),
-		NewMovePostgres(db, logger),
-		NewAuthorPostgres(db, logger),
-		NewGenrePostgres(db, logger),
+		NewUserPostgres(db),
+		NewBookPostgres(db),
+		NewMovePostgres(db),
+		NewAuthorPostgres(db),
+		NewGenrePostgres(db),
 	}
 }

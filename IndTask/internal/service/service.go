@@ -3,7 +3,10 @@ package service
 import (
 	"github.com/Baraulia/goLab/IndTask.git"
 	"github.com/Baraulia/goLab/IndTask.git/internal/repository"
+	"github.com/Baraulia/goLab/IndTask.git/pkg/logging"
 )
+
+var logger = logging.GetLogger()
 
 type AppUser interface {
 	GetUsers() ([]IndTask.User, error)

@@ -172,3 +172,816 @@ time="2021-12-23T18:17:25+03:00" level=info msg="read application configuration"
 time="2021-12-23T18:17:25+03:00" level=info msg="Running server on 127.0.0.1:8080..." func="main.main()" file="main.go:34"
 time="2021-12-23T21:15:26+03:00" level=info msg="read application configuration" func="github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1()" file="config.go:32"
 time="2021-12-23T21:15:26+03:00" level=info msg="Running server on 127.0.0.1:8080..." func="main.main()" file="main.go:35"
+time="2021-12-23T21:17:56+03:00" level=info msg="read application configuration" func="github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1()" file="config.go:32"
+time="2021-12-23T21:17:56+03:00" level=info msg="Running server on 127.0.0.1:8080..." func="main.main()" file="main.go:35"
+time="2021-12-23T21:20:54+03:00" level=info msg="read application configuration" func="github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1()" file="config.go:32"
+time="2021-12-23T21:20:54+03:00" level=info msg="Running server on 127.0.0.1:8080..." func="main.main()" file="main.go:35"
+time="2021-12-23T21:21:07+03:00" level=info msg="read application configuration" func="github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1()" file="config.go:32"
+time="2021-12-23T21:21:07+03:00" level=info msg="Running server on 127.0.0.1:8080..." func="main.main()" file="main.go:35"
+time="2021-12-23T21:21:21+03:00" level=info msg="read application configuration" func="github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1()" file="config.go:32"
+time="2021-12-23T21:21:21+03:00" level=info msg="Running server on 127.0.0.1:8080..." func="main.main()" file="main.go:35"
+time="2021-12-23T21:21:38+03:00" level=info msg="read application configuration" func="github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1()" file="config.go:32"
+time="2021-12-23T21:21:38+03:00" level=info msg="Running server on 127.0.0.1:8080..." func="main.main()" file="main.go:35"
+[36mINFO[0m[2021-12-23T21:25:14+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-23T21:25:14+03:00]main.go:35 main.main() Running server on 127.0.0.1:8080...          
+[36mINFO[0m[2021-12-23T21:25:32+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-23T21:25:32+03:00]main.go:35 main.main() Running server on 127.0.0.1:8080...          
+time="2021-12-23T21:25:40+03:00" level=info msg="read application configuration" func="github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1()" file="config.go:32"
+time="2021-12-23T21:25:41+03:00" level=info msg="Running server on 127.0.0.1:8080..." func="main.main()" file="main.go:35"
+[36mINFO[0m[2021-12-23T21:26:07+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-23T21:26:07+03:00]main.go:35 main.main() Running server on 127.0.0.1:8080...          
+[36mINFO[0m[2021-12-23T21:28:03+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[31mERRO[0m[2021-12-23T21:28:03+03:00]main.go:35 main.main() Running server on 127.0.0.1:8080...          
+[36mINFO[0m[2021-12-23T21:28:23+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[31mFATA[0m[2021-12-23T21:28:23+03:00]main.go:35 main.main() Running server on 127.0.0.1:8080...          
+[36mINFO[0m[2021-12-23T21:28:31+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-23T21:28:31+03:00]main.go:35 main.main() Running server on 127.0.0.1:8080...          
+[36mINFO[0m[2021-12-24T14:31:31+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:31:31+03:00]main.go:35 main.main() Running server on 127.0.0.1:8080...          
+[36mINFO[0m[2021-12-24T14:32:15+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:32:15+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:32:18+03:00]handlers.go:413 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getGenres() Working getGenres                            
+[36mINFO[0m[2021-12-24T14:33:23+03:00]handlers.go:438 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[36mINFO[0m[2021-12-24T14:33:59+03:00]handlers.go:413 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getGenres() Working getGenres                            
+[31mERRO[0m[2021-12-24T14:33:59+03:00]middleware.go:10 github.com/Baraulia/goLab/IndTask.git/internal/handler.CheckMethod() expected method: GET, given method:DELETE    
+[36mINFO[0m[2021-12-24T14:35:20+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:35:20+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:35:22+03:00]handlers.go:413 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getGenres() Working getGenres                            
+[31mERRO[0m[2021-12-24T14:35:22+03:00]middleware.go:10 github.com/Baraulia/goLab/IndTask.git/internal/handler.CheckMethod() expected method: GET, given method:DELETE    
+[36mINFO[0m[2021-12-24T14:36:24+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:36:24+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:36:26+03:00]handlers.go:413 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getGenres() Working getGenres                            
+[31mERRO[0m[2021-12-24T14:36:26+03:00]middleware.go:10 github.com/Baraulia/goLab/IndTask.git/internal/handler.CheckMethod() expected method: GET, given method:DELETE    
+[36mINFO[0m[2021-12-24T14:37:16+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:37:16+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:37:18+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:37:18+03:00]handlers.go:505 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method DELETE, changeGenre                   
+[36mINFO[0m[2021-12-24T14:37:52+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:37:52+03:00]handlers.go:469 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-24T14:38:14+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:38:14+03:00]handlers.go:469 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-24T14:38:37+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:39:11+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:39:11+03:00]handlers.go:469 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-24T14:39:44+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:39:44+03:00]handlers.go:469 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-24T14:40:34+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:40:34+03:00]handlers.go:469 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-24T14:41:19+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:41:19+03:00]handlers.go:484 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-24T14:43:43+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:43:43+03:00]handlers.go:484 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-24T14:43:56+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:43:56+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:43:58+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:43:58+03:00]handlers.go:484 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-24T14:45:06+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:45:06+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:45:07+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:45:07+03:00]handlers.go:484 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-24T14:46:40+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:46:40+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:46:44+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:46:44+03:00]handlers.go:484 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-24T14:47:18+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:47:18+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:47:20+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:47:20+03:00]handlers.go:484 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-24T14:48:47+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:48:47+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:48:49+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:48:49+03:00]handlers.go:484 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-24T14:49:34+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:49:34+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:49:36+03:00]handlers.go:458 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:49:36+03:00]handlers.go:485 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-24T14:50:35+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:50:35+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:50:37+03:00]handlers.go:458 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:50:37+03:00]handlers.go:485 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-24T14:51:10+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:51:10+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:51:12+03:00]handlers.go:458 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:51:12+03:00]handlers.go:485 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-24T14:51:40+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:51:40+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:51:41+03:00]handlers.go:458 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:51:41+03:00]handlers.go:485 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-24T14:52:02+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:52:02+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:52:04+03:00]handlers.go:458 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:52:04+03:00]handlers.go:485 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-24T14:53:11+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:53:11+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:53:11+03:00]handlers.go:458 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:53:11+03:00]handlers.go:485 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-24T14:54:02+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:54:02+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:54:05+03:00]handlers.go:458 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:54:05+03:00]handlers.go:485 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-24T14:54:20+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-24T14:54:20+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-24T14:54:22+03:00]handlers.go:458 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-24T14:54:22+03:00]handlers.go:485 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-25T18:17:05+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:17:05+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:17:12+03:00]handlers.go:413 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getGenres() Working getGenres                            
+[36mINFO[0m[2021-12-25T18:17:23+03:00]handlers.go:438 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[36mINFO[0m[2021-12-25T18:17:51+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:17:51+03:00]handlers.go:509 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method DELETE, changeGenre                   
+[36mINFO[0m[2021-12-25T18:19:01+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:19:01+03:00]handlers.go:509 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method DELETE, changeGenre                   
+[36mINFO[0m[2021-12-25T18:19:10+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:19:10+03:00]handlers.go:509 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method DELETE, changeGenre                   
+[36mINFO[0m[2021-12-25T18:19:15+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:19:15+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:19:17+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:19:17+03:00]handlers.go:509 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method DELETE, changeGenre                   
+[36mINFO[0m[2021-12-25T18:20:36+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:20:36+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:20:50+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:20:50+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:26:47+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:26:47+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-25T18:28:05+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:28:05+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:28:08+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:28:08+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:28:09+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:28:09+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:29:28+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:29:28+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:29:29+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:29:29+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:29:48+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:29:48+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:29:50+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:29:50+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:31:10+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:31:10+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:31:11+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:31:11+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:31:34+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:31:34+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:31:36+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:31:36+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:32:33+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:32:33+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:32:34+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:32:34+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:32:49+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:32:49+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:32:51+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:32:51+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:33:33+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:33:33+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:33:35+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:33:35+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:34:02+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:34:02+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:34:03+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:34:03+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:35:31+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:35:31+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:35:33+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:35:33+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:36:24+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:36:24+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:36:26+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:36:26+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:37:05+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:37:05+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:37:12+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:37:12+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:37:46+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:37:46+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:37:47+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:37:47+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:38:00+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:38:00+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:38:01+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:38:01+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:40:25+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:40:25+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:40:31+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:40:31+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:41:35+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:41:35+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:41:38+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:41:38+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:41:58+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:41:58+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:42:00+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:42:00+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:42:24+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:42:24+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:42:25+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:42:25+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:42:55+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:42:55+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:42:56+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:42:56+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:44:45+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:44:45+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:44:47+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:44:47+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:45:55+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:45:55+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:46:16+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:46:16+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:46:18+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:46:18+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:47:24+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:47:24+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:47:25+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:47:25+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:47:59+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:47:59+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:48:00+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:48:00+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:48:35+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:48:35+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:48:36+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:48:36+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:52:25+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:52:25+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:52:28+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:52:28+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:52:48+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:52:48+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:52:50+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:52:50+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:54:16+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:54:16+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:54:17+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T18:54:17+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T18:54:36+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:54:36+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:57:05+03:00]handlers.go:438 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[36mINFO[0m[2021-12-25T18:57:40+03:00]handlers.go:438 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[36mINFO[0m[2021-12-25T18:57:49+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:57:49+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:57:50+03:00]handlers.go:438 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[36mINFO[0m[2021-12-25T18:58:15+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:58:15+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T18:58:17+03:00]handlers.go:438 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[36mINFO[0m[2021-12-25T18:58:20+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T18:58:20+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T19:03:39+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T19:03:39+03:00]main.go:35 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T19:03:42+03:00]handlers.go:438 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[36mINFO[0m[2021-12-25T19:26:30+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T19:26:30+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T19:26:32+03:00]handlers.go:438 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[31mERRO[0m[2021-12-25T19:26:32+03:00]genre_service.go:35 github.com/Baraulia/goLab/IndTask.git/internal/service.(*GenreService).CreateGenre() Genre with that name already exists          
+[36mINFO[0m[2021-12-25T19:27:32+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T19:27:32+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T19:28:34+03:00]handlers.go:438 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[36mINFO[0m[2021-12-25T19:28:56+03:00]handlers.go:413 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getGenres() Working getGenres                            
+[36mINFO[0m[2021-12-25T19:29:10+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T19:29:10+03:00]handlers.go:509 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method DELETE, changeGenre                   
+[36mINFO[0m[2021-12-25T19:29:18+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T19:29:18+03:00]handlers.go:509 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method DELETE, changeGenre                   
+[36mINFO[0m[2021-12-25T19:29:30+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T19:29:30+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T19:30:14+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T19:30:14+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-25T19:30:32+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T19:30:32+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T19:30:33+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T19:30:33+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[31mERRO[0m[2021-12-25T19:30:33+03:00]genre_service.go:55 github.com/Baraulia/goLab/IndTask.git/internal/service.(*GenreService).ChangeGenre() Such a genre does not exist                  
+[36mINFO[0m[2021-12-25T19:30:57+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T19:30:57+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[31mERRO[0m[2021-12-25T19:30:57+03:00]genre_postgres.go:88 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*GenrePostgres).ChangeGenre() Update genre error:pq: duplicate key value violates unique constraint "genre_genre_name_key" 
+[36mINFO[0m[2021-12-25T19:40:30+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-25T19:40:30+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-25T19:40:35+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T19:40:35+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[31mERRO[0m[2021-12-25T19:40:35+03:00]genre_service.go:66 github.com/Baraulia/goLab/IndTask.git/internal/service.(*GenreService).ChangeGenre() Genre with the same name already exists      
+[36mINFO[0m[2021-12-25T19:40:51+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T19:40:51+03:00]handlers.go:471 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[31mERRO[0m[2021-12-25T19:40:51+03:00]genre_service.go:55 github.com/Baraulia/goLab/IndTask.git/internal/service.(*GenreService).ChangeGenre() Such a genre does not exist                  
+[36mINFO[0m[2021-12-25T19:40:58+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T19:40:58+03:00]handlers.go:509 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method DELETE, changeGenre                   
+[31mERRO[0m[2021-12-25T19:40:58+03:00]genre_service.go:55 github.com/Baraulia/goLab/IndTask.git/internal/service.(*GenreService).ChangeGenre() Such a genre does not exist                  
+[36mINFO[0m[2021-12-25T19:41:07+03:00]handlers.go:438 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[31mERRO[0m[2021-12-25T19:41:07+03:00]genre_service.go:34 github.com/Baraulia/goLab/IndTask.git/internal/service.(*GenreService).CreateGenre() Genre with the same name already exists      
+[36mINFO[0m[2021-12-25T19:41:13+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T19:41:13+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[31mERRO[0m[2021-12-25T19:41:13+03:00]genre_service.go:55 github.com/Baraulia/goLab/IndTask.git/internal/service.(*GenreService).ChangeGenre() Such a genre does not exist                  
+[36mINFO[0m[2021-12-25T19:41:27+03:00]handlers.go:457 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-25T19:41:27+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-25T19:42:38+03:00]handlers.go:413 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getGenres() Working getGenres                            
+[36mINFO[0m[2021-12-25T19:42:50+03:00]handlers.go:438 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[36mINFO[0m[2021-12-26T11:45:04+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T11:45:04+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:00:41+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2021-12-26T12:01:08+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:01:08+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:02:03+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[31mERRO[0m[2021-12-26T12:02:03+03:00]middleware.go:10 github.com/Baraulia/goLab/IndTask.git/internal/handler.CheckMethod() Method is not allowed.Eexpected method: GET, given method:POST 
+[36mINFO[0m[2021-12-26T12:03:03+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Working createAuthor                         
+[36mINFO[0m[2021-12-26T12:03:15+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2021-12-26T12:03:22+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:03:22+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:03:26+03:00]handlers.go:301 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2021-12-26T12:04:19+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Working createAuthor                         
+[31mERRO[0m[2021-12-26T12:04:19+03:00]author_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*AuthorService).CreateAuthor() Author with the same name already exists     
+[31mERRO[0m[2021-12-26T12:04:19+03:00]handlers.go:337 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Error while creating author in the database:author with that name already exists 
+[36mINFO[0m[2021-12-26T12:04:25+03:00]handlers.go:301 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2021-12-26T12:04:27+03:00]handlers.go:301 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2021-12-26T12:05:19+03:00]handlers.go:301 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[31mERRO[0m[2021-12-26T12:05:19+03:00]middleware.go:10 github.com/Baraulia/goLab/IndTask.git/internal/handler.CheckMethod() Method is not allowed.Eexpected method: GET, given method:DELETE 
+[36mINFO[0m[2021-12-26T12:06:03+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:06:03+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:06:32+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:06:32+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:06:33+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[31mERRO[0m[2021-12-26T12:06:33+03:00]handlers.go:349 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() No url request:strconv.Atoi: parsing "": invalid syntax 
+[36mINFO[0m[2021-12-26T12:06:41+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:06:41+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:06:45+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[31mERRO[0m[2021-12-26T12:06:45+03:00]handlers.go:349 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() No url request:strconv.Atoi: parsing "": invalid syntax 
+[36mINFO[0m[2021-12-26T12:11:15+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:11:15+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:11:17+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[31mERRO[0m[2021-12-26T12:11:17+03:00]handlers.go:349 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() No url request:strconv.Atoi: parsing "": invalid syntax 
+[36mINFO[0m[2021-12-26T12:12:33+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:12:33+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:12:36+03:00]handlers.go:455 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-26T12:12:36+03:00]handlers.go:507 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method DELETE, changeGenre                   
+[31mERRO[0m[2021-12-26T12:12:36+03:00]genre_service.go:53 github.com/Baraulia/goLab/IndTask.git/internal/service.(*GenreService).ChangeGenre() Such a genre does not exist                  
+[31mERRO[0m[2021-12-26T12:12:36+03:00]handlers.go:510 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Error while deleting genre from database:genre with that id does not exists 
+[36mINFO[0m[2021-12-26T12:12:47+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:12:47+03:00]handlers.go:398 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method DELETE, changeAuthor                  
+[36mINFO[0m[2021-12-26T12:14:19+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Working createAuthor                         
+[36mINFO[0m[2021-12-26T12:14:30+03:00]handlers.go:301 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2021-12-26T12:14:38+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:14:38+03:00]handlers.go:398 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method DELETE, changeAuthor                  
+[36mINFO[0m[2021-12-26T12:19:10+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:19:10+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:19:13+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:19:13+03:00]handlers.go:398 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method DELETE, changeAuthor                  
+[36mINFO[0m[2021-12-26T12:20:14+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:20:14+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:20:17+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:20:17+03:00]handlers.go:398 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method DELETE, changeAuthor                  
+[36mINFO[0m[2021-12-26T12:21:29+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:21:29+03:00]handlers.go:375 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method GET, changeAuthor                     
+[36mINFO[0m[2021-12-26T12:22:02+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:22:02+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:22:04+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:22:04+03:00]handlers.go:375 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method GET, changeAuthor                     
+[36mINFO[0m[2021-12-26T12:25:29+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:25:29+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:25:31+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:25:31+03:00]handlers.go:398 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method DELETE, changeAuthor                  
+[36mINFO[0m[2021-12-26T12:26:09+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:26:09+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:26:10+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:26:10+03:00]handlers.go:398 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method DELETE, changeAuthor                  
+[36mINFO[0m[2021-12-26T12:27:30+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:27:30+03:00]handlers.go:359 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method PUT, changeAuthor                     
+[31mERRO[0m[2021-12-26T12:27:30+03:00]author_postgres.go:87 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*AuthorPostgres).ChangeAuthor() Update author error:pq: syntax error at or near "=" 
+[31mERRO[0m[2021-12-26T12:27:30+03:00]handlers.go:368 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Error while updating genre: pq: syntax error at or near "=" 
+[36mINFO[0m[2021-12-26T12:28:58+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:28:58+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:29:01+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:29:01+03:00]handlers.go:359 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method PUT, changeAuthor                     
+[31mERRO[0m[2021-12-26T12:29:01+03:00]author_postgres.go:86 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*AuthorPostgres).ChangeAuthor() Update author error:pq: syntax error at or near "=" 
+[31mERRO[0m[2021-12-26T12:29:01+03:00]handlers.go:368 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Error while updating genre: pq: syntax error at or near "=" 
+[36mINFO[0m[2021-12-26T12:31:21+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:31:21+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:31:23+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:31:23+03:00]handlers.go:359 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method PUT, changeAuthor                     
+[36mINFO[0m[2021-12-26T12:32:54+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:32:54+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:32:57+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:32:57+03:00]handlers.go:359 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method PUT, changeAuthor                     
+[36mINFO[0m[2021-12-26T12:33:59+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:33:59+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:34:02+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:34:02+03:00]handlers.go:359 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method PUT, changeAuthor                     
+[36mINFO[0m[2021-12-26T12:34:47+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:34:47+03:00]handlers.go:359 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method PUT, changeAuthor                     
+[36mINFO[0m[2021-12-26T12:35:48+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:35:48+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:35:50+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:35:50+03:00]handlers.go:359 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method PUT, changeAuthor                     
+[36mINFO[0m[2021-12-26T12:36:37+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:36:37+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:36:39+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:36:39+03:00]handlers.go:359 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method PUT, changeAuthor                     
+[36mINFO[0m[2021-12-26T12:37:12+03:00]handlers.go:455 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-26T12:37:12+03:00]handlers.go:468 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-26T12:39:26+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:39:26+03:00]handlers.go:359 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method PUT, changeAuthor                     
+[36mINFO[0m[2021-12-26T12:39:44+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:39:44+03:00]handlers.go:398 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method DELETE, changeAuthor                  
+[36mINFO[0m[2021-12-26T12:39:54+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:39:54+03:00]handlers.go:398 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method DELETE, changeAuthor                  
+[36mINFO[0m[2021-12-26T12:40:00+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Working createAuthor                         
+[36mINFO[0m[2021-12-26T12:40:14+03:00]handlers.go:301 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2021-12-26T12:40:24+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Working createAuthor                         
+[31mERRO[0m[2021-12-26T12:40:24+03:00]author_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*AuthorService).CreateAuthor() Author with the same name already exists     
+[31mERRO[0m[2021-12-26T12:40:24+03:00]handlers.go:337 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Error while creating author in the database:author with that name already exists 
+[36mINFO[0m[2021-12-26T12:42:08+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:42:08+03:00]handlers.go:359 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method PUT, changeAuthor                     
+[31mERRO[0m[2021-12-26T12:42:08+03:00]author_service.go:52 github.com/Baraulia/goLab/IndTask.git/internal/service.(*AuthorService).ChangeAuthor() Such a author does not exist                 
+[31mERRO[0m[2021-12-26T12:42:08+03:00]handlers.go:368 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Error while updating genre: author with that id does not exists 
+[36mINFO[0m[2021-12-26T12:42:18+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:42:18+03:00]handlers.go:359 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method PUT, changeAuthor                     
+[36mINFO[0m[2021-12-26T12:43:22+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T12:43:22+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T12:43:23+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:43:23+03:00]handlers.go:359 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method PUT, changeAuthor                     
+[36mINFO[0m[2021-12-26T12:43:46+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:43:46+03:00]handlers.go:359 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method PUT, changeAuthor                     
+[36mINFO[0m[2021-12-26T12:43:55+03:00]handlers.go:346 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-26T12:43:55+03:00]handlers.go:398 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method DELETE, changeAuthor                  
+[31mERRO[0m[2021-12-26T12:43:55+03:00]author_service.go:52 github.com/Baraulia/goLab/IndTask.git/internal/service.(*AuthorService).ChangeAuthor() Such a author does not exist                 
+[31mERRO[0m[2021-12-26T12:43:55+03:00]handlers.go:401 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Error while deleting genre from database:author with that id does not exists 
+[36mINFO[0m[2021-12-26T12:50:06+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T12:50:06+03:00]handlers.go:152 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "\"10.07.1983\"" as "\"2006-01-02T15:04:05Z07:00\"": cannot parse "7.1983\"" as "2006" 
+[36mINFO[0m[2021-12-26T12:50:39+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T12:50:39+03:00]handlers.go:152 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "\"1983-07-10\"" as "\"2006-01-02T15:04:05Z07:00\"": cannot parse "\"" as "T" 
+[31mERRO[0m[2021-12-26T12:50:39+03:00]user_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() User with the same name already exists       
+[31mERRO[0m[2021-12-26T12:50:39+03:00]handlers.go:157 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:user with that name already exists 
+[36mINFO[0m[2021-12-26T12:51:45+03:00]handlers.go:166 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2021-12-26T12:51:45+03:00]handlers.go:218 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method DELETE, changeUser                    
+[36mINFO[0m[2021-12-26T12:51:52+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T12:51:52+03:00]handlers.go:152 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "\"1983-07-10\"" as "\"2006-01-02T15:04:05Z07:00\"": cannot parse "\"" as "T" 
+[36mINFO[0m[2021-12-26T13:00:46+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T13:00:46+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T13:01:04+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T13:01:04+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T13:01:07+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T13:01:07+03:00]handlers.go:153 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "\"1983-07-10\"" as "\"2006-01-02T15:04:05Z07:00\"": cannot parse "\"" as "T" 
+[36mINFO[0m[2021-12-26T13:03:02+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T13:03:02+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T13:03:15+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T13:03:15+03:00]handlers.go:153 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "\"1983/07/10\"" as "\"2006-01-02T15:04:05Z07:00\"": cannot parse "/07/10\"" as "-" 
+[36mINFO[0m[2021-12-26T13:07:10+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T13:07:10+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T13:07:28+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T13:07:28+03:00]handlers.go:152 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "\"1983/07/10\"" as "\"2006-01-02T15:04:05Z07:00\"": cannot parse "/07/10\"" as "-" 
+[36mINFO[0m[2021-12-26T17:55:57+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T17:55:57+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T17:56:10+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T17:56:10+03:00]handlers.go:153 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "\"1983-07-10\"" as "\"2006-01-02T15:04:05Z07:00\"": cannot parse "\"" as "T" 
+[31mERRO[0m[2021-12-26T17:56:10+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while parsing date:parsing time "0001-01-01 00:00:00 +0000 UTC": month out of range 
+[31mERRO[0m[2021-12-26T17:56:10+03:00]user_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() User with the same name already exists       
+[31mERRO[0m[2021-12-26T17:56:10+03:00]handlers.go:163 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:user with that name already exists 
+[36mINFO[0m[2021-12-26T17:56:42+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T17:56:42+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T17:56:44+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T17:56:44+03:00]handlers.go:153 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "\"1983-07-10\"" as "\"2006-01-02T15:04:05Z07:00\"": cannot parse "\"" as "T" 
+[31mERRO[0m[2021-12-26T17:56:44+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while parsing date:parsing time "0001-01-01 00:00:00 +0000 UTC": month out of range 
+[36mINFO[0m[2021-12-26T17:58:03+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T17:58:03+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T17:58:12+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T17:58:12+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T17:58:17+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T17:58:17+03:00]handlers.go:153 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "\"1983-07-10\"" as "\"2006-01-02T15:04:05Z07:00\"": cannot parse "\"" as "T" 
+[31mERRO[0m[2021-12-26T17:58:17+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while parsing date:parsing time "0001-01-01 00:00:00 +0000 UTC": extra text: " 00:00:00 +0000 UTC" 
+[36mINFO[0m[2021-12-26T17:59:19+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T17:59:19+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T18:00:09+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T18:00:09+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T18:00:11+03:00]handlers.go:149 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T18:00:11+03:00]handlers.go:154 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "\"1983-07-10\"" as "\"2006-01-02T15:04:05Z07:00\"": cannot parse "\"" as "T" 
+[31mERRO[0m[2021-12-26T18:00:11+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while parsing date:parsing time "0001-01-01 00:00:00 +0000 UTC": extra text: " 00:00:00 +0000 UTC" 
+[31mERRO[0m[2021-12-26T18:00:11+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:pq: duplicate key value violates unique constraint "users_surname_key" 
+[31mERRO[0m[2021-12-26T18:00:11+03:00]handlers.go:165 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:pq: duplicate key value violates unique constraint "users_surname_key" 
+[36mINFO[0m[2021-12-26T18:32:17+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T18:32:17+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T18:32:35+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T18:32:35+03:00]handlers.go:153 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "\"1983-07-10\"" as "2006-01-02": cannot parse "\"1983-07-10\"" as "2006" 
+[31mERRO[0m[2021-12-26T18:32:35+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:sql: converting argument $7 type: unsupported type IndTask.MyTime, a struct 
+[31mERRO[0m[2021-12-26T18:32:35+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:sql: converting argument $7 type: unsupported type IndTask.MyTime, a struct 
+[36mINFO[0m[2021-12-26T18:36:31+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T18:36:31+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T18:36:38+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T18:36:38+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:sql: converting argument $7 type: unsupported type IndTask.MyTime, a struct 
+[31mERRO[0m[2021-12-26T18:36:38+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:sql: converting argument $7 type: unsupported type IndTask.MyTime, a struct 
+[36mINFO[0m[2021-12-26T18:43:18+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T18:43:18+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:sql: converting argument $7 type: unsupported type IndTask.MyTime, a struct 
+[31mERRO[0m[2021-12-26T18:43:18+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:sql: converting argument $7 type: unsupported type IndTask.MyTime, a struct 
+[36mINFO[0m[2021-12-26T20:06:46+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T20:06:46+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T20:06:49+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T20:06:49+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:sql: converting argument $7 type: unsupported type IndTask.MyTime, a struct 
+[31mERRO[0m[2021-12-26T20:06:49+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:sql: converting argument $7 type: unsupported type IndTask.MyTime, a struct 
+[36mINFO[0m[2021-12-26T20:17:25+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T20:17:25+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T20:17:32+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T20:17:32+03:00]handlers.go:153 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "1983-07-10": month out of range 
+[31mERRO[0m[2021-12-26T20:17:32+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:sql: converting argument $7 type: unsupported type IndTask.MyTime, a struct 
+[31mERRO[0m[2021-12-26T20:17:32+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:sql: converting argument $7 type: unsupported type IndTask.MyTime, a struct 
+[36mINFO[0m[2021-12-26T20:27:17+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T20:27:17+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T20:27:20+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T20:27:20+03:00]handlers.go:153 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "1983-07-10": month out of range 
+[36mINFO[0m[2021-12-26T20:29:29+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T20:29:29+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T20:29:36+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-26T20:30:14+03:00]handlers.go:122 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2021-12-26T20:33:15+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T20:33:15+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T20:33:28+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-26T20:33:35+03:00]handlers.go:122 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[31mERRO[0m[2021-12-26T20:33:35+03:00]user_postgres.go:36 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).GetUsers() Scan error:sql: Scan error on column index 7, name "birth_date": unsupported Scan, storing driver.Value type time.Time into type *IndTask.MyTime 
+[31mERRO[0m[2021-12-26T20:33:35+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Error while getting users list from database: sql: Scan error on column index 7, name "birth_date": unsupported Scan, storing driver.Value type time.Time into type *IndTask.MyTime 
+[36mINFO[0m[2021-12-26T20:34:05+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T20:34:05+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T20:34:10+03:00]handlers.go:122 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2021-12-26T20:40:09+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T20:40:09+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T20:40:12+03:00]handlers.go:122 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2021-12-26T20:43:13+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T20:43:13+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T20:43:15+03:00]handlers.go:122 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2021-12-26T20:49:40+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T20:49:40+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T20:49:42+03:00]handlers.go:122 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2021-12-26T20:53:27+03:00]handlers.go:167 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2021-12-26T20:53:27+03:00]handlers.go:219 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method DELETE, changeUser                    
+[36mINFO[0m[2021-12-26T20:53:33+03:00]handlers.go:167 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2021-12-26T20:53:33+03:00]handlers.go:219 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method DELETE, changeUser                    
+[31mERRO[0m[2021-12-26T20:53:33+03:00]user_service.go:53 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).ChangeUser() Such a user does not exist                   
+[31mERRO[0m[2021-12-26T20:53:33+03:00]handlers.go:222 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Error while deleting genre from database:user with that id does not exists 
+[36mINFO[0m[2021-12-26T20:53:40+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-26T20:53:41+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T20:53:41+03:00]user_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() User with the same name already exists       
+[31mERRO[0m[2021-12-26T20:53:41+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:user with that name already exists 
+[36mINFO[0m[2021-12-26T20:55:19+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T20:55:19+03:00]user_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() User with the same name already exists       
+[31mERRO[0m[2021-12-26T20:55:19+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:user with that name already exists 
+[36mINFO[0m[2021-12-26T20:56:00+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T20:56:00+03:00]user_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() User with the same name already exists       
+[31mERRO[0m[2021-12-26T20:56:00+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:user with that name already exists 
+[36mINFO[0m[2021-12-26T20:56:06+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T20:56:06+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T20:56:08+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T20:56:08+03:00]user_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() User with the same name already exists       
+[31mERRO[0m[2021-12-26T20:56:08+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:user with that email already exists 
+[36mINFO[0m[2021-12-26T20:57:22+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T20:57:22+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T20:57:24+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T20:57:24+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:pq: duplicate key value violates unique constraint "users_surname_key" 
+[31mERRO[0m[2021-12-26T20:57:24+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:pq: duplicate key value violates unique constraint "users_surname_key" 
+[36mINFO[0m[2021-12-26T21:00:04+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:00:04+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:00:06+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-26T21:00:48+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T21:00:48+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:pq: duplicate key value violates unique constraint "users_pasp_number_key" 
+[31mERRO[0m[2021-12-26T21:00:48+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:pq: duplicate key value violates unique constraint "users_pasp_number_key" 
+[36mINFO[0m[2021-12-26T21:00:57+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-26T21:02:50+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:02:50+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:03:00+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-26T21:05:37+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:05:37+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:05:53+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-26T21:09:43+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:09:43+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:09:50+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-26T21:11:10+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:11:10+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:11:13+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-26T21:12:03+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:12:03+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:12:07+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T21:12:07+03:00]user_service.go:33 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() User with the same email already exists      
+[31mERRO[0m[2021-12-26T21:12:07+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:user with that email already exists 
+[36mINFO[0m[2021-12-26T21:12:58+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:12:58+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:12:59+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T21:12:59+03:00]user_service.go:33 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() User with the same email already exists      
+[31mERRO[0m[2021-12-26T21:12:59+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:user with that email already exists 
+[36mINFO[0m[2021-12-26T21:19:38+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:19:38+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:19:45+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T21:19:45+03:00]user_service.go:33 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() User with the same email already exists      
+[31mERRO[0m[2021-12-26T21:19:45+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:user with that email already exists 
+[36mINFO[0m[2021-12-26T21:20:00+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T21:20:00+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:pq: duplicate key value violates unique constraint "users_pasp_number_key" 
+[31mERRO[0m[2021-12-26T21:20:00+03:00]handlers.go:158 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:pq: duplicate key value violates unique constraint "users_pasp_number_key" 
+[36mINFO[0m[2021-12-26T21:20:08+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-26T21:24:12+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:24:12+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:24:14+03:00]handlers.go:147 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-26T21:27:33+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:27:33+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:27:36+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T21:27:36+03:00]user_service.go:33 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() User with the same email already exists      
+[31mERRO[0m[2021-12-26T21:27:36+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:user with that email already exists 
+[36mINFO[0m[2021-12-26T21:32:57+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:32:57+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:33:00+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T21:33:00+03:00]user_service.go:33 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() User with the same email already exists      
+[31mERRO[0m[2021-12-26T21:33:00+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:user with that email already exists 
+[36mINFO[0m[2021-12-26T21:35:06+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:35:06+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:35:07+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T21:35:07+03:00]user_service.go:33 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() User with the same email already exists      
+[31mERRO[0m[2021-12-26T21:35:07+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:user with that email already exists 
+[36mINFO[0m[2021-12-26T21:46:44+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:46:44+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:46:46+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T21:46:46+03:00]user_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() necessary to fill in the Fields with the user_name and surname 
+[31mERRO[0m[2021-12-26T21:46:46+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:necessary to fill in the Fields with the user_name and surname 
+[36mINFO[0m[2021-12-26T21:49:48+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:49:48+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:49:51+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T21:49:51+03:00]user_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() necessary to fill in the Fields with the user_name and surname 
+[31mERRO[0m[2021-12-26T21:49:51+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:necessary to fill in the Fields with the user_name and surname 
+[36mINFO[0m[2021-12-26T21:51:29+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:51:29+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:51:31+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T21:51:31+03:00]user_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() necessary to fill in the Fields with the user_name and surname 
+[31mERRO[0m[2021-12-26T21:51:31+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:necessary to fill in the Fields with the user_name and surname 
+[36mINFO[0m[2021-12-26T21:52:05+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:52:05+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:52:07+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T21:52:07+03:00]user_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() necessary to fill in the Fields with the user_name and surname 
+[31mERRO[0m[2021-12-26T21:52:07+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:necessary to fill in the Fields with the user_name and surname 
+[36mINFO[0m[2021-12-26T21:54:17+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:54:17+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:54:19+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T21:54:19+03:00]user_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() necessary to fill in the Fields with the user_name and surname 
+[31mERRO[0m[2021-12-26T21:54:19+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:necessary to fill in the Fields with the user_name and surname 
+[36mINFO[0m[2021-12-26T21:54:39+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T21:54:39+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T21:54:41+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T21:54:41+03:00]user_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() necessary to fill in the Fields with the user_name and surname 
+[31mERRO[0m[2021-12-26T21:54:41+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:necessary to fill in the Fields with the user_name and surname 
+[36mINFO[0m[2021-12-26T22:00:52+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T22:00:52+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T22:00:54+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T22:00:54+03:00]user_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() necessary to fill in the Fields with the user_name and surname 
+[31mERRO[0m[2021-12-26T22:00:54+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:necessary to fill in the Fields with the user_name and surname 
+[36mINFO[0m[2021-12-26T22:05:31+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T22:05:31+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T22:05:46+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T22:05:46+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:sql: converting argument $7 type: unsupported type IndTask.MyTime, a struct 
+[31mERRO[0m[2021-12-26T22:05:46+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:sql: converting argument $7 type: unsupported type IndTask.MyTime, a struct 
+[36mINFO[0m[2021-12-26T22:06:15+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T22:06:15+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T22:06:16+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T22:06:16+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:sql: converting argument $7 type: non-Value type IndTask.MyTime returned from Value 
+[31mERRO[0m[2021-12-26T22:06:16+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:sql: converting argument $7 type: non-Value type IndTask.MyTime returned from Value 
+[36mINFO[0m[2021-12-26T22:11:52+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T22:11:52+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T22:11:55+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-26T22:11:55+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:pq: null value in column "birth_date" of relation "users" violates not-null constraint 
+[31mERRO[0m[2021-12-26T22:11:55+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:pq: null value in column "birth_date" of relation "users" violates not-null constraint 
+[36mINFO[0m[2021-12-26T22:12:51+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-26T22:13:06+03:00]handlers.go:123 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[31mERRO[0m[2021-12-26T22:13:06+03:00]handlers.go:134 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Marshal error:json: error calling MarshalJSON for type *IndTask.MyTime: unexpected end of JSON input 
+[36mINFO[0m[2021-12-26T22:13:33+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T22:13:33+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T22:13:34+03:00]handlers.go:123 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[31mERRO[0m[2021-12-26T22:13:34+03:00]handlers.go:134 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Marshal error:json: error calling MarshalJSON for type *IndTask.MyTime: unexpected end of JSON input 
+[36mINFO[0m[2021-12-26T22:16:04+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T22:16:04+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T22:16:06+03:00]handlers.go:123 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[31mERRO[0m[2021-12-26T22:16:06+03:00]handlers.go:134 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Marshal error:json: error calling MarshalJSON for type *IndTask.MyTime: unexpected end of JSON input 
+[36mINFO[0m[2021-12-26T22:16:40+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T22:16:40+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T22:16:41+03:00]handlers.go:123 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[31mERRO[0m[2021-12-26T22:16:41+03:00]handlers.go:134 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Marshal error:json: error calling MarshalJSON for type *IndTask.MyTime: unexpected end of JSON input 
+[36mINFO[0m[2021-12-26T22:16:57+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T22:16:57+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T22:16:59+03:00]handlers.go:123 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[31mERRO[0m[2021-12-26T22:16:59+03:00]handlers.go:134 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Marshal error:json: error calling MarshalJSON for type *IndTask.MyTime: unexpected end of JSON input 
+[36mINFO[0m[2021-12-26T22:17:29+03:00]handlers.go:123 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2021-12-26T22:17:56+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-26T22:17:56+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-26T22:17:57+03:00]handlers.go:123 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2021-12-26T22:18:18+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-26T22:18:31+03:00]handlers.go:123 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2021-12-28T09:14:02+03:00]handlers.go:123 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2021-12-28T09:14:30+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-28T09:14:30+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:pq: null value in column "birth_date" of relation "users" violates not-null constraint 
+[31mERRO[0m[2021-12-28T09:14:30+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:pq: null value in column "birth_date" of relation "users" violates not-null constraint 
+[36mINFO[0m[2021-12-28T09:15:04+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-28T09:15:04+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:pq: null value in column "birth_date" of relation "users" violates not-null constraint 
+[31mERRO[0m[2021-12-28T09:15:04+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:pq: null value in column "birth_date" of relation "users" violates not-null constraint 
+[36mINFO[0m[2021-12-28T09:15:21+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-28T09:15:21+03:00]handlers.go:154 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "1965-13-20": month out of range 
+[36mINFO[0m[2021-12-28T09:15:27+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-28T09:15:27+03:00]user_service.go:41 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).CreateUser() User with the same email already exists      
+[31mERRO[0m[2021-12-28T09:15:27+03:00]handlers.go:160 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:user with that email already exists 
+[36mINFO[0m[2021-12-28T09:15:42+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-28T09:19:19+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T09:19:19+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T09:19:51+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-28T09:19:51+03:00]handlers.go:154 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "1965-13-20": month out of range 
+[36mINFO[0m[2021-12-28T09:21:25+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T09:21:25+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T09:21:35+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-28T09:21:35+03:00]handlers.go:154 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "1965-13-20": month out of range 
+[36mINFO[0m[2021-12-28T09:22:03+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-28T09:22:03+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:pq: null value in column "birth_date" of relation "users" violates not-null constraint 
+[31mERRO[0m[2021-12-28T09:22:03+03:00]handlers.go:161 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:pq: null value in column "birth_date" of relation "users" violates not-null constraint 
+[36mINFO[0m[2021-12-28T09:27:32+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-28T09:27:32+03:00]handlers.go:154 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while decoding request:parsing time "1965-13-20": month out of range 
+[36mINFO[0m[2021-12-28T09:27:47+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2021-12-28T09:27:47+03:00]user_postgres.go:57 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).CreateUser() Scan error:pq: null value in column "birth_date" of relation "users" violates not-null constraint 
+[31mERRO[0m[2021-12-28T09:27:47+03:00]handlers.go:161 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Error while creating user in the database:pq: null value in column "birth_date" of relation "users" violates not-null constraint 
+[36mINFO[0m[2021-12-28T09:28:01+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-28T09:28:13+03:00]handlers.go:123 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2021-12-28T09:28:24+03:00]handlers.go:170 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2021-12-28T09:28:24+03:00]handlers.go:222 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method DELETE, changeUser                    
+[36mINFO[0m[2021-12-28T09:28:29+03:00]handlers.go:170 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2021-12-28T09:28:29+03:00]handlers.go:222 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method DELETE, changeUser                    
+[31mERRO[0m[2021-12-28T09:28:29+03:00]user_service.go:63 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).ChangeUser() Such a user does not exist                   
+[31mERRO[0m[2021-12-28T09:28:29+03:00]handlers.go:225 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Error while deleting genre from database:user with that id does not exists 
+[36mINFO[0m[2021-12-28T09:28:36+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-28T09:29:15+03:00]handlers.go:459 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-28T09:29:15+03:00]handlers.go:472 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[31mERRO[0m[2021-12-28T09:29:15+03:00]genre_service.go:53 github.com/Baraulia/goLab/IndTask.git/internal/service.(*GenreService).ChangeGenre() Such a genre does not exist                  
+[31mERRO[0m[2021-12-28T09:29:15+03:00]handlers.go:481 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Error while updating genre: genre with that id does not exists 
+[36mINFO[0m[2021-12-28T09:30:19+03:00]handlers.go:170 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2021-12-28T09:30:19+03:00]handlers.go:183 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method PUT, changeUser                       
+[31mERRO[0m[2021-12-28T09:30:19+03:00]handlers.go:187 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Error while decoding request: parsing time "1965-12-5" as "2006-01-02": cannot parse "5" as "02" 
+[31mERRO[0m[2021-12-28T09:30:19+03:00]user_service.go:74 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).ChangeUser() User with the same email already exists      
+[31mERRO[0m[2021-12-28T09:30:19+03:00]handlers.go:192 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Error while updating user: user with that email already exists 
+[36mINFO[0m[2021-12-28T09:30:31+03:00]handlers.go:170 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2021-12-28T09:30:31+03:00]handlers.go:183 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method PUT, changeUser                       
+[31mERRO[0m[2021-12-28T09:30:31+03:00]user_service.go:74 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).ChangeUser() User with the same email already exists      
+[31mERRO[0m[2021-12-28T09:30:31+03:00]handlers.go:192 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Error while updating user: user with that email already exists 
+[36mINFO[0m[2021-12-28T09:33:34+03:00]handlers.go:170 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2021-12-28T09:33:34+03:00]handlers.go:222 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method DELETE, changeUser                    
+[36mINFO[0m[2021-12-28T09:33:41+03:00]handlers.go:148 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-28T09:33:52+03:00]handlers.go:170 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2021-12-28T09:33:52+03:00]handlers.go:183 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method PUT, changeUser                       
+[31mERRO[0m[2021-12-28T09:33:52+03:00]user_service.go:74 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).ChangeUser() User with the same email already exists      
+[31mERRO[0m[2021-12-28T09:33:52+03:00]handlers.go:192 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Error while updating user: user with that email already exists 
+[36mINFO[0m[2021-12-28T09:34:00+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T09:34:00+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T09:34:04+03:00]handlers.go:170 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2021-12-28T09:34:04+03:00]handlers.go:183 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method PUT, changeUser                       
+[31mERRO[0m[2021-12-28T09:34:04+03:00]user_postgres.go:86 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).ChangeUser() Update user error:pq: syntax error at or near "=" 
+[31mERRO[0m[2021-12-28T09:34:04+03:00]handlers.go:192 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Error while updating user: pq: syntax error at or near "=" 
+[36mINFO[0m[2021-12-28T09:35:05+03:00]handlers.go:170 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2021-12-28T09:35:05+03:00]handlers.go:183 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method PUT, changeUser                       
+[31mERRO[0m[2021-12-28T09:35:05+03:00]user_postgres.go:86 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).ChangeUser() Update user error:pq: syntax error at or near "=" 
+[31mERRO[0m[2021-12-28T09:35:05+03:00]handlers.go:192 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Error while updating user: pq: syntax error at or near "=" 
+[36mINFO[0m[2021-12-28T09:35:08+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T09:35:08+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T09:37:28+03:00]handlers.go:170 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2021-12-28T09:37:28+03:00]handlers.go:183 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method PUT, changeUser                       
+[36mINFO[0m[2021-12-28T09:37:59+03:00]handlers.go:170 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2021-12-28T09:37:59+03:00]handlers.go:199 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method GET, changeUser                       
+[36mINFO[0m[2021-12-28T09:38:06+03:00]handlers.go:170 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2021-12-28T09:38:06+03:00]handlers.go:199 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method GET, changeUser                       
+[31mERRO[0m[2021-12-28T09:38:06+03:00]user_service.go:60 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).ChangeUser() Such a user does not exist                   
+[31mERRO[0m[2021-12-28T09:38:06+03:00]handlers.go:202 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Error while getting user from database:user with that id does not exists 
+[36mINFO[0m[2021-12-28T09:38:14+03:00]handlers.go:170 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2021-12-28T09:38:14+03:00]handlers.go:199 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method GET, changeUser                       
+[31mERRO[0m[2021-12-28T09:38:14+03:00]user_service.go:60 github.com/Baraulia/goLab/IndTask.git/internal/service.(*UserService).ChangeUser() Such a user does not exist                   
+[31mERRO[0m[2021-12-28T09:38:14+03:00]handlers.go:202 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Error while getting user from database:user with that id does not exists 
+[36mINFO[0m[2021-12-28T09:38:19+03:00]handlers.go:123 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2021-12-28T09:38:28+03:00]handlers.go:305 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2021-12-28T09:38:41+03:00]handlers.go:331 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Working createAuthor                         
+[36mINFO[0m[2021-12-28T09:38:46+03:00]handlers.go:331 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Working createAuthor                         
+[31mERRO[0m[2021-12-28T09:38:46+03:00]author_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*AuthorService).CreateAuthor() Author with the same name already exists     
+[31mERRO[0m[2021-12-28T09:38:46+03:00]handlers.go:341 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Error while creating author in the database:author with that name already exists 
+[36mINFO[0m[2021-12-28T09:38:58+03:00]handlers.go:331 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Working createAuthor                         
+[36mINFO[0m[2021-12-28T09:39:12+03:00]handlers.go:331 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Working createAuthor                         
+[36mINFO[0m[2021-12-28T09:39:24+03:00]handlers.go:305 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2021-12-28T09:39:36+03:00]handlers.go:350 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-28T09:39:36+03:00]handlers.go:402 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method DELETE, changeAuthor                  
+[36mINFO[0m[2021-12-28T09:40:25+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T09:40:25+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T09:40:39+03:00]handlers.go:350 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-28T09:40:39+03:00]handlers.go:363 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method PUT, changeAuthor                     
+[36mINFO[0m[2021-12-28T09:40:52+03:00]handlers.go:350 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[31mERRO[0m[2021-12-28T09:40:52+03:00]handlers.go:353 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() No url request:strconv.Atoi: parsing "": invalid syntax 
+[36mINFO[0m[2021-12-28T09:40:58+03:00]handlers.go:350 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-28T09:40:58+03:00]handlers.go:379 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method GET, changeAuthor                     
+[31mERRO[0m[2021-12-28T09:40:58+03:00]author_service.go:52 github.com/Baraulia/goLab/IndTask.git/internal/service.(*AuthorService).ChangeAuthor() Such a author does not exist                 
+[31mERRO[0m[2021-12-28T09:40:58+03:00]handlers.go:382 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Error while getting author from database:author with that id does not exists 
+[36mINFO[0m[2021-12-28T09:41:04+03:00]handlers.go:350 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2021-12-28T09:41:04+03:00]handlers.go:379 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method GET, changeAuthor                     
+[36mINFO[0m[2021-12-28T09:41:13+03:00]handlers.go:415 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getGenres() Working getGenres                            
+[36mINFO[0m[2021-12-28T09:41:25+03:00]handlers.go:440 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[36mINFO[0m[2021-12-28T09:42:04+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T09:42:04+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T09:42:04+03:00]handlers.go:459 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-28T09:42:04+03:00]handlers.go:511 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method DELETE, changeGenre                   
+[31mERRO[0m[2021-12-28T09:42:04+03:00]genre_service.go:53 github.com/Baraulia/goLab/IndTask.git/internal/service.(*GenreService).ChangeGenre() Such a genre does not exist                  
+[31mERRO[0m[2021-12-28T09:42:04+03:00]handlers.go:514 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Error while deleting genre from database:genre with that id does not exists 
+[36mINFO[0m[2021-12-28T09:42:08+03:00]handlers.go:459 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-28T09:42:08+03:00]handlers.go:511 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method DELETE, changeGenre                   
+[31mERRO[0m[2021-12-28T09:42:08+03:00]genre_service.go:53 github.com/Baraulia/goLab/IndTask.git/internal/service.(*GenreService).ChangeGenre() Such a genre does not exist                  
+[31mERRO[0m[2021-12-28T09:42:08+03:00]handlers.go:514 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Error while deleting genre from database:genre with that id does not exists 
+[36mINFO[0m[2021-12-28T09:42:15+03:00]handlers.go:459 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-28T09:42:15+03:00]handlers.go:511 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method DELETE, changeGenre                   
+[36mINFO[0m[2021-12-28T09:42:35+03:00]handlers.go:459 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-28T09:42:35+03:00]handlers.go:472 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
+[36mINFO[0m[2021-12-28T09:42:49+03:00]handlers.go:459 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2021-12-28T09:42:49+03:00]handlers.go:488 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      

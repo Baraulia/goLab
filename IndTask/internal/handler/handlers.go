@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
 	"github.com/sirupsen/logrus"
 	"net/http"
@@ -43,6 +44,7 @@ func (h *Handler) createBook(w http.ResponseWriter, req *http.Request) {
 	if err := decoder.Decode(&input); err != nil {
 		http.Error(w, err.Error(), 400)
 		logrus.Error(err.Error())
+		return
 	}
 	bookId, err := h.services.AppBook.CreateBook(&input)
 	if err != nil {
@@ -63,6 +65,7 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 	}
 	if req.Method != "PUT" && req.Method != "GET" && req.Method != "DELETE" {
 		http.Error(w, "Method Not Allowed", 405)
+		return
 	}
 
 	if req.Method == "PUT" {
@@ -72,6 +75,7 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 		if err := decoder.Decode(&input); err != nil {
 			http.Error(w, err.Error(), 400)
 			logrus.Error(err.Error())
+			return
 		}
 		_, err = h.services.AppBook.ChangeBook(&input, bookId, req.Method)
 		if err != nil {
@@ -124,25 +128,23 @@ func (h *Handler) getUsers(w http.ResponseWriter, req *http.Request) {
 	var listUsers []IndTask.User
 	listUsers, err := h.services.AppUser.GetUsers()
 	if err != nil {
+		h.logger.Errorf("Error while getting users list from database: %s", err)
 		http.Error(w, err.Error(), 500)
-		logrus.Error(err.Error())
 		return
 	}
-
-	var output []byte
-	err = json.Unmarshal(output, &listUsers)
+	output, err := json.Marshal(&listUsers)
 	if err != nil {
+		h.logger.Errorf("Marshal error:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(200)
 	_, err = w.Write(output)
 	if err != nil {
+		h.logger.Errorf("Error while writting response:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
-
 }
 
 func (h *Handler) createUser(w http.ResponseWriter, req *http.Request) {
@@ -150,30 +152,35 @@ func (h *Handler) createUser(w http.ResponseWriter, req *http.Request) {
 	CheckMethod(w, req, "POST", h.logger)
 	var input IndTask.User
 	decoder := json.NewDecoder(req.Body)
+
 	if err := decoder.Decode(&input); err != nil {
+		h.logger.Errorf("Error while decoding request:%s", err)
 		http.Error(w, err.Error(), 400)
-		logrus.Error(err.Error())
+		return
 	}
+	fmt.Println(input)
 	userId, err := h.services.AppUser.CreateUser(&input)
 	if err != nil {
+		h.logger.Errorf("Error while creating user in the database:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
 	header := w.Header()
 	header.Add("id", strconv.Itoa(userId))
-	w.WriteHeader(200)
-
 }
 
 func (h *Handler) changeUser(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working changeUser")
 	userId, err := strconv.Atoi(req.URL.Query().Get("id"))
 	if err != nil || userId < 1 {
+		h.logger.Errorf("No url request:%s", err)
 		http.NotFound(w, req)
 		return
 	}
 	if req.Method != "PUT" && req.Method != "GET" && req.Method != "DELETE" {
+		h.logger.Error("Method Not Allowed")
 		http.Error(w, "Method Not Allowed", 405)
+		return
 	}
 
 	if req.Method == "PUT" {
@@ -181,35 +188,36 @@ func (h *Handler) changeUser(w http.ResponseWriter, req *http.Request) {
 		var input IndTask.User
 		decoder := json.NewDecoder(req.Body)
 		if err := decoder.Decode(&input); err != nil {
+			h.logger.Errorf("Error while decoding request: %s", err)
 			http.Error(w, err.Error(), 400)
-			logrus.Error(err.Error())
+			return
 		}
 		_, err = h.services.AppUser.ChangeUser(&input, userId, req.Method)
 		if err != nil {
+			h.logger.Errorf("Error while updating user: %s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
-		w.WriteHeader(200)
 	}
 
 	if req.Method == "GET" {
 		h.logger.Info("Method GET, changeUser")
-		var user *IndTask.User
-		user, err = h.services.AppUser.ChangeUser(nil, userId, req.Method)
+		user, err := h.services.AppUser.ChangeUser(nil, userId, req.Method)
 		if err != nil {
+			h.logger.Errorf("Error while getting user from database:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
-		var output []byte
-		err = json.Unmarshal(output, user)
+		output, err := json.Marshal(user)
 		if err != nil {
+			h.logger.Errorf("Can not marshal user:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
 		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(200)
 		_, err = w.Write(output)
 		if err != nil {
+			h.logger.Errorf("Can not write output into response:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -219,10 +227,10 @@ func (h *Handler) changeUser(w http.ResponseWriter, req *http.Request) {
 		h.logger.Info("Method DELETE, changeUser")
 		_, err = h.services.AppUser.ChangeUser(nil, userId, req.Method)
 		if err != nil {
+			h.logger.Errorf("Error while deleting genre from database:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
-		w.WriteHeader(200)
 	}
 
 }
@@ -237,6 +245,7 @@ func (h *Handler) moveInBook(w http.ResponseWriter, req *http.Request) {
 	if err := decoder.Decode(&input); err != nil {
 		http.Error(w, err.Error(), 400)
 		logrus.Error(err.Error())
+		return
 	}
 	issueActId, err := h.services.AppMove.MoveInBook(&input)
 	if err != nil {
@@ -285,6 +294,7 @@ func (h *Handler) moveOutBook(w http.ResponseWriter, req *http.Request) {
 	if err := decoder.Decode(&input); err != nil {
 		http.Error(w, err.Error(), 400)
 		logrus.Error(err.Error())
+		return
 	}
 	returnActId, err := h.services.AppMove.MoveOutBook(&input)
 	if err != nil {
@@ -304,25 +314,24 @@ func (h *Handler) getAuthors(w http.ResponseWriter, req *http.Request) {
 	var listAuthors []IndTask.Author
 	listAuthors, err := h.services.AppAuthor.GetAuthors()
 	if err != nil {
+		h.logger.Errorf("Error while getting authors list from database: %s", err)
 		http.Error(w, err.Error(), 500)
-		logrus.Error(err.Error())
 		return
 	}
-
 	var output []byte
-	err = json.Unmarshal(output, &listAuthors)
+	output, err = json.Marshal(&listAuthors)
 	if err != nil {
+		h.logger.Errorf("Marshal error:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(200)
 	_, err = w.Write(output)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
+		h.logger.Errorf("Error while writting response:%s", err)
+		http.Error(w, err.Error(), 501)
 		return
 	}
-
 }
 
 func (h *Handler) createAuthor(w http.ResponseWriter, req *http.Request) {
@@ -331,29 +340,32 @@ func (h *Handler) createAuthor(w http.ResponseWriter, req *http.Request) {
 	var input IndTask.Author
 	decoder := json.NewDecoder(req.Body)
 	if err := decoder.Decode(&input); err != nil {
+		h.logger.Errorf("Error while decoding request:%s", err)
 		http.Error(w, err.Error(), 400)
-		logrus.Error(err.Error())
+		return
 	}
 	authorId, err := h.services.AppAuthor.CreateAuthor(&input)
 	if err != nil {
+		h.logger.Errorf("Error while creating author in the database:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
 	header := w.Header()
 	header.Add("id", strconv.Itoa(authorId))
-	w.WriteHeader(200)
-
 }
 
 func (h *Handler) changeAuthor(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working changeAuthor")
 	authorId, err := strconv.Atoi(req.URL.Query().Get("id"))
 	if err != nil || authorId < 1 {
+		h.logger.Errorf("No url request:%s", err)
 		http.NotFound(w, req)
 		return
 	}
 	if req.Method != "PUT" && req.Method != "GET" && req.Method != "DELETE" {
+		h.logger.Error("Method Not Allowed")
 		http.Error(w, "Method Not Allowed", 405)
+		return
 	}
 
 	if req.Method == "PUT" {
@@ -361,35 +373,36 @@ func (h *Handler) changeAuthor(w http.ResponseWriter, req *http.Request) {
 		var input IndTask.Author
 		decoder := json.NewDecoder(req.Body)
 		if err := decoder.Decode(&input); err != nil {
+			h.logger.Errorf("Error while decoding request: %s", err)
 			http.Error(w, err.Error(), 400)
-			logrus.Error(err.Error())
+			return
 		}
 		_, err = h.services.AppAuthor.ChangeAuthor(&input, authorId, req.Method)
 		if err != nil {
+			h.logger.Errorf("Error while updating genre: %s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
-		w.WriteHeader(200)
 	}
 
 	if req.Method == "GET" {
 		h.logger.Info("Method GET, changeAuthor")
-		var user *IndTask.Author
-		user, err = h.services.AppAuthor.ChangeAuthor(nil, authorId, req.Method)
+		user, err := h.services.AppAuthor.ChangeAuthor(nil, authorId, req.Method)
 		if err != nil {
+			h.logger.Errorf("Error while getting author from database:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
-		var output []byte
-		err = json.Unmarshal(output, user)
+		output, err := json.Marshal(user)
 		if err != nil {
+			h.logger.Errorf("Can not marshal user:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
 		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(200)
 		_, err = w.Write(output)
 		if err != nil {
+			h.logger.Errorf("Can not write output into response:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -399,12 +412,11 @@ func (h *Handler) changeAuthor(w http.ResponseWriter, req *http.Request) {
 		h.logger.Info("Method DELETE, changeAuthor")
 		_, err = h.services.AppAuthor.ChangeAuthor(nil, authorId, req.Method)
 		if err != nil {
+			h.logger.Errorf("Error while deleting genre from database:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
-		w.WriteHeader(200)
 	}
-
 }
 
 //handlers for genres
@@ -415,20 +427,20 @@ func (h *Handler) getGenres(w http.ResponseWriter, req *http.Request) {
 	var listGenre []IndTask.Genre
 	listGenre, err := h.services.AppGenre.GetGenres()
 	if err != nil {
+		h.logger.Errorf("Error while getting genre list from database: %s", err)
 		http.Error(w, err.Error(), 500)
-		logrus.Error(err.Error())
 		return
 	}
-	var output []byte
-	output, err = json.Marshal(&listGenre)
+	output, err := json.Marshal(&listGenre)
 	if err != nil {
+		h.logger.Errorf("Marshal error:%s", err)
 		http.Error(w, err.Error(), 500)
-		logrus.Errorf("Marshal error:%s", err)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
 	_, err = w.Write(output)
 	if err != nil {
+		h.logger.Errorf("Error while writting response:%s", err)
 		http.Error(w, err.Error(), 501)
 		return
 	}
@@ -440,29 +452,32 @@ func (h *Handler) createGenre(w http.ResponseWriter, req *http.Request) {
 	var input IndTask.Genre
 	decoder := json.NewDecoder(req.Body)
 	if err := decoder.Decode(&input); err != nil {
+		h.logger.Errorf("Error while decoding request:%s", err)
 		http.Error(w, err.Error(), 400)
-		logrus.Error(err.Error())
+		return
 	}
 	GenreId, err := h.services.AppGenre.CreateGenre(&input)
 	if err != nil {
+		h.logger.Errorf("Error while creating genre in the database:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
 	header := w.Header()
 	header.Add("id", strconv.Itoa(GenreId))
-
 }
 
 func (h *Handler) changeGenre(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working changeGenre")
-	genreId, err := strconv.Atoi(req.URL.Query().Get("genre_id"))
+	genreId, err := strconv.Atoi(req.URL.Query().Get("id"))
 	if err != nil || genreId < 1 {
+		h.logger.Errorf("No url request:%s", err)
 		http.NotFound(w, req)
-		logrus.Errorf("No url request:%s", err)
 		return
 	}
 	if req.Method != "PUT" && req.Method != "GET" && req.Method != "DELETE" {
+		h.logger.Error("Method Not Allowed")
 		http.Error(w, "Method Not Allowed", 405)
+		return
 	}
 
 	if req.Method == "PUT" {
@@ -470,11 +485,13 @@ func (h *Handler) changeGenre(w http.ResponseWriter, req *http.Request) {
 		var input IndTask.Genre
 		decoder := json.NewDecoder(req.Body)
 		if err := decoder.Decode(&input); err != nil {
+			h.logger.Errorf("Error while decoding request: %s", err)
 			http.Error(w, err.Error(), 400)
-			logrus.Error(err.Error())
+			return
 		}
 		_, err = h.services.AppGenre.ChangeGenre(&input, genreId, req.Method)
 		if err != nil {
+			h.logger.Errorf("Error while updating genre: %s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -484,18 +501,20 @@ func (h *Handler) changeGenre(w http.ResponseWriter, req *http.Request) {
 		h.logger.Info("Method GET, changeGenre")
 		genre, err := h.services.AppGenre.ChangeGenre(nil, genreId, req.Method)
 		if err != nil {
+			h.logger.Errorf("Error while getting genre from database:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
-		var output []byte
-		err = json.Unmarshal(output, genre)
+		output, err := json.Marshal(genre)
 		if err != nil {
+			h.logger.Errorf("Can not marshal genre:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
 		w.Header().Set("Content-Type", "application/json")
-		_, err = w.Write([]byte("jjjkgu"))
+		_, err = w.Write(output)
 		if err != nil {
+			h.logger.Errorf("Can not write output into response:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -505,6 +524,7 @@ func (h *Handler) changeGenre(w http.ResponseWriter, req *http.Request) {
 		h.logger.Info("Method DELETE, changeGenre")
 		_, err = h.services.AppGenre.ChangeGenre(nil, genreId, req.Method)
 		if err != nil {
+			h.logger.Errorf("Error while deleting genre from database:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}

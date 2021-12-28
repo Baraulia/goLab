@@ -4,23 +4,22 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
-	"github.com/Baraulia/goLab/IndTask.git/pkg/logging"
 	"github.com/sirupsen/logrus"
 	"time"
 )
 
 type MovePostgres struct {
-	db     *sql.DB
-	logger *logging.Logger
+	db *sql.DB
 }
 
-func NewMovePostgres(db *sql.DB, logger *logging.Logger) *MovePostgres {
-	return &MovePostgres{db: db, logger: logger}
+func NewMovePostgres(db *sql.DB) *MovePostgres {
+	return &MovePostgres{db: db}
 }
 
 func (r *MovePostgres) MoveInBook(issueAct *IndTask.IssueAct) (int, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
+		logger.Errorf("Can not begin transaction:%s", err)
 		return 0, err
 	}
 
@@ -43,6 +42,7 @@ func (r *MovePostgres) MoveInBook(issueAct *IndTask.IssueAct) (int, error) {
 func (r *MovePostgres) GetMoveInBooks(userId int) ([]IndTask.IssueAct, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
+		logger.Errorf("Can not begin transaction:%s", err)
 		return nil, err
 	}
 
@@ -64,6 +64,7 @@ func (r *MovePostgres) GetMoveInBooks(userId int) ([]IndTask.IssueAct, error) {
 func (r *MovePostgres) MoveOutBook(returnAct *IndTask.ReturnAct) (int, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
+		logger.Errorf("Can not begin transaction:%s", err)
 		return 0, err
 	}
 

@@ -5,11 +5,10 @@ import (
 	"net/http"
 )
 
-func CheckMethod(w http.ResponseWriter, req *http.Request, allowMethod string, logger *logging.Logger) {
+func CheckMethod(w http.ResponseWriter, req *http.Request, allowMethod string, logger logging.Logger) {
 	if req.Method != allowMethod {
-		logger.Errorf("expected method: %s, given method:%s", allowMethod, req.Method)
+		logger.Errorf("Method is not allowed.Eexpected method: %s, given method:%s", allowMethod, req.Method)
 		http.Error(w, "METHOD IS NOT ALLOWED!!!", 405)
 		return
 	}
-
 }

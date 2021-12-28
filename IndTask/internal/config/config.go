@@ -6,6 +6,8 @@ import (
 	"sync"
 )
 
+var logger = logging.GetLogger()
+
 type Config struct {
 	IsDebug bool `yaml:"is_debug" env:"IS_DEBUG"  env-default:"true"`
 	Listen  struct {
@@ -28,14 +30,12 @@ var once sync.Once
 
 func GetConfig() *Config {
 	once.Do(func() {
-		logger := logging.GetLogger()
 		logger.Info("read application configuration")
 		instance = &Config{}
 
 		if err := cleanenv.ReadConfig("configs/config.yaml", instance); err != nil {
 			help, _ := cleanenv.GetDescription(instance, nil)
 			logger.Info(help)
-			logger.Fatal(err)
 		}
 		if err := cleanenv.ReadConfig(".env", instance); err != nil {
 			help, _ := cleanenv.GetDescription(instance, nil)

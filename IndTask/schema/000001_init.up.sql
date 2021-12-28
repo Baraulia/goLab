@@ -21,13 +21,13 @@ CREATE TABLE authors
 CREATE TABLE users
 (
     id serial not null unique primary key,
-    surname  varchar(255) not null unique,
-    user_name varchar(255) not null,
+    surname  varchar(255) not null default null,
+    user_name varchar(255) not null default null,
     patronymic varchar(255),
     pasp_number varchar(50) unique,
-    email varchar(255) not null unique,
+    email varchar(255) not null unique default null,
     adress varchar(255),
-    birth_date timestamp with time zone not null
+    birth_date date not null
 );
 
 CREATE TABLE book_author
@@ -86,5 +86,6 @@ CREATE TABLE return_act
     condition_decrese int,
     rating int
 );
+insert into genre (genre_name) values ('Novel2'), ('Fantasy'), ('Detective'), ('Advanture'), ('Erotic'), ('Triller'), ('Philosophical'), ('Satire'), ('Comedy'), ('Crime'), ('Horror'), ('Business');
 
-insert into genre (genre_name) values ('Novel'), ('Fantasy'), ('Detective'), ('Advanture'), ('Erotic'), ('Thriller'), ('Philosophical'), ('Satire'), ('Comedy'), ('Crime'), ('Horror'), ('Business');
+

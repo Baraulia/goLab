@@ -4,23 +4,22 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
-	"github.com/Baraulia/goLab/IndTask.git/pkg/logging"
 	"github.com/sirupsen/logrus"
 	"time"
 )
 
 type BookPostgres struct {
-	db     *sql.DB
-	logger *logging.Logger
+	db *sql.DB
 }
 
-func NewBookPostgres(db *sql.DB, logger *logging.Logger) *BookPostgres {
-	return &BookPostgres{db: db, logger: logger}
+func NewBookPostgres(db *sql.DB) *BookPostgres {
+	return &BookPostgres{db: db}
 }
 
 func (r *BookPostgres) CreateBook(book *IndTask.Book) (int, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
+		logger.Errorf("Can not begin transaction:%s", err)
 		return 0, err
 	}
 
@@ -65,6 +64,7 @@ func (r *BookPostgres) CreateBook(book *IndTask.Book) (int, error) {
 func (r *BookPostgres) GetBooks() ([]IndTask.Book, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
+		logger.Errorf("Can not begin transaction:%s", err)
 		return nil, err
 	}
 
@@ -87,6 +87,7 @@ func (r *BookPostgres) GetBooks() ([]IndTask.Book, error) {
 func (r *BookPostgres) ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.Book, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
+		logger.Errorf("Can not begin transaction:%s", err)
 		return nil, err
 	}
 

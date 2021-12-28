@@ -13,7 +13,6 @@ import (
 
 func main() {
 	logger := logging.GetLogger()
-
 	cfg := config.GetConfig()
 
 	db, err := postgres.NewPostgresDB(postgres.PostgresDB{
@@ -25,7 +24,7 @@ func main() {
 		SSLMode:  cfg.DB.SSLMode,
 	})
 	if err != nil {
-		logger.Fatalf("failed to initialize db:%s", err.Error())
+		logger.Panicf("failed to initialize db:%s", err.Error())
 	}
 
 	rep := repository.NewRepository(db)
@@ -34,7 +33,7 @@ func main() {
 	srv := new(server.Server)
 	logger.Infof("Running server on %s:%s...", cfg.Listen.BindIp, cfg.Listen.Port)
 	if err := srv.Run(cfg.Listen.BindIp, cfg.Listen.Port, handlers.InitRoutes()); err != nil {
-		logger.Fatalf("Error occured while running http server: %s", err.Error())
+		logger.Panicf("Error occured while running http server: %s", err.Error())
 	}
 
 }

@@ -38,8 +38,8 @@ type Logger struct {
 	*logrus.Entry
 }
 
-func GetLogger() *Logger {
-	return &Logger{e}
+func GetLogger() Logger {
+	return Logger{e}
 }
 
 func (l *Logger) GetLoggerWithField(k string, v interface{}) *Logger {
@@ -54,8 +54,8 @@ func init() {
 			filename := path.Base(frame.File)
 			return fmt.Sprintf("%s()", frame.Function), fmt.Sprintf("%s:%d", filename, frame.Line)
 		},
-		DisableColors: false,
 		FullTimestamp: true,
+		ForceColors:   true,
 	}
 	err := os.MkdirAll("logs", 0777)
 	if err != nil {
@@ -67,7 +67,22 @@ func init() {
 	}
 	l.SetOutput(io.Discard)
 	l.AddHook(&writerHook{
-		Writer:    []io.Writer{allFile, os.Stdout},
+		Writer: []io.Writer{allFile, os.Stdout},
+
+		// PanicLevel level, highest level of severity. Logs and then calls panic with the message passed to Debug, Info, ...
+
+		// FatalLevel level. Logs and then calls `logger.Exit(1)`. It will exit even if the logging level is set to Panic.
+
+		// ErrorLevel level. Logs. Used for errors that should definitely be noted.
+		// Commonly used for hooks to send errors to an error tracking service.
+
+		// WarnLevel level. Non-critical entries that deserve eyes.
+
+		// InfoLevel level. General operational entries about what's going on inside the application.
+
+		// DebugLevel level. Usually only enabled when debugging. Very verbose logging.
+
+		// TraceLevel level. Designates finer-grained informational events than the Debug.
 		LogLevels: logrus.AllLevels,
 	})
 	l.SetLevel(logrus.TraceLevel)
