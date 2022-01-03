@@ -67,7 +67,6 @@ func (r *GenrePostgres) ChangeGenre(genre *IndTask.Genre, genreId int, method st
 		logger.Errorf("Can not starts transaction:%s", err)
 		return nil, err
 	}
-	defer transaction.Commit()
 
 	if method == "GET" {
 		var genre IndTask.Genre
@@ -97,7 +96,8 @@ func (r *GenrePostgres) ChangeGenre(genre *IndTask.Genre, genreId int, method st
 			logger.Errorf("Delete genre error:%s", err)
 			return nil, err
 		}
+		return nil, transaction.Commit()
 	}
 
-	return nil, transaction.Commit()
+	return nil, transaction.Rollback()
 }

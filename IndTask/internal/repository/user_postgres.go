@@ -20,7 +20,6 @@ func (r *UserPostgres) GetUsers() ([]IndTask.User, error) {
 		logger.Errorf("Can not begin transaction:%s", err)
 		return nil, err
 	}
-	defer transaction.Commit()
 
 	var listUsers []IndTask.User
 	query := fmt.Sprint("SELECT * FROM users")
@@ -39,7 +38,7 @@ func (r *UserPostgres) GetUsers() ([]IndTask.User, error) {
 		listUsers = append(listUsers, user)
 	}
 
-	return listUsers, err
+	return listUsers, transaction.Commit()
 }
 
 func (r *UserPostgres) CreateUser(user *IndTask.User) (int, error) {
@@ -96,8 +95,9 @@ func (r *UserPostgres) ChangeUser(user *IndTask.User, userId int, method string)
 			logger.Errorf("Delete user error:%s", err)
 			return nil, err
 		}
+		return nil, transaction.Commit()
 
 	}
-	return nil, transaction.Commit()
+	return nil, transaction.Rollback()
 
 }

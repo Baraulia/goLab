@@ -96,7 +96,8 @@ func (r *AuthorPostgres) ChangeAuthor(author *IndTask.Author, authorId int, meth
 			logger.Errorf("Delete author error:%s", err)
 			return nil, err
 		}
+		return nil, transaction.Commit()
 	}
 
-	return nil, transaction.Commit()
+	return nil, transaction.Rollback()
 }

@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
-	"github.com/sirupsen/logrus"
 	"net/http"
 	"strconv"
 )
@@ -17,53 +16,84 @@ func (h *Handler) getBooks(w http.ResponseWriter, req *http.Request) {
 	var listBooks []IndTask.Book
 	listBooks, err := h.services.AppBook.GetBooks()
 	if err != nil {
+		h.logger.Errorf("Error while getting books list from database: %s", err)
 		http.Error(w, err.Error(), 500)
-		h.logger.Error(err.Error())
 		return
 	}
-	var output []byte
-	err = json.Unmarshal(output, &listBooks)
+	output, err := json.Marshal(&listBooks)
 	if err != nil {
+		h.logger.Errorf("Marshal error:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
 	_, err = w.Write(output)
 	if err != nil {
+		h.logger.Errorf("Error while writting response:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
+}
 
+func (h *Handler) getListBooks(w http.ResponseWriter, req *http.Request) {
+	h.logger.Info("Working getListBooks")
+	CheckMethod(w, req, "GET", h.logger)
+	var listBooks []IndTask.ListBooks
+	listBooks, err := h.services.AppBook.GetListBooks()
+	if err != nil {
+		h.logger.Errorf("Error while getting listBooks list from database: %s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	output, err := json.Marshal(&listBooks)
+	if err != nil {
+		h.logger.Errorf("Marshal error:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	_, err = w.Write(output)
+	if err != nil {
+		h.logger.Errorf("Error while writting response:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
 }
 
 func (h *Handler) createBook(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working createBook")
 	CheckMethod(w, req, "POST", h.logger)
-	var input IndTask.Book
+	var input *IndTask.Book
 	decoder := json.NewDecoder(req.Body)
+
 	if err := decoder.Decode(&input); err != nil {
+		h.logger.Errorf("Error while decoding request:%s", err)
 		http.Error(w, err.Error(), 400)
-		logrus.Error(err.Error())
 		return
 	}
-	bookId, err := h.services.AppBook.CreateBook(&input)
+	fmt.Println(input)
+
+	bookId, err := h.services.AppBook.CreateBook(input)
 	if err != nil {
+		h.logger.Errorf("Error while creating book in the database:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
+
 	header := w.Header()
 	header.Add("id", strconv.Itoa(bookId))
-	w.WriteHeader(200)
 }
 
 func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working changeBook")
 	bookId, err := strconv.Atoi(req.URL.Query().Get("id"))
 	if err != nil || bookId < 1 {
+		h.logger.Errorf("No url request:%s", err)
 		http.NotFound(w, req)
 		return
 	}
-	if req.Method != "PUT" && req.Method != "GET" && req.Method != "DELETE" {
+	if req.Method != "PUT" && req.Method != "GET" {
+		h.logger.Error("Method Not Allowed")
 		http.Error(w, "Method Not Allowed", 405)
 		return
 	}
@@ -73,29 +103,29 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 		var input IndTask.Book
 		decoder := json.NewDecoder(req.Body)
 		if err := decoder.Decode(&input); err != nil {
+			h.logger.Errorf("Error while decoding request: %s", err)
 			http.Error(w, err.Error(), 400)
-			logrus.Error(err.Error())
 			return
 		}
 		_, err = h.services.AppBook.ChangeBook(&input, bookId, req.Method)
 		if err != nil {
+			h.logger.Errorf("Error while updating book: %s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
-		w.WriteHeader(200)
 	}
 
 	if req.Method == "GET" {
 		h.logger.Info("Method GET, changeBook")
-		var book *IndTask.Book
-		book, err = h.services.AppBook.ChangeBook(nil, bookId, req.Method)
+		book, err := h.services.AppBook.ChangeBook(nil, bookId, req.Method)
 		if err != nil {
+			h.logger.Errorf("Error while getting book from database:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
-		var output []byte
-		err = json.Unmarshal(output, book)
+		output, err := json.Marshal(book)
 		if err != nil {
+			h.logger.Errorf("Can not marshal book:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -103,21 +133,76 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 		w.WriteHeader(200)
 		_, err = w.Write(output)
 		if err != nil {
+			h.logger.Errorf("Can not write output into response:%s", err)
+			http.Error(w, err.Error(), 500)
+			return
+		}
+	}
+}
+
+func (h *Handler) changeListBooks(w http.ResponseWriter, req *http.Request) {
+	h.logger.Info("Working changeListBooks")
+	listBookId, err := strconv.Atoi(req.URL.Query().Get("id"))
+	if err != nil || listBookId < 1 {
+		h.logger.Errorf("No url request:%s", err)
+		http.NotFound(w, req)
+		return
+	}
+	if req.Method != "PUT" && req.Method != "GET" && req.Method != "DELETE" {
+		h.logger.Error("Method Not Allowed")
+		http.Error(w, "Method Not Allowed", 405)
+		return
+	}
+
+	if req.Method == "PUT" {
+		h.logger.Info("Method PUT, changeListBooks")
+		var input IndTask.ListBooks
+		decoder := json.NewDecoder(req.Body)
+		if err := decoder.Decode(&input); err != nil {
+			h.logger.Errorf("Error while decoding request: %s", err)
+			http.Error(w, err.Error(), 400)
+			return
+		}
+		_, err = h.services.AppBook.ChangeListBook(&input, listBookId, req.Method)
+		if err != nil {
+			h.logger.Errorf("Error while updating listBook: %s", err)
+			http.Error(w, err.Error(), 500)
+			return
+		}
+	}
+
+	if req.Method == "GET" {
+		h.logger.Info("Method GET, changeListBooks")
+		book, err := h.services.AppBook.ChangeListBook(nil, listBookId, req.Method)
+		if err != nil {
+			h.logger.Errorf("Error while getting listBook from database:%s", err)
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		output, err := json.Marshal(book)
+		if err != nil {
+			h.logger.Errorf("Can not marshal listBook:%s", err)
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		w.Header().Set("Content-Type", "application/json")
+		_, err = w.Write(output)
+		if err != nil {
+			h.logger.Errorf("Can not write output into response:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
 	}
 
 	if req.Method == "DELETE" {
-		h.logger.Info("Method DELETE, changeBook")
-		_, err = h.services.AppBook.ChangeBook(nil, bookId, req.Method)
+		h.logger.Info("Method DELETE, changeListBooks")
+		_, err = h.services.AppBook.ChangeListBook(nil, listBookId, req.Method)
 		if err != nil {
+			h.logger.Errorf("Error while deleting listBook from database:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
-		w.WriteHeader(200)
 	}
-
 }
 
 //handlers for users
@@ -158,13 +243,14 @@ func (h *Handler) createUser(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, err.Error(), 400)
 		return
 	}
-	fmt.Println(input)
+
 	userId, err := h.services.AppUser.CreateUser(&input)
 	if err != nil {
 		h.logger.Errorf("Error while creating user in the database:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
+
 	header := w.Header()
 	header.Add("id", strconv.Itoa(userId))
 }
@@ -235,75 +321,273 @@ func (h *Handler) changeUser(w http.ResponseWriter, req *http.Request) {
 
 }
 
-//handlers for movement books
+//handlers for issue acts
 
-func (h *Handler) moveInBook(w http.ResponseWriter, req *http.Request) {
-	h.logger.Info("Working moveInBook")
+func (h *Handler) getIssueActs(w http.ResponseWriter, req *http.Request) {
+	h.logger.Info("Working getIssueActs")
+	CheckMethod(w, req, "GET", h.logger)
+	var issueActs []IndTask.IssueAct
+	issueActs, err := h.services.AppMove.GetIssueActs()
+	if err != nil {
+		h.logger.Errorf("Error while getting issueActs list from database: %s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	output, err := json.Marshal(&issueActs)
+	if err != nil {
+		h.logger.Errorf("Marshal error:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	_, err = w.Write(output)
+	if err != nil {
+		h.logger.Errorf("Error while writting response:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+}
+
+func (h *Handler) createIssueAct(w http.ResponseWriter, req *http.Request) {
+	h.logger.Info("Working createIssueAct")
 	CheckMethod(w, req, "POST", h.logger)
 	var input IndTask.IssueAct
 	decoder := json.NewDecoder(req.Body)
+
 	if err := decoder.Decode(&input); err != nil {
+		h.logger.Errorf("Error while decoding request:%s", err)
 		http.Error(w, err.Error(), 400)
-		logrus.Error(err.Error())
 		return
 	}
-	issueActId, err := h.services.AppMove.MoveInBook(&input)
+	issueActId, err := h.services.AppMove.CreateIssueAct(&input, req.Method)
 	if err != nil {
+		h.logger.Errorf("Error while creating issueAct in the database:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
 	header := w.Header()
 	header.Add("id", strconv.Itoa(issueActId))
-	w.WriteHeader(200)
 }
 
-func (h *Handler) getMoveInBook(w http.ResponseWriter, req *http.Request) {
-	h.logger.Info("Working getMoveInBook")
-	userId, err := strconv.Atoi(req.URL.Query().Get("id"))
+func (h *Handler) getIssueActsByUser(w http.ResponseWriter, req *http.Request) {
+	h.logger.Info("Working getIssueActsByUser")
+	userId, err := strconv.Atoi(req.URL.Query().Get("user_id"))
 	if err != nil || userId < 1 {
+		h.logger.Errorf("No url request:%s", err)
 		http.NotFound(w, req)
 		return
 	}
 	CheckMethod(w, req, "GET", h.logger)
 	var issueActs []IndTask.IssueAct
-	issueActs, err = h.services.AppMove.GetMoveInBooks(userId)
+	issueActs, err = h.services.AppMove.GetIssueActsByUser(userId)
 	if err != nil {
+		h.logger.Errorf("Error while getting issueActsByUser from database: %s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	var output []byte
-	err = json.Unmarshal(output, &issueActs)
+	output, err := json.Marshal(&issueActs)
 	if err != nil {
+		h.logger.Errorf("Marshal error:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(200)
 	_, err = w.Write(output)
 	if err != nil {
+		h.logger.Errorf("Error while writting response:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
 }
 
-func (h *Handler) moveOutBook(w http.ResponseWriter, req *http.Request) {
-	h.logger.Info("Working moveOutBook")
+func (h *Handler) changeIssueAct(w http.ResponseWriter, req *http.Request) {
+	h.logger.Info("Working changeIssueAct")
+	actId, err := strconv.Atoi(req.URL.Query().Get("id"))
+	if err != nil || actId < 1 {
+		h.logger.Errorf("No url request:%s", err)
+		http.NotFound(w, req)
+		return
+	}
+	if req.Method != "PUT" && req.Method != "GET" {
+		h.logger.Error("Method Not Allowed")
+		http.Error(w, "Method Not Allowed", 405)
+		return
+	}
+
+	if req.Method == "PUT" {
+		h.logger.Info("Method PUT, changeIssueAct")
+		var input IndTask.IssueAct
+		decoder := json.NewDecoder(req.Body)
+		if err := decoder.Decode(&input); err != nil {
+			h.logger.Errorf("Error while decoding request: %s", err)
+			http.Error(w, err.Error(), 400)
+			return
+		}
+		_, err = h.services.AppMove.ChangeIssueAct(&input, actId, req.Method)
+		if err != nil {
+			h.logger.Errorf("Error while updating issue act: %s", err)
+			http.Error(w, err.Error(), 500)
+			return
+		}
+	}
+
+	if req.Method == "GET" {
+		h.logger.Info("Method GET, changeIssueAct")
+		issueAct, err := h.services.AppMove.ChangeIssueAct(nil, actId, req.Method)
+		if err != nil {
+			h.logger.Errorf("Error while getting issueAct id=%d from database:%s", actId, err)
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		output, err := json.Marshal(issueAct)
+		if err != nil {
+			h.logger.Errorf("Can not marshal issueAct:%s", err)
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		w.Header().Set("Content-Type", "application/json")
+		_, err = w.Write(output)
+		if err != nil {
+			h.logger.Errorf("Can not write output into response:%s", err)
+			http.Error(w, err.Error(), 500)
+			return
+		}
+	}
+}
+
+//handlers for return acts
+
+func (h *Handler) getReturnActs(w http.ResponseWriter, req *http.Request) {
+	h.logger.Info("Working getReturnActs")
+	CheckMethod(w, req, "GET", h.logger)
+	var returnActs []IndTask.ReturnAct
+	returnActs, err := h.services.AppMove.GetReturnActs()
+	if err != nil {
+		h.logger.Errorf("Error while getting returnActs list from database: %s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	output, err := json.Marshal(&returnActs)
+	if err != nil {
+		h.logger.Errorf("Marshal error:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	_, err = w.Write(output)
+	if err != nil {
+		h.logger.Errorf("Error while writting response:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+}
+
+func (h *Handler) createReturnAct(w http.ResponseWriter, req *http.Request) {
+	h.logger.Info("Working createReturnAct")
 	CheckMethod(w, req, "POST", h.logger)
 	var input IndTask.ReturnAct
 	decoder := json.NewDecoder(req.Body)
+
 	if err := decoder.Decode(&input); err != nil {
+		h.logger.Errorf("Error while decoding request:%s", err)
 		http.Error(w, err.Error(), 400)
-		logrus.Error(err.Error())
 		return
 	}
-	returnActId, err := h.services.AppMove.MoveOutBook(&input)
+
+	returnActId, err := h.services.AppMove.CreateReturnAct(&input)
 	if err != nil {
+		h.logger.Errorf("Error while creating returnAct in the database:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
 	header := w.Header()
 	header.Add("id", strconv.Itoa(returnActId))
-	w.WriteHeader(200)
+}
+
+func (h *Handler) getReturnActsByUser(w http.ResponseWriter, req *http.Request) {
+	h.logger.Info("Working getReturnActsByUser")
+	userId, err := strconv.Atoi(req.URL.Query().Get("user_id"))
+	if err != nil || userId < 1 {
+		h.logger.Errorf("No url request:%s", err)
+		http.NotFound(w, req)
+		return
+	}
+	CheckMethod(w, req, "GET", h.logger)
+	var returnActs []IndTask.ReturnAct
+	returnActs, err = h.services.AppMove.GetReturnActsByUser(userId)
+	if err != nil {
+		h.logger.Errorf("Error while getting returnActsByUser from database: %s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	output, err := json.Marshal(&returnActs)
+	if err != nil {
+		h.logger.Errorf("Marshal error:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	_, err = w.Write(output)
+	if err != nil {
+		h.logger.Errorf("Error while writting response:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+}
+
+func (h *Handler) changeReturnAct(w http.ResponseWriter, req *http.Request) {
+	h.logger.Info("Working changeReturnAct")
+	actId, err := strconv.Atoi(req.URL.Query().Get("id"))
+	if err != nil || actId < 1 {
+		h.logger.Errorf("No url request:%s", err)
+		http.NotFound(w, req)
+		return
+	}
+	if req.Method != "PUT" && req.Method != "GET" {
+		h.logger.Error("Method Not Allowed")
+		http.Error(w, "Method Not Allowed", 405)
+		return
+	}
+
+	if req.Method == "PUT" {
+		h.logger.Info("Method PUT, changeReturnAct")
+		var input IndTask.ReturnAct
+		decoder := json.NewDecoder(req.Body)
+		if err := decoder.Decode(&input); err != nil {
+			h.logger.Errorf("Error while decoding request: %s", err)
+			http.Error(w, err.Error(), 400)
+			return
+		}
+		_, err = h.services.AppMove.ChangeReturnAct(&input, actId, req.Method)
+		if err != nil {
+			h.logger.Errorf("Error while updating return act: %s", err)
+			http.Error(w, err.Error(), 500)
+			return
+		}
+	}
+
+	if req.Method == "GET" {
+		h.logger.Info("Method GET, changeReturnAct")
+		returnAct, err := h.services.AppMove.ChangeReturnAct(nil, actId, req.Method)
+		if err != nil {
+			h.logger.Errorf("Error while getting returnAct from database:%s", err)
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		output, err := json.Marshal(returnAct)
+		if err != nil {
+			h.logger.Errorf("Can not marshal returnAct:%s", err)
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		w.Header().Set("Content-Type", "application/json")
+		_, err = w.Write(output)
+		if err != nil {
+			h.logger.Errorf("Can not write output into response:%s", err)
+			http.Error(w, err.Error(), 500)
+			return
+		}
+	}
 }
 
 //handlers for authors

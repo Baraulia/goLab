@@ -27,8 +27,8 @@ func main() {
 		logger.Panicf("failed to initialize db:%s", err.Error())
 	}
 
-	rep := repository.NewRepository(db)
-	services := service.NewService(rep)
+	Rep := repository.NewRepository(db)
+	services := service.NewService(Rep)
 	handlers := handler.NewHandler(logger, services)
 	srv := new(server.Server)
 	logger.Infof("Running server on %s:%s...", cfg.Listen.BindIp, cfg.Listen.Port)

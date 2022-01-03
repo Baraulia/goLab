@@ -188,7 +188,7 @@ time="2021-12-23T21:21:38+03:00" level=info msg="Running server on 127.0.0.1:808
 [36mINFO[0m[2021-12-23T21:25:32+03:00]main.go:35 main.main() Running server on 127.0.0.1:8080...          
 time="2021-12-23T21:25:40+03:00" level=info msg="read application configuration" func="github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1()" file="config.go:32"
 time="2021-12-23T21:25:41+03:00" level=info msg="Running server on 127.0.0.1:8080..." func="main.main()" file="main.go:35"
-[36mINFO[0m[2021-12-23T21:26:07+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-23T21:26:07+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration
 [36mINFO[0m[2021-12-23T21:26:07+03:00]main.go:35 main.main() Running server on 127.0.0.1:8080...          
 [36mINFO[0m[2021-12-23T21:28:03+03:00]config.go:32 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
 [31mERRO[0m[2021-12-23T21:28:03+03:00]main.go:35 main.main() Running server on 127.0.0.1:8080...          
@@ -985,3 +985,731 @@ time="2021-12-23T21:25:41+03:00" level=info msg="Running server on 127.0.0.1:808
 [36mINFO[0m[2021-12-28T09:42:35+03:00]handlers.go:472 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method PUT, changeGenre                      
 [36mINFO[0m[2021-12-28T09:42:49+03:00]handlers.go:459 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
 [36mINFO[0m[2021-12-28T09:42:49+03:00]handlers.go:488 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2021-12-28T15:37:33+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T15:37:33+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T15:39:20+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T15:39:20+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T15:41:54+03:00]handlers.go:150 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-28T15:42:28+03:00]handlers.go:150 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2021-12-28T16:00:39+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T16:00:39+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T19:28:13+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T19:28:13+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T19:28:35+03:00]handlers.go:13 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2021-12-28T19:28:48+03:00]handlers.go:38 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getListBooks() Working getListBooks                         
+[36mINFO[0m[2021-12-28T19:28:57+03:00]handlers.go:93 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2021-12-28T19:28:57+03:00]handlers.go:99 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while decoding request:json: cannot unmarshal number 1.25 into Go struct field Book.rent_cost of type int 
+[36mINFO[0m[2021-12-28T19:35:25+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T19:35:25+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T19:35:29+03:00]handlers.go:93 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2021-12-28T19:35:29+03:00]author_postgres.go:76 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*AuthorPostgres).ChangeAuthor() Scan error:sql: no rows in result set        
+[31mERRO[0m[2021-12-28T19:35:29+03:00]book_service.go:92 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckGenreAuthorExist() Such a author (id=0) does not exist          
+[31mERRO[0m[2021-12-28T19:35:29+03:00]handlers.go:106 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while creating book in the database:such a author (id=0) does not exist 
+[36mINFO[0m[2021-12-28T19:37:43+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T19:37:43+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T19:37:45+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2021-12-28T19:37:45+03:00]author_postgres.go:76 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*AuthorPostgres).ChangeAuthor() Scan error:sql: no rows in result set        
+[31mERRO[0m[2021-12-28T19:37:45+03:00]book_service.go:92 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckGenreAuthorExist() Such a author (id=0) does not exist          
+[31mERRO[0m[2021-12-28T19:37:45+03:00]handlers.go:108 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while creating book in the database:such a author (id=0) does not exist 
+[36mINFO[0m[2021-12-28T19:38:36+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T19:38:36+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T19:38:39+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2021-12-28T19:38:39+03:00]author_postgres.go:76 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*AuthorPostgres).ChangeAuthor() Scan error:sql: no rows in result set        
+[31mERRO[0m[2021-12-28T19:38:39+03:00]book_service.go:92 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckGenreAuthorExist() Such a author (id=0) does not exist          
+[31mERRO[0m[2021-12-28T19:38:39+03:00]handlers.go:108 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while creating book in the database:such a author (id=0) does not exist 
+[36mINFO[0m[2021-12-28T20:19:02+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T20:19:02+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T20:19:04+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2021-12-28T20:19:04+03:00]author_postgres.go:76 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*AuthorPostgres).ChangeAuthor() Scan error:sql: no rows in result set        
+[31mERRO[0m[2021-12-28T20:19:04+03:00]book_service.go:93 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckGenreAuthorExist() Such a author (id=0) does not exist          
+[36mINFO[0m[2021-12-28T20:23:07+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T20:23:07+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T20:23:09+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2021-12-28T20:23:09+03:00]author_postgres.go:76 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*AuthorPostgres).ChangeAuthor() Scan error:sql: no rows in result set        
+[31mERRO[0m[2021-12-28T20:23:09+03:00]book_service.go:93 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckGenreAuthorExist() Such a author (id=0) does not exist          
+[31mERRO[0m[2021-12-28T20:23:09+03:00]book_postgres.go:30 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).CreateBook() Scan error:sql: no rows in result set        
+[31mERRO[0m[2021-12-28T20:23:09+03:00]handlers.go:108 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while creating book in the database:sql: no rows in result set 
+[36mINFO[0m[2021-12-28T20:24:28+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T20:24:28+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T20:24:29+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2021-12-28T20:24:29+03:00]genre_postgres.go:76 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*GenrePostgres).ChangeGenre() Scan error:sql: no rows in result set        
+[31mERRO[0m[2021-12-28T20:24:29+03:00]book_service.go:101 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckGenreAuthorExist() Such a genre (id=0) does not exist           
+[31mERRO[0m[2021-12-28T20:24:29+03:00]book_postgres.go:30 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).CreateBook() Scan error:sql: no rows in result set        
+[31mERRO[0m[2021-12-28T20:24:29+03:00]handlers.go:108 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while creating book in the database:sql: no rows in result set 
+[36mINFO[0m[2021-12-28T20:25:09+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T20:25:09+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T20:25:11+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2021-12-28T20:25:11+03:00]book_postgres.go:56 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).CreateBook() Can not insert in the book_author:pq: insert or update on table "book_author" violates foreign key constraint "book_author_author_id_fkey" 
+[31mERRO[0m[2021-12-28T20:25:11+03:00]handlers.go:108 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while creating book in the database:pq: insert or update on table "book_author" violates foreign key constraint "book_author_author_id_fkey" 
+[36mINFO[0m[2021-12-28T20:30:41+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T20:30:41+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T20:30:42+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T20:33:19+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T20:33:19+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T20:33:21+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T20:39:45+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T20:39:45+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T20:39:47+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2021-12-28T20:39:47+03:00]book_postgres.go:99 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetBooks() Scan error:sql: expected 7 destination arguments in Scan, not 6 
+[31mERRO[0m[2021-12-28T20:39:47+03:00]book_service.go:36 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() Error when getting books:sql: expected 7 destination arguments in Scan, not 6 
+[31mERRO[0m[2021-12-28T20:39:47+03:00]handlers.go:108 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while creating book in the database:sql: expected 7 destination arguments in Scan, not 6 
+[36mINFO[0m[2021-12-28T20:41:43+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T20:41:43+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T20:41:45+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T20:43:38+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T20:43:38+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T20:43:40+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T20:44:54+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T20:44:54+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T20:44:55+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T20:46:32+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T20:46:32+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T20:46:36+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T20:47:37+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T20:47:37+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T20:47:38+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T20:49:20+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T20:49:20+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T20:49:22+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T20:50:04+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T20:50:04+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T20:50:05+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T20:54:24+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T20:54:24+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T20:54:25+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T20:54:43+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T21:19:35+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T21:19:35+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T21:19:37+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T21:20:06+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T21:20:06+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T21:20:13+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T21:20:42+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T21:20:42+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T21:20:44+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T21:23:14+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T21:23:14+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T21:23:16+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T21:29:12+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T21:29:12+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T21:29:14+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T21:30:36+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T21:30:36+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T21:30:38+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T21:34:44+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T21:34:44+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T21:34:46+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T21:38:48+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T21:38:48+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T21:39:14+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T21:39:34+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T21:40:17+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T21:40:17+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T21:40:19+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T21:41:30+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T21:41:30+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T21:41:34+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T21:42:49+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T21:42:49+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T21:42:50+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T21:43:23+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T21:43:23+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T21:43:25+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-28T21:44:19+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-28T21:44:19+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-28T21:44:20+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-30T09:39:32+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-30T09:40:56+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-30T09:41:25+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T09:41:25+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T09:41:27+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-30T09:42:09+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T09:42:09+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T09:42:11+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-30T10:24:03+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T10:24:03+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T10:24:05+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2021-12-30T10:24:05+03:00]book_postgres.go:31 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).CreateBook() Scan error:sql: Scan error on column index 0, name "id": destination not a pointer 
+[31mERRO[0m[2021-12-30T10:24:05+03:00]handlers.go:108 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while creating book in the database:sql: Scan error on column index 0, name "id": destination not a pointer 
+[36mINFO[0m[2021-12-30T10:26:36+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T10:26:36+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T10:26:37+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2021-12-30T10:26:37+03:00]book_postgres.go:32 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).CreateBook() Scan error:sql: Scan error on column index 0, name "id": destination not a pointer 
+[31mERRO[0m[2021-12-30T10:26:37+03:00]handlers.go:108 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while creating book in the database:sql: Scan error on column index 0, name "id": destination not a pointer 
+[36mINFO[0m[2021-12-30T10:26:53+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T10:26:53+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T10:26:56+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2021-12-30T10:26:56+03:00]book_postgres.go:32 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).CreateBook() Scan error:sql: Scan error on column index 0, name "id": destination not a pointer 
+[31mERRO[0m[2021-12-30T10:26:56+03:00]handlers.go:108 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while creating book in the database:sql: Scan error on column index 0, name "id": destination not a pointer 
+[36mINFO[0m[2021-12-30T10:27:01+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T10:27:01+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T10:27:03+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2021-12-30T10:27:03+03:00]book_postgres.go:32 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).CreateBook() Scan error:sql: Scan error on column index 0, name "id": destination not a pointer 
+[31mERRO[0m[2021-12-30T10:27:03+03:00]handlers.go:108 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while creating book in the database:sql: Scan error on column index 0, name "id": destination not a pointer 
+[36mINFO[0m[2021-12-30T10:27:19+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T10:27:19+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T10:27:22+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-30T10:29:43+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T10:29:43+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T10:29:45+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-30T10:29:45+03:00]book_service.go:59 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Маугли, book_published = 1920 
+[36mINFO[0m[2021-12-30T10:29:45+03:00]book_service.go:59 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Маугли, book_published = 1920 
+[36mINFO[0m[2021-12-30T10:29:45+03:00]book_service.go:59 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Маугли, book_published = 1920 
+[36mINFO[0m[2021-12-30T10:29:45+03:00]book_service.go:59 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Маугли, book_published = 1920 
+[36mINFO[0m[2021-12-30T10:29:45+03:00]book_service.go:59 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Маугли, book_published = 1920 
+[36mINFO[0m[2021-12-30T10:29:45+03:00]book_service.go:59 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Маугли, book_published = 1920 
+[36mINFO[0m[2021-12-30T10:29:45+03:00]book_service.go:59 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Маугли, book_published = 1920 
+[36mINFO[0m[2021-12-30T10:29:45+03:00]book_service.go:59 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Маугли, book_published = 1920 
+[36mINFO[0m[2021-12-30T10:29:45+03:00]book_service.go:59 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Маугли, book_published = 1920 
+[36mINFO[0m[2021-12-30T10:29:45+03:00]book_service.go:59 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Маугли, book_published = 1920 
+[36mINFO[0m[2021-12-30T10:29:45+03:00]book_service.go:59 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Маугли, book_published = 1920 
+[36mINFO[0m[2021-12-30T10:32:21+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T10:32:21+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T10:32:23+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-30T10:32:23+03:00]book_service.go:62 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Маугли, book_published = 1920 
+[36mINFO[0m[2021-12-30T10:37:52+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T10:37:52+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T10:37:53+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-30T10:37:53+03:00]book_service.go:62 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Маугли, book_published = 1920 
+[31mERRO[0m[2021-12-30T10:37:53+03:00]handlers.go:108 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while creating book in the database:pq: could not determine data type of parameter $1 
+[36mINFO[0m[2021-12-30T10:38:33+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T10:38:33+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T10:38:35+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-30T10:38:35+03:00]book_service.go:62 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Маугли, book_published = 1920 
+[36mINFO[0m[2021-12-30T10:40:02+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T10:40:02+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T10:40:04+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-30T10:40:42+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-30T10:40:42+03:00]book_service.go:62 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Маугли, book_published = 1920 
+[36mINFO[0m[2021-12-30T10:41:11+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2021-12-30T10:46:08+03:00]handlers.go:39 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getListBooks() Working getListBooks                         
+[31mERRO[0m[2021-12-30T10:46:08+03:00]book_postgres.go:130 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetListBooks() Scan error:sql: expected 7 destination arguments in Scan, not 5 
+[31mERRO[0m[2021-12-30T10:46:08+03:00]handlers.go:44 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getListBooks() Error while getting listBooks list from database: sql: expected 7 destination arguments in Scan, not 5 
+[36mINFO[0m[2021-12-30T10:50:41+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T10:50:41+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T10:50:43+03:00]handlers.go:39 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getListBooks() Working getListBooks                         
+[36mINFO[0m[2021-12-30T10:51:29+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2021-12-30T10:52:08+03:00]handlers.go:379 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2021-12-30T10:53:04+03:00]handlers.go:492 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getGenres() Working getGenres                            
+[36mINFO[0m[2021-12-30T10:54:21+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-30T10:55:35+03:00]handlers.go:118 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Working changeBook                           
+[36mINFO[0m[2021-12-30T10:55:35+03:00]handlers.go:132 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Method PUT, changeBook                       
+[31mERRO[0m[2021-12-30T10:55:35+03:00]handlers.go:142 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Error while updating book: pq: syntax error at or near "=" 
+[36mINFO[0m[2021-12-30T11:08:08+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T11:08:08+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T11:08:13+03:00]handlers.go:118 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Working changeBook                           
+[36mINFO[0m[2021-12-30T11:08:13+03:00]handlers.go:132 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Method PUT, changeBook                       
+[31mERRO[0m[2021-12-30T11:08:13+03:00]book_postgres.go:195 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).ChangeBook() Can not insert in the book_author for book_id = 1, author_id = 2 : pq: relation "author_genre" does not exist 
+[31mERRO[0m[2021-12-30T11:08:13+03:00]handlers.go:142 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Error while updating book: pq: relation "author_genre" does not exist 
+[36mINFO[0m[2021-12-30T11:09:09+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T11:09:09+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T11:09:10+03:00]handlers.go:118 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Working changeBook                           
+[36mINFO[0m[2021-12-30T11:09:10+03:00]handlers.go:132 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Method PUT, changeBook                       
+[36mINFO[0m[2021-12-30T11:19:24+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T11:19:24+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T11:19:37+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-30T11:20:14+03:00]handlers.go:118 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Working changeBook                           
+[36mINFO[0m[2021-12-30T11:20:14+03:00]handlers.go:132 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Method PUT, changeBook                       
+[36mINFO[0m[2021-12-30T11:20:58+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2021-12-30T11:21:02+03:00]handlers.go:39 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getListBooks() Working getListBooks                         
+[36mINFO[0m[2021-12-30T11:21:10+03:00]handlers.go:118 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Working changeBook                           
+[36mINFO[0m[2021-12-30T11:21:10+03:00]handlers.go:173 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Method DELETE, changeBook                    
+[31mERRO[0m[2021-12-30T11:21:10+03:00]handlers.go:176 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Error while deleting genre from database:pq: update or delete on table "books" violates foreign key constraint "list_books_book_id_fkey" on table "list_books" 
+[36mINFO[0m[2021-12-30T14:33:32+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T14:33:32+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T14:33:39+03:00]handlers.go:118 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Working changeBook                           
+[31mERRO[0m[2021-12-30T14:33:39+03:00]handlers.go:126 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Method Not Allowed                           
+[36mINFO[0m[2021-12-30T14:34:17+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2021-12-30T14:34:21+03:00]handlers.go:39 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getListBooks() Working getListBooks                         
+[36mINFO[0m[2021-12-30T14:35:00+03:00]handlers.go:94 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2021-12-30T14:35:29+03:00]handlers.go:118 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Working changeBook                           
+[36mINFO[0m[2021-12-30T14:35:29+03:00]handlers.go:132 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Method PUT, changeBook                       
+[36mINFO[0m[2021-12-30T14:35:43+03:00]handlers.go:174 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Working changeListBooks                      
+[36mINFO[0m[2021-12-30T14:35:43+03:00]handlers.go:228 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Method DELETE, changeListBooks               
+[36mINFO[0m[2021-12-30T14:35:59+03:00]handlers.go:118 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Working changeBook                           
+[36mINFO[0m[2021-12-30T14:35:59+03:00]handlers.go:149 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Method GET, changeBook                       
+[31mERRO[0m[2021-12-30T14:35:59+03:00]handlers.go:152 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Error while getting book from database:sql: expected 7 destination arguments in Scan, not 1 
+[36mINFO[0m[2021-12-30T14:40:38+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T14:40:38+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T14:40:46+03:00]handlers.go:118 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Working changeBook                           
+[36mINFO[0m[2021-12-30T14:40:46+03:00]handlers.go:149 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Method GET, changeBook                       
+[36mINFO[0m[2021-12-30T14:42:13+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T14:42:13+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T14:42:14+03:00]handlers.go:118 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Working changeBook                           
+[36mINFO[0m[2021-12-30T14:42:14+03:00]handlers.go:149 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Method GET, changeBook                       
+[36mINFO[0m[2021-12-30T14:42:27+03:00]handlers.go:63 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getInstanceBook() Working getInstanceBook                      
+[31mERRO[0m[2021-12-30T14:42:27+03:00]handlers.go:74 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getInstanceBook() Error while getting instanceBook from database: sql: expected 7 destination arguments in Scan, not 1 
+[36mINFO[0m[2021-12-30T14:47:47+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T14:47:47+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T14:47:49+03:00]handlers.go:144 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Working changeListBooks                      
+[36mINFO[0m[2021-12-30T14:47:49+03:00]handlers.go:175 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Method GET, changeListBooks                  
+[36mINFO[0m[2021-12-30T14:48:17+03:00]handlers.go:39 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getListBooks() Working getListBooks                         
+[36mINFO[0m[2021-12-30T15:02:45+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T15:02:45+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T15:02:50+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[31mERRO[0m[2021-12-30T15:02:50+03:00]book_postgres.go:151 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetBooks() Error select author_id through book_id = 2:pq: unexpected Parse response 'D' 
+[31mERRO[0m[2021-12-30T15:02:50+03:00]handlers.go:19 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Error while getting books list from database: pq: unexpected Parse response 'D' 
+[36mINFO[0m[2021-12-30T15:05:42+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T15:05:42+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T15:05:44+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[31mERRO[0m[2021-12-30T15:05:44+03:00]book_postgres.go:152 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetBooks() Error select author_id through book_id = 2:pq: unexpected Parse response 'D' 
+[31mERRO[0m[2021-12-30T15:05:44+03:00]handlers.go:19 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Error while getting books list from database: pq: unexpected Parse response 'D' 
+[36mINFO[0m[2021-12-30T15:06:46+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T15:06:46+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T15:06:48+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[31mERRO[0m[2021-12-30T15:06:48+03:00]book_postgres.go:152 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetBooks() Error select author_id through book_id = 2:pq: unexpected Parse response 'D' 
+[31mERRO[0m[2021-12-30T15:06:48+03:00]handlers.go:19 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Error while getting books list from database: pq: unexpected Parse response 'D' 
+[36mINFO[0m[2021-12-30T15:15:44+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T15:15:44+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T15:15:46+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[31mERRO[0m[2021-12-30T15:15:46+03:00]book_postgres.go:152 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetBooks() Error select author_id through book_id = 2:pq: unexpected Parse response 'D' 
+[31mERRO[0m[2021-12-30T15:15:46+03:00]handlers.go:19 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Error while getting books list from database: pq: unexpected Parse response 'D' 
+[36mINFO[0m[2021-12-30T15:27:31+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T15:27:31+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T15:27:33+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2021-12-30T15:30:54+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T15:30:54+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T15:31:00+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2021-12-30T15:31:57+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T15:31:57+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T15:31:59+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2021-12-30T15:32:06+03:00]handlers.go:39 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getListBooks() Working getListBooks                         
+[36mINFO[0m[2021-12-30T15:32:12+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2021-12-30T15:34:14+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T15:34:14+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T15:34:16+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2021-12-30T15:34:58+03:00]handlers.go:88 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Working changeBook                           
+[36mINFO[0m[2021-12-30T15:34:58+03:00]handlers.go:102 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Method PUT, changeBook                       
+[36mINFO[0m[2021-12-30T15:35:04+03:00]handlers.go:14 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2021-12-30T15:35:59+03:00]handlers.go:144 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Working changeListBooks                      
+[36mINFO[0m[2021-12-30T15:35:59+03:00]handlers.go:175 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Method GET, changeListBooks                  
+[36mINFO[0m[2021-12-30T15:36:05+03:00]handlers.go:88 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Working changeBook                           
+[36mINFO[0m[2021-12-30T15:36:05+03:00]handlers.go:119 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Method GET, changeBook                       
+[36mINFO[0m[2021-12-30T15:37:27+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2021-12-30T15:37:27+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2021-12-30T15:37:29+03:00]handlers.go:88 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Working changeBook                           
+[36mINFO[0m[2021-12-30T15:37:29+03:00]handlers.go:119 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Method GET, changeBook                       
+[36mINFO[0m[2022-01-01T19:23:55+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-01T19:23:55+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-01T19:23:57+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-01T19:24:12+03:00]handlers.go:462 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActs() Working getReturnActs                        
+[36mINFO[0m[2022-01-01T19:29:13+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-01T19:29:13+03:00]book_postgres.go:200 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).ChangeBook() Can not scan select from books where id = 0  
+[31mERRO[0m[2022-01-01T19:29:13+03:00]move_service.go:123 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckUserBookExist() Such a book (id=0) does not exist            
+[31mERRO[0m[2022-01-01T19:29:13+03:00]handlers.go:365 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:such a book (id=1) does not exist 
+[36mINFO[0m[2022-01-01T19:57:17+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-01T19:57:17+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-01T19:57:20+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-01T19:57:20+03:00]move_service.go:115 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckUserBookExist() Such a listbook (id=0) does not exist        
+[31mERRO[0m[2022-01-01T19:57:20+03:00]handlers.go:365 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:such a listbook (id=0) does not exist 
+[36mINFO[0m[2022-01-01T19:59:36+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-01T19:59:36+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-01T19:59:38+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-01T19:59:38+03:00]move_service.go:115 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckUserBookExist() Such a listbook (id=0) does not exist        
+[31mERRO[0m[2022-01-01T19:59:38+03:00]handlers.go:366 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:such a listbook (id=0) does not exist 
+[36mINFO[0m[2022-01-01T20:00:48+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-01T20:00:48+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-01T20:00:50+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-01T20:00:50+03:00]move_postgres.go:53 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CreateIssueAct() Scan error:pq: got 5 parameters but the statement requires 6 
+[31mERRO[0m[2022-01-01T20:00:50+03:00]handlers.go:366 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:pq: got 5 parameters but the statement requires 6 
+[36mINFO[0m[2022-01-01T20:04:05+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-01T20:04:05+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-01T20:04:15+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-01T20:35:52+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-01T20:35:52+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-01T20:35:55+03:00]handlers.go:353 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-01T20:35:55+03:00]move_postgres.go:53 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CreateIssueAct() Scan error:pq: interval field value out of range: "72000000000000" 
+[31mERRO[0m[2022-01-01T20:35:55+03:00]handlers.go:366 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:pq: interval field value out of range: "72000000000000" 
+[36mINFO[0m[2022-01-01T20:37:14+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-01T20:37:14+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-01T20:37:19+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-01T20:37:19+03:00]move_postgres.go:53 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CreateIssueAct() Scan error:pq: interval field value out of range: "1728000000000000" 
+[31mERRO[0m[2022-01-01T20:37:19+03:00]handlers.go:365 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:pq: interval field value out of range: "1728000000000000" 
+[36mINFO[0m[2022-01-01T20:43:51+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-01T20:43:51+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-01T20:43:52+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-01T20:44:42+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-01T20:44:42+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-01T20:44:43+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-01T20:47:33+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[31mERRO[0m[2022-01-01T20:47:33+03:00]move_postgres.go:34 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).GetIssueActs() Scan error:sql: Scan error on column index 3, name "rental_time": converting driver.Value type []uint8 ("00:00:20") to a int64: invalid syntax 
+[31mERRO[0m[2022-01-01T20:47:33+03:00]handlers.go:332 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Error while getting issueActs list from database: sql: Scan error on column index 3, name "rental_time": converting driver.Value type []uint8 ("00:00:20") to a int64: invalid syntax 
+[36mINFO[0m[2022-01-01T20:49:16+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-01T20:49:16+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-01T20:49:39+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-01T20:50:07+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[31mERRO[0m[2022-01-01T20:50:07+03:00]move_postgres.go:34 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).GetIssueActs() Scan error:sql: Scan error on column index 3, name "rental_time": converting driver.Value type []uint8 ("00:08:00") to a int64: invalid syntax 
+[31mERRO[0m[2022-01-01T20:50:07+03:00]handlers.go:332 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Error while getting issueActs list from database: sql: Scan error on column index 3, name "rental_time": converting driver.Value type []uint8 ("00:08:00") to a int64: invalid syntax 
+[36mINFO[0m[2022-01-02T12:39:47+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T12:39:47+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T12:39:52+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[31mERRO[0m[2022-01-02T12:39:52+03:00]move_postgres.go:34 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).GetIssueActs() Scan error:sql: Scan error on column index 3, name "rental_time": converting driver.Value type []uint8 ("00:08:00") to a int64: invalid syntax 
+[31mERRO[0m[2022-01-02T12:39:52+03:00]handlers.go:332 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Error while getting issueActs list from database: sql: Scan error on column index 3, name "rental_time": converting driver.Value type []uint8 ("00:08:00") to a int64: invalid syntax 
+[36mINFO[0m[2022-01-02T12:54:34+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T12:54:34+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T13:43:45+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T13:43:45+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T13:44:08+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-02T13:44:08+03:00]move_postgres.go:53 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CreateIssueAct() Scan error:pq: interval field value out of range: "1728000000000000" 
+[31mERRO[0m[2022-01-02T13:44:08+03:00]handlers.go:364 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:pq: interval field value out of range: "1728000000000000" 
+[36mINFO[0m[2022-01-02T13:44:46+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T13:44:46+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T13:44:51+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T13:59:07+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T13:59:07+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T14:10:22+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T14:10:22+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T14:10:24+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T14:10:57+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-02T14:12:57+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T14:12:57+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T14:13:00+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-02T14:15:26+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T14:15:26+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T14:15:28+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[31mERRO[0m[2022-01-02T14:15:28+03:00]move_postgres.go:34 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).GetIssueActs() Scan error:sql: Scan error on column index 3, name "rental_time": cannot sql.Scan() strfmt.Duration from: 20 
+[31mERRO[0m[2022-01-02T14:15:28+03:00]handlers.go:332 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Error while getting issueActs list from database: sql: Scan error on column index 3, name "rental_time": cannot sql.Scan() strfmt.Duration from: 20 
+[36mINFO[0m[2022-01-02T14:22:31+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T14:22:31+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T14:22:33+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-02T14:23:08+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T14:23:08+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T14:23:10+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-02T14:27:14+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T14:27:14+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T14:27:15+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-02T14:27:59+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T14:27:59+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T14:28:01+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-02T14:28:59+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T14:29:08+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T14:34:55+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T14:34:55+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T14:43:17+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T14:43:17+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T14:43:20+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T14:43:38+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-02T14:43:38+03:00]move_service.go:120 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckUserBookExist() Such a listbook (id=2) is already issued     
+[31mERRO[0m[2022-01-02T14:43:38+03:00]handlers.go:364 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:such a listbook (id=2) is already issued 
+[36mINFO[0m[2022-01-02T14:43:47+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-02T14:45:22+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-02T14:45:22+03:00]move_service.go:120 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckUserBookExist() Such a listbook (id=2) is already issued     
+[31mERRO[0m[2022-01-02T14:45:22+03:00]handlers.go:364 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:such a listbook (id=2) is already issued 
+[36mINFO[0m[2022-01-02T14:45:47+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T14:45:47+03:00]handlers.go:418 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method PUT, changeIssueAct                   
+[31mERRO[0m[2022-01-02T14:45:47+03:00]move_service.go:120 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckUserBookExist() Such a listbook (id=2) is already issued     
+[31mERRO[0m[2022-01-02T14:45:47+03:00]handlers.go:428 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Error while updating issue act: such a listbook (id=2) is already issued 
+[36mINFO[0m[2022-01-02T14:46:15+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T14:46:15+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T14:46:17+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T14:46:17+03:00]handlers.go:418 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method PUT, changeIssueAct                   
+[31mERRO[0m[2022-01-02T14:46:17+03:00]move_service.go:120 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckUserBookExist() Such a listbook (id=2) is already issued     
+[31mERRO[0m[2022-01-02T14:46:17+03:00]handlers.go:428 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Error while updating issue act: such a listbook (id=2) is already issued 
+[36mINFO[0m[2022-01-02T14:50:49+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T14:50:49+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T14:50:55+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T14:50:55+03:00]handlers.go:418 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method PUT, changeIssueAct                   
+[31mERRO[0m[2022-01-02T14:50:55+03:00]move_postgres.go:113 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).ChangeIssueAct() Can not update issueAct where id = 1         
+[31mERRO[0m[2022-01-02T14:50:55+03:00]handlers.go:428 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Error while updating issue act: pq: relation "issueact" does not exist 
+[36mINFO[0m[2022-01-02T14:51:36+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T14:51:36+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T14:51:38+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T14:51:38+03:00]handlers.go:418 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method PUT, changeIssueAct                   
+[36mINFO[0m[2022-01-02T14:53:09+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-02T14:53:09+03:00]move_service.go:121 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckUserBookExist() Such a listbook (id=2) is already issued     
+[31mERRO[0m[2022-01-02T14:53:09+03:00]handlers.go:364 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:such a listbook (id=2) is already issued 
+[36mINFO[0m[2022-01-02T14:53:18+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[31mERRO[0m[2022-01-02T14:53:18+03:00]handlers.go:407 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() No url request:strconv.Atoi: parsing "": invalid syntax 
+[36mINFO[0m[2022-01-02T14:53:30+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T14:53:30+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T14:59:47+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T14:59:47+03:00]handlers.go:418 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method PUT, changeIssueAct                   
+[36mINFO[0m[2022-01-02T14:59:52+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T14:59:52+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T14:59:53+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T14:59:53+03:00]handlers.go:418 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method PUT, changeIssueAct                   
+[36mINFO[0m[2022-01-02T15:00:08+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-02T15:00:26+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T15:00:30+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-02T15:00:30+03:00]move_service.go:124 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckUserBookExist() Such a listbook (id=4) is already issued     
+[31mERRO[0m[2022-01-02T15:00:30+03:00]handlers.go:364 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:such a listbook (id=4) is already issued 
+[36mINFO[0m[2022-01-02T15:00:52+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T15:00:52+03:00]handlers.go:435 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method GET, changeIssueAct                   
+[36mINFO[0m[2022-01-02T15:04:49+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T15:04:49+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T15:04:52+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T15:04:52+03:00]handlers.go:435 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method GET, changeIssueAct                   
+[31mERRO[0m[2022-01-02T15:04:52+03:00]move_postgres.go:103 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).ChangeIssueAct() Can not scan select from issueAct where id = 1 
+[31mERRO[0m[2022-01-02T15:04:52+03:00]handlers.go:438 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Error while getting issueAct from database:pq: relation "issueact" does not exist 
+[36mINFO[0m[2022-01-02T15:05:12+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T15:05:12+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T15:05:13+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T15:05:13+03:00]handlers.go:435 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method GET, changeIssueAct                   
+[36mINFO[0m[2022-01-02T15:07:24+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T15:07:24+03:00]handlers.go:435 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method GET, changeIssueAct                   
+[36mINFO[0m[2022-01-02T15:07:40+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T15:07:40+03:00]handlers.go:435 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method GET, changeIssueAct                   
+[31mERRO[0m[2022-01-02T15:07:40+03:00]move_service.go:59 github.com/Baraulia/goLab/IndTask.git/internal/service.(*MoveService).ChangeIssueAct() Such an act (id=6) does not exist            
+[31mERRO[0m[2022-01-02T15:07:40+03:00]handlers.go:438 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Error while getting issueAct from database:issue act with that id does not exists 
+[36mINFO[0m[2022-01-02T15:08:43+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T15:08:43+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T15:08:45+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T15:08:45+03:00]handlers.go:435 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method GET, changeIssueAct                   
+[31mERRO[0m[2022-01-02T15:08:45+03:00]move_service.go:59 github.com/Baraulia/goLab/IndTask.git/internal/service.(*MoveService).ChangeIssueAct() Such an act (id=6) does not exist            
+[31mERRO[0m[2022-01-02T15:08:45+03:00]handlers.go:438 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Error while getting issueAct id=6 from database:issue act with that id does not exists 
+[36mINFO[0m[2022-01-02T15:14:21+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T15:14:21+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T15:14:22+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T15:14:22+03:00]handlers.go:435 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method GET, changeIssueAct                   
+[31mERRO[0m[2022-01-02T15:14:22+03:00]move_service.go:59 github.com/Baraulia/goLab/IndTask.git/internal/service.(*MoveService).ChangeIssueAct() Such an act (id=6) does not exist            
+[31mERRO[0m[2022-01-02T15:14:22+03:00]handlers.go:438 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Error while getting issueAct id=6 from database:issue act with that id does not exists 
+[36mINFO[0m[2022-01-02T15:14:28+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T15:14:28+03:00]handlers.go:435 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method GET, changeIssueAct                   
+[36mINFO[0m[2022-01-02T15:14:50+03:00]handlers.go:373 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() Working getIssueActsByUser                   
+[31mERRO[0m[2022-01-02T15:14:50+03:00]handlers.go:376 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() No url request:strconv.Atoi: parsing "": invalid syntax 
+[36mINFO[0m[2022-01-02T15:17:11+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T15:17:11+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T15:17:13+03:00]handlers.go:373 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() Working getIssueActsByUser                   
+[31mERRO[0m[2022-01-02T15:17:13+03:00]handlers.go:376 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() No url request:strconv.Atoi: parsing "": invalid syntax 
+[36mINFO[0m[2022-01-02T15:17:20+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T15:17:20+03:00]handlers.go:435 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method GET, changeIssueAct                   
+[36mINFO[0m[2022-01-02T15:17:26+03:00]handlers.go:373 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() Working getIssueActsByUser                   
+[31mERRO[0m[2022-01-02T15:17:26+03:00]handlers.go:376 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() No url request:strconv.Atoi: parsing "": invalid syntax 
+[36mINFO[0m[2022-01-02T15:18:04+03:00]handlers.go:373 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() Working getIssueActsByUser                   
+[36mINFO[0m[2022-01-02T17:57:04+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T17:57:04+03:00]handlers.go:492 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while decoding request:json: cannot unmarshal string into Go struct field ReturnAct.foto of type []string 
+[36mINFO[0m[2022-01-02T17:57:27+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T17:57:27+03:00]handlers.go:492 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while decoding request:invalid character '}' after object key 
+[36mINFO[0m[2022-01-02T17:58:02+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T17:58:02+03:00]move_postgres.go:158 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CreateReturnAct() Scan error:sql: converting argument $4 type: unsupported type []string, a slice of string 
+[31mERRO[0m[2022-01-02T17:58:02+03:00]handlers.go:499 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while creating returnAct in the database:sql: converting argument $4 type: unsupported type []string, a slice of string 
+[36mINFO[0m[2022-01-02T17:58:18+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T17:58:18+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T17:58:20+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T17:58:20+03:00]move_postgres.go:158 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CreateReturnAct() Scan error:sql: converting argument $4 type: unsupported type []string, a slice of string 
+[31mERRO[0m[2022-01-02T17:58:20+03:00]handlers.go:499 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while creating returnAct in the database:sql: converting argument $4 type: unsupported type []string, a slice of string 
+[36mINFO[0m[2022-01-02T18:06:33+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T18:06:33+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T18:06:44+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T18:06:53+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T18:07:03+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T18:07:17+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T18:07:25+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-02T18:08:08+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T18:08:08+03:00]move_postgres.go:158 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CreateReturnAct() Scan error:sql: converting argument $4 type: unsupported type []string, a slice of string 
+[31mERRO[0m[2022-01-02T18:08:08+03:00]handlers.go:499 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while creating returnAct in the database:sql: converting argument $4 type: unsupported type []string, a slice of string 
+[36mINFO[0m[2022-01-02T18:09:10+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T18:09:10+03:00]handlers.go:492 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while decoding request:json: cannot unmarshal number into Go struct field ReturnAct.foto of type string 
+[36mINFO[0m[2022-01-02T18:09:25+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T18:09:25+03:00]move_postgres.go:158 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CreateReturnAct() Scan error:sql: converting argument $4 type: unsupported type []string, a slice of string 
+[31mERRO[0m[2022-01-02T18:09:25+03:00]handlers.go:499 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while creating returnAct in the database:sql: converting argument $4 type: unsupported type []string, a slice of string 
+[36mINFO[0m[2022-01-02T18:10:23+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T18:10:23+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T18:10:34+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T18:10:34+03:00]move_service.go:59 github.com/Baraulia/goLab/IndTask.git/internal/service.(*MoveService).ChangeIssueAct() Such an act (id=1) does not exist            
+[31mERRO[0m[2022-01-02T18:10:34+03:00]move_service.go:147 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckIssueActExist() IssueAct with id = 1 does not exist          
+[31mERRO[0m[2022-01-02T18:10:34+03:00]handlers.go:499 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while creating returnAct in the database:issue act with that id does not exists 
+[36mINFO[0m[2022-01-02T18:10:49+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T18:11:03+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T18:11:11+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-02T18:11:11+03:00]move_service.go:119 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckUserBookExist() Such a listbook (id=101) does not exist      
+[31mERRO[0m[2022-01-02T18:11:11+03:00]handlers.go:364 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:such a listbook (id=101) does not exist 
+[36mINFO[0m[2022-01-02T18:11:19+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T18:11:23+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T18:11:23+03:00]move_postgres.go:158 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CreateReturnAct() Scan error:sql: converting argument $4 type: unsupported type []string, a slice of string 
+[31mERRO[0m[2022-01-02T18:11:23+03:00]handlers.go:499 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while creating returnAct in the database:sql: converting argument $4 type: unsupported type []string, a slice of string 
+[36mINFO[0m[2022-01-02T18:18:56+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T18:18:56+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T18:20:10+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T18:20:10+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T18:20:12+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T18:20:22+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T18:20:29+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T18:20:39+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T18:20:39+03:00]move_postgres.go:164 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CreateReturnAct() Error updating issueAct from returnAct.IssueActId = 1:pq: relation "issueact" does not exist 
+[31mERRO[0m[2022-01-02T18:20:39+03:00]handlers.go:499 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while creating returnAct in the database:pq: relation "issueact" does not exist 
+[36mINFO[0m[2022-01-02T18:21:42+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T18:21:42+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T18:21:44+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-02T18:21:44+03:00]move_service.go:124 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckUserBookExist() Such a listbook (id=1) is already issued     
+[31mERRO[0m[2022-01-02T18:21:44+03:00]handlers.go:364 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:such a listbook (id=1) is already issued 
+[36mINFO[0m[2022-01-02T18:21:55+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[36mINFO[0m[2022-01-02T18:22:14+03:00]handlers.go:461 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActs() Working getReturnActs                        
+[31mERRO[0m[2022-01-02T18:22:14+03:00]move_postgres.go:139 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).GetReturnActs() Scan error:sql: Scan error on column index 4, name "foto": unsupported Scan, storing driver.Value type []uint8 into type *[]string 
+[31mERRO[0m[2022-01-02T18:22:14+03:00]handlers.go:466 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActs() Error while getting returnActs list from database: sql: Scan error on column index 4, name "foto": unsupported Scan, storing driver.Value type []uint8 into type *[]string 
+[36mINFO[0m[2022-01-02T18:24:15+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T18:24:15+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T18:24:17+03:00]handlers.go:461 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActs() Working getReturnActs                        
+[36mINFO[0m[2022-01-02T18:25:12+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T18:25:12+03:00]handlers.go:570 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method GET, changeReturnAct                  
+[31mERRO[0m[2022-01-02T18:25:12+03:00]move_service.go:105 github.com/Baraulia/goLab/IndTask.git/internal/service.(*MoveService).ChangeReturnAct() Such an act (id=1) does not exist            
+[31mERRO[0m[2022-01-02T18:25:12+03:00]handlers.go:573 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Error while getting returnAct from database:return act with that id does not exists 
+[36mINFO[0m[2022-01-02T18:26:11+03:00]handlers.go:508 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActsByUser() Working getReturnActsByUser                  
+[31mERRO[0m[2022-01-02T18:26:11+03:00]move_postgres.go:186 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).GetReturnActsByUser() Scan error:sql: expected 15 destination arguments in Scan, not 8 
+[31mERRO[0m[2022-01-02T18:26:11+03:00]handlers.go:519 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActsByUser() Error while getting returnActsByUser from database: sql: expected 15 destination arguments in Scan, not 8 
+[36mINFO[0m[2022-01-02T18:26:24+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T18:26:24+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T18:26:39+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T18:26:39+03:00]handlers.go:570 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method GET, changeReturnAct                  
+[31mERRO[0m[2022-01-02T18:26:39+03:00]move_service.go:105 github.com/Baraulia/goLab/IndTask.git/internal/service.(*MoveService).ChangeReturnAct() Such an act (id=1) does not exist            
+[31mERRO[0m[2022-01-02T18:26:39+03:00]handlers.go:573 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Error while getting returnAct from database:return act with that id does not exists 
+[36mINFO[0m[2022-01-02T18:27:48+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T18:27:48+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T18:27:50+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T18:27:50+03:00]handlers.go:570 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method GET, changeReturnAct                  
+[31mERRO[0m[2022-01-02T18:27:50+03:00]move_service.go:106 github.com/Baraulia/goLab/IndTask.git/internal/service.(*MoveService).ChangeReturnAct() Such an act (id=1) does not exist            
+[31mERRO[0m[2022-01-02T18:27:50+03:00]handlers.go:573 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Error while getting returnAct from database:return act with that id does not exists 
+[36mINFO[0m[2022-01-02T18:28:06+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T18:28:06+03:00]handlers.go:570 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method GET, changeReturnAct                  
+[31mERRO[0m[2022-01-02T18:28:06+03:00]move_postgres.go:205 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).ChangeReturnAct() Can not scan select from returnAct where id = 2 
+[31mERRO[0m[2022-01-02T18:28:06+03:00]handlers.go:573 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Error while getting returnAct from database:pq: relation "returnact" does not exist 
+[36mINFO[0m[2022-01-02T18:28:31+03:00]handlers.go:461 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActs() Working getReturnActs                        
+[36mINFO[0m[2022-01-02T18:28:56+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T18:28:56+03:00]handlers.go:570 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method GET, changeReturnAct                  
+[31mERRO[0m[2022-01-02T18:28:56+03:00]move_postgres.go:205 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).ChangeReturnAct() Can not scan select from returnAct where id = 2 
+[31mERRO[0m[2022-01-02T18:28:56+03:00]handlers.go:573 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Error while getting returnAct from database:pq: relation "returnact" does not exist 
+[36mINFO[0m[2022-01-02T18:29:58+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T18:29:58+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T18:30:00+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T18:30:00+03:00]handlers.go:570 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method GET, changeReturnAct                  
+[31mERRO[0m[2022-01-02T18:30:00+03:00]move_postgres.go:205 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).ChangeReturnAct() Can not scan select from returnAct where id = 2 
+[31mERRO[0m[2022-01-02T18:30:00+03:00]handlers.go:573 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Error while getting returnAct from database:sql: expected 8 destination arguments in Scan, not 9 
+[36mINFO[0m[2022-01-02T18:30:46+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T18:30:46+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T18:30:47+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T18:30:47+03:00]handlers.go:570 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method GET, changeReturnAct                  
+[31mERRO[0m[2022-01-02T18:30:47+03:00]move_postgres.go:205 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).ChangeReturnAct() Can not scan select from returnAct where id = 2 
+[31mERRO[0m[2022-01-02T18:30:47+03:00]handlers.go:573 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Error while getting returnAct from database:sql: Scan error on column index 4, name "foto": unsupported Scan, storing driver.Value type []uint8 into type *[]string 
+[36mINFO[0m[2022-01-02T18:31:15+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T18:31:15+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T18:31:17+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T18:31:17+03:00]handlers.go:570 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method GET, changeReturnAct                  
+[36mINFO[0m[2022-01-02T18:32:00+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T18:32:00+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T18:33:26+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T18:33:26+03:00]handlers.go:553 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method PUT, changeReturnAct                  
+[31mERRO[0m[2022-01-02T18:33:26+03:00]move_postgres.go:215 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).ChangeReturnAct() Can not update returnAct where id = 2        
+[31mERRO[0m[2022-01-02T18:33:26+03:00]handlers.go:563 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Error while updating return act: pq: column "issueactid" of relation "return_act" does not exist 
+[36mINFO[0m[2022-01-02T18:36:09+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T18:36:09+03:00]handlers.go:553 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method PUT, changeReturnAct                  
+[31mERRO[0m[2022-01-02T18:36:09+03:00]move_postgres.go:215 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).ChangeReturnAct() Can not update returnAct where id = 2        
+[31mERRO[0m[2022-01-02T18:36:09+03:00]handlers.go:563 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Error while updating return act: pq: column "issueactid" of relation "return_act" does not exist 
+[36mINFO[0m[2022-01-02T18:36:16+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T18:36:16+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T18:36:18+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T18:36:18+03:00]handlers.go:553 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method PUT, changeReturnAct                  
+[36mINFO[0m[2022-01-02T18:36:35+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T18:36:35+03:00]handlers.go:553 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method PUT, changeReturnAct                  
+[36mINFO[0m[2022-01-02T18:51:07+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T18:51:07+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T18:52:49+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T18:53:07+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T18:53:12+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-02T18:53:12+03:00]move_service.go:124 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckUserBookExist() Such a listbook (id=2) is already issued     
+[31mERRO[0m[2022-01-02T18:53:12+03:00]handlers.go:364 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:such a listbook (id=2) is already issued 
+[36mINFO[0m[2022-01-02T18:53:24+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T18:53:41+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[36mINFO[0m[2022-01-02T18:53:58+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T18:53:58+03:00]move_service.go:152 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckIssueActExist() IssueAct with id = 1 already closed          
+[31mERRO[0m[2022-01-02T18:53:58+03:00]handlers.go:499 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while creating returnAct in the database:issueAct with id = 1 already closed 
+[36mINFO[0m[2022-01-02T18:54:06+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[36mINFO[0m[2022-01-02T18:57:04+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T18:57:04+03:00]move_service.go:152 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckIssueActExist() IssueAct with id = 2 already closed          
+[31mERRO[0m[2022-01-02T18:57:04+03:00]handlers.go:499 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while creating returnAct in the database:issueAct with id = 2 already closed 
+[36mINFO[0m[2022-01-02T18:58:35+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T18:58:35+03:00]handlers.go:553 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method PUT, changeReturnAct                  
+[36mINFO[0m[2022-01-02T18:59:21+03:00]handlers.go:461 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActs() Working getReturnActs                        
+[36mINFO[0m[2022-01-02T19:49:14+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T19:49:14+03:00]handlers.go:553 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method PUT, changeReturnAct                  
+[36mINFO[0m[2022-01-02T19:50:34+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T19:50:34+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T19:50:36+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T19:50:36+03:00]handlers.go:553 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method PUT, changeReturnAct                  
+[36mINFO[0m[2022-01-02T19:52:48+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T19:52:48+03:00]handlers.go:553 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method PUT, changeReturnAct                  
+[36mINFO[0m[2022-01-02T19:53:33+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T19:53:33+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T19:53:35+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T19:53:35+03:00]handlers.go:553 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method PUT, changeReturnAct                  
+[36mINFO[0m[2022-01-02T19:55:39+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T19:55:39+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T19:55:39+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T19:55:39+03:00]handlers.go:553 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method PUT, changeReturnAct                  
+[36mINFO[0m[2022-01-02T19:55:54+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[36mINFO[0m[2022-01-02T20:25:51+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T20:25:51+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T20:25:55+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[31mERRO[0m[2022-01-02T20:25:55+03:00]move_postgres.go:35 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).GetIssueActs() Scan error:sql: expected 7 destination arguments in Scan, not 8 
+[31mERRO[0m[2022-01-02T20:25:55+03:00]handlers.go:332 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Error while getting issueActs list from database: sql: expected 7 destination arguments in Scan, not 8 
+[36mINFO[0m[2022-01-02T20:26:51+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T20:26:51+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T20:27:03+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T20:27:13+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T20:27:29+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T20:27:39+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T20:27:51+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T20:28:24+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-02T20:28:24+03:00]move_service.go:173 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckAmoutActsByUser() This user (id = 1) has too many issue acts (5) 
+[31mERRO[0m[2022-01-02T20:28:24+03:00]handlers.go:364 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:this user (id = 1) has too many issue acts (5) 
+[36mINFO[0m[2022-01-02T20:28:34+03:00]handlers.go:352 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-02T20:28:40+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-02T20:29:23+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T20:29:23+03:00]handlers.go:418 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method PUT, changeIssueAct                   
+[36mINFO[0m[2022-01-02T20:29:27+03:00]handlers.go:327 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-02T20:29:48+03:00]handlers.go:404 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-02T20:29:48+03:00]handlers.go:435 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method GET, changeIssueAct                   
+[36mINFO[0m[2022-01-02T20:30:02+03:00]handlers.go:373 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() Working getIssueActsByUser                   
+[36mINFO[0m[2022-01-02T20:30:34+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T20:30:34+03:00]move_postgres.go:165 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CreateReturnAct() Scan error:pq: INSERT has more expressions than target columns 
+[31mERRO[0m[2022-01-02T20:30:34+03:00]handlers.go:499 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while creating returnAct in the database:pq: INSERT has more expressions than target columns 
+[36mINFO[0m[2022-01-02T20:31:31+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T20:31:31+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T20:31:34+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T20:31:34+03:00]move_postgres.go:176 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CreateReturnAct() Error updating issueAct from returnAct.IssueActId = 3:pq: invalid input syntax for type integer: "closed" 
+[31mERRO[0m[2022-01-02T20:31:34+03:00]handlers.go:499 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while creating returnAct in the database:pq: invalid input syntax for type integer: "closed" 
+[36mINFO[0m[2022-01-02T20:35:31+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T20:35:31+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T20:35:34+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T20:35:34+03:00]move_postgres.go:176 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CreateReturnAct() Error updating issueAct from returnAct.IssueActId = 3:pq: invalid input syntax for type integer: "closed" 
+[31mERRO[0m[2022-01-02T20:35:34+03:00]handlers.go:499 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while creating returnAct in the database:pq: invalid input syntax for type integer: "closed" 
+[36mINFO[0m[2022-01-02T20:37:24+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T20:37:24+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T20:37:26+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T20:37:26+03:00]move_postgres.go:176 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CreateReturnAct() Error updating issueAct from returnAct.IssueActId = 3:pq: invalid input syntax for type integer: "closed" 
+[31mERRO[0m[2022-01-02T20:37:26+03:00]handlers.go:499 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while creating returnAct in the database:pq: invalid input syntax for type integer: "closed" 
+[36mINFO[0m[2022-01-02T20:38:48+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-02T20:38:48+03:00]move_postgres.go:176 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CreateReturnAct() Error updating issueAct from returnAct.IssueActId = 3:pq: invalid input syntax for type integer: "closed" 
+[31mERRO[0m[2022-01-02T20:38:48+03:00]handlers.go:499 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Error while creating returnAct in the database:pq: invalid input syntax for type integer: "closed" 
+[36mINFO[0m[2022-01-02T20:45:14+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T20:45:14+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T20:45:16+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[36mINFO[0m[2022-01-02T20:46:40+03:00]handlers.go:461 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActs() Working getReturnActs                        
+[36mINFO[0m[2022-01-02T20:46:57+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T20:46:57+03:00]handlers.go:553 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method PUT, changeReturnAct                  
+[31mERRO[0m[2022-01-02T20:46:57+03:00]move_service.go:109 github.com/Baraulia/goLab/IndTask.git/internal/service.(*MoveService).ChangeReturnAct() Such an act (id=2) does not exist            
+[31mERRO[0m[2022-01-02T20:46:57+03:00]handlers.go:563 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Error while updating return act: return act with that id does not exists 
+[36mINFO[0m[2022-01-02T20:47:39+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T20:47:39+03:00]handlers.go:553 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method PUT, changeReturnAct                  
+[31mERRO[0m[2022-01-02T20:47:39+03:00]move_service.go:109 github.com/Baraulia/goLab/IndTask.git/internal/service.(*MoveService).ChangeReturnAct() Such an act (id=1) does not exist            
+[31mERRO[0m[2022-01-02T20:47:39+03:00]handlers.go:563 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Error while updating return act: return act with that id does not exists 
+[36mINFO[0m[2022-01-02T20:47:52+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T20:47:52+03:00]handlers.go:553 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method PUT, changeReturnAct                  
+[36mINFO[0m[2022-01-02T20:49:27+03:00]handlers.go:539 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-02T20:49:27+03:00]handlers.go:570 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method GET, changeReturnAct                  
+[36mINFO[0m[2022-01-02T20:49:42+03:00]handlers.go:508 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActsByUser() Working getReturnActsByUser                  
+[31mERRO[0m[2022-01-02T20:49:42+03:00]move_postgres.go:198 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).GetReturnActsByUser() Scan error:sql: expected 15 destination arguments in Scan, not 7 
+[31mERRO[0m[2022-01-02T20:49:42+03:00]handlers.go:519 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActsByUser() Error while getting returnActsByUser from database: sql: expected 15 destination arguments in Scan, not 7 
+[36mINFO[0m[2022-01-02T20:53:13+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T20:53:13+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T20:53:16+03:00]handlers.go:508 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActsByUser() Working getReturnActsByUser                  
+[31mERRO[0m[2022-01-02T20:53:16+03:00]move_postgres.go:198 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).GetReturnActsByUser() Scan error:sql: Scan error on column index 3, name "foto": unsupported Scan, storing driver.Value type []uint8 into type *[]string 
+[31mERRO[0m[2022-01-02T20:53:16+03:00]handlers.go:519 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActsByUser() Error while getting returnActsByUser from database: sql: Scan error on column index 3, name "foto": unsupported Scan, storing driver.Value type []uint8 into type *[]string 
+[36mINFO[0m[2022-01-02T20:53:44+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T20:53:44+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T20:53:46+03:00]handlers.go:508 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActsByUser() Working getReturnActsByUser                  
+[36mINFO[0m[2022-01-02T20:55:58+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-02T20:55:58+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-02T20:56:00+03:00]handlers.go:508 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActsByUser() Working getReturnActsByUser                  
+[36mINFO[0m[2022-01-03T11:42:25+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-03T11:42:25+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-03T11:42:39+03:00]handlers.go:486 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      

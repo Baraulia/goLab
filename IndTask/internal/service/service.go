@@ -18,12 +18,19 @@ type AppBook interface {
 	GetBooks() ([]IndTask.Book, error)
 	CreateBook(*IndTask.Book) (int, error)
 	ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.Book, error)
+	GetListBooks() ([]IndTask.ListBooks, error)
+	ChangeListBook(books *IndTask.ListBooks, bookId int, method string) (*IndTask.ListBooks, error)
 }
 
 type AppMove interface {
-	MoveInBook(issueAct *IndTask.IssueAct) (issueActId int, err error)
-	GetMoveInBooks(userId int) ([]IndTask.IssueAct, error)
-	MoveOutBook(returnAct *IndTask.ReturnAct) (returnActId int, err error)
+	GetIssueActs() ([]IndTask.IssueAct, error)
+	CreateIssueAct(issueAct *IndTask.IssueAct, method string) (int, error)
+	GetIssueActsByUser(userId int) ([]IndTask.IssueAct, error)
+	ChangeIssueAct(issueAct *IndTask.IssueAct, actId int, method string) (*IndTask.IssueAct, error)
+	GetReturnActs() ([]IndTask.ReturnAct, error)
+	CreateReturnAct(returnAct *IndTask.ReturnAct) (int, error)
+	GetReturnActsByUser(userId int) ([]IndTask.ReturnAct, error)
+	ChangeReturnAct(returnAct *IndTask.ReturnAct, actId int, method string) (*IndTask.ReturnAct, error)
 }
 
 type AppAuthor interface {
@@ -49,8 +56,8 @@ type Service struct {
 func NewService(rep *repository.Repository) *Service {
 	return &Service{
 		NewUserService(rep.AppUser),
-		NewBookService(rep.AppBook),
-		NewMoveService(rep.AppMove),
+		NewBookService(*rep),
+		NewMoveService(*rep),
 		NewAuthorService(rep.AppAuthor),
 		NewGenreService(rep.AppGenre),
 	}

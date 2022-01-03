@@ -40,7 +40,6 @@ func (u *UserService) CreateUser(user *IndTask.User) (int, error) {
 			return bdUser.Id, UserAlreadyExists
 		}
 	}
-	fmt.Println(user.BirthDate)
 	return u.repo.CreateUser(user)
 }
 
