@@ -16,6 +16,40 @@ func NewBookPostgres(db *sql.DB) *BookPostgres {
 	return &BookPostgres{db: db}
 }
 
+func (r *BookPostgres) GetBooks() ([]IndTask.Book, error) {
+	transaction, err := r.db.Begin()
+	if err != nil {
+		logger.Errorf("Can not begin transaction:%s", err)
+		return nil, err
+	}
+	var listBooks []IndTask.Book
+	query := fmt.Sprint("SELECT * FROM books")
+	rows, err := transaction.Query(query)
+	if err != nil {
+		logger.Errorf("Can not executes a query:%s", err)
+		return nil, err
+	}
+	for rows.Next() {
+		var book IndTask.Book
+		if err := rows.Scan(&book.Id, &book.BookName, &book.Cost, &book.Cover, &book.Published, &book.Pages, &book.Amount); err != nil {
+			logger.Errorf("Scan error:%s", err)
+			return nil, err
+		}
+		book.AuthorsId, err = r.ReturnBindId("book_author", book.Id)
+		if err != nil {
+			logger.Errorf("Error returning autor_id binded with book_id=%d:%s", book.Id, err)
+			return nil, err
+		}
+		book.GenreId, err = r.ReturnBindId("book_genre", book.Id)
+		if err != nil {
+			logger.Errorf("Error returning genre_id binded with book_id=%d:%s", book.Id, err)
+			return nil, err
+		}
+		listBooks = append(listBooks, book)
+	}
+	return listBooks, err
+}
+
 func (r *BookPostgres) CreateBook(book *IndTask.Book, bookExists bool) (int, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
@@ -85,105 +119,6 @@ func (r *BookPostgres) CreateBook(book *IndTask.Book, bookExists bool) (int, err
 	return id, transaction.Commit()
 }
 
-func (r *BookPostgres) ChangeListBook(listBook *IndTask.ListBooks, listBookId int, method string) (*IndTask.ListBooks, error) {
-	transaction, err := r.db.Begin()
-	if err != nil {
-		logger.Errorf("Can not begin transaction:%s", err)
-		return nil, err
-	}
-
-	if method == "GET" {
-		var listBook IndTask.ListBooks
-		query := fmt.Sprint("SELECT * FROM list_books WHERE id = $1")
-		row := transaction.QueryRow(query, listBookId)
-		if err := row.Scan(&listBook.Id, &listBook.BookId, &listBook.Issued, &listBook.RentNumber, &listBook.RentCost, &listBook.RegDate, &listBook.Condition); err != nil {
-			return nil, err
-		}
-		return &listBook, transaction.Commit()
-	}
-
-	if method == "PUT" {
-		query := fmt.Sprint("UPDATE list_books SET book_id=$1, issued=$2, rent_number=$3, rent_cost=$4, reg_date=$5, condition=$6 WHERE id = $7")
-		_, err := transaction.Exec(query, listBook.BookId, listBook.Issued, listBook.RentNumber, listBook.RentCost, listBook.RegDate, listBook.Condition)
-		if err != nil {
-			return nil, err
-		}
-		return nil, transaction.Commit()
-	}
-
-	if method == "DELETE" {
-
-		query := fmt.Sprint("DELETE FROM list_books WHERE id = $1")
-		_, err := transaction.Exec(query, listBookId)
-		if err != nil {
-			return nil, err
-		}
-		return nil, transaction.Commit()
-	}
-
-	return nil, transaction.Rollback()
-}
-
-func (r *BookPostgres) GetBooks() ([]IndTask.Book, error) {
-	transaction, err := r.db.Begin()
-	if err != nil {
-		logger.Errorf("Can not begin transaction:%s", err)
-		return nil, err
-	}
-
-	var listBooks []IndTask.Book
-	query := fmt.Sprint("SELECT * FROM books")
-	rows, err := transaction.Query(query)
-	if err != nil {
-		logger.Errorf("Can not executes a query:%s", err)
-		return nil, err
-	}
-	for rows.Next() {
-		var book IndTask.Book
-		if err := rows.Scan(&book.Id, &book.BookName, &book.Cost, &book.Cover, &book.Published, &book.Pages, &book.Amount); err != nil {
-			logger.Errorf("Scan error:%s", err)
-			return nil, err
-		}
-		book.AuthorsId, err = r.ReturnBindId("book_author", book.Id)
-		if err != nil {
-			logger.Errorf("Error returning autor_id binded with book_id=%d:%s", book.Id, err)
-			return nil, err
-		}
-		book.GenreId, err = r.ReturnBindId("book_genre", book.Id)
-		if err != nil {
-			logger.Errorf("Error returning genre_id binded with book_id=%d:%s", book.Id, err)
-			return nil, err
-		}
-		listBooks = append(listBooks, book)
-	}
-	return listBooks, err
-}
-
-func (r *BookPostgres) GetListBooks() ([]IndTask.ListBooks, error) {
-	transaction, err := r.db.Begin()
-	if err != nil {
-		logger.Errorf("Can not begin transaction:%s", err)
-		return nil, err
-	}
-
-	var listBooks []IndTask.ListBooks
-	query := fmt.Sprint("SELECT * FROM list_books WHERE issued='false'")
-	rows, err := transaction.Query(query)
-	if err != nil {
-		logger.Errorf("Can not executes a query:%s", err)
-		return nil, err
-	}
-	for rows.Next() {
-		var book IndTask.ListBooks
-		if err := rows.Scan(&book.Id, &book.BookId, &book.Issued, &book.RentNumber, &book.RentCost, &book.RegDate, &book.Condition); err != nil {
-			logger.Errorf("Scan error:%s", err)
-			return nil, err
-		}
-		listBooks = append(listBooks, book)
-	}
-	return listBooks, err
-}
-
 func (r *BookPostgres) ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.Book, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
@@ -194,7 +129,6 @@ func (r *BookPostgres) ChangeBook(book *IndTask.Book, bookId int, method string)
 	if method == "GET" {
 		var book IndTask.Book
 		query := fmt.Sprint("SELECT * FROM books WHERE id = $1")
-
 		row := transaction.QueryRow(query, bookId)
 		if err := row.Scan(&book.Id, &book.BookName, &book.Cost, &book.Cover, &book.Published, &book.Pages, &book.Amount); err != nil {
 			logger.Errorf("Can not scan select from books where id = %d", bookId)
@@ -267,6 +201,70 @@ func (r *BookPostgres) ChangeBook(book *IndTask.Book, bookId int, method string)
 	return nil, transaction.Rollback()
 }
 
+func (r *BookPostgres) GetListBooks() ([]IndTask.ListBooks, error) {
+	transaction, err := r.db.Begin()
+	if err != nil {
+		logger.Errorf("Can not begin transaction:%s", err)
+		return nil, err
+	}
+
+	var listBooks []IndTask.ListBooks
+	query := fmt.Sprint("SELECT * FROM list_books WHERE issued='false'")
+	rows, err := transaction.Query(query)
+	if err != nil {
+		logger.Errorf("Can not executes a query:%s", err)
+		return nil, err
+	}
+	for rows.Next() {
+		var book IndTask.ListBooks
+		if err := rows.Scan(&book.Id, &book.BookId, &book.Issued, &book.RentNumber, &book.RentCost, &book.RegDate, &book.Condition); err != nil {
+			logger.Errorf("Scan error:%s", err)
+			return nil, err
+		}
+		listBooks = append(listBooks, book)
+	}
+	return listBooks, err
+}
+
+func (r *BookPostgres) ChangeListBook(listBook *IndTask.ListBooks, listBookId int, method string) (*IndTask.ListBooks, error) {
+	transaction, err := r.db.Begin()
+	if err != nil {
+		logger.Errorf("Can not begin transaction:%s", err)
+		return nil, err
+	}
+
+	if method == "GET" {
+		var listBook IndTask.ListBooks
+		query := fmt.Sprint("SELECT * FROM list_books WHERE id = $1")
+		row := transaction.QueryRow(query, listBookId)
+		if err := row.Scan(&listBook.Id, &listBook.BookId, &listBook.Issued, &listBook.RentNumber, &listBook.RentCost, &listBook.RegDate, &listBook.Condition); err != nil {
+			return nil, err
+		}
+		return &listBook, transaction.Commit()
+	}
+
+	if method == "PUT" {
+		query := fmt.Sprint("UPDATE list_books SET book_id=$1, issued=$2, rent_number=$3, rent_cost=$4, reg_date=$5, condition=$6 WHERE id = $7")
+		_, err := transaction.Exec(query, listBook.BookId, listBook.Issued, listBook.RentNumber, listBook.RentCost, listBook.RegDate, listBook.Condition)
+		if err != nil {
+			return nil, err
+		}
+		return nil, transaction.Commit()
+	}
+
+	if method == "DELETE" {
+
+		query := fmt.Sprint("DELETE FROM list_books WHERE id = $1")
+		_, err := transaction.Exec(query, listBookId)
+		if err != nil {
+			return nil, err
+		}
+		return nil, transaction.Commit()
+	}
+
+	return nil, transaction.Rollback()
+}
+
 func CalcRentCost(book *IndTask.Book) float64 {
 	rentCost := float64(book.Cost * 1.15 * 2)
 	return math.Round(rentCost) / 100
@@ -280,7 +278,7 @@ func (r *BookPostgres) GetAuthorsByBookId(bookId int) ([]int, error) {
 	}
 
 	var authorsId []int
-	query := fmt.Sprint("SELECT author_id FROM book_author WHERE id=$1")
+	query := fmt.Sprint("SELECT author_id FROM book_author WHERE book_id=$1")
 	rows, err := transaction.Query(query, bookId)
 	if err != nil {
 		logger.Errorf("Can not executes a query:%s", err)

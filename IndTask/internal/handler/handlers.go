@@ -1,11 +1,16 @@
 package handler
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
+	"github.com/Baraulia/goLab/IndTask.git/pkg/translate"
+	"io/ioutil"
 	"net/http"
+	"os"
 	"strconv"
+	"strings"
 )
 
 //handlers for books
@@ -20,7 +25,7 @@ func (h *Handler) getBooks(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	output, err := json.Marshal(&listBooks)
+	output, err := json.Marshal(listBooks)
 	if err != nil {
 		h.logger.Errorf("Marshal error:%s", err)
 		http.Error(w, err.Error(), 500)
@@ -45,7 +50,7 @@ func (h *Handler) getListBooks(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	output, err := json.Marshal(&listBooks)
+	output, err := json.Marshal(listBooks)
 	if err != nil {
 		h.logger.Errorf("Marshal error:%s", err)
 		http.Error(w, err.Error(), 500)
@@ -63,17 +68,23 @@ func (h *Handler) getListBooks(w http.ResponseWriter, req *http.Request) {
 func (h *Handler) createBook(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working createBook")
 	CheckMethod(w, req, "POST", h.logger)
-	var input *IndTask.Book
-	decoder := json.NewDecoder(req.Body)
-
+	if err := req.ParseMultipartForm(10 * 1024 * 1024); err != nil {
+		h.logger.Errorf("Error while parsing multipart form:%s", err)
+		http.Error(w, err.Error(), 400)
+		return
+	}
+	var input IndTask.Book
+	body := bytes.NewBufferString(req.PostFormValue("body"))
+	decoder := json.NewDecoder(body)
 	if err := decoder.Decode(&input); err != nil {
 		h.logger.Errorf("Error while decoding request:%s", err)
 		http.Error(w, err.Error(), 400)
 		return
 	}
-	fmt.Println(input)
-
-	bookId, err := h.services.AppBook.CreateBook(input)
+	if err := InputCoverFoto(w, req, h, &input); err != nil {
+		return
+	}
+	bookId, err := h.services.AppBook.CreateBook(&input)
 	if err != nil {
 		h.logger.Errorf("Error while creating book in the database:%s", err)
 		http.Error(w, err.Error(), 500)
@@ -101,11 +112,24 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 	if req.Method == "PUT" {
 		h.logger.Info("Method PUT, changeBook")
 		var input IndTask.Book
-		decoder := json.NewDecoder(req.Body)
-		if err := decoder.Decode(&input); err != nil {
-			h.logger.Errorf("Error while decoding request: %s", err)
-			http.Error(w, err.Error(), 400)
-			return
+		if req.Header.Get("Content-Type") == "application/json" {
+			decoder := json.NewDecoder(req.Body)
+			if err := decoder.Decode(&input); err != nil {
+				h.logger.Errorf("Error while decoding request: %s", err)
+				http.Error(w, err.Error(), 400)
+				return
+			}
+		} else {
+			body := bytes.NewBufferString(req.PostFormValue("body"))
+			decoder := json.NewDecoder(body)
+			if err := decoder.Decode(&input); err != nil {
+				h.logger.Errorf("Error while decoding request:%s", err)
+				http.Error(w, err.Error(), 400)
+				return
+			}
+			if err := InputCoverFoto(w, req, h, &input); err != nil {
+				return
+			}
 		}
 		_, err = h.services.AppBook.ChangeBook(&input, bookId, req.Method)
 		if err != nil {
@@ -486,14 +510,30 @@ func (h *Handler) createReturnAct(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working createReturnAct")
 	CheckMethod(w, req, "POST", h.logger)
 	var input IndTask.ReturnAct
-	decoder := json.NewDecoder(req.Body)
-
-	if err := decoder.Decode(&input); err != nil {
-		h.logger.Errorf("Error while decoding request:%s", err)
-		http.Error(w, err.Error(), 400)
-		return
+	if req.Header.Get("Content-Type") == "application/json" {
+		decoder := json.NewDecoder(req.Body)
+		if err := decoder.Decode(&input); err != nil {
+			h.logger.Errorf("Error while decoding request:%s", err)
+			http.Error(w, err.Error(), 400)
+			return
+		}
+	} else {
+		if err := req.ParseMultipartForm(10 * 1024 * 1024); err != nil {
+			h.logger.Errorf("Error while parsing multipart form:%s", err)
+			http.Error(w, err.Error(), 400)
+			return
+		}
+		body := bytes.NewBufferString(req.PostFormValue("body"))
+		decoder := json.NewDecoder(body)
+		if err := decoder.Decode(&input); err != nil {
+			h.logger.Errorf("Error while decoding request:%s", err)
+			http.Error(w, err.Error(), 400)
+			return
+		}
+		if err := InputFineFoto(w, req, h, &input); err != nil {
+			return
+		}
 	}
-
 	returnActId, err := h.services.AppMove.CreateReturnAct(&input)
 	if err != nil {
 		h.logger.Errorf("Error while creating returnAct in the database:%s", err)
@@ -552,11 +592,24 @@ func (h *Handler) changeReturnAct(w http.ResponseWriter, req *http.Request) {
 	if req.Method == "PUT" {
 		h.logger.Info("Method PUT, changeReturnAct")
 		var input IndTask.ReturnAct
-		decoder := json.NewDecoder(req.Body)
-		if err := decoder.Decode(&input); err != nil {
-			h.logger.Errorf("Error while decoding request: %s", err)
-			http.Error(w, err.Error(), 400)
-			return
+		if req.Header.Get("Content-Type") == "application/json" {
+			decoder := json.NewDecoder(req.Body)
+			if err := decoder.Decode(&input); err != nil {
+				h.logger.Errorf("Error while decoding request: %s", err)
+				http.Error(w, err.Error(), 400)
+				return
+			}
+		} else {
+			body := bytes.NewBufferString(req.PostFormValue("body"))
+			decoder := json.NewDecoder(body)
+			if err := decoder.Decode(&input); err != nil {
+				h.logger.Errorf("Error while decoding request:%s", err)
+				http.Error(w, err.Error(), 400)
+				return
+			}
+			if err := InputFineFoto(w, req, h, &input); err != nil {
+				return
+			}
 		}
 		_, err = h.services.AppMove.ChangeReturnAct(&input, actId, req.Method)
 		if err != nil {
@@ -602,13 +655,15 @@ func (h *Handler) getAuthors(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, err.Error(), 500)
 		return
 	}
+
 	var output []byte
-	output, err = json.Marshal(&listAuthors)
+	output, err = json.Marshal(listAuthors)
 	if err != nil {
 		h.logger.Errorf("Marshal error:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
+
 	w.Header().Set("Content-Type", "application/json")
 	_, err = w.Write(output)
 	if err != nil {
@@ -616,16 +671,20 @@ func (h *Handler) getAuthors(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, err.Error(), 501)
 		return
 	}
+
 }
 
 func (h *Handler) createAuthor(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working createAuthor")
 	CheckMethod(w, req, "POST", h.logger)
-	var input IndTask.Author
-	decoder := json.NewDecoder(req.Body)
-	if err := decoder.Decode(&input); err != nil {
-		h.logger.Errorf("Error while decoding request:%s", err)
+	if err := req.ParseMultipartForm(10 * 1024 * 1024); err != nil {
+		h.logger.Errorf("Error while parsing maxMemoty of the uploaded file:%s", err)
 		http.Error(w, err.Error(), 400)
+		return
+	}
+	var input IndTask.Author
+	input.AuthorName = req.PostFormValue("author_name")
+	if err := InputAuthorFoto(w, req, h, &input); err != nil {
 		return
 	}
 	authorId, err := h.services.AppAuthor.CreateAuthor(&input)
@@ -655,12 +714,27 @@ func (h *Handler) changeAuthor(w http.ResponseWriter, req *http.Request) {
 	if req.Method == "PUT" {
 		h.logger.Info("Method PUT, changeAuthor")
 		var input IndTask.Author
-		decoder := json.NewDecoder(req.Body)
-		if err := decoder.Decode(&input); err != nil {
-			h.logger.Errorf("Error while decoding request: %s", err)
-			http.Error(w, err.Error(), 400)
-			return
+
+		if req.Header.Get("Content-Type") == "application/json" {
+			decoder := json.NewDecoder(req.Body)
+			if err := decoder.Decode(&input); err != nil {
+				h.logger.Errorf("Error while decoding request: %s", err)
+				http.Error(w, err.Error(), 400)
+				return
+			}
+		} else {
+			if err := req.ParseMultipartForm(10 * 1024 * 1024); err != nil {
+				h.logger.Errorf("Error while setting maxMemoty of the uploaded file:%s", err)
+				http.Error(w, err.Error(), 400)
+				return
+			}
+			input.AuthorName = req.PostFormValue("author_name")
+			if err := InputAuthorFoto(w, req, h, &input); err != nil {
+				return
+			}
+
 		}
+
 		_, err = h.services.AppAuthor.ChangeAuthor(&input, authorId, req.Method)
 		if err != nil {
 			h.logger.Errorf("Error while updating genre: %s", err)
@@ -671,19 +745,19 @@ func (h *Handler) changeAuthor(w http.ResponseWriter, req *http.Request) {
 
 	if req.Method == "GET" {
 		h.logger.Info("Method GET, changeAuthor")
-		user, err := h.services.AppAuthor.ChangeAuthor(nil, authorId, req.Method)
+		author, err := h.services.AppAuthor.ChangeAuthor(nil, authorId, req.Method)
 		if err != nil {
 			h.logger.Errorf("Error while getting author from database:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
-		output, err := json.Marshal(user)
+		output, err := json.Marshal(author)
 		if err != nil {
 			h.logger.Errorf("Can not marshal user:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
-		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Content-Type", "application/octet-stream")
 		_, err = w.Write(output)
 		if err != nil {
 			h.logger.Errorf("Can not write output into response:%s", err)
@@ -813,4 +887,109 @@ func (h *Handler) changeGenre(w http.ResponseWriter, req *http.Request) {
 			return
 		}
 	}
+}
+func InputCoverFoto(w http.ResponseWriter, req *http.Request, h *Handler, input *IndTask.Book) error {
+	reqFile, fileHeader, err := req.FormFile("file")
+	if err != nil {
+		h.logger.Errorf("Error while parsing multipart form:%s", err)
+		http.Error(w, err.Error(), 400)
+		return err
+	}
+	defer reqFile.Close()
+	filePath := fmt.Sprintf("images/book_covers/%s_%d.%s", translate.Translate(input.BookName), input.Published, (strings.Split(fileHeader.Filename, "."))[1])
+	file, err := os.OpenFile(filePath, os.O_CREATE|os.O_RDWR, 0777)
+	if err != nil {
+		h.logger.Errorf("Error while opening file:%s", err)
+		http.Error(w, err.Error(), 400)
+		return err
+	}
+	defer file.Close()
+	fileBytes, err := ioutil.ReadAll(reqFile)
+	if err != nil {
+		h.logger.Errorf("Error while reading request file:%s", err)
+		http.Error(w, err.Error(), 400)
+		return err
+	}
+	_, err = file.Write(fileBytes)
+	if err != nil {
+		h.logger.Errorf("Error while writting into file:%s", err)
+		http.Error(w, err.Error(), 400)
+		return err
+	}
+	input.Cover = filePath
+	return nil
+}
+
+func InputAuthorFoto(w http.ResponseWriter, req *http.Request, h *Handler, input *IndTask.Author) error {
+	reqFile, fileHeader, err := req.FormFile("file")
+	if err != nil {
+		h.logger.Errorf("Error while parsing multipart form:%s", err)
+		http.Error(w, err.Error(), 400)
+		return err
+	}
+	defer reqFile.Close()
+	filePath := fmt.Sprintf("images/authors/%s.%s", translate.Translate(input.AuthorName), (strings.Split(fileHeader.Filename, "."))[1])
+	file, err := os.OpenFile(filePath, os.O_CREATE|os.O_RDWR, 0777)
+	if err != nil {
+		h.logger.Errorf("Error while opening file:%s", err)
+		http.Error(w, err.Error(), 400)
+		return err
+	}
+	defer file.Close()
+	fileBytes, err := ioutil.ReadAll(reqFile)
+	if err != nil {
+		h.logger.Errorf("Error while reading request file:%s", err)
+		http.Error(w, err.Error(), 400)
+		return err
+	}
+	_, err = file.Write(fileBytes)
+	if err != nil {
+		h.logger.Errorf("Error while writting into file:%s", err)
+		http.Error(w, err.Error(), 400)
+		return err
+	}
+	input.AuthorFoto = filePath
+	return nil
+}
+
+func InputFineFoto(w http.ResponseWriter, req *http.Request, h *Handler, input *IndTask.ReturnAct) error {
+	m := req.MultipartForm
+	files := m.File["file"]
+	for i, headers := range files {
+		reqfile, err := files[i].Open()
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return err
+		}
+		defer reqfile.Close()
+		fileBytes, err := ioutil.ReadAll(reqfile)
+		if err != nil {
+			h.logger.Errorf("Error while reading request file:%s", err)
+			http.Error(w, err.Error(), 400)
+			return err
+		}
+		directoryPath := fmt.Sprintf("images/fines/issueActId%d", input.IssueActId)
+		filePath := fmt.Sprintf("%s/%s", directoryPath, translate.Translate(headers.Filename))
+		err = os.MkdirAll(directoryPath, 0777)
+		if err != nil {
+			h.logger.Errorf("Error while creating directories:%s", err)
+			http.Error(w, err.Error(), 400)
+			return err
+		}
+		file, err := os.OpenFile(filePath, os.O_RDWR|os.O_CREATE, 0777)
+		if err != nil {
+			h.logger.Errorf("Error while opening file:%s", err)
+			http.Error(w, err.Error(), 400)
+			return err
+		}
+		defer file.Close()
+		_, err = file.Write(fileBytes)
+		if err != nil {
+			h.logger.Errorf("Error while writting into file:%s", err)
+			http.Error(w, err.Error(), 400)
+			return err
+		}
+		input.Foto = append(input.Foto, filePath)
+	}
+	return nil
 }

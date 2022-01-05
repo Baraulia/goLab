@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
 	"github.com/Baraulia/goLab/IndTask.git/internal/repository"
+	"os"
 )
 
 var BookDoesNotExists = errors.New("book with that id does not exists")
@@ -61,11 +62,17 @@ func (b *BookService) CreateBook(book *IndTask.Book) (int, error) {
 					}
 				}
 			}
-			logger.Infof("BookExists = true for book_name = %s, book_published = %d", book.BookName, book.Published)
 			break
 		}
 	}
+	if bookExists {
+		logger.Errorf("BookExists = true for book_name = %s, book_published = %d", book.BookName, book.Published)
+		if err := os.Remove(book.Cover); err != nil {
+			return 0, fmt.Errorf("BookExists = true, error deleting file %s:%s", book.Cover, err)
+		}
 
+		return 0, fmt.Errorf("BookExists = true for book_name = %s, book_published = %d", book.BookName, book.Published)
+	}
 	return b.repo.CreateBook(book, bookExists)
 }
 

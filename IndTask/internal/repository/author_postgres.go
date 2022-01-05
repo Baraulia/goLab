@@ -38,7 +38,6 @@ func (r *AuthorPostgres) GetAuthors() ([]IndTask.Author, error) {
 		}
 		listAuthors = append(listAuthors, author)
 	}
-
 	return listAuthors, err
 }
 
