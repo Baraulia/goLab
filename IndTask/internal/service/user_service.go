@@ -18,12 +18,12 @@ func NewUserService(repo repository.AppUser) *UserService {
 	return &UserService{repo: repo}
 }
 
-func (u *UserService) GetUsers() ([]IndTask.User, error) {
-	return u.repo.GetUsers()
+func (u *UserService) GetUsers(page int) ([]IndTask.User, error) {
+	return u.repo.GetUsers(page)
 }
 
 func (u *UserService) CreateUser(user *IndTask.User) (int, error) {
-	listUsers, err := u.repo.GetUsers()
+	listUsers, err := u.repo.GetUsers(0)
 	if err != nil {
 		logger.Errorf("Error when getting genres:%s", err)
 		return 0, err
@@ -44,7 +44,7 @@ func (u *UserService) CreateUser(user *IndTask.User) (int, error) {
 }
 
 func (u *UserService) ChangeUser(user *IndTask.User, userId int, method string) (*IndTask.User, error) {
-	listUsers, err := u.repo.GetUsers()
+	listUsers, err := u.repo.GetUsers(0)
 	if err != nil {
 		logger.Errorf("Error when getting users:%s", err)
 		return nil, err

@@ -19,16 +19,16 @@ func NewBookService(repo repository.Repository) *BookService {
 	return &BookService{repo: repo}
 }
 
-func (b *BookService) GetBooks() ([]IndTask.Book, error) {
-	return b.repo.GetBooks()
+func (b *BookService) GetBooks(page int) ([]IndTask.Book, error) {
+	return b.repo.GetBooks(page)
 }
 
-func (b *BookService) GetListBooks() ([]IndTask.ListBooks, error) {
-	return b.repo.GetListBooks()
+func (b *BookService) GetListBooks(page int) ([]IndTask.ListBooks, error) {
+	return b.repo.GetListBooks(page)
 }
 
 func (b *BookService) CreateBook(book *IndTask.Book) (int, error) {
-	listBooks, err := b.repo.GetBooks()
+	listBooks, err := b.repo.GetBooks(0)
 	if err != nil {
 		logger.Errorf("Error when getting books:%s", err.Error())
 		return 0, err
@@ -77,7 +77,7 @@ func (b *BookService) CreateBook(book *IndTask.Book) (int, error) {
 }
 
 func (b *BookService) ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.Book, error) {
-	listBooks, err := b.repo.GetBooks()
+	listBooks, err := b.repo.GetBooks(0)
 	if err != nil {
 		logger.Errorf("Error when getting books:%s", err)
 		return nil, err
@@ -104,7 +104,7 @@ func (b *BookService) ChangeBook(book *IndTask.Book, bookId int, method string) 
 }
 
 func (b *BookService) ChangeListBook(listBook *IndTask.ListBooks, listBookId int, method string) (*IndTask.ListBooks, error) {
-	listBooks, err := b.repo.GetListBooks()
+	listBooks, err := b.repo.GetListBooks(0)
 	if err != nil {
 		logger.Errorf("Error when getting listBooks:%s", err)
 		return nil, err

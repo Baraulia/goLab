@@ -14,7 +14,9 @@ func NewUserPostgres(db *sql.DB) *UserPostgres {
 	return &UserPostgres{db: db}
 }
 
-func (r *UserPostgres) GetUsers() ([]IndTask.User, error) {
+var userLimit = 10
+
+func (r *UserPostgres) GetUsers(page int) ([]IndTask.User, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("Can not begin transaction:%s", err)
@@ -22,11 +24,21 @@ func (r *UserPostgres) GetUsers() ([]IndTask.User, error) {
 	}
 
 	var listUsers []IndTask.User
-	query := fmt.Sprint("SELECT * FROM users")
-	rows, err := transaction.Query(query)
-	if err != nil {
-		logger.Errorf("Can not executes a query:%s", err)
-		return nil, err
+	var rows *sql.Rows
+	if page == 0 {
+		query := fmt.Sprint("SELECT * FROM users")
+		rows, err = transaction.Query(query)
+		if err != nil {
+			logger.Errorf("Can not executes a query:%s", err)
+			return nil, err
+		}
+	} else {
+		query := fmt.Sprint("SELECT * FROM users ORDER BY Id LIMIT $1 OFFSET $2")
+		rows, err = transaction.Query(query, actLimit, (page-1)*10)
+		if err != nil {
+			logger.Errorf("Can not executes a query:%s", err)
+			return nil, err
+		}
 	}
 
 	for rows.Next() {

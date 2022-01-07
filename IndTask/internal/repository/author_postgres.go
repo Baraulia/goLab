@@ -10,24 +10,35 @@ type AuthorPostgres struct {
 	db *sql.DB
 }
 
+var authorLimit = 10
+
 func NewAuthorPostgres(db *sql.DB) *AuthorPostgres {
 	return &AuthorPostgres{db: db}
 }
 
-func (r *AuthorPostgres) GetAuthors() ([]IndTask.Author, error) {
+func (r *AuthorPostgres) GetAuthors(page int) ([]IndTask.Author, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("Can not begin transaction:%s", err)
 		return nil, err
 	}
-	defer transaction.Commit()
 
 	var listAuthors []IndTask.Author
-	query := fmt.Sprint("SELECT * FROM authors")
-	rows, err := transaction.Query(query)
-	if err != nil {
-		logger.Errorf("Can not executes a query:%s", err)
-		return nil, err
+	var rows *sql.Rows
+	if page == 0 {
+		query := fmt.Sprint("SELECT * FROM authors")
+		rows, err = transaction.Query(query)
+		if err != nil {
+			logger.Errorf("Can not executes a query:%s", err)
+			return nil, err
+		}
+	} else {
+		query := fmt.Sprint("SELECT * FROM authors ORDER BY Id LIMIT $1 OFFSET $2")
+		rows, err = transaction.Query(query, authorLimit, (page-1)*10)
+		if err != nil {
+			logger.Errorf("Can not executes a query:%s", err)
+			return nil, err
+		}
 	}
 
 	for rows.Next() {

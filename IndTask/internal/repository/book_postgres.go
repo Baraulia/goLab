@@ -16,18 +16,30 @@ func NewBookPostgres(db *sql.DB) *BookPostgres {
 	return &BookPostgres{db: db}
 }
 
-func (r *BookPostgres) GetBooks() ([]IndTask.Book, error) {
+var bookLimit = 10
+
+func (r *BookPostgres) GetBooks(page int) ([]IndTask.Book, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("Can not begin transaction:%s", err)
 		return nil, err
 	}
 	var listBooks []IndTask.Book
-	query := fmt.Sprint("SELECT * FROM books")
-	rows, err := transaction.Query(query)
-	if err != nil {
-		logger.Errorf("Can not executes a query:%s", err)
-		return nil, err
+	var rows *sql.Rows
+	if page == 0 {
+		query := fmt.Sprint("SELECT * FROM books")
+		rows, err = transaction.Query(query)
+		if err != nil {
+			logger.Errorf("Can not executes a query:%s", err)
+			return nil, err
+		}
+	} else {
+		query := fmt.Sprint("SELECT * FROM books ORDER BY Id LIMIT $1 OFFSET $2")
+		rows, err = transaction.Query(query, bookLimit, (page-1)*10)
+		if err != nil {
+			logger.Errorf("Can not executes a query:%s", err)
+			return nil, err
+		}
 	}
 	for rows.Next() {
 		var book IndTask.Book
@@ -201,7 +213,7 @@ func (r *BookPostgres) ChangeBook(book *IndTask.Book, bookId int, method string)
 	return nil, transaction.Rollback()
 }
 
-func (r *BookPostgres) GetListBooks() ([]IndTask.ListBooks, error) {
+func (r *BookPostgres) GetListBooks(page int) ([]IndTask.ListBooks, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("Can not begin transaction:%s", err)
@@ -209,11 +221,21 @@ func (r *BookPostgres) GetListBooks() ([]IndTask.ListBooks, error) {
 	}
 
 	var listBooks []IndTask.ListBooks
-	query := fmt.Sprint("SELECT * FROM list_books WHERE issued='false'")
-	rows, err := transaction.Query(query)
-	if err != nil {
-		logger.Errorf("Can not executes a query:%s", err)
-		return nil, err
+	var rows *sql.Rows
+	if page == 0 {
+		query := fmt.Sprint("SELECT * FROM list_books WHERE issued='false'")
+		rows, err = transaction.Query(query)
+		if err != nil {
+			logger.Errorf("Can not executes a query:%s", err)
+			return nil, err
+		}
+	} else {
+		query := fmt.Sprint("SELECT * FROM list_books WHERE issued='false' ORDER BY Id LIMIT $1 OFFSET $2")
+		rows, err = transaction.Query(query, bookLimit, (page-1)*10)
+		if err != nil {
+			logger.Errorf("Can not executes a query:%s", err)
+			return nil, err
+		}
 	}
 	for rows.Next() {
 		var book IndTask.ListBooks
@@ -266,7 +288,7 @@ func (r *BookPostgres) ChangeListBook(listBook *IndTask.ListBooks, listBookId in
 }
 
 func CalcRentCost(book *IndTask.Book) float64 {
-	rentCost := float64(book.Cost * 1.15 * 2)
+	rentCost := float64(book.Cost * 1.15 * 10)
 	return math.Round(rentCost) / 100
 }
 

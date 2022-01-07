@@ -6,35 +6,37 @@ import (
 	"github.com/Baraulia/goLab/IndTask.git/pkg/logging"
 )
 
+//go:generate mockgen -source=service.go -destination=mocks/mock.go
+
 var logger = logging.GetLogger()
 
 type AppUser interface {
-	GetUsers() ([]IndTask.User, error)
+	GetUsers(page int) ([]IndTask.User, error)
 	CreateUser(user *IndTask.User) (int, error)
 	ChangeUser(user *IndTask.User, userId int, method string) (*IndTask.User, error)
 }
 
 type AppBook interface {
-	GetBooks() ([]IndTask.Book, error)
+	GetBooks(page int) ([]IndTask.Book, error)
 	CreateBook(*IndTask.Book) (int, error)
 	ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.Book, error)
-	GetListBooks() ([]IndTask.ListBooks, error)
+	GetListBooks(page int) ([]IndTask.ListBooks, error)
 	ChangeListBook(books *IndTask.ListBooks, bookId int, method string) (*IndTask.ListBooks, error)
 }
 
 type AppMove interface {
-	GetIssueActs() ([]IndTask.IssueAct, error)
+	GetIssueActs(page int) ([]IndTask.IssueAct, error)
 	CreateIssueAct(issueAct *IndTask.IssueAct, method string) (int, error)
-	GetIssueActsByUser(userId int) ([]IndTask.IssueAct, error)
+	GetIssueActsByUser(userId int, page int) ([]IndTask.IssueAct, error)
 	ChangeIssueAct(issueAct *IndTask.IssueAct, actId int, method string) (*IndTask.IssueAct, error)
-	GetReturnActs() ([]IndTask.ReturnAct, error)
+	GetReturnActs(page int) ([]IndTask.ReturnAct, error)
 	CreateReturnAct(returnAct *IndTask.ReturnAct) (int, error)
-	GetReturnActsByUser(userId int) ([]IndTask.ReturnAct, error)
+	GetReturnActsByUser(userId int, page int) ([]IndTask.ReturnAct, error)
 	ChangeReturnAct(returnAct *IndTask.ReturnAct, actId int, method string) (*IndTask.ReturnAct, error)
 }
 
 type AppAuthor interface {
-	GetAuthors() ([]IndTask.Author, error)
+	GetAuthors(page int) ([]IndTask.Author, error)
 	CreateAuthor(author *IndTask.Author) (int, error)
 	ChangeAuthor(author *IndTask.Author, authorId int, method string) (*IndTask.Author, error)
 }

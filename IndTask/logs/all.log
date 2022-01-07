@@ -2107,3 +2107,346 @@ time="2021-12-23T21:25:41+03:00" level=info msg="Running server on 127.0.0.1:808
 [36mINFO[0m[2022-01-05T12:17:33+03:00]handlers.go:579 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
 [36mINFO[0m[2022-01-05T12:17:33+03:00]handlers.go:593 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method PUT, changeReturnAct                  
 [36mINFO[0m[2022-01-05T12:17:39+03:00]handlers.go:485 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActs() Working getReturnActs                        
+[36mINFO[0m[2022-01-05T12:27:33+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-05T12:27:33+03:00]main.go:34 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-05T12:27:33+03:00]main.go:40 main.main() IndTask started                              
+[36mINFO[0m[2022-01-05T14:52:17+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-05T14:52:17+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-05T14:52:17+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-05T19:46:21+03:00]main.go:50 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-05T19:46:21+03:00]main.go:42 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-05T19:46:56+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-05T19:46:56+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-05T19:46:56+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-05T19:46:59+03:00]main.go:50 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-05T19:46:59+03:00]main.go:42 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T13:26:05+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T13:26:05+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T13:26:05+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T13:26:07+03:00]handlers.go:260 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2022-01-06T13:26:29+03:00]handlers.go:235 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2022-01-06T13:26:48+03:00]handlers.go:351 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-06T15:13:58+03:00]main.go:50 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T15:13:58+03:00]main.go:42 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T15:14:42+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T15:14:42+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T15:14:42+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T15:15:20+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T15:15:20+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T15:15:22+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T15:15:22+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T15:15:22+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T15:15:45+03:00]handlers.go:29 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2022-01-06T15:21:13+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T15:21:13+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T15:21:15+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T15:21:15+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T15:21:15+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T15:26:16+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T15:26:16+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T15:26:18+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T15:26:18+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T15:26:18+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T15:28:02+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T15:28:02+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T15:28:04+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T15:28:04+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T15:28:04+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T15:29:17+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T15:29:17+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T15:29:19+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T15:29:19+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T15:29:19+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T16:20:44+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T16:20:44+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T16:30:24+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T16:30:24+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T16:30:24+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T16:32:22+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T16:32:22+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T16:32:24+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T16:32:24+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T16:32:24+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T16:34:22+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T16:34:22+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T16:34:24+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T16:34:24+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T16:34:24+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T16:34:39+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T16:34:39+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T16:34:41+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T16:34:41+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T16:34:41+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T16:50:37+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T16:50:37+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T16:50:39+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T16:50:39+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T16:50:39+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T16:51:00+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T16:51:00+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T16:51:01+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T16:51:01+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T16:51:01+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T16:54:10+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T16:54:10+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T16:54:12+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T16:54:12+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T16:54:12+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T17:05:33+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T17:05:33+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T17:05:35+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T17:05:35+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T17:05:35+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T17:05:56+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T17:05:56+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T17:05:58+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T17:05:58+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T17:05:58+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T17:23:40+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T17:23:40+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T17:23:42+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T17:23:42+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T17:23:42+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T17:32:01+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T17:32:01+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T17:32:03+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T17:32:03+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T17:32:03+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T17:32:25+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T17:32:25+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T17:32:26+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T17:32:26+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T17:32:26+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T17:33:45+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T17:33:45+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T17:33:47+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T17:33:47+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T17:33:47+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T17:39:03+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T17:39:03+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T17:39:05+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T17:39:05+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T17:39:05+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T17:39:59+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T17:39:59+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T17:40:01+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T17:40:01+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T17:40:01+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T17:41:55+03:00]handlers.go:29 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2022-01-06T17:48:16+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T17:48:16+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T17:48:18+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T17:48:18+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T17:48:18+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T17:48:22+03:00]handlers.go:29 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2022-01-06T17:48:23+03:00]handlers.go:29 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2022-01-06T18:00:18+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T18:00:18+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T18:00:20+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T18:00:20+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T18:00:20+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T18:07:17+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T18:07:17+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T18:07:19+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T18:07:19+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T18:07:19+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T18:13:02+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T18:13:02+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T18:13:04+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T18:13:05+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T18:13:05+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T18:13:41+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T18:13:41+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T18:13:43+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T18:13:43+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T18:13:43+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T18:14:42+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T18:14:42+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T18:14:45+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T18:14:45+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T18:14:45+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T18:15:47+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T18:15:47+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T18:15:49+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T18:15:49+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T18:15:49+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T18:23:45+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T18:23:45+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T18:23:47+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T18:23:47+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T18:23:47+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T18:25:53+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T18:25:53+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T18:25:55+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T18:25:55+03:00]main.go:49 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T18:25:55+03:00]main.go:56 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T18:48:43+03:00]main.go:60 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T18:48:43+03:00]main.go:52 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T18:49:05+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T18:49:05+03:00]main.go:46 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T18:49:05+03:00]main.go:53 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T18:49:44+03:00]handlers.go:28 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2022-01-06T18:52:57+03:00]main.go:57 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T18:52:57+03:00]main.go:49 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T18:52:59+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T18:52:59+03:00]main.go:46 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T18:52:59+03:00]main.go:53 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T18:53:23+03:00]main.go:57 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T18:53:23+03:00]main.go:49 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T18:53:25+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T18:53:25+03:00]main.go:46 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T18:53:25+03:00]main.go:53 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T19:01:37+03:00]main.go:57 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T19:01:37+03:00]main.go:49 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T19:01:39+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T19:01:39+03:00]main.go:46 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T19:01:39+03:00]main.go:53 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T19:03:58+03:00]main.go:57 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T19:03:58+03:00]main.go:49 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T19:04:00+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T19:04:00+03:00]main.go:46 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T19:04:00+03:00]main.go:53 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T19:06:43+03:00]main.go:57 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T19:06:43+03:00]main.go:49 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T19:06:45+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T19:06:45+03:00]main.go:46 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T19:06:45+03:00]main.go:53 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T19:07:10+03:00]main.go:57 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T19:07:10+03:00]main.go:49 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T19:07:12+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T19:07:12+03:00]main.go:46 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T19:07:12+03:00]main.go:53 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T19:12:31+03:00]main.go:57 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T19:12:31+03:00]main.go:49 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T19:12:33+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T19:12:33+03:00]main.go:46 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T19:12:33+03:00]main.go:53 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T19:41:52+03:00]main.go:57 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T19:41:52+03:00]main.go:49 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T19:41:54+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T19:41:54+03:00]main.go:46 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T19:41:54+03:00]main.go:53 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T19:43:06+03:00]handlers.go:28 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2022-01-06T19:43:24+03:00]main.go:57 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T19:43:24+03:00]main.go:49 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T19:43:26+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T19:43:26+03:00]main.go:46 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T19:43:26+03:00]main.go:53 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T19:48:35+03:00]main.go:57 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T19:48:35+03:00]main.go:49 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T19:49:20+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T19:49:20+03:00]main.go:46 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T19:49:20+03:00]main.go:53 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T19:51:13+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T19:51:13+03:00]main.go:46 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T19:51:13+03:00]main.go:53 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T20:07:34+03:00]main.go:57 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T20:07:34+03:00]main.go:49 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T20:07:35+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T20:07:35+03:00]main.go:46 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T20:07:35+03:00]main.go:53 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T20:14:08+03:00]main.go:57 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T20:14:08+03:00]main.go:49 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-06T20:14:10+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-06T20:14:10+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-06T20:14:10+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-06T20:26:32+03:00]main.go:50 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-06T20:26:32+03:00]main.go:42 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-07T10:59:25+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-07T11:00:57+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-07T11:00:57+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-07T11:00:57+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-07T11:02:04+03:00]handlers.go:689 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2022-01-07T11:03:31+03:00]main.go:50 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-07T11:03:31+03:00]main.go:42 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-07T11:03:33+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-07T11:03:33+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-07T11:03:33+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-07T11:03:38+03:00]handlers.go:689 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2022-01-07T11:04:06+03:00]main.go:50 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-07T11:04:06+03:00]main.go:42 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-07T11:04:07+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-07T11:04:07+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-07T11:04:07+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-07T11:04:10+03:00]handlers.go:689 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2022-01-07T11:04:21+03:00]main.go:50 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-07T11:04:21+03:00]main.go:42 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-07T11:04:23+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-07T11:04:23+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-07T11:04:23+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-07T11:04:25+03:00]handlers.go:689 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2022-01-07T11:04:39+03:00]main.go:50 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-07T11:04:39+03:00]main.go:42 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-07T11:04:40+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-07T11:04:40+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-07T11:04:40+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-07T11:04:42+03:00]handlers.go:689 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[31mERRO[0m[2022-01-07T11:04:42+03:00]author_postgres.go:38 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*AuthorPostgres).GetAuthors() Can not executes a query:pq: got 1 parameters but the statement requires 0 
+[31mERRO[0m[2022-01-07T11:04:42+03:00]handlers.go:700 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Error while getting authors list from database: pq: got 1 parameters but the statement requires 0 
+[36mINFO[0m[2022-01-07T11:04:54+03:00]main.go:50 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-07T11:04:54+03:00]main.go:42 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-07T11:04:55+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-07T11:04:55+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-07T11:04:55+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-07T11:04:57+03:00]handlers.go:689 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2022-01-07T11:05:04+03:00]handlers.go:689 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2022-01-07T11:05:11+03:00]handlers.go:689 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2022-01-07T11:05:16+03:00]handlers.go:689 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2022-01-07T15:06:46+03:00]handlers.go:689 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2022-01-07T15:35:31+03:00]main.go:50 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-07T15:35:31+03:00]main.go:42 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-07T15:35:32+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-07T15:35:32+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-07T15:35:32+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-07T15:36:12+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2022-01-07T15:38:32+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2022-01-07T15:40:09+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2022-01-07T15:40:26+03:00]handlers.go:48 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getListBooks() Working getListBooks                         
+[36mINFO[0m[2022-01-07T15:42:33+03:00]handlers.go:367 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-07T15:42:41+03:00]handlers.go:367 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-07T15:42:47+03:00]handlers.go:367 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-07T15:43:41+03:00]handlers.go:513 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActs() Working getReturnActs                        
+[36mINFO[0m[2022-01-07T15:45:00+03:00]handlers.go:456 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-07T15:45:00+03:00]handlers.go:487 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method GET, changeIssueAct                   
+[36mINFO[0m[2022-01-07T15:46:18+03:00]handlers.go:619 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-07T15:46:18+03:00]handlers.go:663 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method GET, changeReturnAct                  
+[36mINFO[0m[2022-01-07T15:46:31+03:00]handlers.go:419 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() Working getIssueActsByUser                   
+[31mERRO[0m[2022-01-07T15:46:31+03:00]handlers.go:429 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() No url request:strconv.Atoi: parsing "": invalid syntax 
+[36mINFO[0m[2022-01-07T15:47:08+03:00]handlers.go:582 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActsByUser() Working getReturnActsByUser                  
+[31mERRO[0m[2022-01-07T15:47:08+03:00]handlers.go:592 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActsByUser() No url request:strconv.Atoi: parsing "": invalid syntax 
+[36mINFO[0m[2022-01-07T15:47:36+03:00]handlers.go:456 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-07T15:47:36+03:00]handlers.go:487 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method GET, changeIssueAct                   
+[36mINFO[0m[2022-01-07T15:47:44+03:00]handlers.go:456 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-07T15:47:44+03:00]handlers.go:487 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method GET, changeIssueAct                   
+[36mINFO[0m[2022-01-07T15:47:54+03:00]handlers.go:619 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-07T15:47:54+03:00]handlers.go:663 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method GET, changeReturnAct                  
+[36mINFO[0m[2022-01-07T15:48:40+03:00]handlers.go:419 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() Working getIssueActsByUser                   
+[36mINFO[0m[2022-01-07T15:48:50+03:00]handlers.go:419 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() Working getIssueActsByUser                   
+[36mINFO[0m[2022-01-07T15:48:55+03:00]handlers.go:419 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() Working getIssueActsByUser                   
+[36mINFO[0m[2022-01-07T15:49:57+03:00]handlers.go:582 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActsByUser() Working getReturnActsByUser                  
+[36mINFO[0m[2022-01-07T15:50:26+03:00]handlers.go:245 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2022-01-07T15:50:34+03:00]handlers.go:245 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2022-01-07T15:50:38+03:00]handlers.go:245 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2022-01-07T15:56:51+03:00]handlers.go:79 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-07T15:56:51+03:00]handlers.go:940 github.com/Baraulia/goLab/IndTask.git/internal/handler.InputCoverFoto() Error while parsing multipart form:http: no such file 
+[36mINFO[0m[2022-01-07T15:57:04+03:00]handlers.go:79 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-07T15:57:05+03:00]book_service.go:69 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() BookExists = true for book_name = Гельбери Финн, book_published = 2020 
+[31mERRO[0m[2022-01-07T15:57:05+03:00]handlers.go:99 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while creating book in the database:BookExists = true for book_name = Гельбери Финн, book_published = 2020 
+[36mINFO[0m[2022-01-07T15:57:23+03:00]handlers.go:79 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-07T15:57:23+03:00]book_postgres.go:324 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).ReturnBindId() Can not begin transaction:pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-07T15:57:23+03:00]book_postgres.go:52 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetBooks() Error returning autor_id binded with book_id=10:pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-07T15:57:23+03:00]book_service.go:33 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).CreateBook() Error when getting books:pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-07T15:57:23+03:00]handlers.go:99 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while creating book in the database:pq: sorry, too many clients already 
+[36mINFO[0m[2022-01-07T15:57:37+03:00]main.go:50 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-07T15:57:37+03:00]main.go:42 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-07T15:57:38+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-07T15:57:38+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-07T15:57:38+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-07T15:57:40+03:00]handlers.go:79 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2022-01-07T17:40:49+03:00]main.go:50 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-07T17:40:49+03:00]main.go:42 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-07T17:44:51+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-07T17:44:51+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-07T17:44:51+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-07T17:45:01+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2022-01-07T17:45:19+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             

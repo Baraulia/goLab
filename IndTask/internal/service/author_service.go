@@ -17,12 +17,12 @@ func NewAuthorService(repo repository.AppAuthor) *AuthorService {
 	return &AuthorService{repo: repo}
 }
 
-func (a *AuthorService) GetAuthors() ([]IndTask.Author, error) {
-	return a.repo.GetAuthors()
+func (a *AuthorService) GetAuthors(page int) ([]IndTask.Author, error) {
+	return a.repo.GetAuthors(page)
 }
 
 func (a *AuthorService) CreateAuthor(author *IndTask.Author) (int, error) {
-	listAuthors, err := a.repo.GetAuthors()
+	listAuthors, err := a.repo.GetAuthors(0)
 	if err != nil {
 		logger.Errorf("Error when getting authors:%s", err)
 		return 0, err
@@ -37,7 +37,7 @@ func (a *AuthorService) CreateAuthor(author *IndTask.Author) (int, error) {
 }
 
 func (a *AuthorService) ChangeAuthor(author *IndTask.Author, authorId int, method string) (*IndTask.Author, error) {
-	listAuthors, err := a.repo.GetAuthors()
+	listAuthors, err := a.repo.GetAuthors(0)
 	if err != nil {
 		logger.Errorf("Error when getting authors:%s", err)
 		return nil, err

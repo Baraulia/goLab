@@ -9,33 +9,33 @@ import (
 var logger = logging.GetLogger()
 
 type AppUser interface {
-	GetUsers() ([]IndTask.User, error)
+	GetUsers(page int) ([]IndTask.User, error)
 	CreateUser(user *IndTask.User) (int, error)
 	ChangeUser(user *IndTask.User, userId int, method string) (*IndTask.User, error)
 }
 
 type AppBook interface {
-	GetBooks() ([]IndTask.Book, error)
+	GetBooks(page int) ([]IndTask.Book, error)
 	CreateBook(*IndTask.Book, bool) (int, error)
 	ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.Book, error)
-	GetListBooks() ([]IndTask.ListBooks, error)
+	GetListBooks(page int) ([]IndTask.ListBooks, error)
 	GetAuthorsByBookId(bookId int) ([]int, error)
 	ChangeListBook(listBook *IndTask.ListBooks, listBookId int, method string) (*IndTask.ListBooks, error)
 }
 
 type AppMove interface {
-	GetIssueActs() ([]IndTask.IssueAct, error)
+	GetIssueActs(page int) ([]IndTask.IssueAct, error)
 	CreateIssueAct(issueAct *IndTask.IssueAct) (int, error)
-	GetIssueActsByUser(userId int, forCost bool) ([]IndTask.IssueAct, error)
+	GetIssueActsByUser(userId int, forCost bool, page int) ([]IndTask.IssueAct, error)
 	ChangeIssueAct(issueAct *IndTask.IssueAct, actId int, method string) (*IndTask.IssueAct, error)
-	GetReturnActs() ([]IndTask.ReturnAct, error)
+	GetReturnActs(page int) ([]IndTask.ReturnAct, error)
 	CreateReturnAct(returnAct *IndTask.ReturnAct, listBookId int) (int, error)
-	GetReturnActsByUser(userId int) ([]IndTask.ReturnAct, error)
+	GetReturnActsByUser(userId int, page int) ([]IndTask.ReturnAct, error)
 	ChangeReturnAct(returnAct *IndTask.ReturnAct, actId int, method string) (*IndTask.ReturnAct, error)
 }
 
 type AppAuthor interface {
-	GetAuthors() ([]IndTask.Author, error)
+	GetAuthors(page int) ([]IndTask.Author, error)
 	CreateAuthor(author *IndTask.Author) (int, error)
 	ChangeAuthor(author *IndTask.Author, authorId int, method string) (*IndTask.Author, error)
 }

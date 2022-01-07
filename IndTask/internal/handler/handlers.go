@@ -13,13 +13,17 @@ import (
 	"strings"
 )
 
-//handlers for books
-
 func (h *Handler) getBooks(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working getBooks")
+	page, err := strconv.Atoi(req.URL.Query().Get("page"))
+	if err != nil || page < 1 {
+		h.logger.Errorf("No url request:%s", err)
+		http.NotFound(w, req)
+		return
+	}
 	CheckMethod(w, req, "GET", h.logger)
 	var listBooks []IndTask.Book
-	listBooks, err := h.services.AppBook.GetBooks()
+	listBooks, err = h.services.AppBook.GetBooks(page)
 	if err != nil {
 		h.logger.Errorf("Error while getting books list from database: %s", err)
 		http.Error(w, err.Error(), 500)
@@ -43,8 +47,14 @@ func (h *Handler) getBooks(w http.ResponseWriter, req *http.Request) {
 func (h *Handler) getListBooks(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working getListBooks")
 	CheckMethod(w, req, "GET", h.logger)
+	page, err := strconv.Atoi(req.URL.Query().Get("page"))
+	if err != nil || page < 1 {
+		h.logger.Errorf("No url request:%s", err)
+		http.NotFound(w, req)
+		return
+	}
 	var listBooks []IndTask.ListBooks
-	listBooks, err := h.services.AppBook.GetListBooks()
+	listBooks, err = h.services.AppBook.GetListBooks(page)
 	if err != nil {
 		h.logger.Errorf("Error while getting listBooks list from database: %s", err)
 		http.Error(w, err.Error(), 500)
@@ -234,8 +244,14 @@ func (h *Handler) changeListBooks(w http.ResponseWriter, req *http.Request) {
 func (h *Handler) getUsers(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working getUsers")
 	CheckMethod(w, req, "GET", h.logger)
+	page, err := strconv.Atoi(req.URL.Query().Get("page"))
+	if err != nil || page < 1 {
+		h.logger.Errorf("No url request:%s", err)
+		http.NotFound(w, req)
+		return
+	}
 	var listUsers []IndTask.User
-	listUsers, err := h.services.AppUser.GetUsers()
+	listUsers, err = h.services.AppUser.GetUsers(page)
 	if err != nil {
 		h.logger.Errorf("Error while getting users list from database: %s", err)
 		http.Error(w, err.Error(), 500)
@@ -350,8 +366,14 @@ func (h *Handler) changeUser(w http.ResponseWriter, req *http.Request) {
 func (h *Handler) getIssueActs(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working getIssueActs")
 	CheckMethod(w, req, "GET", h.logger)
+	page, err := strconv.Atoi(req.URL.Query().Get("page"))
+	if err != nil || page < 1 {
+		h.logger.Errorf("No url request:%s", err)
+		http.NotFound(w, req)
+		return
+	}
 	var issueActs []IndTask.IssueAct
-	issueActs, err := h.services.AppMove.GetIssueActs()
+	issueActs, err = h.services.AppMove.GetIssueActs(page)
 	if err != nil {
 		h.logger.Errorf("Error while getting issueActs list from database: %s", err)
 		http.Error(w, err.Error(), 500)
@@ -402,8 +424,14 @@ func (h *Handler) getIssueActsByUser(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	CheckMethod(w, req, "GET", h.logger)
+	page, err := strconv.Atoi(req.URL.Query().Get("page"))
+	if err != nil || page < 1 {
+		h.logger.Errorf("No url request:%s", err)
+		http.NotFound(w, req)
+		return
+	}
 	var issueActs []IndTask.IssueAct
-	issueActs, err = h.services.AppMove.GetIssueActsByUser(userId)
+	issueActs, err = h.services.AppMove.GetIssueActsByUser(userId, page)
 	if err != nil {
 		h.logger.Errorf("Error while getting issueActsByUser from database: %s", err)
 		http.Error(w, err.Error(), 500)
@@ -484,8 +512,14 @@ func (h *Handler) changeIssueAct(w http.ResponseWriter, req *http.Request) {
 func (h *Handler) getReturnActs(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working getReturnActs")
 	CheckMethod(w, req, "GET", h.logger)
+	page, err := strconv.Atoi(req.URL.Query().Get("page"))
+	if err != nil || page < 1 {
+		h.logger.Errorf("No url request:%s", err)
+		http.NotFound(w, req)
+		return
+	}
 	var returnActs []IndTask.ReturnAct
-	returnActs, err := h.services.AppMove.GetReturnActs()
+	returnActs, err = h.services.AppMove.GetReturnActs(page)
 	if err != nil {
 		h.logger.Errorf("Error while getting returnActs list from database: %s", err)
 		http.Error(w, err.Error(), 500)
@@ -553,8 +587,14 @@ func (h *Handler) getReturnActsByUser(w http.ResponseWriter, req *http.Request) 
 		return
 	}
 	CheckMethod(w, req, "GET", h.logger)
+	page, err := strconv.Atoi(req.URL.Query().Get("page"))
+	if err != nil || page < 1 {
+		h.logger.Errorf("No url request:%s", err)
+		http.NotFound(w, req)
+		return
+	}
 	var returnActs []IndTask.ReturnAct
-	returnActs, err = h.services.AppMove.GetReturnActsByUser(userId)
+	returnActs, err = h.services.AppMove.GetReturnActsByUser(userId, page)
 	if err != nil {
 		h.logger.Errorf("Error while getting returnActsByUser from database: %s", err)
 		http.Error(w, err.Error(), 500)
@@ -648,8 +688,14 @@ func (h *Handler) changeReturnAct(w http.ResponseWriter, req *http.Request) {
 func (h *Handler) getAuthors(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working getAuthors")
 	CheckMethod(w, req, "GET", h.logger)
+	page, err := strconv.Atoi(req.URL.Query().Get("page"))
+	if err != nil || page < 1 {
+		h.logger.Errorf("No url request:%s", err)
+		http.NotFound(w, req)
+		return
+	}
 	var listAuthors []IndTask.Author
-	listAuthors, err := h.services.AppAuthor.GetAuthors()
+	listAuthors, err = h.services.AppAuthor.GetAuthors(page)
 	if err != nil {
 		h.logger.Errorf("Error while getting authors list from database: %s", err)
 		http.Error(w, err.Error(), 500)

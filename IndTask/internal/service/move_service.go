@@ -18,8 +18,8 @@ func NewMoveService(repo repository.Repository) *MoveService {
 	return &MoveService{repo: repo}
 }
 
-func (s *MoveService) GetIssueActs() ([]IndTask.IssueAct, error) {
-	return s.repo.GetIssueActs()
+func (s *MoveService) GetIssueActs(page int) ([]IndTask.IssueAct, error) {
+	return s.repo.GetIssueActs(page)
 }
 
 func (s *MoveService) CreateIssueAct(issueAct *IndTask.IssueAct, method string) (int, error) {
@@ -37,16 +37,16 @@ func (s *MoveService) CreateIssueAct(issueAct *IndTask.IssueAct, method string) 
 	return s.repo.CreateIssueAct(issueAct)
 }
 
-func (s *MoveService) GetIssueActsByUser(userId int) ([]IndTask.IssueAct, error) {
+func (s *MoveService) GetIssueActsByUser(userId int, page int) ([]IndTask.IssueAct, error) {
 	if _, err := s.repo.ChangeUser(nil, userId, "GET"); err != nil {
 		logger.Errorf("Such user with id = %d does not exist", userId)
 		return nil, fmt.Errorf("such user with id = %d does not exist", userId)
 	}
-	return s.repo.GetIssueActsByUser(userId, false)
+	return s.repo.GetIssueActsByUser(userId, false, page)
 }
 
 func (s *MoveService) ChangeIssueAct(issueAct *IndTask.IssueAct, actId int, method string) (*IndTask.IssueAct, error) {
-	listActs, err := s.repo.GetIssueActs()
+	listActs, err := s.repo.GetIssueActs(0)
 	if err != nil {
 		logger.Errorf("Error when getting list issue acts:%s", err)
 		return nil, err
@@ -74,8 +74,8 @@ func (s *MoveService) ChangeIssueAct(issueAct *IndTask.IssueAct, actId int, meth
 	return s.repo.ChangeIssueAct(issueAct, actId, method)
 }
 
-func (s *MoveService) GetReturnActs() ([]IndTask.ReturnAct, error) {
-	return s.repo.GetReturnActs()
+func (s *MoveService) GetReturnActs(page int) ([]IndTask.ReturnAct, error) {
+	return s.repo.GetReturnActs(page)
 }
 func (s *MoveService) CreateReturnAct(returnAct *IndTask.ReturnAct) (int, error) {
 
@@ -85,15 +85,15 @@ func (s *MoveService) CreateReturnAct(returnAct *IndTask.ReturnAct) (int, error)
 	}
 	return s.repo.CreateReturnAct(returnAct, listBookId)
 }
-func (s *MoveService) GetReturnActsByUser(userId int) ([]IndTask.ReturnAct, error) {
+func (s *MoveService) GetReturnActsByUser(userId int, page int) ([]IndTask.ReturnAct, error) {
 	if _, err := s.repo.ChangeUser(nil, userId, "GET"); err != nil {
 		logger.Errorf("Such user with id = %d does not exist", userId)
 		return nil, fmt.Errorf("such user with id = %d does not exist", userId)
 	}
-	return s.repo.GetReturnActsByUser(userId)
+	return s.repo.GetReturnActsByUser(userId, page)
 }
 func (s *MoveService) ChangeReturnAct(returnAct *IndTask.ReturnAct, actId int, method string) (*IndTask.ReturnAct, error) {
-	listActs, err := s.repo.GetReturnActs()
+	listActs, err := s.repo.GetReturnActs(0)
 	if err != nil {
 		logger.Errorf("Error when getting list return acts:%s", err)
 		return nil, err
@@ -166,7 +166,7 @@ func CheckIssueActExist(returnAct *IndTask.ReturnAct, s *MoveService) (int, erro
 }
 
 func CheckAmoutActsByUser(issueAct *IndTask.IssueAct, s *MoveService) error {
-	listIssueAct, err := s.repo.GetIssueActsByUser(issueAct.UserId, true)
+	listIssueAct, err := s.repo.GetIssueActsByUser(issueAct.UserId, true, 0)
 	if err != nil {
 		logger.Errorf("Error getting list IssueActs by user.Id = %d:%s", issueAct.UserId, err)
 		return fmt.Errorf("error getting list IssueActs by user.Id = %d:%s", issueAct.UserId, err)
@@ -180,7 +180,7 @@ func CheckAmoutActsByUser(issueAct *IndTask.IssueAct, s *MoveService) error {
 
 func setCost(issueAct *IndTask.IssueAct, returnAct *IndTask.ReturnAct, s *MoveService) error {
 	var discount float64
-	listIssueAct, err := s.repo.GetIssueActsByUser(issueAct.UserId, true)
+	listIssueAct, err := s.repo.GetIssueActsByUser(issueAct.UserId, true, 0)
 	if err != nil {
 		logger.Errorf("Error getting list IssueActs by user.Id = %d:%s", issueAct.UserId, err)
 		return fmt.Errorf("error getting list IssueActs by user.Id = %d:%s", issueAct.UserId, err)
