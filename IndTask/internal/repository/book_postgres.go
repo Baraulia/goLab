@@ -18,23 +18,60 @@ func NewBookPostgres(db *sql.DB) *BookPostgres {
 
 var bookLimit = 10
 
-func (r *BookPostgres) GetBooks(page int) ([]IndTask.Book, error) {
+func (r *BookPostgres) GetThreeBooks() ([]IndTask.BookDTO, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("Can not begin transaction:%s", err)
 		return nil, err
 	}
-	var listBooks []IndTask.Book
+	var listBooks []IndTask.BookDTO
+	var rows *sql.Rows
+	query := fmt.Sprint("SELECT id, book_name, cost, cover, published, pages, amount FROM books JOIN " +
+		"(SELECT book_id, SUM(rent_number) AS sum FROM list_books GROUP BY book_id ORDER BY sum DESC LIMIT 3) AS list  ON books.id = list.book_id")
+	rows, err = transaction.Query(query)
+	if err != nil {
+		logger.Errorf("Can not executes a query:%s", err)
+		return nil, err
+	}
+
+	for rows.Next() {
+		var book IndTask.BookDTO
+		if err := rows.Scan(&book.Id, &book.BookName, &book.Cost, &book.Cover, &book.Published, &book.Pages, &book.Amount); err != nil {
+			logger.Errorf("Scan error:%s", err)
+			return nil, err
+		}
+		book.Authors, err = r.ReturnBindAuthors(book.Id)
+		if err != nil {
+			logger.Errorf("Error returning autors binded with book_id=%d:%s", book.Id, err)
+			return nil, err
+		}
+		book.Genre, err = r.ReturnBindGenres(book.Id)
+		if err != nil {
+			logger.Errorf("Error returning genres binded with book_id=%d:%s", book.Id, err)
+			return nil, err
+		}
+		listBooks = append(listBooks, book)
+	}
+	return listBooks, err
+}
+
+func (r *BookPostgres) GetBooks(page int) ([]IndTask.BookDTO, error) {
+	transaction, err := r.db.Begin()
+	if err != nil {
+		logger.Errorf("Can not begin transaction:%s", err)
+		return nil, err
+	}
+	var listBooks []IndTask.BookDTO
 	var rows *sql.Rows
 	if page == 0 {
-		query := fmt.Sprint("SELECT * FROM books")
+		query := fmt.Sprint("SELECT id, book_name, cost, cover, published, pages, amount FROM books")
 		rows, err = transaction.Query(query)
 		if err != nil {
 			logger.Errorf("Can not executes a query:%s", err)
 			return nil, err
 		}
 	} else {
-		query := fmt.Sprint("SELECT * FROM books ORDER BY Id LIMIT $1 OFFSET $2")
+		query := fmt.Sprint("SELECT id, book_name, cost, cover, published, pages, amount FROM books ORDER BY Id LIMIT $1 OFFSET $2")
 		rows, err = transaction.Query(query, bookLimit, (page-1)*10)
 		if err != nil {
 			logger.Errorf("Can not executes a query:%s", err)
@@ -42,19 +79,19 @@ func (r *BookPostgres) GetBooks(page int) ([]IndTask.Book, error) {
 		}
 	}
 	for rows.Next() {
-		var book IndTask.Book
+		var book IndTask.BookDTO
 		if err := rows.Scan(&book.Id, &book.BookName, &book.Cost, &book.Cover, &book.Published, &book.Pages, &book.Amount); err != nil {
 			logger.Errorf("Scan error:%s", err)
 			return nil, err
 		}
-		book.AuthorsId, err = r.ReturnBindId("book_author", book.Id)
+		book.Authors, err = r.ReturnBindAuthors(book.Id)
 		if err != nil {
-			logger.Errorf("Error returning autor_id binded with book_id=%d:%s", book.Id, err)
+			logger.Errorf("Error returning autors binded with book_id=%d:%s", book.Id, err)
 			return nil, err
 		}
-		book.GenreId, err = r.ReturnBindId("book_genre", book.Id)
+		book.Genre, err = r.ReturnBindGenres(book.Id)
 		if err != nil {
-			logger.Errorf("Error returning genre_id binded with book_id=%d:%s", book.Id, err)
+			logger.Errorf("Error returning genres binded with book_id=%d:%s", book.Id, err)
 			return nil, err
 		}
 		listBooks = append(listBooks, book)
@@ -131,7 +168,7 @@ func (r *BookPostgres) CreateBook(book *IndTask.Book, bookExists bool) (int, err
 	return id, transaction.Commit()
 }
 
-func (r *BookPostgres) ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.Book, error) {
+func (r *BookPostgres) ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.BookDTO, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("Can not begin transaction:%s", err)
@@ -139,21 +176,21 @@ func (r *BookPostgres) ChangeBook(book *IndTask.Book, bookId int, method string)
 	}
 
 	if method == "GET" {
-		var book IndTask.Book
-		query := fmt.Sprint("SELECT * FROM books WHERE id = $1")
+		var book IndTask.BookDTO
+		query := fmt.Sprint("SELECT id, book_name, cost, cover, published, pages, amount FROM books WHERE id = $1")
 		row := transaction.QueryRow(query, bookId)
 		if err := row.Scan(&book.Id, &book.BookName, &book.Cost, &book.Cover, &book.Published, &book.Pages, &book.Amount); err != nil {
 			logger.Errorf("Can not scan select from books where id = %d", bookId)
 			return nil, err
 		}
-		book.AuthorsId, err = r.ReturnBindId("book_author", book.Id)
+		book.Authors, err = r.ReturnBindAuthors(book.Id)
 		if err != nil {
-			logger.Errorf("Error returning autor_id binded with book_id=%d:%s", book.Id, err)
+			logger.Errorf("Error returning autors binded with book_id=%d:%s", book.Id, err)
 			return nil, err
 		}
-		book.GenreId, err = r.ReturnBindId("book_genre", book.Id)
+		book.Genre, err = r.ReturnBindGenres(book.Id)
 		if err != nil {
-			logger.Errorf("Error returning genre_id binded with book_id=%d:%s", book.Id, err)
+			logger.Errorf("Error returning genres binded with book_id=%d:%s", book.Id, err)
 			return nil, err
 		}
 
@@ -213,24 +250,24 @@ func (r *BookPostgres) ChangeBook(book *IndTask.Book, bookId int, method string)
 	return nil, transaction.Rollback()
 }
 
-func (r *BookPostgres) GetListBooks(page int) ([]IndTask.ListBooks, error) {
+func (r *BookPostgres) GetListBooks(page int) ([]IndTask.ListBooksDTO, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("Can not begin transaction:%s", err)
 		return nil, err
 	}
 
-	var listBooks []IndTask.ListBooks
+	var listBooks []IndTask.ListBooksDTO
 	var rows *sql.Rows
 	if page == 0 {
-		query := fmt.Sprint("SELECT * FROM list_books WHERE issued='false'")
+		query := fmt.Sprint("SELECT id, book_id, issued, rent_number, rent_cost, reg_date, condition FROM list_books WHERE issued='false'")
 		rows, err = transaction.Query(query)
 		if err != nil {
 			logger.Errorf("Can not executes a query:%s", err)
 			return nil, err
 		}
 	} else {
-		query := fmt.Sprint("SELECT * FROM list_books WHERE issued='false' ORDER BY Id LIMIT $1 OFFSET $2")
+		query := fmt.Sprint("SELECT id, book_id, issued, rent_number, rent_cost, reg_date, condition FROM list_books WHERE issued='false' ORDER BY Id LIMIT $1 OFFSET $2")
 		rows, err = transaction.Query(query, bookLimit, (page-1)*10)
 		if err != nil {
 			logger.Errorf("Can not executes a query:%s", err)
@@ -238,9 +275,15 @@ func (r *BookPostgres) GetListBooks(page int) ([]IndTask.ListBooks, error) {
 		}
 	}
 	for rows.Next() {
-		var book IndTask.ListBooks
-		if err := rows.Scan(&book.Id, &book.BookId, &book.Issued, &book.RentNumber, &book.RentCost, &book.RegDate, &book.Condition); err != nil {
+		var book IndTask.ListBooksDTO
+		var bookId int
+		if err := rows.Scan(&book.Id, &bookId, &book.Issued, &book.RentNumber, &book.RentCost, &book.RegDate, &book.Condition); err != nil {
 			logger.Errorf("Scan error:%s", err)
+			return nil, err
+		}
+		book.Book, err = r.ChangeBook(nil, bookId, "GET")
+		if err != nil {
+			logger.Errorf("Error get book with id = %s:%s", bookId, err)
 			return nil, err
 		}
 		listBooks = append(listBooks, book)
@@ -248,7 +291,7 @@ func (r *BookPostgres) GetListBooks(page int) ([]IndTask.ListBooks, error) {
 	return listBooks, err
 }
 
-func (r *BookPostgres) ChangeListBook(listBook *IndTask.ListBooks, listBookId int, method string) (*IndTask.ListBooks, error) {
+func (r *BookPostgres) ChangeListBook(listBook *IndTask.ListBooks, listBookId int, method string) (*IndTask.ListBooksDTO, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("Can not begin transaction:%s", err)
@@ -256,10 +299,16 @@ func (r *BookPostgres) ChangeListBook(listBook *IndTask.ListBooks, listBookId in
 	}
 
 	if method == "GET" {
-		var listBook IndTask.ListBooks
-		query := fmt.Sprint("SELECT * FROM list_books WHERE id = $1")
+		var listBook IndTask.ListBooksDTO
+		var bookId int
+		query := fmt.Sprint("SELECT id, book_id, issued, rent_number, rent_cost, reg_date, condition FROM list_books WHERE id = $1")
 		row := transaction.QueryRow(query, listBookId)
-		if err := row.Scan(&listBook.Id, &listBook.BookId, &listBook.Issued, &listBook.RentNumber, &listBook.RentCost, &listBook.RegDate, &listBook.Condition); err != nil {
+		if err := row.Scan(&listBook.Id, &bookId, &listBook.Issued, &listBook.RentNumber, &listBook.RentCost, &listBook.RegDate, &listBook.Condition); err != nil {
+			return nil, err
+		}
+		listBook.Book, err = r.ChangeBook(nil, bookId, "GET")
+		if err != nil {
+			logger.Errorf("Error get book with id = %s:%s", bookId, err)
 			return nil, err
 		}
 		return &listBook, transaction.Commit()
@@ -318,42 +367,49 @@ func (r *BookPostgres) GetAuthorsByBookId(bookId int) ([]int, error) {
 	return authorsId, transaction.Commit()
 }
 
-func (r *BookPostgres) ReturnBindId(table string, bookId int) ([]int, error) {
+func (r *BookPostgres) ReturnBindAuthors(bookId int) ([]IndTask.Author, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("Can not begin transaction:%s", err)
 		return nil, err
 	}
-	var id []int
-	var query string
-	if table == "book_author" {
-		query = fmt.Sprint("SELECT author_id FROM book_author WHERE book_id = $1")
-		rows, err := transaction.Query(query, bookId)
-		if err != nil {
-			return nil, err
-		}
-		for rows.Next() {
-			var authorId int
-			if err := rows.Scan(&authorId); err != nil {
-				logger.Errorf("Scan error:%s", err)
-				return nil, err
-			}
-			id = append(id, authorId)
-		}
-	} else if table == "book_genre" {
-		query = fmt.Sprint("SELECT genre_id FROM book_genre WHERE book_id = $1")
-		rows, err := transaction.Query(query, bookId)
-		if err != nil {
-			return nil, err
-		}
-		for rows.Next() {
-			var genreId int
-			if err := rows.Scan(&genreId); err != nil {
-				logger.Errorf("Scan error:%s", err)
-				return nil, err
-			}
-			id = append(id, genreId)
-		}
+	var authors []IndTask.Author
+
+	query := fmt.Sprint("SELECT id, author_name, author_foto FROM authors JOIN book_author ON authors.id = book_author.author_id AND book_author.book_id = $1")
+	rows, err := transaction.Query(query, bookId)
+	if err != nil {
+		return nil, err
 	}
-	return id, nil
+	for rows.Next() {
+		var author IndTask.Author
+		if err := rows.Scan(&author.Id, &author.AuthorName, &author.AuthorFoto); err != nil {
+			logger.Errorf("Scan error:%s", err)
+			return nil, err
+		}
+		authors = append(authors, author)
+	}
+	return authors, nil
+}
+
+func (r *BookPostgres) ReturnBindGenres(bookId int) ([]IndTask.Genre, error) {
+	transaction, err := r.db.Begin()
+	if err != nil {
+		logger.Errorf("Can not begin transaction:%s", err)
+		return nil, err
+	}
+	var genres []IndTask.Genre
+	query := fmt.Sprint("SELECT id, genre_name FROM genre JOIN book_genre ON genre.id = book_genre.genre_id AND book_genre.book_id = $1")
+	rows, err := transaction.Query(query, bookId)
+	if err != nil {
+		return nil, err
+	}
+	for rows.Next() {
+		var genre IndTask.Genre
+		if err := rows.Scan(&genre.Id, &genre.GenreName); err != nil {
+			logger.Errorf("Scan error:%s", err)
+			return nil, err
+		}
+		genres = append(genres, genre)
+	}
+	return genres, nil
 }

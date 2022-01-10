@@ -12,3 +12,10 @@ db:
   username: "baraulia"
   dbname: "baraulia"
   sslmode: "disable"
+
+mail:
+  from: "bgmebel.by@yandex.ru"
+  password: "Bar2240458"
+  smtpHost: "smtp.yandex.ru"
+  smtpPort: "587"
+  subject: "Super Library"

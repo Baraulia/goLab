@@ -24,9 +24,6 @@ func (s *MoveService) GetIssueActs(page int) ([]IndTask.IssueAct, error) {
 
 func (s *MoveService) CreateIssueAct(issueAct *IndTask.IssueAct, method string) (int, error) {
 	var err error
-	if err = CheckUserBookExist(s, issueAct, method); err != nil {
-		return 0, err
-	}
 	if issueAct.PreCost, err = CalcRentPreCost(issueAct, s); err != nil {
 		return 0, err
 	}
@@ -62,10 +59,6 @@ func (s *MoveService) ChangeIssueAct(issueAct *IndTask.IssueAct, actId int, meth
 		return nil, IssueActDoesNotExists
 	}
 	if method == "PUT" {
-		err := CheckUserBookExist(s, issueAct, method)
-		if err != nil {
-			return nil, err
-		}
 		if issueAct.PreCost, err = CalcRentPreCost(issueAct, s); err != nil {
 			return nil, err
 		}
@@ -78,8 +71,7 @@ func (s *MoveService) GetReturnActs(page int) ([]IndTask.ReturnAct, error) {
 	return s.repo.GetReturnActs(page)
 }
 func (s *MoveService) CreateReturnAct(returnAct *IndTask.ReturnAct) (int, error) {
-
-	listBookId, err := CheckIssueActExist(returnAct, s)
+	listBookId, err := CheckIssueAct(returnAct, s)
 	if err != nil {
 		return 0, err
 	}
@@ -112,29 +104,8 @@ func (s *MoveService) ChangeReturnAct(returnAct *IndTask.ReturnAct, actId int, m
 	return s.repo.ChangeReturnAct(returnAct, actId, method)
 }
 
-func CheckUserBookExist(s *MoveService, issueAct *IndTask.IssueAct, method string) error {
-	_, err := s.repo.ChangeUser(nil, issueAct.UserId, "GET")
-	if err != nil {
-		logger.Errorf("Such a user (id=%d) does not exist", issueAct.UserId)
-		return fmt.Errorf("such a user (id=%d) does not exist", issueAct.UserId)
-	}
-	listBook, err := s.repo.ChangeListBook(nil, issueAct.ListBookId, "GET")
-	if err != nil {
-		logger.Errorf("Such a listbook (id=%d) does not exist", issueAct.ListBookId)
-		return fmt.Errorf("such a listbook (id=%d) does not exist", issueAct.ListBookId)
-	}
-	if method == "POST" {
-		if listBook.Issued {
-			logger.Errorf("Such a listbook (id=%d) is already issued", issueAct.ListBookId)
-			return fmt.Errorf("such a listbook (id=%d) is already issued", issueAct.ListBookId)
-		}
-	}
-
-	return nil
-}
-
 func CalcRentPreCost(issueAct *IndTask.IssueAct, s *MoveService) (float64, error) {
-	var book *IndTask.ListBooks
+	var book *IndTask.ListBooksDTO
 	var err error
 	book, err = s.repo.AppBook.ChangeListBook(nil, issueAct.ListBookId, "GET")
 	if err != nil {
@@ -146,7 +117,7 @@ func CalcRentPreCost(issueAct *IndTask.IssueAct, s *MoveService) (float64, error
 	return rentPreCost, nil
 }
 
-func CheckIssueActExist(returnAct *IndTask.ReturnAct, s *MoveService) (int, error) {
+func CheckIssueAct(returnAct *IndTask.ReturnAct, s *MoveService) (int, error) {
 	issueAct, err := s.ChangeIssueAct(nil, returnAct.IssueActId, "GET")
 	if err != nil {
 		logger.Errorf("IssueAct with id = %d does not exist", returnAct.IssueActId)

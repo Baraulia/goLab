@@ -26,14 +26,14 @@ func (r *AuthorPostgres) GetAuthors(page int) ([]IndTask.Author, error) {
 	var listAuthors []IndTask.Author
 	var rows *sql.Rows
 	if page == 0 {
-		query := fmt.Sprint("SELECT * FROM authors")
+		query := fmt.Sprint("SELECT id, author_name, author_foto FROM authors")
 		rows, err = transaction.Query(query)
 		if err != nil {
 			logger.Errorf("Can not executes a query:%s", err)
 			return nil, err
 		}
 	} else {
-		query := fmt.Sprint("SELECT * FROM authors ORDER BY Id LIMIT $1 OFFSET $2")
+		query := fmt.Sprint("SELECT id, author_name, author_foto FROM authors ORDER BY Id LIMIT $1 OFFSET $2")
 		rows, err = transaction.Query(query, authorLimit, (page-1)*10)
 		if err != nil {
 			logger.Errorf("Can not executes a query:%s", err)
@@ -80,7 +80,7 @@ func (r *AuthorPostgres) ChangeAuthor(author *IndTask.Author, authorId int, meth
 
 	if method == "GET" {
 		var author IndTask.Author
-		query := fmt.Sprint("SELECT * FROM authors WHERE id =$1")
+		query := fmt.Sprint("SELECT id, author_name, author_foto FROM authors WHERE id =$1")
 		row := transaction.QueryRow(query, authorId)
 		if err := row.Scan(&author.Id, &author.AuthorName, &author.AuthorFoto); err != nil {
 			logger.Errorf("Scan error:%s", err)

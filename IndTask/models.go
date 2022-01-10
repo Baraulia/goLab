@@ -4,12 +4,15 @@ import (
 	"database/sql/driver"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git/pkg/logging"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
 )
 
 var logger logging.Logger
+
+var mailRe = regexp.MustCompile(`\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z`)
 
 const layout = "2006-01-02"
 
@@ -90,16 +93,35 @@ func (d *MyDuration) UnmarshalJSON(data []byte) error {
 	}
 }
 
+func CheckEptyLine(fieldname string, line interface{}) error {
+	if line == "" || line == 0 || line == nil {
+		return fmt.Errorf("the value of the %s field cannot be empty", fieldname)
+	}
+	return nil
+}
+
 type Book struct {
 	Id        int     `json:"id"`
-	BookName  string  `json:"book_name"`
-	GenreId   []int   `json:"genre_id"`
+	BookName  string  `json:"book_name" validate:"string,min=1,max=255"`
+	GenreId   []int   `json:"genre_id" validate:"genreExist"`
 	Cost      float32 `json:"cost"`
-	AuthorsId []int   `json:"authors"`
+	AuthorsId []int   `json:"authors" validate:"authorExist"`
 	Cover     string  `json:"cover"`
-	Published int     `json:"published"`
-	Pages     int     `json:"pages"`
-	Amount    int     `json:"amount"`
+	Published int     `json:"published" validate:"number,min=1700,max=2022"`
+	Pages     int     `json:"pages" validate:"number,min=5,max=10000"`
+	Amount    int     `json:"amount" validate:"number,min=1,max=100"`
+}
+
+type BookDTO struct {
+	Id        int      `json:"id"`
+	BookName  string   `json:"book_name"`
+	Genre     []Genre  `json:"genres"`
+	Cost      float32  `json:"cost"`
+	Authors   []Author `json:"authors"`
+	Cover     string   `json:"cover"`
+	Published int      `json:"published"`
+	Pages     int      `json:"pages"`
+	Amount    int      `json:"amount"`
 }
 
 type ListBooks struct {
@@ -112,33 +134,43 @@ type ListBooks struct {
 	Condition  int       `json:"condition"`
 }
 
+type ListBooksDTO struct {
+	Id         int       `json:"id"`
+	Book       *BookDTO  `json:"book"`
+	Issued     bool      `json:"issued"`
+	RentNumber int       `json:"rent_number"`
+	RentCost   float64   `json:"rent_cost"`
+	RegDate    time.Time `json:"reg_date"`
+	Condition  int       `json:"condition"`
+}
+
 type Author struct {
 	Id         int    `json:"id"`
-	AuthorName string `json:"author_name"`
+	AuthorName string `json:"author_name" validate:"string,min=2,max=255"`
 	AuthorFoto string `json:"author_foto"`
 }
 
 type User struct {
-	Id         int     `json:"id"`
-	Surname    string  `json:"surname" binding:"required"`
-	UserName   string  `json:"user_name" binding:"required"`
-	Patronymic string  `json:"patronymic"`
-	PaspNumber string  `json:"pasp_number"`
-	Email      string  `json:"email"`
-	Adress     string  `json:"adress"`
-	BirthDate  *MyTime `json:"birth_date" binding:"required"`
+	Id         int    `json:"id"`
+	Surname    string `json:"surname" validate:"string,min=2,max=255""`
+	UserName   string `json:"user_name" validate:"string,min=2,max=255"`
+	Patronymic string `json:"patronymic" validate:"string,min=2,max=255"`
+	PaspNumber string `json:"pasp_number" validate:"string,min=6,max=50"`
+	Email      string `json:"email" validate:"email"`
+	Adress     string `json:"adress" validate:"string,min=2,max=255"`
+	BirthDate  MyTime `json:"birth_date" validate:"birthDay"`
 }
 
 type Genre struct {
 	Id        int    `json:"id" db:"id"`
-	GenreName string `json:"genre_name" db:"genre_name"`
+	GenreName string `json:"genre_name" db:"genre_name" validate:"string,min=3,max=255"`
 }
 
 type IssueAct struct {
 	Id         int        `json:"id"`
-	UserId     int        `json:"user_id"`
-	ListBookId int        `json:"list_book_id"`
-	RentalTime MyDuration `json:"rental_time"`
+	UserId     int        `json:"user_id" validate:"userExist"`
+	ListBookId int        `json:"list_book_id" validate:"listBookExist"`
+	RentalTime MyDuration `json:"rental_time" validate:"rentalTime"`
 	ReturnDate time.Time  `json:"return_date"`
 	PreCost    float64    `json:"pre_cost"`
 	Cost       float64    `json:"cost"`
@@ -147,10 +179,16 @@ type IssueAct struct {
 
 type ReturnAct struct {
 	Id               int       `json:"id"`
-	IssueActId       int       `json:"issue_act_id"`
+	IssueActId       int       `json:"issue_act_id" validate:"issueActExist"`
 	ReturnDate       time.Time `json:"return_date"`
 	Foto             []string  `json:"foto"`
 	Fine             float64   `json:"fine"`
-	ConditionDecrese int       `json:"condition_decrese"`
-	Rating           int       `json:"rating"`
+	ConditionDecrese int       `json:"condition_decrese" validate:"number,min=1,max=100""`
+	Rating           int       `json:"rating" validate:"number,min=0,max=10"`
+}
+
+type Debtor struct {
+	Email string
+	Name  string
+	Book  string
 }

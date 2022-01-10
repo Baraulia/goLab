@@ -26,14 +26,14 @@ func (r *UserPostgres) GetUsers(page int) ([]IndTask.User, error) {
 	var listUsers []IndTask.User
 	var rows *sql.Rows
 	if page == 0 {
-		query := fmt.Sprint("SELECT * FROM users")
+		query := fmt.Sprint("SELECT id, surname, user_name, patronymic, pasp_number, email, adress, birth_date FROM users")
 		rows, err = transaction.Query(query)
 		if err != nil {
 			logger.Errorf("Can not executes a query:%s", err)
 			return nil, err
 		}
 	} else {
-		query := fmt.Sprint("SELECT * FROM users ORDER BY Id LIMIT $1 OFFSET $2")
+		query := fmt.Sprint("SELECT id, surname, user_name, patronymic, pasp_number, email, adress, birth_date FROM users ORDER BY Id LIMIT $1 OFFSET $2")
 		rows, err = transaction.Query(query, actLimit, (page-1)*10)
 		if err != nil {
 			logger.Errorf("Can not executes a query:%s", err)
@@ -81,7 +81,7 @@ func (r *UserPostgres) ChangeUser(user *IndTask.User, userId int, method string)
 
 	if method == "GET" {
 		var user IndTask.User
-		query := fmt.Sprintf("SELECT * FROM users WHERE id = $1")
+		query := fmt.Sprintf("SELECT id, surname, user_name, patronymic, pasp_number, email, adress, birth_date FROM users WHERE id = $1")
 		row := transaction.QueryRow(query, userId)
 		if err := row.Scan(&user.Id, &user.Surname, &user.UserName, &user.Patronymic, &user.PaspNumber, &user.Email, &user.Adress, &user.BirthDate); err != nil {
 			logger.Errorf("Scan error:%s", err)

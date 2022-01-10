@@ -15,12 +15,13 @@ type AppUser interface {
 }
 
 type AppBook interface {
-	GetBooks(page int) ([]IndTask.Book, error)
+	GetThreeBooks() ([]IndTask.BookDTO, error)
+	GetBooks(page int) ([]IndTask.BookDTO, error)
 	CreateBook(*IndTask.Book, bool) (int, error)
-	ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.Book, error)
-	GetListBooks(page int) ([]IndTask.ListBooks, error)
+	ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.BookDTO, error)
+	GetListBooks(page int) ([]IndTask.ListBooksDTO, error)
 	GetAuthorsByBookId(bookId int) ([]int, error)
-	ChangeListBook(listBook *IndTask.ListBooks, listBookId int, method string) (*IndTask.ListBooks, error)
+	ChangeListBook(listBook *IndTask.ListBooks, listBookId int, method string) (*IndTask.ListBooksDTO, error)
 }
 
 type AppMove interface {
@@ -32,6 +33,7 @@ type AppMove interface {
 	CreateReturnAct(returnAct *IndTask.ReturnAct, listBookId int) (int, error)
 	GetReturnActsByUser(userId int, page int) ([]IndTask.ReturnAct, error)
 	ChangeReturnAct(returnAct *IndTask.ReturnAct, actId int, method string) (*IndTask.ReturnAct, error)
+	CheckReturnData() ([]IndTask.Debtor, error)
 }
 
 type AppAuthor interface {
@@ -46,12 +48,21 @@ type AppGenre interface {
 	ChangeGenre(genre *IndTask.Genre, genreId int, method string) (*IndTask.Genre, error)
 }
 
+type Validation interface {
+	GetGenreById(int) error
+	GetAuthorById(int) error
+	GetUserById(int) error
+	GetListBookById(int) error
+	GetIssueActById(int) error
+}
+
 type Repository struct {
 	AppUser
 	AppBook
 	AppMove
 	AppAuthor
 	AppGenre
+	Validation
 }
 
 func NewRepository(db *sql.DB) *Repository {
@@ -61,5 +72,6 @@ func NewRepository(db *sql.DB) *Repository {
 		NewMovePostgres(db),
 		NewAuthorPostgres(db),
 		NewGenrePostgres(db),
+		NewValidationPostgres(db),
 	}
 }

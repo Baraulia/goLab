@@ -2450,3 +2450,1017 @@ time="2021-12-23T21:25:41+03:00" level=info msg="Running server on 127.0.0.1:808
 [36mINFO[0m[2022-01-07T17:44:51+03:00]main.go:46 main.main() IndTask started                              
 [36mINFO[0m[2022-01-07T17:45:01+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
 [36mINFO[0m[2022-01-07T17:45:19+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2022-01-07T17:52:21+03:00]main.go:50 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-07T17:52:21+03:00]main.go:42 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-07T17:52:22+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-07T17:52:22+03:00]main.go:41 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-07T17:52:22+03:00]main.go:48 main.main() IndTask started                              
+[36mINFO[0m[2022-01-07T17:52:41+03:00]main.go:52 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-07T17:52:41+03:00]main.go:44 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-07T17:52:42+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-07T17:52:42+03:00]main.go:41 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-07T17:52:42+03:00]main.go:48 main.main() IndTask started                              
+[36mINFO[0m[2022-01-07T19:34:42+03:00]main.go:52 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-07T19:34:42+03:00]main.go:44 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-08T15:00:37+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:00:37+03:00]main.go:41 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:00:37+03:00]main.go:48 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:01:45+03:00]main.go:52 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-08T15:01:45+03:00]main.go:44 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-08T15:01:47+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:01:47+03:00]main.go:41 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:01:47+03:00]main.go:48 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:01:52+03:00]main.go:68 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-08T15:01:52+03:00]main.go:44 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-08T15:01:53+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:01:53+03:00]main.go:41 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:01:53+03:00]main.go:48 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:01:57+03:00]main.go:68 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-08T15:01:57+03:00]main.go:44 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-08T15:02:13+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:02:13+03:00]main.go:41 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:02:13+03:00]main.go:48 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:02:17+03:00]main.go:68 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-08T15:02:17+03:00]main.go:44 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-08T15:02:35+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:02:35+03:00]main.go:41 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:02:35+03:00]main.go:48 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:02:38+03:00]main.go:68 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-08T15:02:38+03:00]main.go:44 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-08T15:05:17+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:05:17+03:00]main.go:41 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:05:17+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:05:20+03:00]main.go:66 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-08T15:05:20+03:00]main.go:44 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-08T15:05:28+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:05:28+03:00]main.go:41 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:05:28+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:05:41+03:00]main.go:66 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-08T15:05:41+03:00]main.go:44 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-08T15:10:22+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:10:22+03:00]main.go:41 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:10:22+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:10:23+03:00]main.go:66 main.main() IndTask shutting down                        
+[31mPANI[0m[2022-01-08T15:10:23+03:00]main.go:44 main.main.func1() Error occured while running http server: http: Server closed 
+[36mINFO[0m[2022-01-08T15:12:50+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:12:50+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:12:50+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:12:52+03:00]main.go:65 main.main() IndTask shutting down                        
+[36mINFO[0m[2022-01-08T15:13:10+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:13:10+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:13:10+03:00]main.go:45 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:13:46+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:13:46+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:14:04+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:14:05+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:14:38+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:14:38+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:15:15+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:15:15+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:16:32+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:16:32+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:17:00+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:17:00+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:18:13+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:18:13+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:25:41+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:25:41+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:25:41+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:27:07+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:27:07+03:00]main.go:36 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:27:07+03:00]main.go:43 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:28:01+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:28:01+03:00]main.go:36 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:29:44+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:29:44+03:00]main.go:36 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:29:44+03:00]main.go:43 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:30:24+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:30:24+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:30:24+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:30:53+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:30:53+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:30:53+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:32:33+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:32:33+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:32:33+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:33:04+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:33:04+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:33:04+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:33:38+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:33:38+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:33:38+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:35:23+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:35:23+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:35:23+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:35:45+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:35:45+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:35:45+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T15:49:53+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T15:49:53+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T15:49:53+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T18:26:53+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T18:26:53+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T18:26:53+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T18:26:54+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:26:55+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:26:56+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:26:57+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:26:58+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:26:59+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:00+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:01+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:02+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:03+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:04+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:05+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:06+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:07+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:08+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:09+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:10+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:11+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:12+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:13+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:14+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:15+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:16+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:17+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:18+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:19+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:20+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:21+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:22+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:23+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:24+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:25+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:26+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:27+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:28+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:29+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:30+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:31+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:32+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:33+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:34+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:35+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:36+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:37+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:38+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:39+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:40+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:41+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:42+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:43+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:44+03:00]main.go:61 main.main.func2() List overdue users:%s[]                      
+[36mINFO[0m[2022-01-08T18:27:47+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T18:27:47+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T18:27:47+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T18:27:48+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:27:49+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:27:50+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:27:51+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:27:52+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:27:53+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:27:54+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:27:55+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:27:56+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:27:57+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:27:58+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:27:59+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:00+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:01+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:02+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:03+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:04+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:05+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:06+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:07+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:08+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:09+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:10+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:11+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:12+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:13+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:14+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:15+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:16+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:17+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:18+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:36+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T18:28:36+03:00]main.go:38 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T18:28:36+03:00]main.go:45 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T18:28:37+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:38+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:39+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:40+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:41+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:42+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:43+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:44+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:45+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:46+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:47+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:48+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:49+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:50+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:51+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:52+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:53+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:54+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:55+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:56+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:57+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:58+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:28:59+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:00+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:01+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:02+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:03+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:04+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:05+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:06+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:07+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:08+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:09+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:10+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:11+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:12+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:13+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:14+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:15+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:16+03:00]main.go:60 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:23+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T18:29:23+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T18:29:23+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T18:29:24+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:25+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:26+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:27+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:28+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:29+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:30+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:31+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:32+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:33+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:34+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:35+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:36+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:37+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:38+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:39+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:40+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:41+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:42+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:43+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:44+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:45+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:46+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:47+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:48+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:49+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:50+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:51+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:52+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:53+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:54+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:55+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:56+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:57+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:58+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:29:59+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:00+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:01+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:02+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:03+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:04+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:05+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:06+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:07+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:08+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:09+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:10+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:11+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:12+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:13+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:14+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:15+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:16+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:17+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:18+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:19+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:20+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:21+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:22+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:23+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:24+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:25+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:26+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:27+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:28+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:29+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:30+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:31+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:32+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:33+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:34+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:35+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:36+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:37+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:38+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:39+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:40+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:41+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:42+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:43+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:44+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:45+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:46+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:47+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:49+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T18:30:49+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T18:30:49+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T18:30:50+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:51+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:52+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:53+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:54+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:55+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:56+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:30:57+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:26+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T18:31:26+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T18:31:26+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T18:31:27+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:28+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:29+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:30+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:31+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:32+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:33+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:34+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:35+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:36+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:37+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:38+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:39+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:40+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:41+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:42+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:43+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:44+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:45+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:46+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:47+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:48+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:49+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:50+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:51+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:52+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:53+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:54+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:55+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:56+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:57+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:58+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:31:59+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:32:00+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:32:01+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:32:02+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:32:03+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:32:04+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:32:05+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:32:06+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:32:09+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T18:32:09+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T18:32:09+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T18:32:19+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:32:29+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:32:39+03:00]main.go:61 main.main.func2() List overdue users:[]                        
+[36mINFO[0m[2022-01-08T18:32:48+03:00]handlers.go:398 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-08T18:32:49+03:00]main.go:61 main.main.func2() List overdue users:[baraulia@yandex.ru baraulia1@yandex.ru baraulia2@yandex.ru baraulia3@yandex.ru baraulia4@yandex.ru baraulia5@yandex.ru baraulia6@yandex.ru baraulia7@yandex.ru baraulia8@yandex.ru baraulia9@yandex.ru baraulia10@yandex.ru baraulia11@yandex.ru baraulia12@yandex.ru] 
+[36mINFO[0m[2022-01-08T18:32:59+03:00]main.go:61 main.main.func2() List overdue users:[baraulia@yandex.ru baraulia1@yandex.ru baraulia2@yandex.ru baraulia3@yandex.ru baraulia4@yandex.ru baraulia5@yandex.ru baraulia6@yandex.ru baraulia7@yandex.ru baraulia8@yandex.ru baraulia9@yandex.ru baraulia10@yandex.ru baraulia11@yandex.ru baraulia12@yandex.ru] 
+[36mINFO[0m[2022-01-08T18:33:09+03:00]main.go:61 main.main.func2() List overdue users:[baraulia@yandex.ru baraulia1@yandex.ru baraulia2@yandex.ru baraulia3@yandex.ru baraulia4@yandex.ru baraulia5@yandex.ru baraulia6@yandex.ru baraulia7@yandex.ru baraulia8@yandex.ru baraulia9@yandex.ru baraulia10@yandex.ru baraulia11@yandex.ru baraulia12@yandex.ru] 
+[36mINFO[0m[2022-01-08T18:33:19+03:00]main.go:61 main.main.func2() List overdue users:[baraulia@yandex.ru baraulia1@yandex.ru baraulia2@yandex.ru baraulia3@yandex.ru baraulia4@yandex.ru baraulia5@yandex.ru baraulia6@yandex.ru baraulia7@yandex.ru baraulia8@yandex.ru baraulia9@yandex.ru baraulia10@yandex.ru baraulia11@yandex.ru baraulia12@yandex.ru] 
+[36mINFO[0m[2022-01-08T18:33:29+03:00]main.go:61 main.main.func2() List overdue users:[baraulia@yandex.ru baraulia1@yandex.ru baraulia2@yandex.ru baraulia3@yandex.ru baraulia4@yandex.ru baraulia5@yandex.ru baraulia6@yandex.ru baraulia7@yandex.ru baraulia8@yandex.ru baraulia9@yandex.ru baraulia10@yandex.ru baraulia11@yandex.ru baraulia12@yandex.ru] 
+[36mINFO[0m[2022-01-08T18:33:39+03:00]main.go:61 main.main.func2() List overdue users:[baraulia@yandex.ru baraulia1@yandex.ru baraulia2@yandex.ru baraulia3@yandex.ru baraulia4@yandex.ru baraulia5@yandex.ru baraulia6@yandex.ru baraulia7@yandex.ru baraulia8@yandex.ru baraulia9@yandex.ru baraulia10@yandex.ru baraulia11@yandex.ru baraulia12@yandex.ru] 
+[36mINFO[0m[2022-01-08T18:33:49+03:00]main.go:61 main.main.func2() List overdue users:[baraulia@yandex.ru baraulia1@yandex.ru baraulia2@yandex.ru baraulia3@yandex.ru baraulia4@yandex.ru baraulia5@yandex.ru baraulia6@yandex.ru baraulia7@yandex.ru baraulia8@yandex.ru baraulia9@yandex.ru baraulia10@yandex.ru baraulia11@yandex.ru baraulia12@yandex.ru] 
+[36mINFO[0m[2022-01-08T18:33:59+03:00]main.go:61 main.main.func2() List overdue users:[baraulia@yandex.ru baraulia1@yandex.ru baraulia2@yandex.ru baraulia3@yandex.ru baraulia4@yandex.ru baraulia5@yandex.ru baraulia6@yandex.ru baraulia7@yandex.ru baraulia8@yandex.ru baraulia9@yandex.ru baraulia10@yandex.ru baraulia11@yandex.ru baraulia12@yandex.ru] 
+[36mINFO[0m[2022-01-08T18:34:09+03:00]main.go:61 main.main.func2() List overdue users:[baraulia@yandex.ru baraulia1@yandex.ru baraulia2@yandex.ru baraulia3@yandex.ru baraulia4@yandex.ru baraulia5@yandex.ru baraulia6@yandex.ru baraulia7@yandex.ru baraulia8@yandex.ru baraulia9@yandex.ru baraulia10@yandex.ru baraulia11@yandex.ru baraulia12@yandex.ru] 
+[36mINFO[0m[2022-01-08T18:35:25+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T18:35:25+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T18:35:25+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T18:35:35+03:00]main.go:61 main.main.func2() List overdue users:[baraulia1@yandex.ru]     
+[36mINFO[0m[2022-01-08T18:35:45+03:00]main.go:61 main.main.func2() List overdue users:[baraulia1@yandex.ru]     
+[36mINFO[0m[2022-01-08T18:35:48+03:00]handlers.go:398 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-08T18:35:48+03:00]move_service.go:128 github.com/Baraulia/goLab/IndTask.git/internal/service.CheckUserBookExist() Such a listbook (id=2) is already issued     
+[31mERRO[0m[2022-01-08T18:35:48+03:00]handlers.go:410 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Error while creating issueAct in the database:such a listbook (id=2) is already issued 
+[36mINFO[0m[2022-01-08T18:35:55+03:00]main.go:61 main.main.func2() List overdue users:[baraulia1@yandex.ru]     
+[36mINFO[0m[2022-01-08T18:35:55+03:00]handlers.go:398 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-08T18:36:05+03:00]main.go:61 main.main.func2() List overdue users:[baraulia1@yandex.ru baraulia3@yandex.ru] 
+[36mINFO[0m[2022-01-08T18:36:15+03:00]main.go:61 main.main.func2() List overdue users:[baraulia1@yandex.ru baraulia3@yandex.ru] 
+[36mINFO[0m[2022-01-08T18:37:26+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T18:37:26+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T18:37:26+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T18:37:36+03:00]main.go:61 main.main.func2() List overdue users:[baraulia1@yandex.ru baraulia3@yandex.ru] 
+[36mINFO[0m[2022-01-08T18:37:43+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T18:37:43+03:00]main.go:39 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T18:37:43+03:00]main.go:46 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T18:37:53+03:00]main.go:61 main.main.func2() List overdue users:[baraulia1@yandex.ru baraulia3@yandex.ru] 
+[36mINFO[0m[2022-01-08T18:38:01+03:00]handlers.go:544 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[36mINFO[0m[2022-01-08T18:38:03+03:00]main.go:61 main.main.func2() List overdue users:[baraulia1@yandex.ru]     
+[36mINFO[0m[2022-01-08T18:38:13+03:00]main.go:61 main.main.func2() List overdue users:[baraulia1@yandex.ru]     
+[36mINFO[0m[2022-01-08T19:19:11+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T19:19:11+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T19:19:11+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T19:19:21+03:00]main.go:62 main.main.func2() List overdue users:[baraulia1@yandex.ru]     
+[36mINFO[0m[2022-01-08T19:19:31+03:00]main.go:62 main.main.func2() List overdue users:[baraulia1@yandex.ru]     
+[36mINFO[0m[2022-01-08T19:19:41+03:00]main.go:62 main.main.func2() List overdue users:[baraulia1@yandex.ru]     
+[36mINFO[0m[2022-01-08T19:20:09+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T19:20:09+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T19:20:09+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T19:20:18+03:00]handlers.go:398 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[36mINFO[0m[2022-01-08T19:20:19+03:00]main.go:62 main.main.func2() List overdue users:[baraulia1@yandex.ru baraulia@yandex.ru] 
+[36mINFO[0m[2022-01-08T19:20:29+03:00]main.go:62 main.main.func2() List overdue users:[baraulia1@yandex.ru baraulia@yandex.ru] 
+[36mINFO[0m[2022-01-08T19:20:39+03:00]main.go:62 main.main.func2() List overdue users:[baraulia1@yandex.ru baraulia@yandex.ru] 
+[36mINFO[0m[2022-01-08T19:20:44+03:00]handlers.go:544 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[36mINFO[0m[2022-01-08T19:21:36+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T19:21:36+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T19:21:36+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T19:21:46+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:21:56+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:22:06+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:22:23+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T19:22:23+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T19:22:23+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T19:22:33+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:22:43+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:22:53+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:41:27+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T19:41:27+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T19:41:27+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T19:41:37+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:41:47+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:41:57+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[31mERRO[0m[2022-01-08T19:43:47+03:00]main.go:83 main.main.func3() dial tcp 77.88.21.158:25: connect: connection timed out 
+[36mINFO[0m[2022-01-08T19:43:47+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:45:15+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T19:45:15+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T19:45:15+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T19:45:25+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:45:35+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:45:43+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T19:45:43+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T19:45:43+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T19:45:53+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:46:03+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:46:12+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T19:46:12+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T19:46:12+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T19:46:22+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:46:32+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:46:35+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T19:46:35+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T19:46:35+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T19:46:45+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:46:55+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:47:05+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:47:11+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T19:47:11+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T19:47:11+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T19:47:21+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:47:31+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:47:41+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:47:52+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T19:47:52+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T19:47:52+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T19:48:02+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:48:12+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:48:22+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[31mERRO[0m[2022-01-08T19:50:12+03:00]main.go:87 main.main.func3() dial tcp 77.88.21.158:25: connect: connection timed out 
+[36mINFO[0m[2022-01-08T19:50:12+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[31mERRO[0m[2022-01-08T19:52:23+03:00]main.go:87 main.main.func3() dial tcp 77.88.21.158:25: connect: connection timed out 
+[36mINFO[0m[2022-01-08T19:52:23+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[31mERRO[0m[2022-01-08T19:54:34+03:00]main.go:87 main.main.func3() dial tcp 77.88.21.158:25: connect: connection timed out 
+[36mINFO[0m[2022-01-08T19:54:34+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[31mERRO[0m[2022-01-08T19:56:45+03:00]main.go:87 main.main.func3() dial tcp 77.88.21.158:25: connect: connection timed out 
+[36mINFO[0m[2022-01-08T19:56:45+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T19:58:35+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T19:58:35+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T19:58:35+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T19:58:45+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[31mERRO[0m[2022-01-08T19:58:45+03:00]main.go:80 main.main.func3() dial tcp 127.0.0.1:25: connect: connection refused 
+[36mINFO[0m[2022-01-08T19:59:13+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T19:59:13+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T19:59:13+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T19:59:23+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[31mERRO[0m[2022-01-08T19:59:23+03:00]main.go:80 main.main.func3() dial tcp 0.0.0.0:25: connect: connection refused 
+[36mINFO[0m[2022-01-08T20:30:09+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T20:30:09+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T20:30:09+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T20:30:19+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:30:29+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:30:39+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:34:15+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T20:34:15+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T20:34:15+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T20:34:25+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:34:35+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:34:45+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:41:45+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T20:41:45+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T20:41:45+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T20:41:55+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:42:05+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:42:15+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:42:47+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T20:42:47+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T20:42:47+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T20:42:57+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:43:07+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:43:17+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:49:57+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-08T20:49:57+03:00]main.go:40 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-08T20:49:57+03:00]main.go:47 main.main() IndTask started                              
+[36mINFO[0m[2022-01-08T20:50:07+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:50:17+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:50:27+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:50:37+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:50:47+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:50:57+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:51:07+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:51:17+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:51:27+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:51:37+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:51:47+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:51:57+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:52:07+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:52:17+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-08T20:52:27+03:00]main.go:62 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-09T11:28:41+03:00]config.go:33 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T11:28:41+03:00]main.go:41 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T11:28:41+03:00]main.go:48 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T11:28:51+03:00]main.go:63 main.main.func2() List overdue users:[baraulia@yandex.ru]      
+[36mINFO[0m[2022-01-09T12:06:39+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T12:06:39+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T12:06:39+03:00]main.go:49 main.main() IndTask started                              
+[31mERRO[0m[2022-01-09T12:06:49+03:00]move_postgres.go:291 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*MovePostgres).CheckReturnData() Can not executes a query:pq: column users.name does not exist 
+[31mERRO[0m[2022-01-09T12:06:49+03:00]main.go:62 main.main.func2() Can not check return data for issue acts (2022-01-09 12:06:49.680622807 +0300 +03 m=+10.034851122):pq: column users.name does not exist 
+[36mINFO[0m[2022-01-09T12:08:04+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T12:08:04+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T12:08:04+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T12:09:42+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T12:09:42+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T12:09:42+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T12:10:02+03:00]main.go:89 main.main.func3() Email Sent Successfully!                     
+[36mINFO[0m[2022-01-09T12:10:09+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T12:10:09+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T12:10:09+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T12:10:30+03:00]main.go:89 main.main.func3() Email Sent Successfully!                     
+[36mINFO[0m[2022-01-09T12:10:50+03:00]main.go:89 main.main.func3() Email Sent Successfully!                     
+[36mINFO[0m[2022-01-09T20:09:23+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:09:23+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:09:23+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:10:31+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[31mERRO[0m[2022-01-09T20:10:31+03:00]book_postgres.go:32 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetThreeBooks() Can not executes a query:pq: column "books.id" must appear in the GROUP BY clause or be used in an aggregate function 
+[31mERRO[0m[2022-01-09T20:10:31+03:00]handlers.go:22 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Error while getting books list from database: pq: column "books.id" must appear in the GROUP BY clause or be used in an aggregate function 
+[36mINFO[0m[2022-01-09T20:17:12+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:17:12+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:17:12+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:17:15+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[31mERRO[0m[2022-01-09T20:17:15+03:00]book_postgres.go:32 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetThreeBooks() Can not executes a query:pq: column "books.id" must appear in the GROUP BY clause or be used in an aggregate function 
+[31mERRO[0m[2022-01-09T20:17:15+03:00]handlers.go:22 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Error while getting books list from database: pq: column "books.id" must appear in the GROUP BY clause or be used in an aggregate function 
+[36mINFO[0m[2022-01-09T20:17:22+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:17:22+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:17:22+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:17:24+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[31mERRO[0m[2022-01-09T20:17:24+03:00]book_postgres.go:32 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetThreeBooks() Can not executes a query:pq: column "books.id" must appear in the GROUP BY clause or be used in an aggregate function 
+[31mERRO[0m[2022-01-09T20:17:24+03:00]handlers.go:22 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Error while getting books list from database: pq: column "books.id" must appear in the GROUP BY clause or be used in an aggregate function 
+[36mINFO[0m[2022-01-09T20:18:02+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:18:02+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:18:02+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:18:04+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[31mERRO[0m[2022-01-09T20:18:04+03:00]book_postgres.go:32 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetThreeBooks() Can not executes a query:pq: column "list_books.id" must appear in the GROUP BY clause or be used in an aggregate function 
+[31mERRO[0m[2022-01-09T20:18:04+03:00]handlers.go:22 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Error while getting books list from database: pq: column "list_books.id" must appear in the GROUP BY clause or be used in an aggregate function 
+[36mINFO[0m[2022-01-09T20:22:42+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:22:42+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:22:42+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:22:43+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[31mERRO[0m[2022-01-09T20:22:43+03:00]book_postgres.go:32 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetThreeBooks() Can not executes a query:pq: subquery in FROM must have an alias 
+[31mERRO[0m[2022-01-09T20:22:43+03:00]handlers.go:22 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Error while getting books list from database: pq: subquery in FROM must have an alias 
+[36mINFO[0m[2022-01-09T20:23:19+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:23:19+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:23:19+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:23:20+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[31mERRO[0m[2022-01-09T20:23:20+03:00]book_postgres.go:32 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetThreeBooks() Can not executes a query:pq: syntax error at or near "as" 
+[31mERRO[0m[2022-01-09T20:23:20+03:00]handlers.go:22 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Error while getting books list from database: pq: syntax error at or near "as" 
+[36mINFO[0m[2022-01-09T20:23:50+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:23:50+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:23:50+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:23:52+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[31mERRO[0m[2022-01-09T20:23:52+03:00]book_postgres.go:32 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetThreeBooks() Can not executes a query:pq: column "list_books.rent_number" must appear in the GROUP BY clause or be used in an aggregate function 
+[31mERRO[0m[2022-01-09T20:23:52+03:00]handlers.go:22 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Error while getting books list from database: pq: column "list_books.rent_number" must appear in the GROUP BY clause or be used in an aggregate function 
+[36mINFO[0m[2022-01-09T20:25:40+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:25:40+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:25:40+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:25:42+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[31mERRO[0m[2022-01-09T20:25:42+03:00]book_postgres.go:39 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetThreeBooks() Scan error:sql: expected 9 destination arguments in Scan, not 7 
+[31mERRO[0m[2022-01-09T20:25:42+03:00]handlers.go:22 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Error while getting books list from database: sql: expected 9 destination arguments in Scan, not 7 
+[36mINFO[0m[2022-01-09T20:27:14+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:27:14+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:27:14+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:27:15+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[31mERRO[0m[2022-01-09T20:27:15+03:00]book_postgres.go:40 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetThreeBooks() Scan error:sql: expected 9 destination arguments in Scan, not 7 
+[31mERRO[0m[2022-01-09T20:27:15+03:00]handlers.go:22 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Error while getting books list from database: sql: expected 9 destination arguments in Scan, not 7 
+[36mINFO[0m[2022-01-09T20:29:34+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:29:34+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:29:34+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:29:36+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[31mERRO[0m[2022-01-09T20:29:36+03:00]book_postgres.go:40 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetThreeBooks() Scan error:sql: expected 2 destination arguments in Scan, not 7 
+[31mERRO[0m[2022-01-09T20:29:36+03:00]handlers.go:22 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Error while getting books list from database: sql: expected 2 destination arguments in Scan, not 7 
+[36mINFO[0m[2022-01-09T20:30:57+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:30:57+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:30:57+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:30:59+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[36mINFO[0m[2022-01-09T20:33:32+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:33:32+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:33:32+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:33:46+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:33:46+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:33:46+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:33:47+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[36mINFO[0m[2022-01-09T20:37:39+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:37:39+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:37:39+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:37:41+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[31mERRO[0m[2022-01-09T20:37:41+03:00]book_postgres.go:41 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetThreeBooks() Scan error:sql: expected 7 destination arguments in Scan, not 8 
+[31mERRO[0m[2022-01-09T20:37:41+03:00]handlers.go:22 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Error while getting books list from database: sql: expected 7 destination arguments in Scan, not 8 
+[36mINFO[0m[2022-01-09T20:38:04+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:38:04+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:38:04+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:38:06+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[36mINFO[0m[2022-01-09T20:42:06+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:42:06+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:42:06+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T20:42:06+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[36mINFO[0m[2022-01-09T20:43:01+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T20:43:02+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T20:43:02+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T21:42:13+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T21:42:13+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T21:42:13+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T21:42:28+03:00]handlers.go:42 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[31mERRO[0m[2022-01-09T21:42:28+03:00]book_postgres.go:386 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).ReturnBindAuthors() Scan error:sql: expected 5 destination arguments in Scan, not 3 
+[31mERRO[0m[2022-01-09T21:42:28+03:00]book_postgres.go:89 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetBooks() Error returning autors binded with book_id=11:sql: expected 5 destination arguments in Scan, not 3 
+[31mERRO[0m[2022-01-09T21:42:28+03:00]handlers.go:53 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Error while getting books list from database: sql: expected 5 destination arguments in Scan, not 3 
+[36mINFO[0m[2022-01-09T21:44:34+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T21:44:34+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T21:44:34+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T21:44:36+03:00]handlers.go:42 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2022-01-09T21:44:54+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[36mINFO[0m[2022-01-09T21:45:05+03:00]handlers.go:73 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getListBooks() Working getListBooks                         
+[36mINFO[0m[2022-01-09T21:46:42+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-09T21:46:42+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-09T21:46:42+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-09T21:46:43+03:00]handlers.go:73 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getListBooks() Working getListBooks                         
+[36mINFO[0m[2022-01-10T17:38:59+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T17:38:59+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T17:38:59+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T17:39:28+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T17:39:28+03:00]handlers.go:115 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while decoding request:json: cannot unmarshal string into Go struct field Book.cost of type float32 
+[36mINFO[0m[2022-01-10T21:02:03+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:02:03+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:02:03+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:13:46+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:13:46+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:13:46+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:14:08+03:00]handlers.go:820 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Working createAuthor                         
+[31mERRO[0m[2022-01-10T21:14:08+03:00]handlers.go:1099 github.com/Baraulia/goLab/IndTask.git/internal/handler.InputAuthorFoto() Error while parsing multipart form:http: no such file 
+[36mINFO[0m[2022-01-10T21:14:19+03:00]handlers.go:820 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Working createAuthor                         
+[36mINFO[0m[2022-01-10T21:14:26+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:14:26+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:14:26+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:14:28+03:00]handlers.go:820 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Working createAuthor                         
+[36mINFO[0m[2022-01-10T21:21:19+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:21:19+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:21:19+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:21:21+03:00]handlers.go:820 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() Working createAuthor                         
+[31mERRO[0m[2022-01-10T21:21:21+03:00]handlers.go:837 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createAuthor() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:26:52+03:00]handlers.go:965 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[36mINFO[0m[2022-01-10T21:30:35+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:30:35+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:30:35+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:30:36+03:00]handlers.go:965 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[31mERRO[0m[2022-01-10T21:30:36+03:00]handlers.go:979 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:30:57+03:00]handlers.go:325 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[36mINFO[0m[2022-01-10T21:31:40+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:31:40+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:31:40+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:31:42+03:00]handlers.go:325 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2022-01-10T21:31:42+03:00]handlers.go:340 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:31:52+03:00]handlers.go:325 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2022-01-10T21:31:52+03:00]handlers.go:340 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:32:10+03:00]handlers.go:325 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2022-01-10T21:32:10+03:00]handlers.go:340 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:34:18+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:34:18+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:34:18+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:34:22+03:00]handlers.go:325 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2022-01-10T21:34:22+03:00]handlers.go:340 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:37:02+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:37:02+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:37:02+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:37:04+03:00]handlers.go:325 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2022-01-10T21:37:04+03:00]handlers.go:340 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:38:10+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:38:10+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:38:10+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:38:11+03:00]handlers.go:325 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2022-01-10T21:38:11+03:00]handlers.go:340 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:39:30+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:39:30+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:39:30+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:39:32+03:00]handlers.go:325 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2022-01-10T21:39:32+03:00]handlers.go:340 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:39:47+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:39:47+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:39:47+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:39:47+03:00]handlers.go:325 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() Working createUser                           
+[31mERRO[0m[2022-01-10T21:39:47+03:00]handlers.go:340 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createUser() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:40:34+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2022-01-10T21:42:37+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:42:37+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:42:37+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:42:38+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2022-01-10T21:43:54+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[36mINFO[0m[2022-01-10T21:43:59+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:43:59+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:43:59+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:44:00+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:44:00+03:00]book_postgres.go:146 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).CreateBook() Can not insert in the book_author:pq: insert or update on table "book_author" violates foreign key constraint "book_author_author_id_fkey" 
+[31mERRO[0m[2022-01-10T21:44:00+03:00]handlers.go:132 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Error while creating book in the database:pq: insert or update on table "book_author" violates foreign key constraint "book_author_author_id_fkey" 
+[36mINFO[0m[2022-01-10T21:46:16+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:46:16+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:46:16+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:46:17+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:46:17+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:46:43+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:46:43+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:46:43+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:47:05+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:47:05+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:48:41+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:48:41+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:48:41+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:48:42+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:48:42+03:00]handlers.go:128 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:48:53+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:48:53+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:48:53+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:48:55+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:48:55+03:00]handlers.go:128 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:49:14+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:49:14+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:49:14+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:49:14+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:49:14+03:00]handlers.go:128 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:50:21+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:50:21+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:50:21+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:50:22+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:50:22+03:00]handlers.go:128 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:51:24+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:51:24+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:51:24+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:51:25+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:51:25+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:53:10+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:53:10+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:53:10+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:53:12+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:53:12+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:54:36+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:54:36+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:54:36+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:54:38+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:54:38+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:55:16+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:55:16+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:55:16+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:55:17+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:55:17+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:57:02+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:57:02+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:57:02+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:57:04+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:57:04+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:57:39+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:57:39+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:57:39+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:57:41+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:57:41+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:58:00+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:58:00+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:58:00+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:58:00+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:58:00+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:58:30+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:58:30+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:58:30+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:58:31+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:58:31+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T21:59:56+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T21:59:56+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T21:59:56+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T21:59:57+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T21:59:57+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:00:23+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T22:00:23+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T22:00:23+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T22:00:24+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:00:24+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:01:21+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T22:01:21+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T22:01:21+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T22:01:23+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:01:23+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:01:31+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T22:01:31+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T22:01:31+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T22:01:33+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:01:33+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:01:55+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T22:01:55+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T22:01:55+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T22:02:05+03:00]handlers.go:965 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[36mINFO[0m[2022-01-10T22:04:08+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T22:04:08+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T22:04:08+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T22:04:10+03:00]handlers.go:965 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Working createGenre                          
+[31mERRO[0m[2022-01-10T22:04:10+03:00]genre_service.go:32 github.com/Baraulia/goLab/IndTask.git/internal/service.(*GenreService).CreateGenre() Genre with the same name already exists      
+[31mERRO[0m[2022-01-10T22:04:10+03:00]handlers.go:984 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createGenre() Error while creating genre in the database:genre with that name already exists 
+[36mINFO[0m[2022-01-10T22:04:37+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:04:37+03:00]validationPostgres.go:27 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*ValidationPostgres).GetGenreById() Scan error:sql: expected 1 destination arguments in Scan, not 2 
+[31mERRO[0m[2022-01-10T22:04:37+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:05:02+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T22:05:02+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T22:05:02+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T22:05:04+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:05:04+03:00]validationPostgres.go:27 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*ValidationPostgres).GetGenreById() Scan error:sql: no rows in result set        
+[31mERRO[0m[2022-01-10T22:05:04+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:07:05+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T22:07:05+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T22:07:05+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T22:07:05+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:07:05+03:00]validationPostgres.go:28 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*ValidationPostgres).GetGenreById() Scan error:sql: no rows in result set        
+[31mERRO[0m[2022-01-10T22:07:05+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:09:04+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T22:09:04+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T22:09:04+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T22:09:05+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:09:05+03:00]validationPostgres.go:28 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*ValidationPostgres).GetGenreById() Scan error:sql: Scan called without calling Next 
+[31mERRO[0m[2022-01-10T22:09:05+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:09:34+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:09:34+03:00]validationPostgres.go:28 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*ValidationPostgres).GetGenreById() Scan error:sql: Scan called without calling Next 
+[31mERRO[0m[2022-01-10T22:09:34+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:09:38+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T22:09:38+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T22:09:38+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T22:09:39+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:09:39+03:00]validationPostgres.go:28 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*ValidationPostgres).GetGenreById() Scan error:sql: Scan called without calling Next 
+[31mERRO[0m[2022-01-10T22:09:39+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:13:23+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T22:13:23+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T22:13:23+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T22:13:25+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:13:25+03:00]validationPostgres.go:28 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*ValidationPostgres).GetGenreById() Scan error:sql: no rows in result set        
+[31mERRO[0m[2022-01-10T22:13:25+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:20:04+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T22:20:04+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T22:20:04+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T22:20:06+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:20:06+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:22:12+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T22:22:12+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T22:22:12+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T22:22:14+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:22:14+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:24:10+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T22:24:10+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T22:24:10+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T22:24:11+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:24:11+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:25:46+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:25:46+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:26:04+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:26:04+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:26:20+03:00]handlers.go:104 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() Working createBook                           
+[31mERRO[0m[2022-01-10T22:26:20+03:00]handlers.go:127 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createBook() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:27:34+03:00]handlers.go:462 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() Working createIssueAct                       
+[31mERRO[0m[2022-01-10T22:27:34+03:00]handlers.go:477 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createIssueAct() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:28:15+03:00]handlers.go:624 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() Working createReturnAct                      
+[31mERRO[0m[2022-01-10T22:28:15+03:00]handlers.go:656 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).createReturnAct() erroneous data in the request                
+[36mINFO[0m[2022-01-10T22:28:29+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T22:28:29+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T22:28:29+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T23:03:54+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T23:03:54+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T23:03:54+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T23:03:59+03:00]handlers.go:785 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getAuthors() Working getAuthors                           
+[36mINFO[0m[2022-01-10T23:04:12+03:00]handlers.go:851 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Working changeAuthor                         
+[36mINFO[0m[2022-01-10T23:04:12+03:00]handlers.go:904 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeAuthor() Method GET, changeAuthor                     
+[36mINFO[0m[2022-01-10T23:04:18+03:00]handlers.go:42 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getBooks() Working getBooks                             
+[36mINFO[0m[2022-01-10T23:04:21+03:00]handlers.go:17 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getThreeBooks() Working getThreeBooks                        
+[36mINFO[0m[2022-01-10T23:04:25+03:00]handlers.go:73 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getListBooks() Working getListBooks                         
+[36mINFO[0m[2022-01-10T23:04:32+03:00]handlers.go:142 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Working changeBook                           
+[36mINFO[0m[2022-01-10T23:04:32+03:00]handlers.go:194 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeBook() Method GET, changeBook                       
+[36mINFO[0m[2022-01-10T23:04:35+03:00]handlers.go:219 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Working changeListBooks                      
+[36mINFO[0m[2022-01-10T23:04:35+03:00]handlers.go:258 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Method GET, changeListBooks                  
+[31mERRO[0m[2022-01-10T23:04:35+03:00]book_postgres.go:373 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).ReturnBindAuthors() Can not begin transaction:pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-10T23:04:35+03:00]book_postgres.go:188 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).ChangeBook() Error returning autors binded with book_id=11:pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-10T23:04:35+03:00]book_postgres.go:286 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetListBooks() Error get book with id = %!s(int=11):pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-10T23:04:35+03:00]book_service.go:101 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).ChangeListBook() Error when getting listBooks:pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-10T23:04:35+03:00]handlers.go:261 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Error while getting listBook from database:pq: sorry, too many clients already 
+[36mINFO[0m[2022-01-10T23:04:41+03:00]handlers.go:219 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Working changeListBooks                      
+[36mINFO[0m[2022-01-10T23:04:41+03:00]handlers.go:258 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Method GET, changeListBooks                  
+[31mERRO[0m[2022-01-10T23:04:41+03:00]book_postgres.go:256 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetListBooks() Can not begin transaction:pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-10T23:04:41+03:00]book_service.go:101 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).ChangeListBook() Error when getting listBooks:pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-10T23:04:41+03:00]handlers.go:261 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Error while getting listBook from database:pq: sorry, too many clients already 
+[36mINFO[0m[2022-01-10T23:04:44+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T23:04:44+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T23:04:44+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T23:04:47+03:00]handlers.go:219 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Working changeListBooks                      
+[36mINFO[0m[2022-01-10T23:04:47+03:00]handlers.go:258 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Method GET, changeListBooks                  
+[31mERRO[0m[2022-01-10T23:04:47+03:00]book_service.go:112 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).ChangeListBook() Such a listBook does not exist               
+[31mERRO[0m[2022-01-10T23:04:47+03:00]handlers.go:261 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Error while getting listBook from database:listBook with that id does not exists 
+[36mINFO[0m[2022-01-10T23:04:56+03:00]handlers.go:219 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Working changeListBooks                      
+[36mINFO[0m[2022-01-10T23:04:56+03:00]handlers.go:258 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Method GET, changeListBooks                  
+[31mERRO[0m[2022-01-10T23:04:56+03:00]book_service.go:112 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).ChangeListBook() Such a listBook does not exist               
+[31mERRO[0m[2022-01-10T23:04:56+03:00]handlers.go:261 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Error while getting listBook from database:listBook with that id does not exists 
+[36mINFO[0m[2022-01-10T23:05:11+03:00]handlers.go:219 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Working changeListBooks                      
+[36mINFO[0m[2022-01-10T23:05:11+03:00]handlers.go:258 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Method GET, changeListBooks                  
+[31mERRO[0m[2022-01-10T23:05:11+03:00]book_postgres.go:373 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).ReturnBindAuthors() Can not begin transaction:pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-10T23:05:11+03:00]book_postgres.go:188 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).ChangeBook() Error returning autors binded with book_id=6:pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-10T23:05:11+03:00]book_postgres.go:286 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetListBooks() Error get book with id = %!s(int=6):pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-10T23:05:11+03:00]book_service.go:101 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).ChangeListBook() Error when getting listBooks:pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-10T23:05:11+03:00]handlers.go:261 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Error while getting listBook from database:pq: sorry, too many clients already 
+[36mINFO[0m[2022-01-10T23:05:33+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T23:05:33+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T23:05:33+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T23:05:35+03:00]handlers.go:219 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Working changeListBooks                      
+[36mINFO[0m[2022-01-10T23:05:35+03:00]handlers.go:258 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Method GET, changeListBooks                  
+[31mERRO[0m[2022-01-10T23:05:35+03:00]book_service.go:112 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).ChangeListBook() Such a listBook does not exist               
+[31mERRO[0m[2022-01-10T23:05:35+03:00]handlers.go:261 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Error while getting listBook from database:listBook with that id does not exists 
+[36mINFO[0m[2022-01-10T23:09:00+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T23:09:00+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T23:09:00+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T23:09:02+03:00]handlers.go:219 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Working changeListBooks                      
+[36mINFO[0m[2022-01-10T23:09:02+03:00]handlers.go:258 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Method GET, changeListBooks                  
+[31mERRO[0m[2022-01-10T23:09:03+03:00]book_service.go:113 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).ChangeListBook() Such a listBook does not exist               
+[31mERRO[0m[2022-01-10T23:09:03+03:00]handlers.go:261 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Error while getting listBook from database:listBook with that id does not exists 
+[36mINFO[0m[2022-01-10T23:11:03+03:00]handlers.go:219 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Working changeListBooks                      
+[36mINFO[0m[2022-01-10T23:11:03+03:00]handlers.go:258 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Method GET, changeListBooks                  
+[36mINFO[0m[2022-01-10T23:11:07+03:00]handlers.go:219 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Working changeListBooks                      
+[36mINFO[0m[2022-01-10T23:11:07+03:00]handlers.go:258 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Method GET, changeListBooks                  
+[31mERRO[0m[2022-01-10T23:11:07+03:00]book_postgres.go:373 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).ReturnBindAuthors() Can not begin transaction:pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-10T23:11:07+03:00]book_postgres.go:188 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).ChangeBook() Error returning autors binded with book_id=4:pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-10T23:11:07+03:00]book_postgres.go:286 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*BookPostgres).GetListBooks() Error get book with id = %!s(int=4):pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-10T23:11:07+03:00]book_service.go:101 github.com/Baraulia/goLab/IndTask.git/internal/service.(*BookService).ChangeListBook() Error when getting listBooks:pq: sorry, too many clients already 
+[31mERRO[0m[2022-01-10T23:11:07+03:00]handlers.go:261 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeListBooks() Error while getting listBook from database:pq: sorry, too many clients already 
+[36mINFO[0m[2022-01-10T23:11:15+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T23:11:15+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T23:11:15+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T23:12:31+03:00]handlers.go:940 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getGenres() Working getGenres                            
+[36mINFO[0m[2022-01-10T23:12:38+03:00]handlers.go:993 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Working changeGenre                          
+[36mINFO[0m[2022-01-10T23:12:38+03:00]handlers.go:1032 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeGenre() Method GET, changeGenre                      
+[36mINFO[0m[2022-01-10T23:12:45+03:00]handlers.go:431 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActs() Working getIssueActs                         
+[36mINFO[0m[2022-01-10T23:12:51+03:00]handlers.go:593 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActs() Working getReturnActs                        
+[36mINFO[0m[2022-01-10T23:13:00+03:00]handlers.go:528 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Working changeIssueAct                       
+[36mINFO[0m[2022-01-10T23:13:00+03:00]handlers.go:567 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeIssueAct() Method GET, changeIssueAct                   
+[36mINFO[0m[2022-01-10T23:13:07+03:00]handlers.go:707 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Working changeReturnAct                      
+[36mINFO[0m[2022-01-10T23:13:07+03:00]handlers.go:759 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeReturnAct() Method GET, changeReturnAct                  
+[36mINFO[0m[2022-01-10T23:13:12+03:00]handlers.go:491 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() Working getIssueActsByUser                   
+[31mERRO[0m[2022-01-10T23:13:12+03:00]user_postgres.go:87 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).ChangeUser() Scan error:sql: expected 7 destination arguments in Scan, not 8 
+[31mERRO[0m[2022-01-10T23:13:12+03:00]move_service.go:39 github.com/Baraulia/goLab/IndTask.git/internal/service.(*MoveService).GetIssueActsByUser() Such user with id = 2 does not exist         
+[31mERRO[0m[2022-01-10T23:13:12+03:00]handlers.go:508 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() Error while getting issueActsByUser from database: such user with id = 2 does not exist 
+[36mINFO[0m[2022-01-10T23:13:38+03:00]handlers.go:670 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActsByUser() Working getReturnActsByUser                  
+[31mERRO[0m[2022-01-10T23:13:38+03:00]user_postgres.go:87 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).ChangeUser() Scan error:sql: expected 7 destination arguments in Scan, not 8 
+[31mERRO[0m[2022-01-10T23:13:38+03:00]move_service.go:82 github.com/Baraulia/goLab/IndTask.git/internal/service.(*MoveService).GetReturnActsByUser() Such user with id = 2 does not exist         
+[31mERRO[0m[2022-01-10T23:13:38+03:00]handlers.go:687 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActsByUser() Error while getting returnActsByUser from database: such user with id = 2 does not exist 
+[36mINFO[0m[2022-01-10T23:14:31+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T23:14:31+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T23:14:31+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T23:14:34+03:00]handlers.go:670 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getReturnActsByUser() Working getReturnActsByUser                  
+[36mINFO[0m[2022-01-10T23:14:44+03:00]handlers.go:491 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getIssueActsByUser() Working getIssueActsByUser                   
+[36mINFO[0m[2022-01-10T23:14:55+03:00]handlers.go:294 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[31mERRO[0m[2022-01-10T23:14:55+03:00]user_postgres.go:47 github.com/Baraulia/goLab/IndTask.git/internal/repository.(*UserPostgres).GetUsers() Scan error:sql: expected 7 destination arguments in Scan, not 8 
+[31mERRO[0m[2022-01-10T23:14:55+03:00]handlers.go:305 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Error while getting users list from database: sql: expected 7 destination arguments in Scan, not 8 
+[36mINFO[0m[2022-01-10T23:15:22+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T23:15:22+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T23:15:22+03:00]main.go:49 main.main() IndTask started                              
+[36mINFO[0m[2022-01-10T23:15:23+03:00]handlers.go:294 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2022-01-10T23:15:30+03:00]handlers.go:294 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).getUsers() Working getUsers                             
+[36mINFO[0m[2022-01-10T23:15:36+03:00]handlers.go:355 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Working changeUser                           
+[36mINFO[0m[2022-01-10T23:15:36+03:00]handlers.go:394 github.com/Baraulia/goLab/IndTask.git/internal/handler.(*Handler).changeUser() Method GET, changeUser                       
+[36mINFO[0m[2022-01-10T23:16:15+03:00]config.go:40 github.com/Baraulia/goLab/IndTask.git/internal/config.GetConfig.func1() read application configuration               
+[36mINFO[0m[2022-01-10T23:16:16+03:00]main.go:42 main.main() Running server on 127.0.0.1:8000...          
+[36mINFO[0m[2022-01-10T23:16:16+03:00]main.go:49 main.main() IndTask started                              

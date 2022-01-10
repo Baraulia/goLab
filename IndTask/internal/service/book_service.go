@@ -19,11 +19,15 @@ func NewBookService(repo repository.Repository) *BookService {
 	return &BookService{repo: repo}
 }
 
-func (b *BookService) GetBooks(page int) ([]IndTask.Book, error) {
+func (b *BookService) GetThreeBooks() ([]IndTask.BookDTO, error) {
+	return b.repo.GetThreeBooks()
+}
+
+func (b *BookService) GetBooks(page int) ([]IndTask.BookDTO, error) {
 	return b.repo.GetBooks(page)
 }
 
-func (b *BookService) GetListBooks(page int) ([]IndTask.ListBooks, error) {
+func (b *BookService) GetListBooks(page int) ([]IndTask.ListBooksDTO, error) {
 	return b.repo.GetListBooks(page)
 }
 
@@ -33,12 +37,7 @@ func (b *BookService) CreateBook(book *IndTask.Book) (int, error) {
 		logger.Errorf("Error when getting books:%s", err.Error())
 		return 0, err
 	}
-	err = CheckGenreAuthorExist(b, book)
-	if err != nil {
-		if err != nil {
-			return 0, err
-		}
-	}
+
 	bookExists := false
 	for _, bdBook := range listBooks {
 		if bdBook.BookName == book.BookName {
@@ -76,7 +75,7 @@ func (b *BookService) CreateBook(book *IndTask.Book) (int, error) {
 	return b.repo.CreateBook(book, bookExists)
 }
 
-func (b *BookService) ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.Book, error) {
+func (b *BookService) ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.BookDTO, error) {
 	listBooks, err := b.repo.GetBooks(0)
 	if err != nil {
 		logger.Errorf("Error when getting books:%s", err)
@@ -93,17 +92,10 @@ func (b *BookService) ChangeBook(book *IndTask.Book, bookId int, method string) 
 		logger.Error("Such a book does not exist")
 		return nil, BookDoesNotExists
 	}
-
-	if method == "PUT" {
-		err := CheckGenreAuthorExist(b, book)
-		if err != nil {
-			return nil, err
-		}
-	}
 	return b.repo.ChangeBook(book, bookId, method)
 }
 
-func (b *BookService) ChangeListBook(listBook *IndTask.ListBooks, listBookId int, method string) (*IndTask.ListBooks, error) {
+func (b *BookService) ChangeListBook(listBook *IndTask.ListBooks, listBookId int, method string) (*IndTask.ListBooksDTO, error) {
 	listBooks, err := b.repo.GetListBooks(0)
 	if err != nil {
 		logger.Errorf("Error when getting listBooks:%s", err)
@@ -122,23 +114,4 @@ func (b *BookService) ChangeListBook(listBook *IndTask.ListBooks, listBookId int
 	}
 
 	return b.repo.ChangeListBook(listBook, listBookId, method)
-}
-
-func CheckGenreAuthorExist(b *BookService, book *IndTask.Book) error {
-	for _, author := range book.AuthorsId {
-		_, err := b.repo.ChangeAuthor(nil, author, "GET")
-		if err != nil {
-			logger.Errorf("Such a author (id=%d) does not exist", author)
-			return fmt.Errorf("such a author (id=%d) does not exist", author)
-		}
-	}
-
-	for _, genre := range book.GenreId {
-		_, err := b.repo.ChangeGenre(nil, genre, "GET")
-		if err != nil {
-			logger.Errorf("Such a genre (id=%d) does not exist", genre)
-			return fmt.Errorf("such a genre (id=%d) does not exist", genre)
-		}
-	}
-	return nil
 }

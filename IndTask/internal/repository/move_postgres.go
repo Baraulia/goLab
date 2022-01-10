@@ -27,14 +27,14 @@ func (r *MovePostgres) GetIssueActs(page int) ([]IndTask.IssueAct, error) {
 	var listIssueActs []IndTask.IssueAct
 	var rows *sql.Rows
 	if page == 0 {
-		query := fmt.Sprint("SELECT * FROM issue_act")
+		query := fmt.Sprint("SELECT id, user_id, listbook_id, rental_time, return_date, pre_cost, cost, status FROM issue_act")
 		rows, err = transaction.Query(query)
 		if err != nil {
 			logger.Errorf("Can not executes a query:%s", err)
 			return nil, err
 		}
 	} else {
-		query := fmt.Sprint("SELECT * FROM issue_act ORDER BY Id LIMIT $1 OFFSET $2")
+		query := fmt.Sprint("SELECT id, user_id, listbook_id, rental_time, return_date, pre_cost, cost, status FROM issue_act ORDER BY Id LIMIT $1 OFFSET $2")
 		rows, err = transaction.Query(query, actLimit, (page-1)*10)
 		if err != nil {
 			logger.Errorf("Can not executes a query:%s", err)
@@ -86,9 +86,9 @@ func (r *MovePostgres) GetIssueActsByUser(userId int, forCost bool, page int) ([
 	var rows *sql.Rows
 	if page == 0 {
 		if forCost {
-			query = fmt.Sprintf("SELECT * FROM issue_act WHERE user_id=%d AND status ='open' AND cost = 0", userId)
+			query = fmt.Sprintf("SELECT id, user_id, listbook_id, rental_time, return_date, pre_cost, cost, status FROM issue_act WHERE user_id=%d AND status ='open' AND cost = 0", userId)
 		} else {
-			query = fmt.Sprintf("SELECT * FROM issue_act WHERE user_id=%d", userId)
+			query = fmt.Sprintf("SELECT id, user_id, listbook_id, rental_time, return_date, pre_cost, cost, status FROM issue_act WHERE user_id=%d", userId)
 		}
 		rows, err = transaction.Query(query)
 		if err != nil {
@@ -97,9 +97,9 @@ func (r *MovePostgres) GetIssueActsByUser(userId int, forCost bool, page int) ([
 		}
 	} else {
 		if forCost {
-			query = fmt.Sprintf("SELECT * FROM issue_act WHERE user_id=%d AND status ='open' AND cost = 0 ORDER BY Id LIMIT $1 OFFSET $2", userId)
+			query = fmt.Sprintf("SELECT id, user_id, listbook_id, rental_time, return_date, pre_cost, cost, status FROM issue_act WHERE user_id=%d AND status ='open' AND cost = 0 ORDER BY Id LIMIT $1 OFFSET $2", userId)
 		} else {
-			query = fmt.Sprintf("SELECT * FROM issue_act WHERE user_id=%d ORDER BY Id LIMIT $1 OFFSET $2", userId)
+			query = fmt.Sprintf("SELECT id, user_id, listbook_id, rental_time, return_date, pre_cost, cost, status FROM issue_act WHERE user_id=%d ORDER BY Id LIMIT $1 OFFSET $2", userId)
 		}
 		rows, err = transaction.Query(query, actLimit, (page-1)*10)
 		if err != nil {
@@ -127,7 +127,7 @@ func (r *MovePostgres) ChangeIssueAct(issueAct *IndTask.IssueAct, actId int, met
 
 	if method == "GET" {
 		var issueAct IndTask.IssueAct
-		query := fmt.Sprint("SELECT * FROM issue_act WHERE id = $1")
+		query := fmt.Sprint("SELECT id, user_id, listbook_id, rental_time, return_date, pre_cost, cost, status FROM issue_act WHERE id = $1")
 
 		row := transaction.QueryRow(query, actId)
 		if err := row.Scan(&issueAct.Id, &issueAct.UserId, &issueAct.ListBookId, &issueAct.RentalTime, &issueAct.ReturnDate, &issueAct.PreCost, &issueAct.Cost, &issueAct.Status); err != nil {
@@ -159,14 +159,14 @@ func (r *MovePostgres) GetReturnActs(page int) ([]IndTask.ReturnAct, error) {
 	var listReturnActs []IndTask.ReturnAct
 	var rows *sql.Rows
 	if page == 0 {
-		query := fmt.Sprint("SELECT * FROM return_act")
+		query := fmt.Sprint("SELECT id, issue_act_id, return_date, foto, fine, condition_decrese, rating FROM return_act")
 		rows, err = transaction.Query(query)
 		if err != nil {
 			logger.Errorf("Can not executes a query:%s", err)
 			return nil, err
 		}
 	} else {
-		query := fmt.Sprint("SELECT * FROM return_act ORDER BY Id LIMIT $1 OFFSET $2")
+		query := fmt.Sprint("SELECT id, issue_act_id, return_date, foto, fine, condition_decrese, rating FROM return_act ORDER BY Id LIMIT $1 OFFSET $2")
 		rows, err = transaction.Query(query, actLimit, (page-1)*10)
 		if err != nil {
 			logger.Errorf("Can not executes a query:%s", err)
@@ -254,7 +254,7 @@ func (r *MovePostgres) ChangeReturnAct(returnAct *IndTask.ReturnAct, actId int, 
 
 	if method == "GET" {
 		var returnAct IndTask.ReturnAct
-		query := fmt.Sprint("SELECT * FROM return_act WHERE id = $1")
+		query := fmt.Sprint("SELECT id, issue_act_id, return_date, foto, fine, condition_decrese, rating FROM return_act WHERE id = $1")
 		row := transaction.QueryRow(query, actId)
 		if err := row.Scan(&returnAct.Id, &returnAct.IssueActId, &returnAct.ReturnDate, pq.Array(&returnAct.Foto), &returnAct.Fine, &returnAct.ConditionDecrese, &returnAct.Rating); err != nil {
 			logger.Errorf("Can not scan select from returnAct where id = %d", actId)
@@ -274,4 +274,32 @@ func (r *MovePostgres) ChangeReturnAct(returnAct *IndTask.ReturnAct, actId int, 
 	}
 
 	return nil, transaction.Rollback()
+}
+
+func (r *MovePostgres) CheckReturnData() ([]IndTask.Debtor, error) {
+	transaction, err := r.db.Begin()
+	if err != nil {
+		logger.Errorf("Can not begin transaction:%s", err)
+		return nil, err
+	}
+	query := fmt.Sprint("SELECT users.email, users.user_name, books.book_name FROM users JOIN " +
+		"issue_act ON issue_act.status = 'open' AND issue_act.return_date < $1 AND users.id = issue_act.user_id JOIN " +
+		"list_books ON issue_act.listbook_id = list_books.id JOIN " +
+		"books ON list_books.book_id = books.id ")
+	rows, err := transaction.Query(query, time.Now().Add(24*time.Hour))
+	if err != nil {
+		logger.Errorf("Can not executes a query:%s", err)
+		return nil, err
+	}
+	var listDeptors []IndTask.Debtor
+	for rows.Next() {
+		var debtor IndTask.Debtor
+		if err := rows.Scan(&debtor.Email, &debtor.Name, &debtor.Book); err != nil {
+			logger.Errorf("Scan error:%s", err)
+			return nil, err
+		}
+		listDeptors = append(listDeptors, debtor)
+	}
+
+	return listDeptors, nil
 }

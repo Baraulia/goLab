@@ -17,11 +17,12 @@ type AppUser interface {
 }
 
 type AppBook interface {
-	GetBooks(page int) ([]IndTask.Book, error)
+	GetThreeBooks() ([]IndTask.BookDTO, error)
+	GetBooks(page int) ([]IndTask.BookDTO, error)
 	CreateBook(*IndTask.Book) (int, error)
-	ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.Book, error)
-	GetListBooks(page int) ([]IndTask.ListBooks, error)
-	ChangeListBook(books *IndTask.ListBooks, bookId int, method string) (*IndTask.ListBooks, error)
+	ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.BookDTO, error)
+	GetListBooks(page int) ([]IndTask.ListBooksDTO, error)
+	ChangeListBook(books *IndTask.ListBooks, bookId int, method string) (*IndTask.ListBooksDTO, error)
 }
 
 type AppMove interface {
@@ -47,12 +48,21 @@ type AppGenre interface {
 	ChangeGenre(genre *IndTask.Genre, genreId int, method string) (*IndTask.Genre, error)
 }
 
+type Validation interface {
+	GetGenreById(int) error
+	GetAuthorById(int) error
+	GetUserById(int) error
+	GetListBookById(int) error
+	GetIssueActById(int) error
+}
+
 type Service struct {
 	AppUser
 	AppBook
 	AppMove
 	AppAuthor
 	AppGenre
+	Validation
 }
 
 func NewService(rep *repository.Repository) *Service {
@@ -62,5 +72,6 @@ func NewService(rep *repository.Repository) *Service {
 		NewMoveService(*rep),
 		NewAuthorService(rep.AppAuthor),
 		NewGenreService(rep.AppGenre),
+		NewValidationService(rep.Validation),
 	}
 }

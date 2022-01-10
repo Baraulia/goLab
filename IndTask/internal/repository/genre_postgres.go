@@ -23,7 +23,7 @@ func (r *GenrePostgres) GetGenres() ([]IndTask.Genre, error) {
 	defer transaction.Commit()
 
 	var listGenres []IndTask.Genre
-	query := fmt.Sprint("SELECT * FROM genre")
+	query := fmt.Sprint("SELECT id, genre_name FROM genre")
 	rows, err := transaction.Query(query)
 	if err != nil {
 		logger.Errorf("Can not executes a query:%s", err)
@@ -70,7 +70,7 @@ func (r *GenrePostgres) ChangeGenre(genre *IndTask.Genre, genreId int, method st
 
 	if method == "GET" {
 		var genre IndTask.Genre
-		query := fmt.Sprint("SELECT * FROM genre WHERE id = $1")
+		query := fmt.Sprint("SELECT id, genre_name FROM genre WHERE id = $1")
 		row := transaction.QueryRow(query, genreId)
 		if err := row.Scan(&genre.Id, &genre.GenreName); err != nil {
 			logger.Errorf("Scan error:%s", err)

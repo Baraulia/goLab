@@ -18,6 +18,7 @@ func NewHandler(logger logging.Logger, services *service.Service) *Handler {
 func (h *Handler) InitRoutes() *http.ServeMux {
 	router := http.NewServeMux()
 
+	router.HandleFunc("/", h.getThreeBooks)
 	router.HandleFunc("/books", h.getBooks)
 	router.HandleFunc("/books/create", h.createBook)
 	router.HandleFunc("/books/change", h.changeBook) //реализовать методы GET, PUT

@@ -13,6 +13,31 @@ import (
 	"strings"
 )
 
+func (h *Handler) getThreeBooks(w http.ResponseWriter, req *http.Request) {
+	h.logger.Info("Working getThreeBooks")
+	CheckMethod(w, req, "GET", h.logger)
+	var listBooks []IndTask.BookDTO
+	listBooks, err := h.services.AppBook.GetThreeBooks()
+	if err != nil {
+		h.logger.Errorf("Error while getting books list from database: %s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	output, err := json.Marshal(listBooks)
+	if err != nil {
+		h.logger.Errorf("Marshal error:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	_, err = w.Write(output)
+	if err != nil {
+		h.logger.Errorf("Error while writting response:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+}
+
 func (h *Handler) getBooks(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working getBooks")
 	page, err := strconv.Atoi(req.URL.Query().Get("page"))
@@ -22,7 +47,7 @@ func (h *Handler) getBooks(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	CheckMethod(w, req, "GET", h.logger)
-	var listBooks []IndTask.Book
+	var listBooks []IndTask.BookDTO
 	listBooks, err = h.services.AppBook.GetBooks(page)
 	if err != nil {
 		h.logger.Errorf("Error while getting books list from database: %s", err)
@@ -53,7 +78,7 @@ func (h *Handler) getListBooks(w http.ResponseWriter, req *http.Request) {
 		http.NotFound(w, req)
 		return
 	}
-	var listBooks []IndTask.ListBooks
+	var listBooks []IndTask.ListBooksDTO
 	listBooks, err = h.services.AppBook.GetListBooks(page)
 	if err != nil {
 		h.logger.Errorf("Error while getting listBooks list from database: %s", err)
@@ -92,6 +117,14 @@ func (h *Handler) createBook(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	if err := InputCoverFoto(w, req, h, &input); err != nil {
+		return
+	}
+	validationErrors := validateStruct(h, input)
+	if len(validationErrors) != 0 {
+		for _, err := range validationErrors {
+			http.Error(w, err.Error(), 400)
+		}
+		h.logger.Error("erroneous data in the request")
 		return
 	}
 	bookId, err := h.services.AppBook.CreateBook(&input)
@@ -140,6 +173,14 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 			if err := InputCoverFoto(w, req, h, &input); err != nil {
 				return
 			}
+		}
+		validationErrors := validateStruct(h, input)
+		if len(validationErrors) != 0 {
+			for _, err := range validationErrors {
+				http.Error(w, err.Error(), 400)
+			}
+			h.logger.Error("erroneous data in the request")
+			return
 		}
 		_, err = h.services.AppBook.ChangeBook(&input, bookId, req.Method)
 		if err != nil {
@@ -195,6 +236,14 @@ func (h *Handler) changeListBooks(w http.ResponseWriter, req *http.Request) {
 		if err := decoder.Decode(&input); err != nil {
 			h.logger.Errorf("Error while decoding request: %s", err)
 			http.Error(w, err.Error(), 400)
+			return
+		}
+		validationErrors := validateStruct(h, input)
+		if len(validationErrors) != 0 {
+			for _, err := range validationErrors {
+				http.Error(w, err.Error(), 400)
+			}
+			h.logger.Error("erroneous data in the request")
 			return
 		}
 		_, err = h.services.AppBook.ChangeListBook(&input, listBookId, req.Method)
@@ -283,7 +332,14 @@ func (h *Handler) createUser(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, err.Error(), 400)
 		return
 	}
-
+	validationErrors := validateStruct(h, input)
+	if len(validationErrors) != 0 {
+		for _, err := range validationErrors {
+			http.Error(w, err.Error(), 400)
+		}
+		h.logger.Error("erroneous data in the request")
+		return
+	}
 	userId, err := h.services.AppUser.CreateUser(&input)
 	if err != nil {
 		h.logger.Errorf("Error while creating user in the database:%s", err)
@@ -316,6 +372,14 @@ func (h *Handler) changeUser(w http.ResponseWriter, req *http.Request) {
 		if err := decoder.Decode(&input); err != nil {
 			h.logger.Errorf("Error while decoding request: %s", err)
 			http.Error(w, err.Error(), 400)
+			return
+		}
+		validationErrors := validateStruct(h, input)
+		if len(validationErrors) != 0 {
+			for _, err := range validationErrors {
+				http.Error(w, err.Error(), 400)
+			}
+			h.logger.Error("erroneous data in the request")
 			return
 		}
 		_, err = h.services.AppUser.ChangeUser(&input, userId, req.Method)
@@ -405,6 +469,14 @@ func (h *Handler) createIssueAct(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, err.Error(), 400)
 		return
 	}
+	validationErrors := validateStruct(h, input)
+	if len(validationErrors) != 0 {
+		for _, err := range validationErrors {
+			http.Error(w, err.Error(), 400)
+		}
+		h.logger.Error("erroneous data in the request")
+		return
+	}
 	issueActId, err := h.services.AppMove.CreateIssueAct(&input, req.Method)
 	if err != nil {
 		h.logger.Errorf("Error while creating issueAct in the database:%s", err)
@@ -473,6 +545,14 @@ func (h *Handler) changeIssueAct(w http.ResponseWriter, req *http.Request) {
 		if err := decoder.Decode(&input); err != nil {
 			h.logger.Errorf("Error while decoding request: %s", err)
 			http.Error(w, err.Error(), 400)
+			return
+		}
+		validationErrors := validateStruct(h, input)
+		if len(validationErrors) != 0 {
+			for _, err := range validationErrors {
+				http.Error(w, err.Error(), 400)
+			}
+			h.logger.Error("erroneous data in the request")
 			return
 		}
 		_, err = h.services.AppMove.ChangeIssueAct(&input, actId, req.Method)
@@ -568,6 +648,14 @@ func (h *Handler) createReturnAct(w http.ResponseWriter, req *http.Request) {
 			return
 		}
 	}
+	validationErrors := validateStruct(h, input)
+	if len(validationErrors) != 0 {
+		for _, err := range validationErrors {
+			http.Error(w, err.Error(), 400)
+		}
+		h.logger.Error("erroneous data in the request")
+		return
+	}
 	returnActId, err := h.services.AppMove.CreateReturnAct(&input)
 	if err != nil {
 		h.logger.Errorf("Error while creating returnAct in the database:%s", err)
@@ -651,6 +739,14 @@ func (h *Handler) changeReturnAct(w http.ResponseWriter, req *http.Request) {
 				return
 			}
 		}
+		validationErrors := validateStruct(h, input)
+		if len(validationErrors) != 0 {
+			for _, err := range validationErrors {
+				http.Error(w, err.Error(), 400)
+			}
+			h.logger.Error("erroneous data in the request")
+			return
+		}
 		_, err = h.services.AppMove.ChangeReturnAct(&input, actId, req.Method)
 		if err != nil {
 			h.logger.Errorf("Error while updating return act: %s", err)
@@ -733,6 +829,14 @@ func (h *Handler) createAuthor(w http.ResponseWriter, req *http.Request) {
 	if err := InputAuthorFoto(w, req, h, &input); err != nil {
 		return
 	}
+	validationErrors := validateStruct(h, input)
+	if len(validationErrors) != 0 {
+		for _, err := range validationErrors {
+			http.Error(w, err.Error(), 400)
+		}
+		h.logger.Error("erroneous data in the request")
+		return
+	}
 	authorId, err := h.services.AppAuthor.CreateAuthor(&input)
 	if err != nil {
 		h.logger.Errorf("Error while creating author in the database:%s", err)
@@ -780,7 +884,14 @@ func (h *Handler) changeAuthor(w http.ResponseWriter, req *http.Request) {
 			}
 
 		}
-
+		validationErrors := validateStruct(h, input)
+		if len(validationErrors) != 0 {
+			for _, err := range validationErrors {
+				http.Error(w, err.Error(), 400)
+			}
+			h.logger.Error("erroneous data in the request")
+			return
+		}
 		_, err = h.services.AppAuthor.ChangeAuthor(&input, authorId, req.Method)
 		if err != nil {
 			h.logger.Errorf("Error while updating genre: %s", err)
@@ -860,6 +971,14 @@ func (h *Handler) createGenre(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, err.Error(), 400)
 		return
 	}
+	validationErrors := validateStruct(h, input)
+	if len(validationErrors) != 0 {
+		for _, err := range validationErrors {
+			http.Error(w, err.Error(), 400)
+		}
+		h.logger.Error("erroneous data in the request")
+		return
+	}
 	GenreId, err := h.services.AppGenre.CreateGenre(&input)
 	if err != nil {
 		h.logger.Errorf("Error while creating genre in the database:%s", err)
@@ -891,6 +1010,14 @@ func (h *Handler) changeGenre(w http.ResponseWriter, req *http.Request) {
 		if err := decoder.Decode(&input); err != nil {
 			h.logger.Errorf("Error while decoding request: %s", err)
 			http.Error(w, err.Error(), 400)
+			return
+		}
+		validationErrors := validateStruct(h, input)
+		if len(validationErrors) != 0 {
+			for _, err := range validationErrors {
+				http.Error(w, err.Error(), 400)
+			}
+			h.logger.Error("erroneous data in the request")
 			return
 		}
 		_, err = h.services.AppGenre.ChangeGenre(&input, genreId, req.Method)

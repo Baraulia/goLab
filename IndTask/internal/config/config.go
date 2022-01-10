@@ -23,6 +23,13 @@ type Config struct {
 		DBName   string `yaml:"dbname" env:"DB_NAME" env-default:"postgres"`
 		SSLMode  string `yaml:"sslmode" env:"DB_SSLMODE" env-default:"disable"`
 	} `yaml:"db"`
+	Mail struct {
+		From     string `yaml:"from" env:"MAIL_FROM"`
+		Password string `yaml:"password" env:"MAIL_PASSWORD"`
+		SmtpHost string `yaml:"smtpHost" env:"MAIL_SMTPHOST"`
+		SmtpPort string `yaml:"smtpPort" env:"MAIL_SMPTPORT"`
+		Subject  string `yaml:"subject" env:"MAIL_SUBJECT"`
+	} `yaml:"mail"`
 }
 
 var instance *Config
