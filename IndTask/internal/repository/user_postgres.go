@@ -19,33 +19,32 @@ var userLimit = 10
 func (r *UserPostgres) GetUsers(page int) ([]IndTask.User, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
-		logger.Errorf("Can not begin transaction:%s", err)
-		return nil, err
+		logger.Errorf("GetUsers: can not starts transaction:%s", err)
+		return nil, fmt.Errorf("getUsers: can not starts transaction:%w", err)
 	}
-
 	var listUsers []IndTask.User
 	var rows *sql.Rows
 	if page == 0 {
-		query := fmt.Sprint("SELECT id, surname, user_name, patronymic, pasp_number, email, adress, birth_date FROM users")
+		query := "SELECT id, surname, user_name, patronymic, pasp_number, email, adress, birth_date FROM users"
 		rows, err = transaction.Query(query)
 		if err != nil {
-			logger.Errorf("Can not executes a query:%s", err)
-			return nil, err
+			logger.Errorf("GetUsers: can not executes a query:%s", err)
+			return nil, fmt.Errorf("getUsers:repository error:%w", err)
 		}
 	} else {
-		query := fmt.Sprint("SELECT id, surname, user_name, patronymic, pasp_number, email, adress, birth_date FROM users ORDER BY Id LIMIT $1 OFFSET $2")
+		query := "SELECT id, surname, user_name, patronymic, pasp_number, email, adress, birth_date FROM users ORDER BY Id LIMIT $1 OFFSET $2"
 		rows, err = transaction.Query(query, actLimit, (page-1)*10)
 		if err != nil {
-			logger.Errorf("Can not executes a query:%s", err)
-			return nil, err
+			logger.Errorf("GetUsers: can not executes a query:%s", err)
+			return nil, fmt.Errorf("getUsers:repository error:%w", err)
 		}
 	}
 
 	for rows.Next() {
 		var user IndTask.User
 		if err := rows.Scan(&user.Id, &user.Surname, &user.UserName, &user.Patronymic, &user.PaspNumber, &user.Email, &user.Adress, &user.BirthDate); err != nil {
-			logger.Errorf("Scan error:%s", err)
-			return nil, err
+			logger.Errorf("Error while scanning for user:%s", err)
+			return nil, fmt.Errorf("getUsers:repository error:%w", err)
 		}
 		listUsers = append(listUsers, user)
 	}
@@ -56,60 +55,64 @@ func (r *UserPostgres) GetUsers(page int) ([]IndTask.User, error) {
 func (r *UserPostgres) CreateUser(user *IndTask.User) (int, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
-		logger.Errorf("Can not begin transaction:%s", err)
-		return 0, err
+		logger.Errorf("CreateUser: can not starts transaction:%s", err)
+		return 0, fmt.Errorf("createUser: can not starts transaction:%w", err)
 	}
 	defer transaction.Rollback()
-
 	var userId int
-	createUserQuery := fmt.Sprint("INSERT INTO users (surname, user_name, patronymic, pasp_number, email, adress, birth_date) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id")
+	createUserQuery := "INSERT INTO users (surname, user_name, patronymic, pasp_number, email, adress, birth_date) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id"
 	row := transaction.QueryRow(createUserQuery, user.Surname, user.UserName, user.Patronymic, user.PaspNumber, user.Email, user.Adress, user.BirthDate)
 	if err := row.Scan(&userId); err != nil {
-		logger.Errorf("Scan error:%s", err)
-		return 0, err
+		logger.Errorf("Error while scanning for userId:%s", err)
+		return 0, fmt.Errorf("createUser: error while scanning for userId:%w", err)
 	}
 	return userId, transaction.Commit()
-
 }
 
-func (r *UserPostgres) ChangeUser(user *IndTask.User, userId int, method string) (*IndTask.User, error) {
+func (r *UserPostgres) GetOneUser(userId int) (*IndTask.User, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
-		logger.Errorf("Can not begin transaction:%s", err)
-		return nil, err
+		logger.Errorf("GetOneUser: can not starts transaction:%s", err)
+		return nil, fmt.Errorf("getOneUser: can not starts transaction:%w", err)
 	}
-
-	if method == "GET" {
-		var user IndTask.User
-		query := fmt.Sprintf("SELECT id, surname, user_name, patronymic, pasp_number, email, adress, birth_date FROM users WHERE id = $1")
-		row := transaction.QueryRow(query, userId)
-		if err := row.Scan(&user.Id, &user.Surname, &user.UserName, &user.Patronymic, &user.PaspNumber, &user.Email, &user.Adress, &user.BirthDate); err != nil {
-			logger.Errorf("Scan error:%s", err)
-			return nil, err
-		}
-		return &user, transaction.Commit()
+	var user IndTask.User
+	query := "SELECT id, surname, user_name, patronymic, pasp_number, email, adress, birth_date FROM users WHERE id = $1"
+	row := transaction.QueryRow(query, userId)
+	if err := row.Scan(&user.Id, &user.Surname, &user.UserName, &user.Patronymic, &user.PaspNumber, &user.Email, &user.Adress, &user.BirthDate); err != nil {
+		logger.Errorf("Error while scanning for user:%s", err)
+		return nil, fmt.Errorf("getOneUser: repository error:%w", err)
 	}
+	return &user, transaction.Commit()
+}
 
-	if method == "PUT" {
-		query := fmt.Sprint("UPDATE users SET surname=$1, user_name=$2, patronymic=$3, pasp_number=$4, email=$5, adress=$6, birth_date=$7 WHERE id = $8")
-		_, err := transaction.Exec(query, user.Surname, user.UserName, user.Patronymic, user.PaspNumber, user.Email, user.Adress, user.BirthDate, userId)
-		if err != nil {
-			logger.Errorf("Update user error:%s", err)
-			return nil, err
-		}
-		return nil, transaction.Commit()
+func (r *UserPostgres) ChangeUser(user *IndTask.User, userId int) error {
+	transaction, err := r.db.Begin()
+	if err != nil {
+		logger.Errorf("ChangeUser: can not starts transaction:%s", err)
+		return fmt.Errorf("changeUser: can not starts transaction:%w", err)
 	}
-
-	if method == "DELETE" {
-		query := fmt.Sprint("DELETE FROM users WHERE id = $1")
-		_, err := transaction.Exec(query, userId)
-		if err != nil {
-			logger.Errorf("Delete user error:%s", err)
-			return nil, err
-		}
-		return nil, transaction.Commit()
-
+	defer transaction.Rollback()
+	query := "UPDATE users SET surname=$1, user_name=$2, patronymic=$3, pasp_number=$4, email=$5, adress=$6, birth_date=$7 WHERE id = $8"
+	_, err = transaction.Exec(query, user.Surname, user.UserName, user.Patronymic, user.PaspNumber, user.Email, user.Adress, user.BirthDate, userId)
+	if err != nil {
+		logger.Errorf("Repository error while updating user:%s", err)
+		return fmt.Errorf("changeUser: repository error:%w", err)
 	}
-	return nil, transaction.Rollback()
+	return transaction.Commit()
+}
 
+func (r *UserPostgres) DeleteUser(userId int) error {
+	transaction, err := r.db.Begin()
+	if err != nil {
+		logger.Errorf("DeleteUser: can not starts transaction:%s", err)
+		return fmt.Errorf("deleteUser: can not starts transaction:%w", err)
+	}
+	defer transaction.Rollback()
+	query := "DELETE FROM users WHERE id = $1"
+	_, err = transaction.Exec(query, userId)
+	if err != nil {
+		logger.Errorf("Repository error while deleting user:%s", err)
+		return fmt.Errorf("deleteUser: repository error:%w", err)
+	}
+	return transaction.Commit()
 }

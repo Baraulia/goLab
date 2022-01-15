@@ -252,7 +252,7 @@ func (r *MovePostgres) ChangeReturnAct(returnAct *IndTask.ReturnAct, actId int, 
 		return nil, err
 	}
 
-	if method == "GET" {
+	if method == "GET" { //TODO разбить функцию на 3 функции в зависимости от метода
 		var returnAct IndTask.ReturnAct
 		query := fmt.Sprint("SELECT id, issue_act_id, return_date, foto, fine, condition_decrese, rating FROM return_act WHERE id = $1")
 		row := transaction.QueryRow(query, actId)

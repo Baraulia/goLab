@@ -36,7 +36,7 @@ func main() {
 	}
 
 	Rep := repository.NewRepository(db)
-	services := service.NewService(Rep)
+	services := service.NewService(Rep, cfg)
 	handlers := handler.NewHandler(logger, services)
 	srv := new(server.Server)
 	logger.Infof("Running server on %s:%s...", cfg.Listen.BindIp, cfg.Listen.Port)

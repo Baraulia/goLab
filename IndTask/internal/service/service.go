@@ -2,6 +2,7 @@ package service
 
 import (
 	"github.com/Baraulia/goLab/IndTask.git"
+	"github.com/Baraulia/goLab/IndTask.git/internal/config"
 	"github.com/Baraulia/goLab/IndTask.git/internal/repository"
 	"github.com/Baraulia/goLab/IndTask.git/pkg/logging"
 )
@@ -65,10 +66,10 @@ type Service struct {
 	Validation
 }
 
-func NewService(rep *repository.Repository) *Service {
+func NewService(rep *repository.Repository, cfg *config.Config) *Service {
 	return &Service{
 		NewUserService(rep.AppUser),
-		NewBookService(*rep),
+		NewBookService(*rep, cfg),
 		NewMoveService(*rep),
 		NewAuthorService(rep.AppAuthor),
 		NewGenreService(rep.AppGenre),

@@ -11,17 +11,23 @@ var logger = logging.GetLogger()
 type AppUser interface {
 	GetUsers(page int) ([]IndTask.User, error)
 	CreateUser(user *IndTask.User) (int, error)
-	ChangeUser(user *IndTask.User, userId int, method string) (*IndTask.User, error)
+	GetOneUser(userId int) (*IndTask.User, error)
+	ChangeUser(user *IndTask.User, userId int) error
+	DeleteUser(userId int) error
 }
 
 type AppBook interface {
 	GetThreeBooks() ([]IndTask.BookDTO, error)
 	GetBooks(page int) ([]IndTask.BookDTO, error)
-	CreateBook(*IndTask.Book, bool) (int, error)
-	ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.BookDTO, error)
+	CreateBook(*IndTask.Book, bool, float64) (int, error)
+	GetOneBook(bookId int) (*IndTask.BookDTO, error)
+	ChangeBook(book *IndTask.Book, bookId int, bookRentCost float64) error
+	DeleteBook(bookId int) error
 	GetListBooks(page int) ([]IndTask.ListBooksDTO, error)
 	GetAuthorsByBookId(bookId int) ([]int, error)
-	ChangeListBook(listBook *IndTask.ListBooks, listBookId int, method string) (*IndTask.ListBooksDTO, error)
+	GetOneListBook(bookId int) (*IndTask.ListBooksDTO, error)
+	ChangeListBook(book *IndTask.ListBooks, bookId int) error
+	DeleteListBook(bookId int) error
 }
 
 type AppMove interface {
@@ -39,13 +45,17 @@ type AppMove interface {
 type AppAuthor interface {
 	GetAuthors(page int) ([]IndTask.Author, error)
 	CreateAuthor(author *IndTask.Author) (int, error)
-	ChangeAuthor(author *IndTask.Author, authorId int, method string) (*IndTask.Author, error)
+	GetOneAuthor(authorId int) (*IndTask.Author, error)
+	ChangeAuthor(author *IndTask.Author, authorId int) error
+	DeleteAuthor(authorId int) error
 }
 
 type AppGenre interface {
 	GetGenres() ([]IndTask.Genre, error)
 	CreateGenre(genre *IndTask.Genre) (int, error)
-	ChangeGenre(genre *IndTask.Genre, genreId int, method string) (*IndTask.Genre, error)
+	GetOneGenre(genreId int) (*IndTask.Genre, error)
+	ChangeGenre(genre *IndTask.Genre, genreId int) error
+	DeleteGenre(genreId int) error
 }
 
 type Validation interface {

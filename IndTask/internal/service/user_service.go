@@ -1,14 +1,10 @@
 package service
 
 import (
-	"errors"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
 	"github.com/Baraulia/goLab/IndTask.git/internal/repository"
 )
-
-var UserAlreadyExists = errors.New("user with that email already exists")
-var UserDoesNotExists = errors.New("user with that id does not exists")
 
 type UserService struct {
 	repo repository.AppUser
@@ -19,35 +15,35 @@ func NewUserService(repo repository.AppUser) *UserService {
 }
 
 func (u *UserService) GetUsers(page int) ([]IndTask.User, error) {
-	return u.repo.GetUsers(page)
+	users, err := u.repo.GetUsers(page)
+	if err != nil {
+		return nil, fmt.Errorf("error while getting users from database:%w", err)
+	}
+	return users, nil
 }
 
 func (u *UserService) CreateUser(user *IndTask.User) (int, error) {
 	listUsers, err := u.repo.GetUsers(0)
 	if err != nil {
-		logger.Errorf("Error when getting genres:%s", err)
-		return 0, err
+		return 0, fmt.Errorf("error while getting users from database:%w", err)
 	}
-
-	if user.UserName == "" || user.Surname == "" {
-		logger.Error("necessary to fill in the Fields with the user_name and surname")
-		return 0, fmt.Errorf("necessary to fill in the Fields with the user_name and surname")
-	}
-
 	for _, bdUser := range listUsers {
 		if bdUser.Email == user.Email {
-			logger.Error("User with the same email already exists")
-			return bdUser.Id, UserAlreadyExists
+			logger.Errorf("User with that email:%s already exists", user.Email)
+			return bdUser.Id, fmt.Errorf("user with that email:%s already exists", user.Email)
 		}
 	}
-	return u.repo.CreateUser(user)
+	userId, err := u.repo.CreateUser(user)
+	if err != nil {
+		return 0, fmt.Errorf("error while creating user in database:%w", err)
+	}
+	return userId, nil
 }
 
 func (u *UserService) ChangeUser(user *IndTask.User, userId int, method string) (*IndTask.User, error) {
 	listUsers, err := u.repo.GetUsers(0)
 	if err != nil {
-		logger.Errorf("Error when getting users:%s", err)
-		return nil, err
+		return nil, fmt.Errorf("error while getting users from database:%w", err)
 	}
 	var userExist = false
 	for _, bdUser := range listUsers {
@@ -56,9 +52,28 @@ func (u *UserService) ChangeUser(user *IndTask.User, userId int, method string) 
 		}
 	}
 	if userExist == false {
-		logger.Error("Such a user does not exist")
-		return nil, UserDoesNotExists
+		logger.Errorf("Such a user:%d does not exist", userId)
+		return nil, fmt.Errorf("such a user:%d does not exist", userId)
 	}
-	return u.repo.ChangeUser(user, userId, method)
-
+	if method == "GET" {
+		user, err := u.repo.GetOneUser(userId)
+		if err != nil {
+			return nil, fmt.Errorf("error while getting one user from database:%w", err)
+		}
+		return user, nil
+	}
+	if method == "PUT" {
+		err := u.repo.ChangeUser(user, userId)
+		if err != nil {
+			return nil, fmt.Errorf("error while changing user in database:%w", err)
+		}
+	}
+	if method == "DELETE" {
+		err := u.repo.DeleteUser(userId)
+		if err != nil {
+			return nil, fmt.Errorf("error while deleting one user from database:%w", err)
+		}
+		return nil, nil
+	}
+	return nil, nil
 }

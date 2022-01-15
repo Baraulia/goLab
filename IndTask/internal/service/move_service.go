@@ -5,6 +5,10 @@ import (
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
 	"github.com/Baraulia/goLab/IndTask.git/internal/repository"
+	"github.com/Baraulia/goLab/IndTask.git/pkg/translate"
+	"io/ioutil"
+	"net/http"
+	"os"
 )
 
 var ReturnActDoesNotExists = errors.New("return act with that id does not exists")
@@ -35,7 +39,7 @@ func (s *MoveService) CreateIssueAct(issueAct *IndTask.IssueAct, method string) 
 }
 
 func (s *MoveService) GetIssueActsByUser(userId int, page int) ([]IndTask.IssueAct, error) {
-	if _, err := s.repo.ChangeUser(nil, userId, "GET"); err != nil {
+	if _, err := s.repo.GetOneUser(userId); err != nil {
 		logger.Errorf("Such user with id = %d does not exist", userId)
 		return nil, fmt.Errorf("such user with id = %d does not exist", userId)
 	}
@@ -78,7 +82,7 @@ func (s *MoveService) CreateReturnAct(returnAct *IndTask.ReturnAct) (int, error)
 	return s.repo.CreateReturnAct(returnAct, listBookId)
 }
 func (s *MoveService) GetReturnActsByUser(userId int, page int) ([]IndTask.ReturnAct, error) {
-	if _, err := s.repo.ChangeUser(nil, userId, "GET"); err != nil {
+	if _, err := s.repo.GetOneUser(userId); err != nil {
 		logger.Errorf("Such user with id = %d does not exist", userId)
 		return nil, fmt.Errorf("such user with id = %d does not exist", userId)
 	}
@@ -105,9 +109,7 @@ func (s *MoveService) ChangeReturnAct(returnAct *IndTask.ReturnAct, actId int, m
 }
 
 func CalcRentPreCost(issueAct *IndTask.IssueAct, s *MoveService) (float64, error) {
-	var book *IndTask.ListBooksDTO
-	var err error
-	book, err = s.repo.AppBook.ChangeListBook(nil, issueAct.ListBookId, "GET")
+	book, err := s.repo.AppBook.GetOneListBook(issueAct.ListBookId)
 	if err != nil {
 		logger.Errorf("Error getting listBook by ListBookId=%d:%s", issueAct.ListBookId, err)
 		return 0, err
@@ -177,6 +179,44 @@ func setCost(issueAct *IndTask.IssueAct, returnAct *IndTask.ReturnAct, s *MoveSe
 			logger.Errorf("Error updating preCost in issueAct (id=%d):%s", act.Id, err)
 			return fmt.Errorf("error updating preCost in issueAct (id=%d):%s", act.Id, err)
 		}
+	}
+	return nil
+}
+
+func InputFineFoto(req *http.Request, input *IndTask.ReturnAct) error {
+	m := req.MultipartForm
+	files := m.File["file"]
+	for i, headers := range files {
+		reqfile, err := files[i].Open()
+		if err != nil {
+			logger.Errorf("InputFineFoto: error while getting file from multipart form:%s", err)
+			return fmt.Errorf("inputFineFoto: error while getting file from multipart form:%w", err)
+		}
+		defer reqfile.Close()
+		fileBytes, err := ioutil.ReadAll(reqfile)
+		if err != nil {
+			logger.Errorf("InputFineFoto: error while reading file from request:%s", err)
+			return fmt.Errorf("inputFineFoto: error while reading file from request:%w", err)
+		}
+		directoryPath := fmt.Sprintf("images/fines/issueActId%d", input.IssueActId)
+		filePath := fmt.Sprintf("%s/%s", directoryPath, translate.Translate(headers.Filename))
+		err = os.MkdirAll(directoryPath, 0777)
+		if err != nil {
+			logger.Errorf("InputFineFoto: error while creating directory (%s):%s", directoryPath, err)
+			return fmt.Errorf("inputFineFoto: error while rcreating directory (%s):%w", directoryPath, err)
+		}
+		file, err := os.OpenFile(filePath, os.O_RDWR|os.O_CREATE, 0777)
+		if err != nil {
+			logger.Errorf("InputFineFoto: error while opening file %s:%s", filePath, err)
+			return fmt.Errorf("inputFineFoto: error while opening file %s:%w", filePath, err)
+		}
+		defer file.Close()
+		_, err = file.Write(fileBytes)
+		if err != nil {
+			logger.Errorf("InputFineFoto: error while writing file:%s", err)
+			return fmt.Errorf("inputFineFoto: error while writing file:%w", err)
+		}
+		input.Foto = append(input.Foto, filePath)
 	}
 	return nil
 }

@@ -1,13 +1,10 @@
 package service
 
 import (
-	"errors"
+	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
 	"github.com/Baraulia/goLab/IndTask.git/internal/repository"
 )
-
-var GenreAlreadyExists = errors.New("genre with that name already exists")
-var GenreDoesNotExists = errors.New("genre with that id does not exists")
 
 type GenreService struct {
 	repo repository.AppGenre
@@ -18,52 +15,71 @@ func NewGenreService(repo repository.AppGenre) *GenreService {
 }
 
 func (g *GenreService) GetGenres() ([]IndTask.Genre, error) {
-	return g.repo.GetGenres()
+	genres, err := g.repo.GetGenres()
+	if err != nil {
+		return nil, fmt.Errorf("error while getting genres from database:%w", err)
+	}
+	return genres, nil
 }
 
 func (g *GenreService) CreateGenre(genre *IndTask.Genre) (int, error) {
 	listGenres, err := g.repo.GetGenres()
 	if err != nil {
-		logger.Errorf("Error when getting genres:%s", err)
-		return 0, err
+		return 0, fmt.Errorf("error while getting genres from database:%w", err)
 	}
 	for _, bdGenre := range listGenres {
 		if bdGenre.GenreName == genre.GenreName {
-			logger.Error("Genre with the same name already exists")
-			return bdGenre.Id, GenreAlreadyExists
+			logger.Errorf("Genre with that name:%s already exists", genre.GenreName)
+			return bdGenre.Id, fmt.Errorf("genre with that name:%s already exists", genre.GenreName)
 		}
 	}
-	return g.repo.CreateGenre(genre)
+	genreId, err := g.repo.CreateGenre(genre)
+	if err != nil {
+		return 0, fmt.Errorf("error while creating genre in database:%w", err)
+	}
+	return genreId, nil
 }
 
 func (g *GenreService) ChangeGenre(genre *IndTask.Genre, genreId int, method string) (*IndTask.Genre, error) {
 	listGenres, err := g.repo.GetGenres()
 	if err != nil {
-		logger.Errorf("Error when getting genres:%s", err)
-		return nil, err
+		return nil, fmt.Errorf("error while getting genres from database:%w", err)
 	}
 	var genreExist = false
-	var genreNameDuplicate = false
 	for _, bdGenre := range listGenres {
 		if bdGenre.Id == genreId {
 			genreExist = true
 		}
 	}
 	if genreExist == false {
-		logger.Error("Such a genre does not exist")
-		return nil, GenreDoesNotExists
+		logger.Errorf("Such a genre:%d does not exist", genreId)
+		return nil, fmt.Errorf("such a genre:%d does not exist", genreId)
+	}
+	if method == "GET" {
+		genre, err := g.repo.GetOneGenre(genreId)
+		if err != nil {
+			return nil, fmt.Errorf("error while getting one genre from database:%w", err)
+		}
+		return genre, nil
 	}
 	if method == "PUT" {
 		for _, bdGenre := range listGenres {
 			if bdGenre.GenreName == genre.GenreName {
-				genreNameDuplicate = true
+				logger.Errorf("Genre with that name:%s already exists", genre.GenreName)
+				return nil, fmt.Errorf("genre with that name:%s already exists", genre.GenreName)
 			}
 		}
+		err := g.repo.ChangeGenre(genre, genreId)
+		if err != nil {
+			return nil, fmt.Errorf("error while changing genre in database:%w", err)
+		}
 	}
-	if genreNameDuplicate {
-		logger.Error("Genre with the same name already exists")
-		return nil, GenreAlreadyExists
+	if method == "DELETE" {
+		err := g.repo.DeleteGenre(genreId)
+		if err != nil {
+			return nil, fmt.Errorf("error while deleting one genre from database:%w", err)
+		}
+		return nil, nil
 	}
-	return g.repo.ChangeGenre(genre, genreId, method)
-
+	return nil, nil
 }

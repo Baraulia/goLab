@@ -93,17 +93,10 @@ func (d *MyDuration) UnmarshalJSON(data []byte) error {
 	}
 }
 
-func CheckEptyLine(fieldname string, line interface{}) error {
-	if line == "" || line == 0 || line == nil {
-		return fmt.Errorf("the value of the %s field cannot be empty", fieldname)
-	}
-	return nil
-}
-
 type Book struct {
 	Id        int     `json:"id"`
 	BookName  string  `json:"book_name" validate:"string,min=1,max=255"`
-	GenreId   []int   `json:"genre_id" validate:"genreExist"`
+	GenreId   []int   `json:"genres" validate:"genreExist"`
 	Cost      float32 `json:"cost"`
 	AuthorsId []int   `json:"authors" validate:"authorExist"`
 	Cover     string  `json:"cover"`
@@ -132,6 +125,7 @@ type ListBooks struct {
 	RentCost   float64   `json:"rent_cost"`
 	RegDate    time.Time `json:"reg_date"`
 	Condition  int       `json:"condition"`
+	Scrapped   bool      `json:"scrapped"`
 }
 
 type ListBooksDTO struct {
@@ -142,6 +136,7 @@ type ListBooksDTO struct {
 	RentCost   float64   `json:"rent_cost"`
 	RegDate    time.Time `json:"reg_date"`
 	Condition  int       `json:"condition"`
+	Scrapped   bool      `json:"scrapped"`
 }
 
 type Author struct {

@@ -58,12 +58,13 @@ CREATE TABLE list_books
     rent_number int not null,
     rent_cost decimal not null,
     reg_date timestamp with time zone not null,
-    condition int not null
+    condition int not null,
+    scrapped bool
 );
 
-CREATE TYPE status AS ENUM ('open', 'closed');
+CREATE TYPE stat AS ENUM ('open', 'closed');
 
-CREATE TABLE issue_act
+CREATE TABLE act
 (
     id serial not null unique primary key,
     user_id int references users(id) not null,
@@ -72,20 +73,16 @@ CREATE TABLE issue_act
     return_date timestamp with time zone not null,
     pre_cost decimal not null,
     cost decimal not null,
-    status status not null
-);
-
-CREATE TABLE return_act
-(
-    id serial not null unique primary key,
-    issue_act_id int references issue_act(id) not null,
+    status stat not null,
     return_date timestamp with time zone not null,
+    actual_return_date timestamp with time zone not null,
     foto varchar(255) array[5],
     fine decimal,
     condition_decrese int,
     rating int
 );
-insert into genre (genre_name) values ('Novel2'), ('Fantasy'), ('Detective'), ('Advanture'), ('Erotic'), ('Triller'), ('Philosophical'), ('Satire'), ('Comedy'), ('Crime'), ('Horror'), ('Business');
+
+insert into genre (genre_name) values ('Novel'), ('Fantasy'), ('Detective'), ('Adventure'), ('Erotic'), ('Triller'), ('Philosophical'), ('Satire'), ('Comedy'), ('Crime'), ('Horror'), ('Business');
 
 insert into authors (author_name, author_foto) values ('Редьярд Киплинг', 'images/authors/Rudyard_kipling.jpg'),
                                                             ('Марк Твен', 'images/authors/Mark_Tven.jpeg'),
@@ -132,30 +129,30 @@ insert into books  (book_name, cost, cover, published, pages, amount) values ('�
                                                                              ('Доктор Живаго', 13, 'images/book_covers/Doctor_Zivago_2021.jpg', 2021, 608, 3),
                                                                              ('По ком звонит колокол', 50, 'images/book_covers/Po_kom_zvonit_kolokol_2019.jpg', 2019, 640, 2);
 
-insert into list_books  (book_id, issued, rent_number, rent_cost, reg_date, condition) values (1, false, 0, 1.15, '2022-01-01',100),
-                                                                                              (1, false, 5, 1.15, '2022-01-01',100),
-                                                                                              (2, false, 0, 1.50, '2022-01-01',100),
-                                                                                              (3, false, 0, 0.74, '2022-01-01',100),
-                                                                                              (3, false, 0, 0.74, '2022-01-01',100),
-                                                                                              (4, false, 0, 1.15, '2022-01-01',100),
-                                                                                              (4, false, 0, 1.15, '2022-01-01',100),
-                                                                                              (4, false, 0, 1.15, '2022-01-01',100),
-                                                                                              (5, false, 0, 0.58, '2022-01-01',100),
-                                                                                              (6, false, 6, 1.15, '2022-01-01',100),
-                                                                                              (6, false, 0, 1.15, '2022-01-01',100),
-                                                                                              (7, false, 0, 0.87, '2022-01-01',100),
-                                                                                              (7, false, 0, 0.87, '2022-01-01',100),
-                                                                                              (7, false, 0, 0.87, '2022-01-01',100),
-                                                                                              (8, false, 0, 0.51, '2022-01-01',100),
-                                                                                              (9, false, 7, 0.35, '2022-01-01',100),
-                                                                                              (9, false, 0, 0.35, '2022-01-01',100),
-                                                                                              (10, false, 0, 1.43, '2022-01-01',100),
-                                                                                              (10, false, 0, 1.43, '2022-01-01',100),
-                                                                                              (11, false, 0, 0.30, '2022-01-01',100),
-                                                                                              (11, false, 0, 0.30, '2022-01-01',100),
-                                                                                              (11, false, 0, 0.30, '2022-01-01',100),
-                                                                                              (12, false, 0, 1.15, '2022-01-01',100),
-                                                                                              (12, false, 0, 1.15, '2022-01-01',100);
+insert into list_books  (book_id, issued, rent_number, rent_cost, reg_date, condition, scrapped) values (1, false, 0, 6.5, '2022-01-01',100, false),
+                                                                                                        (1, false, 5, 6.5, '2022-01-01',75, false),
+                                                                                                        (2, false, 0, 8.45, '2022-01-01',100, false),
+                                                                                                        (3, false, 0, 4.16, '2022-01-01',100, false),
+                                                                                                        (3, false, 0, 4.16, '2022-01-01',100, false),
+                                                                                                        (4, false, 0, 6.5, '2022-01-01',100, false),
+                                                                                                        (4, false, 0, 6.5, '2022-01-01',100, false),
+                                                                                                        (4, false, 0, 6.5, '2022-01-01',100, false),
+                                                                                                        (5, false, 0, 3.25, '2022-01-01',100, false),
+                                                                                                        (6, false, 6, 6.5, '2022-01-01',70, false),
+                                                                                                        (6, false, 0, 6.5, '2022-01-01',100, false),
+                                                                                                        (7, false, 0, 4.94, '2022-01-01',100, false),
+                                                                                                        (7, false, 0, 4.94, '2022-01-01',100, false),
+                                                                                                        (7, false, 0, 4.94, '2022-01-01',100, false),
+                                                                                                        (8, false, 0, 2.86, '2022-01-01',100, false),
+                                                                                                        (9, false, 7, 1.95, '2022-01-01',65, false),
+                                                                                                        (9, false, 0, 1.95, '2022-01-01',100, false),
+                                                                                                        (10, false, 0, 8.06, '2022-01-01',100, false),
+                                                                                                        (10, false, 0, 8.06, '2022-01-01',100, false),
+                                                                                                        (11, false, 0, 1.69, '2022-01-01',100, false),
+                                                                                                        (11, false, 0, 1.69, '2022-01-01',100, false),
+                                                                                                        (11, false, 0, 1.69, '2022-01-01',100, false),
+                                                                                                        (12, false, 0, 6.5, '2022-01-01',100, false),
+                                                                                                        (12, false, 0, 6.5, '2022-01-01',100, false);
 
 
 insert into book_genre  (book_id, genre_id) values (1, 4), (2, 4), (3, 8), (4, 3), (5, 6), (6, 1), (7, 2), (8, 8), (9, 2), (10, 11), (11, 10), (12, 3);

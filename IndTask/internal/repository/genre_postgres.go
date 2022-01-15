@@ -17,87 +17,88 @@ func NewGenrePostgres(db *sql.DB) *GenrePostgres {
 func (r *GenrePostgres) GetGenres() ([]IndTask.Genre, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
-		logger.Errorf("Can not starts transaction:%s", err)
-		return nil, err
+		logger.Errorf("GetGenres: can not starts transaction:%s", err)
+		return nil, fmt.Errorf("getGenres: can not starts transaction:%w", err)
 	}
-	defer transaction.Commit()
-
 	var listGenres []IndTask.Genre
-	query := fmt.Sprint("SELECT id, genre_name FROM genre")
+	query := "SELECT id, genre_name FROM genre"
 	rows, err := transaction.Query(query)
 	if err != nil {
-		logger.Errorf("Can not executes a query:%s", err)
-		return nil, err
+		logger.Errorf("GetGenres: can not executes a query:%s", err)
+		return nil, fmt.Errorf("getGenres:repository error:%w", err)
 	}
-
 	for rows.Next() {
 		var genre IndTask.Genre
 		if err := rows.Scan(&genre.Id, &genre.GenreName); err != nil {
-			logger.Errorf("Scan error:%s", err)
-			return nil, err
+			logger.Errorf("Error while scanning for genre:%s", err)
+			return nil, fmt.Errorf("getGenres:repository error:%w", err)
 		}
 		listGenres = append(listGenres, genre)
 	}
-
-	return listGenres, err
+	return listGenres, transaction.Commit()
 }
 
 func (r *GenrePostgres) CreateGenre(genre *IndTask.Genre) (int, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
-		logger.Errorf("Can not starts transaction:%s", err)
-		return 0, err
+		logger.Errorf("CreateGenre: can not starts transaction:%s", err)
+		return 0, fmt.Errorf("createGenre: can not starts transaction:%w", err)
 	}
 	defer transaction.Rollback()
-
 	var genreId int
-	createGenreQuery := fmt.Sprint("INSERT INTO genre (genre_name) VALUES ($1) RETURNING id")
+	createGenreQuery := "INSERT INTO genre (genre_name) VALUES ($1) RETURNING id"
 	row := transaction.QueryRow(createGenreQuery, genre.GenreName)
 	if err := row.Scan(&genreId); err != nil {
-		logger.Errorf("Scan error:%s", err)
-		return 0, err
+		logger.Errorf("Error while scanning for genreId:%s", err)
+		return 0, fmt.Errorf("createGenre: error while scanning for genreId:%w", err)
 	}
 	return genreId, transaction.Commit()
-
 }
 
-func (r *GenrePostgres) ChangeGenre(genre *IndTask.Genre, genreId int, method string) (*IndTask.Genre, error) {
+func (r *GenrePostgres) GetOneGenre(genreId int) (*IndTask.Genre, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
-		logger.Errorf("Can not starts transaction:%s", err)
-		return nil, err
+		logger.Errorf("GetOneGenre: can not starts transaction:%s", err)
+		return nil, fmt.Errorf("getOneGenre: can not starts transaction:%w", err)
 	}
-
-	if method == "GET" {
-		var genre IndTask.Genre
-		query := fmt.Sprint("SELECT id, genre_name FROM genre WHERE id = $1")
-		row := transaction.QueryRow(query, genreId)
-		if err := row.Scan(&genre.Id, &genre.GenreName); err != nil {
-			logger.Errorf("Scan error:%s", err)
-			return nil, err
-		}
-		return &genre, transaction.Commit()
+	var genre IndTask.Genre
+	query := "SELECT id, genre_name FROM genre WHERE id = $1"
+	row := transaction.QueryRow(query, genreId)
+	if err := row.Scan(&genre.Id, &genre.GenreName); err != nil {
+		logger.Errorf("Error while scanning for genre:%s", err)
+		return nil, fmt.Errorf("getOneGenre: repository error:%w", err)
 	}
+	return &genre, transaction.Commit()
+}
 
-	if method == "PUT" {
-		query := fmt.Sprintf("UPDATE genre SET genre_name=$1 WHERE id = $2")
-		_, err := transaction.Exec(query, genre.GenreName, genreId)
-		if err != nil {
-			logger.Errorf("Update genre error:%s", err)
-			return nil, err
-		}
-		return nil, transaction.Commit()
+func (r *GenrePostgres) ChangeGenre(genre *IndTask.Genre, genreId int) error {
+	transaction, err := r.db.Begin()
+	if err != nil {
+		logger.Errorf("ChangeGenre: can not starts transaction:%s", err)
+		return fmt.Errorf("changeGenre: can not starts transaction:%w", err)
 	}
-
-	if method == "DELETE" {
-		query := fmt.Sprint("DELETE FROM genre WHERE id=$1")
-		_, err := transaction.Exec(query, genreId)
-		if err != nil {
-			logger.Errorf("Delete genre error:%s", err)
-			return nil, err
-		}
-		return nil, transaction.Commit()
+	defer transaction.Rollback()
+	query := "UPDATE genre SET genre_name=$1 WHERE id = $2"
+	_, err = transaction.Exec(query, genre.GenreName, genreId)
+	if err != nil {
+		logger.Errorf("Repository error while updating genre:%s", err)
+		return fmt.Errorf("changeGenre: repository error:%w", err)
 	}
+	return transaction.Commit()
+}
 
-	return nil, transaction.Rollback()
+func (r *GenrePostgres) DeleteGenre(genreId int) error {
+	transaction, err := r.db.Begin()
+	if err != nil {
+		logger.Errorf("DeleteGenre: can not starts transaction:%s", err)
+		return fmt.Errorf("deleteGenre: can not starts transaction:%w", err)
+	}
+	defer transaction.Rollback()
+	query := "DELETE FROM genre WHERE id=$1"
+	_, err = transaction.Exec(query, genreId)
+	if err != nil {
+		logger.Errorf("Repository error while deleting genre:%s", err)
+		return fmt.Errorf("deleteGenre: repository error:%w", err)
+	}
+	return transaction.Commit()
 }

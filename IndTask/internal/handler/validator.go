@@ -32,10 +32,10 @@ type NumberValidator struct {
 func (v NumberValidator) Validate(val interface{}) error {
 	num := val.(int)
 	if num < v.Min {
-		return fmt.Errorf("should be greater than %v", v.Min)
+		return fmt.Errorf("numberValidator: should be greater than %v", v.Min)
 	}
 	if v.Max >= v.Min && num > v.Max {
-		return fmt.Errorf("should be less than %v", v.Max)
+		return fmt.Errorf("numberValidator: should be less than %v", v.Max)
 	}
 	return nil
 }
@@ -49,17 +49,16 @@ func (v StringValidator) Validate(val interface{}) error {
 	l := len(val.(string))
 
 	if l == 0 {
-		return fmt.Errorf("the value of the field cannot be empty")
+		return fmt.Errorf("stringValidator: the value of the field cannot be empty")
 	}
 
 	if l < v.Min {
-		return fmt.Errorf("should be at least %v chars long", v.Min)
+		return fmt.Errorf("stringValidator: should be at least %v chars long", v.Min)
 	}
 
 	if v.Max >= v.Min && l > v.Max {
-		return fmt.Errorf("should be less than %v chars long", v.Max)
+		return fmt.Errorf("stringValidator: should be less than %v chars long", v.Max)
 	}
-
 	return nil
 }
 
@@ -68,7 +67,7 @@ type EmailValidator struct {
 
 func (v EmailValidator) Validate(val interface{}) error {
 	if !mailRe.MatchString(val.(string)) {
-		return fmt.Errorf("it is not a valid email address")
+		return fmt.Errorf("emailValidator: it is not a valid email address")
 	}
 	return nil
 }
@@ -81,7 +80,7 @@ func (v GenreExistValidator) Validate(val interface{}) error {
 	for _, genre := range val.([]int) {
 		err := v.handler.services.Validation.GetGenreById(genre)
 		if err != nil {
-			return fmt.Errorf("such genre with id = %d does not exist:%s", genre, err)
+			return fmt.Errorf("genreExistValidator:%w", err)
 		}
 	}
 	return nil
@@ -95,7 +94,7 @@ func (v AuthorExistValidator) Validate(val interface{}) error {
 	for _, author := range val.([]int) {
 		err := v.handler.services.Validation.GetAuthorById(author)
 		if err != nil {
-			return fmt.Errorf("such author with id = %d does not exist:%s", author, err)
+			return fmt.Errorf("authorExistValidator:%w", err)
 		}
 	}
 	return nil
@@ -106,13 +105,13 @@ type BirthDayValidator struct {
 
 func (v BirthDayValidator) Validate(val interface{}) error {
 	if val.(IndTask.MyTime).Time.After(time.Now()) {
-		return fmt.Errorf("the birthday is incorrect")
+		return fmt.Errorf("birthDayValidator: the birthday is incorrect")
 	} else {
 		age := time.Now().Sub(val.(IndTask.MyTime).Time)
 		if age.Hours() < 24*365*10 {
-			return fmt.Errorf("user is too young: he is %d", uint(age.Hours()/(24*365)))
+			return fmt.Errorf("birthDayValidator: user is too young: he is %d", uint(age.Hours()/(24*365)))
 		} else if age.Hours() > 24*365*100 {
-			return fmt.Errorf("people don't live that much:%d years", uint(age.Hours()/(24*365)))
+			return fmt.Errorf("birthDayValidator: people don't live that much:%d years", uint(age.Hours()/(24*365)))
 		}
 	}
 	return nil
@@ -125,7 +124,7 @@ type UserExistValidator struct {
 func (v UserExistValidator) Validate(val interface{}) error {
 	err := v.handler.services.Validation.GetUserById(val.(int))
 	if err != nil {
-		return fmt.Errorf("such user with id = %d does not exist:%s", val.(int), err)
+		return fmt.Errorf("userExistValidator:%w", err)
 	}
 
 	return nil
@@ -138,9 +137,8 @@ type ListBookExistValidator struct {
 func (v ListBookExistValidator) Validate(val interface{}) error {
 	err := v.handler.services.Validation.GetListBookById(val.(int))
 	if err != nil {
-		return fmt.Errorf("such listbook with id = %d does not exist:%s", val.(int), err)
+		return fmt.Errorf("listBookExistValidator:%w", err)
 	}
-
 	return nil
 }
 
@@ -149,7 +147,7 @@ type RentalTimeValidator struct {
 
 func (v RentalTimeValidator) Validate(val interface{}) error {
 	if val.(IndTask.MyDuration).Duration > 30*24*time.Hour {
-		return fmt.Errorf("cannot lend a book for such a long period:%f", val.(IndTask.MyDuration).Duration.Hours()/24)
+		return fmt.Errorf("rentalTimeValidator: cannot lend a book for such a long period:%f", val.(IndTask.MyDuration).Duration.Hours()/24)
 	}
 	return nil
 }
@@ -161,15 +159,13 @@ type IssueActExistValidator struct {
 func (v IssueActExistValidator) Validate(val interface{}) error {
 	err := v.handler.services.Validation.GetIssueActById(val.(int))
 	if err != nil {
-		return fmt.Errorf("such issue act with id = %d does not exist:%s", val.(int), err)
+		return fmt.Errorf("issueActExistValidator:%w", err)
 	}
-
 	return nil
 }
 
 func getValidatorFromTag(tag string, h *Handler) Validator {
 	args := strings.Split(tag, ",")
-
 	switch args[0] {
 	case "number":
 		validator := NumberValidator{}
@@ -199,8 +195,8 @@ func getValidatorFromTag(tag string, h *Handler) Validator {
 	return DefaultValidator{}
 }
 
-func validateStruct(h *Handler, s interface{}) []error {
-	var errs []error
+func validateStruct(h *Handler, s interface{}) map[string]string {
+	var errs = make(map[string]string)
 	v := reflect.ValueOf(s)
 	for i := 0; i < v.NumField(); i++ {
 		tag := v.Type().Field(i).Tag.Get(tagName)
@@ -210,7 +206,7 @@ func validateStruct(h *Handler, s interface{}) []error {
 		validator := getValidatorFromTag(tag, h)
 		err := validator.Validate(v.Field(i).Interface())
 		if err != nil {
-			errs = append(errs, fmt.Errorf("%s %s", v.Type().Field(i).Name, err))
+			errs[v.Type().Field(i).Name] = err.Error()
 		}
 	}
 	return errs
