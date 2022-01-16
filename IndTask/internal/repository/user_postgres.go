@@ -39,7 +39,6 @@ func (r *UserPostgres) GetUsers(page int) ([]IndTask.User, error) {
 			return nil, fmt.Errorf("getUsers:repository error:%w", err)
 		}
 	}
-
 	for rows.Next() {
 		var user IndTask.User
 		if err := rows.Scan(&user.Id, &user.Surname, &user.UserName, &user.Patronymic, &user.PaspNumber, &user.Email, &user.Adress, &user.BirthDate); err != nil {

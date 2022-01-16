@@ -21,31 +21,27 @@ func (h *Handler) InitRoutes() *http.ServeMux {
 	router.HandleFunc("/", h.getThreeBooks)
 	router.HandleFunc("/books", h.getBooks)
 	router.HandleFunc("/books/create", h.createBook)
-	router.HandleFunc("/books/change", h.changeBook) //реализовать методы GET, PUT
+	router.HandleFunc("/books/change", h.changeBook)
 	router.HandleFunc("/list_books", h.getListBooks)
 	router.HandleFunc("/list_books/change", h.changeListBooks)
 
 	router.HandleFunc("/users/", h.getUsers)
 	router.HandleFunc("/users/create", h.createUser)
-	router.HandleFunc("/users/change", h.changeUser) //реализовать методы GET, PUT, DELETE
+	router.HandleFunc("/users/change", h.changeUser)
 
-	router.HandleFunc("/in/getAll", h.getReturnActs)
-	router.HandleFunc("/in/create", h.createReturnAct)
-	router.HandleFunc("/in/getByUser", h.getReturnActsByUser)
-	router.HandleFunc("/in/change", h.changeReturnAct) //реализовать методы GET, PUT
-
-	router.HandleFunc("/out/getAll", h.getIssueActs)
-	router.HandleFunc("/out/create", h.createIssueAct)
-	router.HandleFunc("/out/getByUser", h.getIssueActsByUser)
-	router.HandleFunc("/out/change", h.changeIssueAct) //реализовать методы GET, PUT
+	router.HandleFunc("/act/getAll", h.getActs)
+	router.HandleFunc("/act/create", h.createIssueAct)
+	router.HandleFunc("/act/getByUser", h.getActsByUser)
+	router.HandleFunc("/act/change", h.changeAct)
+	router.HandleFunc("/act/add", h.addReturnAct)
 
 	router.HandleFunc("/authors/", h.getAuthors)
 	router.HandleFunc("/authors/create", h.createAuthor)
-	router.HandleFunc("/authors/change", h.changeAuthor) //реализовать методы GET, PUT, DELETE
+	router.HandleFunc("/authors/change", h.changeAuthor)
 
 	router.HandleFunc("/genres/", h.getGenres)
 	router.HandleFunc("/genres/create", h.createGenre)
-	router.HandleFunc("/genres/change", h.changeGenre) //реализовать методы GET, PUT, DELETE
+	router.HandleFunc("/genres/change", h.changeGenre)
 
 	return router
 }

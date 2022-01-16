@@ -85,14 +85,14 @@ func (v *ValidationPostgres) GetListBookById(id int) error {
 	}
 	return transaction.Commit()
 }
-func (v *ValidationPostgres) GetIssueActById(id int) error {
+func (v *ValidationPostgres) GetActById(id int, changing bool) error {
 	transaction, err := v.db.Begin()
 	if err != nil {
-		logger.Errorf("GetIssueActById: can not starts transaction:%s", err)
-		return fmt.Errorf("getIssueActById: can not starts transaction:%w", err)
+		logger.Errorf("GetActById: can not starts transaction:%s", err)
+		return fmt.Errorf("getActById: can not starts transaction:%w", err)
 	}
 	var exist bool
-	query := "SELECT EXISTS(SELECT 1 FROM issue_act WHERE id=$1)"
+	query := "SELECT EXISTS(SELECT 1 FROM act WHERE id=$1)"
 	row := transaction.QueryRow(query, id)
 	if err := row.Scan(&exist); err != nil {
 		logger.Errorf("Error while scanning for exist act:%s", err)
@@ -100,6 +100,17 @@ func (v *ValidationPostgres) GetIssueActById(id int) error {
 	}
 	if !exist {
 		return fmt.Errorf("such act %d does not exist", id)
+	}
+	if !changing {
+		query = "SELECT EXISTS(SELECT 1 FROM act WHERE id=$1 AND status='open')"
+		row = transaction.QueryRow(query, id)
+		if err := row.Scan(&exist); err != nil {
+			logger.Errorf("Error while scanning for exist act:%s", err)
+			return fmt.Errorf("getIssueActById: repository error:%w", err)
+		}
+		if !exist {
+			return fmt.Errorf("such act %d already closed", id)
+		}
 	}
 	return transaction.Commit()
 }

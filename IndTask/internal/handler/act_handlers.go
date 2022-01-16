@@ -3,6 +3,7 @@ package handler
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
 	"github.com/Baraulia/goLab/IndTask.git/internal/service"
 	"net/http"
@@ -10,32 +11,31 @@ import (
 )
 
 func (h *Handler) getActs(w http.ResponseWriter, req *http.Request) {
-	h.logger.Info("Working getIssueActs")
+	h.logger.Info("Working getActs")
 	CheckMethod(w, req, "GET", h.logger)
 	page, err := strconv.Atoi(req.URL.Query().Get("page"))
 	if err != nil || page < 1 {
 		h.logger.Errorf("No url request:%s", err)
-		http.NotFound(w, req)
+		http.Error(w, fmt.Sprintf("No url request:%s", err), 400)
 		return
 	}
-	var issueActs []IndTask.IssueAct
-	issueActs, err = h.services.AppMove.GetIssueActs(page)
+	var acts []IndTask.Act
+	acts, err = h.services.AppAct.GetActs(page)
 	if err != nil {
-		h.logger.Errorf("Error while getting issueActs list from database: %s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	output, err := json.Marshal(&issueActs)
+	output, err := json.Marshal(&acts)
 	if err != nil {
-		h.logger.Errorf("Marshal error:%s", err)
+		h.logger.Errorf("ActHandler: error while marshaling list acts:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
 	_, err = w.Write(output)
 	if err != nil {
-		h.logger.Errorf("Error while writting response:%s", err)
-		http.Error(w, err.Error(), 500)
+		h.logger.Errorf("getActs: error while writing response:%s", err)
+		http.Error(w, err.Error(), 501)
 		return
 	}
 }
@@ -43,71 +43,78 @@ func (h *Handler) getActs(w http.ResponseWriter, req *http.Request) {
 func (h *Handler) createIssueAct(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working createIssueAct")
 	CheckMethod(w, req, "POST", h.logger)
-	var input IndTask.IssueAct
+	var input IndTask.Act
 	decoder := json.NewDecoder(req.Body)
-
 	if err := decoder.Decode(&input); err != nil {
-		h.logger.Errorf("Error while decoding request:%s", err)
+		h.logger.Errorf("createIssueAct: error while decoding request:%s", err)
 		http.Error(w, err.Error(), 400)
 		return
 	}
 	validationErrors := validateStruct(h, input)
 	if len(validationErrors) != 0 {
-		for _, err := range validationErrors {
-			http.Error(w, err, 400)
+		h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
+		errors, err := json.Marshal(validationErrors)
+		if err != nil {
+			h.logger.Errorf("ActHandler: error while marshaling list errors:%s", err)
+			http.Error(w, err.Error(), 500)
+			return
 		}
-		h.logger.Error("erroneous data in the request")
+		w.WriteHeader(http.StatusBadRequest)
+		_, err = w.Write(errors)
+		if err != nil {
+			h.logger.Errorf("ActHandler: can not write errors into response:%s", err)
+			http.Error(w, err.Error(), 500)
+			return
+		}
 		return
 	}
-	issueActId, err := h.services.AppMove.CreateIssueAct(&input, req.Method)
+	actId, err := h.services.AppAct.CreateIssueAct(&input)
 	if err != nil {
-		h.logger.Errorf("Error while creating issueAct in the database:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
 	header := w.Header()
-	header.Add("id", strconv.Itoa(issueActId))
+	header.Add("id", strconv.Itoa(actId))
 }
 
-func (h *Handler) getIssueActsByUser(w http.ResponseWriter, req *http.Request) {
-	h.logger.Info("Working getIssueActsByUser")
+func (h *Handler) getActsByUser(w http.ResponseWriter, req *http.Request) {
+	h.logger.Info("Working getActsByUser")
+	CheckMethod(w, req, "GET", h.logger)
 	userId, err := strconv.Atoi(req.URL.Query().Get("user_id"))
 	if err != nil || userId < 1 {
 		h.logger.Errorf("No url request:%s", err)
-		http.NotFound(w, req)
+		http.Error(w, fmt.Sprintf("No url request:%s", err), 400)
 		return
 	}
-	CheckMethod(w, req, "GET", h.logger)
 	page, err := strconv.Atoi(req.URL.Query().Get("page"))
 	if err != nil || page < 1 {
 		h.logger.Errorf("No url request:%s", err)
-		http.NotFound(w, req)
+		http.Error(w, fmt.Sprintf("No url request:%s", err), 400)
 		return
 	}
-	var issueActs []IndTask.IssueAct
-	issueActs, err = h.services.AppMove.GetIssueActsByUser(userId, page)
+	var acts []IndTask.Act
+	acts, err = h.services.AppAct.GetActsByUser(userId, page)
 	if err != nil {
-		h.logger.Errorf("Error while getting issueActsByUser from database: %s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	output, err := json.Marshal(&issueActs)
+	output, err := json.Marshal(&acts)
 	if err != nil {
-		h.logger.Errorf("Marshal error:%s", err)
+		h.logger.Errorf("ActHandler: error while marshaling list users:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
 	_, err = w.Write(output)
 	if err != nil {
-		h.logger.Errorf("Error while writting response:%s", err)
+		h.logger.Errorf("getActsByUser: error while writing response:%s", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
 }
 
-func (h *Handler) changeIssueAct(w http.ResponseWriter, req *http.Request) {
-	h.logger.Info("Working changeIssueAct")
+func (h *Handler) changeAct(w http.ResponseWriter, req *http.Request) {
+	h.logger.Info("Working changeAct")
 	actId, err := strconv.Atoi(req.URL.Query().Get("id"))
 	if err != nil || actId < 1 {
 		h.logger.Errorf("No url request:%s", err)
@@ -115,248 +122,145 @@ func (h *Handler) changeIssueAct(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	if req.Method != "PUT" && req.Method != "GET" {
-		h.logger.Error("Method Not Allowed")
-		http.Error(w, "Method Not Allowed", 405)
+		h.logger.Errorf("Method %s Not Allowed", req.Method)
+		http.Error(w, fmt.Sprintf("Method %s Not Allowed", req.Method), 405)
 		return
 	}
-
+	var act IndTask.Act
+	var oneAct *IndTask.Act
 	if req.Method == "PUT" {
 		h.logger.Info("Method PUT, changeIssueAct")
-		var input IndTask.IssueAct
-		decoder := json.NewDecoder(req.Body)
-		if err := decoder.Decode(&input); err != nil {
-			h.logger.Errorf("Error while decoding request: %s", err)
-			http.Error(w, err.Error(), 400)
-			return
-		}
-		validationErrors := validateStruct(h, input)
-		if len(validationErrors) != 0 {
-			for _, err := range validationErrors {
-				http.Error(w, err, 400)
+		if req.Header.Get("Content-Type") == "application/json" {
+			decoder := json.NewDecoder(req.Body)
+			if err := decoder.Decode(&act); err != nil {
+				h.logger.Errorf("Error while decoding request(%s): %s", req.Body, err)
+				http.Error(w, err.Error(), 400)
+				return
 			}
-			h.logger.Error("erroneous data in the request")
+		} else {
+			if err := req.ParseMultipartForm(10 * 1024 * 1024); err != nil {
+				h.logger.Errorf("changeAct: error while parsing multipart form:%s", err)
+				http.Error(w, err.Error(), 400)
+				return
+			}
+			body := bytes.NewBufferString(req.PostFormValue("body"))
+			decoder := json.NewDecoder(body)
+			if err := decoder.Decode(&act); err != nil {
+				h.logger.Errorf("changeAct: error while decoding request:%s", err)
+				http.Error(w, err.Error(), 400)
+				return
+			}
+			photos, err := service.InputFineFoto(req, act.Id)
+			if err != nil {
+				http.Error(w, err.Error(), 400)
+				return
+			}
+			act.Foto = photos
+		}
+		validationErrors := validateStruct(h, act)
+		if len(validationErrors) != 0 {
+			h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
+			errors, err := json.Marshal(validationErrors)
+			if err != nil {
+				h.logger.Errorf("ActHandler: error while marshaling list errors:%s", err)
+				http.Error(w, err.Error(), 500)
+				return
+			}
+			w.WriteHeader(http.StatusBadRequest)
+			_, err = w.Write(errors)
+			if err != nil {
+				h.logger.Errorf("ActHandler: can not write errors into response:%s", err)
+				http.Error(w, err.Error(), 500)
+				return
+			}
 			return
 		}
-		_, err = h.services.AppMove.ChangeIssueAct(&input, actId, req.Method)
+		_, err = h.services.AppAct.ChangeAct(&act, actId, req.Method)
 		if err != nil {
 			h.logger.Errorf("Error while updating issue act: %s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
-	}
-
-	if req.Method == "GET" {
-		h.logger.Info("Method GET, changeIssueAct")
-		issueAct, err := h.services.AppMove.ChangeIssueAct(nil, actId, req.Method)
+	} else {
+		h.logger.Infof("Method %s, changeAct", req.Method)
+		oneAct, err = h.services.AppAct.ChangeAct(nil, actId, req.Method)
 		if err != nil {
-			h.logger.Errorf("Error while getting issueAct id=%d from database:%s", actId, err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
-		output, err := json.Marshal(issueAct)
+	}
+	if oneAct != nil {
+		output, err := json.Marshal(act)
 		if err != nil {
-			h.logger.Errorf("Can not marshal issueAct:%s", err)
+			h.logger.Errorf("ActHandler: error while marshaling act:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
 		w.Header().Set("Content-Type", "application/json")
 		_, err = w.Write(output)
 		if err != nil {
-			h.logger.Errorf("Can not write output into response:%s", err)
+			h.logger.Errorf("changeAct: error while writing response:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
+	} else {
+		w.WriteHeader(http.StatusNoContent)
 	}
 }
 
-//handlers for return acts
-
-func (h *Handler) getReturnActs(w http.ResponseWriter, req *http.Request) {
-	h.logger.Info("Working getReturnActs")
-	CheckMethod(w, req, "GET", h.logger)
-	page, err := strconv.Atoi(req.URL.Query().Get("page"))
-	if err != nil || page < 1 {
-		h.logger.Errorf("No url request:%s", err)
-		http.NotFound(w, req)
-		return
-	}
-	var returnActs []IndTask.ReturnAct
-	returnActs, err = h.services.AppMove.GetReturnActs(page)
-	if err != nil {
-		h.logger.Errorf("Error while getting returnActs list from database: %s", err)
-		http.Error(w, err.Error(), 500)
-		return
-	}
-	output, err := json.Marshal(&returnActs)
-	if err != nil {
-		h.logger.Errorf("Marshal error:%s", err)
-		http.Error(w, err.Error(), 500)
-		return
-	}
-	w.Header().Set("Content-Type", "application/json")
-	_, err = w.Write(output)
-	if err != nil {
-		h.logger.Errorf("Error while writting response:%s", err)
-		http.Error(w, err.Error(), 500)
-		return
-	}
-}
-
-func (h *Handler) createReturnAct(w http.ResponseWriter, req *http.Request) {
+func (h *Handler) addReturnAct(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working createReturnAct")
 	CheckMethod(w, req, "POST", h.logger)
 	var input IndTask.ReturnAct
 	if req.Header.Get("Content-Type") == "application/json" {
 		decoder := json.NewDecoder(req.Body)
 		if err := decoder.Decode(&input); err != nil {
-			h.logger.Errorf("Error while decoding request:%s", err)
+			h.logger.Errorf("addReturnAct: error while decoding request:%s", err)
 			http.Error(w, err.Error(), 400)
 			return
 		}
 	} else {
 		if err := req.ParseMultipartForm(10 * 1024 * 1024); err != nil {
-			h.logger.Errorf("Error while parsing multipart form:%s", err)
+			h.logger.Errorf("addReturnAct: error while parsing multipart form:%s", err)
 			http.Error(w, err.Error(), 400)
 			return
 		}
 		body := bytes.NewBufferString(req.PostFormValue("body"))
 		decoder := json.NewDecoder(body)
 		if err := decoder.Decode(&input); err != nil {
-			h.logger.Errorf("Error while decoding request:%s", err)
+			h.logger.Errorf("addReturnAct: error while decoding request:%s", err)
 			http.Error(w, err.Error(), 400)
 			return
 		}
-		if err := service.InputFineFoto(req, &input); err != nil {
+		photos, err := service.InputFineFoto(req, input.ActId)
+		if err != nil {
+			http.Error(w, err.Error(), 400)
 			return
 		}
+		input.Foto = photos
 	}
 	validationErrors := validateStruct(h, input)
 	if len(validationErrors) != 0 {
-		for _, err := range validationErrors {
-			http.Error(w, err, 400)
-		}
-		h.logger.Error("erroneous data in the request")
-		return
-	}
-	returnActId, err := h.services.AppMove.CreateReturnAct(&input)
-	if err != nil {
-		h.logger.Errorf("Error while creating returnAct in the database:%s", err)
-		http.Error(w, err.Error(), 500)
-		return
-	}
-	header := w.Header()
-	header.Add("id", strconv.Itoa(returnActId))
-}
-
-func (h *Handler) getReturnActsByUser(w http.ResponseWriter, req *http.Request) {
-	h.logger.Info("Working getReturnActsByUser")
-	userId, err := strconv.Atoi(req.URL.Query().Get("user_id"))
-	if err != nil || userId < 1 {
-		h.logger.Errorf("No url request:%s", err)
-		http.NotFound(w, req)
-		return
-	}
-	CheckMethod(w, req, "GET", h.logger)
-	page, err := strconv.Atoi(req.URL.Query().Get("page"))
-	if err != nil || page < 1 {
-		h.logger.Errorf("No url request:%s", err)
-		http.NotFound(w, req)
-		return
-	}
-	var returnActs []IndTask.ReturnAct
-	returnActs, err = h.services.AppMove.GetReturnActsByUser(userId, page)
-	if err != nil {
-		h.logger.Errorf("Error while getting returnActsByUser from database: %s", err)
-		http.Error(w, err.Error(), 500)
-		return
-	}
-	output, err := json.Marshal(&returnActs)
-	if err != nil {
-		h.logger.Errorf("Marshal error:%s", err)
-		http.Error(w, err.Error(), 500)
-		return
-	}
-	w.Header().Set("Content-Type", "application/json")
-	_, err = w.Write(output)
-	if err != nil {
-		h.logger.Errorf("Error while writting response:%s", err)
-		http.Error(w, err.Error(), 500)
-		return
-	}
-}
-
-func (h *Handler) changeReturnAct(w http.ResponseWriter, req *http.Request) {
-	h.logger.Info("Working changeReturnAct")
-	actId, err := strconv.Atoi(req.URL.Query().Get("id"))
-	if err != nil || actId < 1 {
-		h.logger.Errorf("No url request:%s", err)
-		http.NotFound(w, req)
-		return
-	}
-	if req.Method != "PUT" && req.Method != "GET" {
-		h.logger.Error("Method Not Allowed")
-		http.Error(w, "Method Not Allowed", 405)
-		return
-	}
-
-	if req.Method == "PUT" {
-		h.logger.Info("Method PUT, changeReturnAct")
-		var input IndTask.ReturnAct
-		if req.Header.Get("Content-Type") == "application/json" {
-			decoder := json.NewDecoder(req.Body)
-			if err := decoder.Decode(&input); err != nil {
-				h.logger.Errorf("Error while decoding request: %s", err)
-				http.Error(w, err.Error(), 400)
-				return
-			}
-		} else {
-			body := bytes.NewBufferString(req.PostFormValue("body"))
-			decoder := json.NewDecoder(body)
-			if err := decoder.Decode(&input); err != nil {
-				h.logger.Errorf("Error while decoding request:%s", err)
-				http.Error(w, err.Error(), 400)
-				return
-			}
-			if err := service.InputFineFoto(req, &input); err != nil {
-				return
-			}
-		}
-		validationErrors := validateStruct(h, input)
-		if len(validationErrors) != 0 {
-			for _, err := range validationErrors {
-				http.Error(w, err, 400)
-			}
-			h.logger.Error("erroneous data in the request")
-			return
-		}
-		_, err = h.services.AppMove.ChangeReturnAct(&input, actId, req.Method)
+		h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
+		errors, err := json.Marshal(validationErrors)
 		if err != nil {
-			h.logger.Errorf("Error while updating return act: %s", err)
+			h.logger.Errorf("ActHandler: error while marshaling list errors:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
+		w.WriteHeader(http.StatusBadRequest)
+		_, err = w.Write(errors)
+		if err != nil {
+			h.logger.Errorf("ActHandler: can not write errors into response:%s", err)
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		return
 	}
-
-	if req.Method == "GET" {
-		h.logger.Info("Method GET, changeReturnAct")
-		returnAct, err := h.services.AppMove.ChangeReturnAct(nil, actId, req.Method)
-		if err != nil {
-			h.logger.Errorf("Error while getting returnAct from database:%s", err)
-			http.Error(w, err.Error(), 500)
-			return
-		}
-		output, err := json.Marshal(returnAct)
-		if err != nil {
-			h.logger.Errorf("Can not marshal returnAct:%s", err)
-			http.Error(w, err.Error(), 500)
-			return
-		}
-		w.Header().Set("Content-Type", "application/json")
-		_, err = w.Write(output)
-		if err != nil {
-			h.logger.Errorf("Can not write output into response:%s", err)
-			http.Error(w, err.Error(), 500)
-			return
-		}
+	err := h.services.AppAct.AddReturnAct(&input)
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
 	}
+	w.WriteHeader(http.StatusNoContent)
 }

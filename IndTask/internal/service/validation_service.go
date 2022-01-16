@@ -14,17 +14,42 @@ func NewValidationService(repo repository.Validation) *ValidationService {
 }
 
 func (v *ValidationService) GetGenreById(id int) error {
-	return fmt.Errorf("validation error:%w", v.repo.GetGenreById(id))
+	err := v.repo.GetGenreById(id)
+	if err != nil {
+		logger.Errorf("validation error:%s", err)
+		return fmt.Errorf("validation error:%s", err)
+	}
+	return nil
 }
 func (v *ValidationService) GetAuthorById(id int) error {
-	return fmt.Errorf("validation error:%w", v.repo.GetAuthorById(id))
+	err := v.repo.GetAuthorById(id)
+	if err != nil {
+		logger.Errorf("validation error:%s", err)
+		return fmt.Errorf("validation error:%s", err)
+	}
+	return nil
 }
 func (v *ValidationService) GetUserById(id int) error {
-	return fmt.Errorf("validation error:%w", v.repo.GetUserById(id))
+	err := v.repo.GetUserById(id)
+	if err != nil {
+		logger.Errorf("validation error:%s", err)
+		return fmt.Errorf("validation error:%s", err)
+	}
+	return nil
 }
 func (v *ValidationService) GetListBookById(id int) error {
-	return fmt.Errorf("validation error:%w", v.repo.GetListBookById(id))
+	err := v.repo.GetListBookById(id)
+	if err != nil {
+		logger.Errorf("validation error:%s", err)
+		return fmt.Errorf("validation error:%s", err)
+	}
+	return nil
 }
-func (v *ValidationService) GetIssueActById(id int) error {
-	return fmt.Errorf("validation error:%w", v.repo.GetIssueActById(id))
+func (v *ValidationService) GetActById(id int, changing bool) error {
+	err := v.repo.GetActById(id, changing)
+	if err != nil {
+		logger.Errorf("validation error:%s", err)
+		return fmt.Errorf("validation error:%s", err)
+	}
+	return nil
 }

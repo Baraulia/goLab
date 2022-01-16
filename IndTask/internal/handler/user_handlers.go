@@ -44,7 +44,7 @@ func (h *Handler) createUser(w http.ResponseWriter, req *http.Request) {
 	var input IndTask.User
 	decoder := json.NewDecoder(req.Body)
 	if err := decoder.Decode(&input); err != nil {
-		h.logger.Errorf("Error while decoding request:%s", err)
+		h.logger.Errorf("createUser: error while decoding request:%s", err)
 		http.Error(w, err.Error(), 400)
 		return
 	}

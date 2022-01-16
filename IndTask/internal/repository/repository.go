@@ -30,16 +30,15 @@ type AppBook interface {
 	DeleteListBook(bookId int) error
 }
 
-type AppMove interface {
-	GetIssueActs(page int) ([]IndTask.IssueAct, error)
-	CreateIssueAct(issueAct *IndTask.IssueAct) (int, error)
-	GetIssueActsByUser(userId int, forCost bool, page int) ([]IndTask.IssueAct, error)
-	ChangeIssueAct(issueAct *IndTask.IssueAct, actId int, method string) (*IndTask.IssueAct, error)
-	GetReturnActs(page int) ([]IndTask.ReturnAct, error)
-	CreateReturnAct(returnAct *IndTask.ReturnAct, listBookId int) (int, error)
-	GetReturnActsByUser(userId int, page int) ([]IndTask.ReturnAct, error)
-	ChangeReturnAct(returnAct *IndTask.ReturnAct, actId int, method string) (*IndTask.ReturnAct, error)
+type AppAct interface {
+	GetActs(page int) ([]IndTask.Act, error)
+	CreateIssueAct(act *IndTask.Act) (int, error)
+	GetActsByUser(userId int, forCost bool, page int) ([]IndTask.Act, error)
+	ChangeAct(act *IndTask.Act, actId int) error
+	GetOneAct(actId int) (*IndTask.Act, error)
+	AddReturnAct(returnAct *IndTask.ReturnAct) error
 	CheckReturnData() ([]IndTask.Debtor, error)
+	CheckDuplicateBook(act *IndTask.Act) error
 }
 
 type AppAuthor interface {
@@ -63,13 +62,13 @@ type Validation interface {
 	GetAuthorById(int) error
 	GetUserById(int) error
 	GetListBookById(int) error
-	GetIssueActById(int) error
+	GetActById(int, bool) error
 }
 
 type Repository struct {
 	AppUser
 	AppBook
-	AppMove
+	AppAct
 	AppAuthor
 	AppGenre
 	Validation
@@ -79,7 +78,7 @@ func NewRepository(db *sql.DB) *Repository {
 	return &Repository{
 		NewUserPostgres(db),
 		NewBookPostgres(db),
-		NewMovePostgres(db),
+		NewActPostgres(db),
 		NewAuthorPostgres(db),
 		NewGenrePostgres(db),
 		NewValidationPostgres(db),

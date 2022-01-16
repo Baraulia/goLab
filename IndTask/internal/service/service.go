@@ -26,15 +26,12 @@ type AppBook interface {
 	ChangeListBook(books *IndTask.ListBooks, bookId int, method string) (*IndTask.ListBooksDTO, error)
 }
 
-type AppMove interface {
-	GetIssueActs(page int) ([]IndTask.IssueAct, error)
-	CreateIssueAct(issueAct *IndTask.IssueAct, method string) (int, error)
-	GetIssueActsByUser(userId int, page int) ([]IndTask.IssueAct, error)
-	ChangeIssueAct(issueAct *IndTask.IssueAct, actId int, method string) (*IndTask.IssueAct, error)
-	GetReturnActs(page int) ([]IndTask.ReturnAct, error)
-	CreateReturnAct(returnAct *IndTask.ReturnAct) (int, error)
-	GetReturnActsByUser(userId int, page int) ([]IndTask.ReturnAct, error)
-	ChangeReturnAct(returnAct *IndTask.ReturnAct, actId int, method string) (*IndTask.ReturnAct, error)
+type AppAct interface {
+	GetActs(page int) ([]IndTask.Act, error)
+	CreateIssueAct(act *IndTask.Act) (int, error)
+	GetActsByUser(userId int, page int) ([]IndTask.Act, error)
+	ChangeAct(act *IndTask.Act, actId int, method string) (*IndTask.Act, error)
+	AddReturnAct(act *IndTask.ReturnAct) error
 }
 
 type AppAuthor interface {
@@ -54,13 +51,13 @@ type Validation interface {
 	GetAuthorById(int) error
 	GetUserById(int) error
 	GetListBookById(int) error
-	GetIssueActById(int) error
+	GetActById(int, bool) error
 }
 
 type Service struct {
 	AppUser
 	AppBook
-	AppMove
+	AppAct
 	AppAuthor
 	AppGenre
 	Validation
@@ -70,7 +67,7 @@ func NewService(rep *repository.Repository, cfg *config.Config) *Service {
 	return &Service{
 		NewUserService(rep.AppUser),
 		NewBookService(*rep, cfg),
-		NewMoveService(*rep),
+		NewActService(*rep),
 		NewAuthorService(rep.AppAuthor),
 		NewGenreService(rep.AppGenre),
 		NewValidationService(rep.Validation),

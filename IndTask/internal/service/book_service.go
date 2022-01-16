@@ -202,6 +202,6 @@ func InputCoverFoto(req *http.Request, input *IndTask.Book) error {
 func (b *BookService) CalcRentCost(bookCost float32) float64 {
 	profitability := b.cfg.ProfitBook.Profitability
 	maxRentNumber := b.cfg.ProfitBook.MaxRentalNumber
-	rentCost := float64(bookCost * profitability * maxRentNumber)
+	rentCost := float64(bookCost * profitability * 100 / maxRentNumber)
 	return math.Round(rentCost) / 100
 }

@@ -152,14 +152,14 @@ func (v RentalTimeValidator) Validate(val interface{}) error {
 	return nil
 }
 
-type IssueActExistValidator struct {
+type ActExistValidator struct {
 	handler *Handler
 }
 
-func (v IssueActExistValidator) Validate(val interface{}) error {
-	err := v.handler.services.Validation.GetIssueActById(val.(int))
+func (v ActExistValidator) Validate(val interface{}) error {
+	err := v.handler.services.Validation.GetActById(val.(int), false)
 	if err != nil {
-		return fmt.Errorf("issueActExistValidator:%w", err)
+		return fmt.Errorf("actExistValidator:%w", err)
 	}
 	return nil
 }
@@ -189,8 +189,8 @@ func getValidatorFromTag(tag string, h *Handler) Validator {
 		return ListBookExistValidator{handler: h}
 	case "rentalTime":
 		return RentalTimeValidator{}
-	case "issueActExist":
-		return IssueActExistValidator{handler: h}
+	case "ActExist":
+		return ActExistValidator{handler: h}
 	}
 	return DefaultValidator{}
 }

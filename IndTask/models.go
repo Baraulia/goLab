@@ -1,6 +1,7 @@
 package IndTask
 
 import (
+	"database/sql"
 	"database/sql/driver"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git/pkg/logging"
@@ -161,25 +162,47 @@ type Genre struct {
 	GenreName string `json:"genre_name" db:"genre_name" validate:"string,min=3,max=255"`
 }
 
-type IssueAct struct {
-	Id         int        `json:"id"`
-	UserId     int        `json:"user_id" validate:"userExist"`
-	ListBookId int        `json:"list_book_id" validate:"listBookExist"`
-	RentalTime MyDuration `json:"rental_time" validate:"rentalTime"`
-	ReturnDate time.Time  `json:"return_date"`
-	PreCost    float64    `json:"pre_cost"`
-	Cost       float64    `json:"cost"`
-	Status     string     `json:"status"`
-}
-
 type ReturnAct struct {
-	Id               int       `json:"id"`
-	IssueActId       int       `json:"issue_act_id" validate:"issueActExist"`
+	ActId            int       `json:"act_id" validate:"ActExist"`
+	UserId           int       `json:"user_id" validate:"userExist"`
+	ListBookId       int       `json:"list_book_id" validate:"listBookExist"`
 	ReturnDate       time.Time `json:"return_date"`
 	Foto             []string  `json:"foto"`
 	Fine             float64   `json:"fine"`
-	ConditionDecrese int       `json:"condition_decrese" validate:"number,min=1,max=100""`
+	ConditionDecrese int       `json:"condition_decrese" validate:"number,min=1,max=100"`
 	Rating           int       `json:"rating" validate:"number,min=0,max=10"`
+}
+
+type Act struct {
+	Id               int        `json:"id"`
+	UserId           int        `json:"user_id" validate:"userExist"`
+	ListBookId       int        `json:"list_book_id" validate:"listBookExist"`
+	RentalTime       MyDuration `json:"rental_time" validate:"rentalTime"`
+	ReturnDate       time.Time  `json:"return_date"`
+	PreCost          float64    `json:"pre_cost"`
+	Cost             float64    `json:"cost"` //sql.NullFloat64
+	Status           string     `json:"status"`
+	ActualReturnDate time.Time  `json:"actual_return_date"`
+	Foto             []string   `json:"foto"`
+	Fine             float64    `json:"fine"` // sql.NullFloat64
+	ConditionDecrese int        `json:"condition_decrese" validate:"number,min=0,max=100"`
+	Rating           int        `json:"rating" validate:"number,min=0,max=10"`
+}
+
+type ActDTO struct {
+	Id               int             `json:"id"`
+	UserId           int             `json:"user_id" validate:"userExist"`
+	ListBookId       int             `json:"list_book_id" validate:"listBookExist"`
+	RentalTime       MyDuration      `json:"rental_time" validate:"rentalTime"`
+	ReturnDate       time.Time       `json:"return_date"`
+	PreCost          float64         `json:"pre_cost"`
+	Cost             sql.NullFloat64 `json:"cost"` //sql.NullFloat64
+	Status           string          `json:"status"`
+	ActualReturnDate sql.NullTime    `json:"actual_return_date"`
+	Foto             []string        `json:"foto"`
+	Fine             sql.NullFloat64 `json:"fine"` // sql.NullFloat64
+	ConditionDecrese int             `json:"condition_decrese" validate:"number,min=0,max=100"`
+	Rating           int             `json:"rating" validate:"number,min=0,max=10"`
 }
 
 type Debtor struct {

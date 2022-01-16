@@ -59,7 +59,7 @@ func main() {
 			case <-ticker.C:
 				listDebtors, err := CheckReturnData(Rep)
 				if err != nil {
-					logger.Errorf("Can not check return data for issue acts (%s):%s", time.Now(), err)
+					logger.Errorf("Can not check return data for acts (%s):%s", time.Now(), err)
 				}
 				if len(listDebtors) > 0 {
 					debtors <- listDebtors
@@ -97,9 +97,9 @@ func main() {
 
 }
 func CheckReturnData(rep *repository.Repository) ([]IndTask.Debtor, error) {
-	listDeptors, err := rep.AppMove.CheckReturnData()
+	listDeptors, err := rep.AppAct.CheckReturnData()
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("checkReturnData:%w", err)
 	}
 	return listDeptors, nil
 }
