@@ -13,7 +13,7 @@ import (
 func (h *Handler) getThreeBooks(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working getThreeBooks")
 	CheckMethod(w, req, "GET", h.logger)
-	var listBooks []IndTask.BookDTO
+	var listBooks []IndTask.MostPopularBook
 	listBooks, err := h.services.AppBook.GetThreeBooks()
 	if err != nil {
 		http.Error(w, err.Error(), 500)
@@ -43,7 +43,7 @@ func (h *Handler) getBooks(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	CheckMethod(w, req, "GET", h.logger)
-	var listBooks []IndTask.BookDTO
+	var listBooks []IndTask.BookResponse
 	listBooks, err = h.services.AppBook.GetBooks(page)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
@@ -73,7 +73,7 @@ func (h *Handler) getListBooks(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, fmt.Sprintf("No url request:%s", err), 400)
 		return
 	}
-	var listBooks []IndTask.ListBooksDTO
+	var listBooks []IndTask.ListBooksResponse
 	listBooks, err = h.services.AppBook.GetListBooks(page)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
@@ -164,7 +164,7 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	var input IndTask.Book
-	var book *IndTask.BookDTO
+	var book *IndTask.BookResponse
 	if req.Method == "PUT" {
 		h.logger.Info("Method PUT, changeBook")
 		if req.Header.Get("Content-Type") == "application/json" {

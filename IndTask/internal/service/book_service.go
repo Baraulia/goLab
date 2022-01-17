@@ -22,7 +22,7 @@ func NewBookService(repo repository.Repository, cfg *config.Config) *BookService
 	return &BookService{repo: repo, cfg: cfg}
 }
 
-func (b *BookService) GetThreeBooks() ([]IndTask.BookDTO, error) {
+func (b *BookService) GetThreeBooks() ([]IndTask.MostPopularBook, error) {
 	books, err := b.repo.GetThreeBooks()
 	if err != nil {
 		return nil, fmt.Errorf("error while getting three books from database:%w", err)
@@ -30,7 +30,7 @@ func (b *BookService) GetThreeBooks() ([]IndTask.BookDTO, error) {
 	return books, nil
 }
 
-func (b *BookService) GetBooks(page int) ([]IndTask.BookDTO, error) {
+func (b *BookService) GetBooks(page int) ([]IndTask.BookResponse, error) {
 	books, err := b.repo.GetBooks(page)
 	if err != nil {
 		return nil, fmt.Errorf("error while getting books from database:%w", err)
@@ -38,7 +38,7 @@ func (b *BookService) GetBooks(page int) ([]IndTask.BookDTO, error) {
 	return books, nil
 }
 
-func (b *BookService) GetListBooks(page int) ([]IndTask.ListBooksDTO, error) {
+func (b *BookService) GetListBooks(page int) ([]IndTask.ListBooksResponse, error) {
 	books, err := b.repo.GetListBooks(page)
 	if err != nil {
 		return nil, fmt.Errorf("error while getting instances of books from database:%w", err)
@@ -93,7 +93,7 @@ func (b *BookService) CreateBook(book *IndTask.Book) (int, error) {
 	return bookId, nil
 }
 
-func (b *BookService) ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.BookDTO, error) {
+func (b *BookService) ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.BookResponse, error) {
 	listBooks, err := b.repo.GetBooks(0)
 	if err != nil {
 		return nil, fmt.Errorf("error while getting books from database:%w", err)
@@ -133,7 +133,7 @@ func (b *BookService) ChangeBook(book *IndTask.Book, bookId int, method string) 
 	return nil, nil
 }
 
-func (b *BookService) ChangeListBook(listBook *IndTask.ListBooks, listBookId int, method string) (*IndTask.ListBooksDTO, error) {
+func (b *BookService) ChangeListBook(listBook *IndTask.ListBooks, listBookId int, method string) (*IndTask.ListBooksResponse, error) {
 	listBooks, err := b.repo.GetListBooks(0)
 	if err != nil {
 		return nil, fmt.Errorf("error while getting instances of books from database:%w", err)

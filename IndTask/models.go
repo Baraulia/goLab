@@ -106,16 +106,19 @@ type Book struct {
 	Amount    int     `json:"amount" validate:"number,min=1,max=100"`
 }
 
-type BookDTO struct {
-	Id        int      `json:"id"`
-	BookName  string   `json:"book_name"`
-	Genre     []Genre  `json:"genres"`
-	Cost      float32  `json:"cost"`
-	Authors   []Author `json:"authors"`
-	Cover     string   `json:"cover"`
-	Published int      `json:"published"`
-	Pages     int      `json:"pages"`
-	Amount    int      `json:"amount"`
+type MostPopularBook struct {
+	Cover   string  `json:"cover"`
+	Readers int     `json:"readers"`
+	Rating  float32 `json:"rating"`
+}
+
+type BookResponse struct {
+	Id              int     `json:"id"`
+	BookName        string  `json:"book_name"`
+	Genre           []Genre `json:"genres"`
+	Published       int     `json:"published"`
+	Number          int     `json:"number"`
+	AvailableNumber int     `json:"available_number"`
 }
 
 type ListBooks struct {
@@ -129,15 +132,15 @@ type ListBooks struct {
 	Scrapped   bool      `json:"scrapped"`
 }
 
-type ListBooksDTO struct {
-	Id         int       `json:"id"`
-	Book       *BookDTO  `json:"book"`
-	Issued     bool      `json:"issued"`
-	RentNumber int       `json:"rent_number"`
-	RentCost   float64   `json:"rent_cost"`
-	RegDate    time.Time `json:"reg_date"`
-	Condition  int       `json:"condition"`
-	Scrapped   bool      `json:"scrapped"`
+type ListBooksResponse struct {
+	Id         int           `json:"id"`
+	Book       *BookResponse `json:"book"`
+	Issued     bool          `json:"issued"`
+	RentNumber int           `json:"rent_number"`
+	RentCost   float64       `json:"rent_cost"`
+	RegDate    time.Time     `json:"reg_date"`
+	Condition  int           `json:"condition"`
+	Scrapped   bool          `json:"scrapped"`
 }
 
 type Author struct {

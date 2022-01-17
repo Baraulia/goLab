@@ -17,57 +17,52 @@ func NewBookPostgres(db *sql.DB) *BookPostgres {
 
 var bookLimit = 10
 
-func (r *BookPostgres) GetThreeBooks() ([]IndTask.BookDTO, error) {
+func (r *BookPostgres) GetThreeBooks() ([]IndTask.MostPopularBook, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("GetThreeBooks: can not starts transaction:%s", err)
 		return nil, fmt.Errorf("getThreeBooks: can not starts transaction:%w", err)
 	}
-	var listBooks []IndTask.BookDTO
+	var listBooks []IndTask.MostPopularBook
 	var rows *sql.Rows
-	query := "SELECT id, book_name, cost, cover, published, pages, amount FROM books JOIN " +
-		"(SELECT book_id, SUM(rent_number) AS sum FROM list_books GROUP BY book_id ORDER BY sum DESC LIMIT 3) AS list  ON books.id = list.book_id"
+	query := "SELECT books.cover, SUM(list_books.rent_number) AS readers, SUM(act.rating)/COUNT(act.id) AS rating  FROM list_books JOIN act " +
+		"ON act.rating>0 AND act.listbook_id=list_books.id " +
+		"JOIN books ON books.id=list_books.book_id GROUP BY books.id ORDER BY readers DESC LIMIT 3"
 	rows, err = transaction.Query(query)
 	if err != nil {
 		logger.Errorf("GetThreeBooks: can not executes a query:%s", err)
 		return nil, fmt.Errorf("getThreeBooks: repository error:%w", err)
 	}
 	for rows.Next() {
-		var book IndTask.BookDTO
-		if err := rows.Scan(&book.Id, &book.BookName, &book.Cost, &book.Cover, &book.Published, &book.Pages, &book.Amount); err != nil {
+		var book IndTask.MostPopularBook
+		if err := rows.Scan(&book.Cover, &book.Readers, &book.Rating); err != nil {
 			logger.Errorf("GetThreeBooks: error while scanning for book:%s", err)
 			return nil, fmt.Errorf("getThreeBooks: repository error:%w", err)
-		}
-		book.Authors, err = r.ReturnBindAuthors(book.Id)
-		if err != nil {
-			return nil, fmt.Errorf("error while getting bound authors:%w", err)
-		}
-		book.Genre, err = r.ReturnBindGenres(book.Id)
-		if err != nil {
-			return nil, fmt.Errorf("error while getting bound genres:%w", err)
 		}
 		listBooks = append(listBooks, book)
 	}
 	return listBooks, transaction.Commit()
 }
 
-func (r *BookPostgres) GetBooks(page int) ([]IndTask.BookDTO, error) {
+func (r *BookPostgres) GetBooks(page int) ([]IndTask.BookResponse, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("GetBooks: can not starts transaction:%s", err)
 		return nil, fmt.Errorf("getBooks: can not starts transaction:%w", err)
 	}
-	var listBooks []IndTask.BookDTO
+	var listBooks []IndTask.BookResponse
 	var rows *sql.Rows
 	if page == 0 {
-		query := "SELECT id, book_name, cost, cover, published, pages, amount FROM books"
+		query := "SELECT books.id, books.book_name, books.published, books.amount, count(list_books.id) AS av_books FROM books " +
+			"JOIN list_books ON books.id=list_books.book_id AND list_books.issued='false' GROUP BY books.id ORDER BY av_books DESC, books.book_name"
 		rows, err = transaction.Query(query)
 		if err != nil {
 			logger.Errorf("GetBooks: can not executes a query:%s", err)
 			return nil, fmt.Errorf("getBooks: repository error:%w", err)
 		}
 	} else {
-		query := "SELECT id, book_name, cost, cover, published, pages, amount FROM books ORDER BY Id LIMIT $1 OFFSET $2"
+		query := "SELECT books.id, books.book_name, books.published, books.amount, count(list_books.id) AS av_books FROM books " +
+			"JOIN list_books ON books.id=list_books.book_id AND list_books.issued='false' GROUP BY books.id ORDER BY av_books DESC, books.book_name LIMIT $1 OFFSET $2"
 		rows, err = transaction.Query(query, bookLimit, (page-1)*10)
 		if err != nil {
 			logger.Errorf("GetBooks: can not executes a query:%s", err)
@@ -75,14 +70,10 @@ func (r *BookPostgres) GetBooks(page int) ([]IndTask.BookDTO, error) {
 		}
 	}
 	for rows.Next() {
-		var book IndTask.BookDTO
-		if err := rows.Scan(&book.Id, &book.BookName, &book.Cost, &book.Cover, &book.Published, &book.Pages, &book.Amount); err != nil {
+		var book IndTask.BookResponse
+		if err := rows.Scan(&book.Id, &book.BookName, &book.Published, &book.Number, &book.AvailableNumber); err != nil {
 			logger.Errorf("GetBooks: error while scanning for book:%s", err)
 			return nil, fmt.Errorf("getBooks: repository error:%w", err)
-		}
-		book.Authors, err = r.ReturnBindAuthors(book.Id)
-		if err != nil {
-			return nil, fmt.Errorf("error while getting bound authors:%w", err)
 		}
 		book.Genre, err = r.ReturnBindGenres(book.Id)
 		if err != nil {
@@ -157,22 +148,19 @@ func (r *BookPostgres) CreateBook(book *IndTask.Book, bookExists bool, bookRentC
 	return bookId, transaction.Commit()
 }
 
-func (r *BookPostgres) GetOneBook(bookId int) (*IndTask.BookDTO, error) {
+func (r *BookPostgres) GetOneBook(bookId int) (*IndTask.BookResponse, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("GetOneBook: can not starts transaction:%s", err)
 		return nil, fmt.Errorf("getOneBook: can not starts transaction:%w", err)
 	}
-	var book IndTask.BookDTO
-	query := "SELECT id, book_name, cost, cover, published, pages, amount FROM books WHERE id = $1"
+	var book IndTask.BookResponse
+	query := "SELECT books.id, books.book_name, books.published, books.amount, count(list_books.id) AS av_books FROM books " +
+		"JOIN list_books ON books.id=list_books.book_id AND list_books.issued='false' AND books.id=$1 GROUP BY books.id "
 	row := transaction.QueryRow(query, bookId)
-	if err := row.Scan(&book.Id, &book.BookName, &book.Cost, &book.Cover, &book.Published, &book.Pages, &book.Amount); err != nil {
+	if err := row.Scan(&book.Id, &book.BookName, &book.Published, &book.Number, &book.AvailableNumber); err != nil {
 		logger.Errorf("GetOneBook: error while scanning for book:%s", err)
 		return nil, fmt.Errorf("getOneBook: repository error:%w", err)
-	}
-	book.Authors, err = r.ReturnBindAuthors(book.Id)
-	if err != nil {
-		return nil, fmt.Errorf("error while getting bound authors:%w", err)
 	}
 	book.Genre, err = r.ReturnBindGenres(book.Id)
 	if err != nil {
@@ -259,13 +247,13 @@ func (r *BookPostgres) DeleteBook(bookId int) error {
 	return transaction.Commit()
 }
 
-func (r *BookPostgres) GetListBooks(page int) ([]IndTask.ListBooksDTO, error) {
+func (r *BookPostgres) GetListBooks(page int) ([]IndTask.ListBooksResponse, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("GetListBooks: can not starts transaction:%s", err)
 		return nil, fmt.Errorf("getListBooks: can not starts transaction:%w", err)
 	}
-	var listBooks []IndTask.ListBooksDTO
+	var listBooks []IndTask.ListBooksResponse
 	var rows *sql.Rows
 	if page == 0 {
 		query := "SELECT id, book_id, issued, rent_number, rent_cost, reg_date, condition, scrapped FROM list_books WHERE issued='false' and scrapped='false'"
@@ -283,7 +271,7 @@ func (r *BookPostgres) GetListBooks(page int) ([]IndTask.ListBooksDTO, error) {
 		}
 	}
 	for rows.Next() {
-		var book IndTask.ListBooksDTO
+		var book IndTask.ListBooksResponse
 		var bookId int
 		if err := rows.Scan(&book.Id, &bookId, &book.Issued, &book.RentNumber, &book.RentCost, &book.RegDate, &book.Condition, &book.Scrapped); err != nil {
 			logger.Errorf("GetListBooks: error while scanning for book:%s", err)
@@ -299,13 +287,13 @@ func (r *BookPostgres) GetListBooks(page int) ([]IndTask.ListBooksDTO, error) {
 	return listBooks, transaction.Commit()
 }
 
-func (r *BookPostgres) GetOneListBook(listBookId int) (*IndTask.ListBooksDTO, error) {
+func (r *BookPostgres) GetOneListBook(listBookId int) (*IndTask.ListBooksResponse, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("GetOneListBook: can not starts transaction:%s", err)
 		return nil, fmt.Errorf("getOneListBook: can not starts transaction:%w", err)
 	}
-	var listBook IndTask.ListBooksDTO
+	var listBook IndTask.ListBooksResponse
 	var bookId int
 	query := "SELECT id, book_id, issued, rent_number, rent_cost, reg_date, condition, scrapped FROM list_books WHERE id = $1"
 	row := transaction.QueryRow(query, listBookId)

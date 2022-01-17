@@ -17,15 +17,15 @@ type AppUser interface {
 }
 
 type AppBook interface {
-	GetThreeBooks() ([]IndTask.BookDTO, error)
-	GetBooks(page int) ([]IndTask.BookDTO, error)
+	GetThreeBooks() ([]IndTask.MostPopularBook, error)
+	GetBooks(page int) ([]IndTask.BookResponse, error)
 	CreateBook(*IndTask.Book, bool, float64) (int, error)
-	GetOneBook(bookId int) (*IndTask.BookDTO, error)
+	GetOneBook(bookId int) (*IndTask.BookResponse, error)
 	ChangeBook(book *IndTask.Book, bookId int, bookRentCost float64) error
 	DeleteBook(bookId int) error
-	GetListBooks(page int) ([]IndTask.ListBooksDTO, error)
+	GetListBooks(page int) ([]IndTask.ListBooksResponse, error)
 	GetAuthorsByBookId(bookId int) ([]int, error)
-	GetOneListBook(bookId int) (*IndTask.ListBooksDTO, error)
+	GetOneListBook(bookId int) (*IndTask.ListBooksResponse, error)
 	ChangeListBook(book *IndTask.ListBooks, bookId int) error
 	DeleteListBook(bookId int) error
 }

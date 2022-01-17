@@ -18,12 +18,12 @@ type AppUser interface {
 }
 
 type AppBook interface {
-	GetThreeBooks() ([]IndTask.BookDTO, error)
-	GetBooks(page int) ([]IndTask.BookDTO, error)
+	GetThreeBooks() ([]IndTask.MostPopularBook, error)
+	GetBooks(page int) ([]IndTask.BookResponse, error)
 	CreateBook(*IndTask.Book) (int, error)
-	ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.BookDTO, error)
-	GetListBooks(page int) ([]IndTask.ListBooksDTO, error)
-	ChangeListBook(books *IndTask.ListBooks, bookId int, method string) (*IndTask.ListBooksDTO, error)
+	ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.BookResponse, error)
+	GetListBooks(page int) ([]IndTask.ListBooksResponse, error)
+	ChangeListBook(books *IndTask.ListBooks, bookId int, method string) (*IndTask.ListBooksResponse, error)
 }
 
 type AppAct interface {
