@@ -19,34 +19,34 @@ func NewAuthorService(repo repository.AppAuthor) *AuthorService {
 	return &AuthorService{repo: repo}
 }
 
-func (a *AuthorService) GetAuthors(page int) ([]IndTask.Author, error) {
-	authors, err := a.repo.GetAuthors(page)
+func (a *AuthorService) GetAuthors(page int) ([]IndTask.Author, int, error) {
+	authors, pages, err := a.repo.GetAuthors(page)
 	if err != nil {
-		return nil, fmt.Errorf("error while getting authors from database:%w", err)
+		return nil, 0, fmt.Errorf("error while getting authors from database:%w", err)
 	}
-	return authors, nil
+	return authors, pages, nil
 }
 
-func (a *AuthorService) CreateAuthor(author *IndTask.Author) (int, error) {
-	listAuthors, err := a.repo.GetAuthors(0)
+func (a *AuthorService) CreateAuthor(author *IndTask.Author) (*IndTask.Author, error) {
+	listAuthors, _, err := a.repo.GetAuthors(0)
 	if err != nil {
-		return 0, fmt.Errorf("error while getting authors from database:%w", err)
+		return nil, fmt.Errorf("error while getting authors from database:%w", err)
 	}
 	for _, bdAuthor := range listAuthors {
 		if bdAuthor.AuthorName == author.AuthorName {
 			logger.Errorf("Author with that name:%s already exists", author.AuthorName)
-			return bdAuthor.Id, fmt.Errorf("author with that name:%s already exists", author.AuthorName)
+			return nil, fmt.Errorf("author with that name:%s already exists", author.AuthorName)
 		}
 	}
-	authorId, err := a.repo.CreateAuthor(author)
+	newAuthor, err := a.repo.CreateAuthor(author)
 	if err != nil {
-		return 0, fmt.Errorf("error while creating author in database:%w", err)
+		return nil, fmt.Errorf("error while creating author in database:%w", err)
 	}
-	return authorId, nil
+	return newAuthor, nil
 }
 
 func (a *AuthorService) ChangeAuthor(author *IndTask.Author, authorId int, method string) (*IndTask.Author, error) {
-	listAuthors, err := a.repo.GetAuthors(0)
+	listAuthors, _, err := a.repo.GetAuthors(0)
 	if err != nil {
 		return nil, fmt.Errorf("error while getting authors from database:%w", err)
 	}
@@ -61,11 +61,11 @@ func (a *AuthorService) ChangeAuthor(author *IndTask.Author, authorId int, metho
 		return nil, fmt.Errorf("such a author:%d does not exist", authorId)
 	}
 	if method == "GET" {
-		author, err := a.repo.GetOneAuthor(authorId)
+		oneAuthor, err := a.repo.GetOneAuthor(authorId)
 		if err != nil {
 			return nil, fmt.Errorf("error while getting one author from database:%w", err)
 		}
-		return author, nil
+		return oneAuthor, nil
 	}
 	if method == "PUT" {
 		for _, bdAuthor := range listAuthors {
@@ -74,10 +74,11 @@ func (a *AuthorService) ChangeAuthor(author *IndTask.Author, authorId int, metho
 				return nil, fmt.Errorf("author with that name:%s already exists", author.AuthorName)
 			}
 		}
-		err := a.repo.ChangeAuthor(author, authorId)
+		newAuthor, err := a.repo.ChangeAuthor(author, authorId)
 		if err != nil {
 			return nil, fmt.Errorf("error while changing author in database:%w", err)
 		}
+		return newAuthor, nil
 	}
 	if method == "DELETE" {
 		err := a.repo.DeleteAuthor(authorId)

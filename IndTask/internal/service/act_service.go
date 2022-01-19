@@ -18,46 +18,46 @@ func NewActService(repo repository.Repository) *ActService {
 	return &ActService{repo: repo}
 }
 
-func (s *ActService) GetActs(page int) ([]IndTask.Act, error) {
-	acts, err := s.repo.AppAct.GetActs(page)
+func (s *ActService) GetActs(page int) ([]IndTask.Act, int, error) {
+	acts, pages, err := s.repo.AppAct.GetActs(page)
 	if err != nil {
-		return nil, fmt.Errorf("error while getting acts from database:%w", err)
+		return nil, 0, fmt.Errorf("error while getting acts from database:%w", err)
 	}
-	return acts, nil
+	return acts, pages, nil
 }
 
-func (s *ActService) CreateIssueAct(act *IndTask.Act) (int, error) {
+func (s *ActService) CreateIssueAct(act *IndTask.Act) (*IndTask.Act, error) {
 	var err error
 	if err := s.repo.AppAct.CheckDuplicateBook(act); err != nil {
-		return 0, fmt.Errorf("checkDuplicateBook:%w", err)
+		return nil, fmt.Errorf("checkDuplicateBook:%w", err)
 	}
-	if err = s.CheckAct(act.ListBookId); err != nil {
-		return 0, fmt.Errorf("checkAct:%w", err)
+	if err = s.CheckAct(act.ListBookId, 0); err != nil {
+		return nil, fmt.Errorf("checkAct:%w", err)
 	}
 	if act.PreCost, err = s.CalcRentPreCost(act.ListBookId, act.RentalTime); err != nil {
-		return 0, fmt.Errorf("calcRentPreCost:%w", err)
+		return nil, fmt.Errorf("calcRentPreCost:%w", err)
 	}
 	if err = s.CheckAmountActsByUser(act.UserId); err != nil {
-		return 0, fmt.Errorf("checkAmoutActsByUser:%w", err)
+		return nil, fmt.Errorf("checkAmoutActsByUser:%w", err)
 	}
 	act.Status = "open"
-	actId, err := s.repo.AppAct.CreateIssueAct(act)
+	newAct, err := s.repo.AppAct.CreateIssueAct(act)
 	if err != nil {
-		return 0, fmt.Errorf("error while creating act in database:%w", err)
+		return nil, fmt.Errorf("error while creating act in database:%w", err)
 	}
-	return actId, nil
+	return newAct, nil
 }
 
-func (s *ActService) GetActsByUser(userId int, page int) ([]IndTask.Act, error) {
+func (s *ActService) GetActsByUser(userId int, page int) ([]IndTask.Act, int, error) {
 	if err := s.repo.GetUserById(userId); err != nil {
 		logger.Errorf("Such user with id = %d does not exist", userId)
-		return nil, fmt.Errorf("getActsByUser: %w", err)
+		return nil, 0, fmt.Errorf("getActsByUser: %w", err)
 	}
-	acts, err := s.repo.AppAct.GetActsByUser(userId, false, page)
+	acts, pages, err := s.repo.AppAct.GetActsByUser(userId, false, page)
 	if err != nil {
-		return nil, fmt.Errorf("error while getting act by usrId=%d in database:%w", userId, err)
+		return nil, 0, fmt.Errorf("error while getting act by usrId=%d in database:%w", userId, err)
 	}
-	return acts, nil
+	return acts, pages, nil
 }
 
 func (s *ActService) ChangeAct(act *IndTask.Act, actId int, method string) (*IndTask.Act, error) {
@@ -65,8 +65,10 @@ func (s *ActService) ChangeAct(act *IndTask.Act, actId int, method string) (*Ind
 		logger.Errorf("ChangeAct: such act with id=%d does not exists:%s", actId, err)
 		return nil, fmt.Errorf("changeAct:%w", err)
 	}
+	var oneAct *IndTask.Act
+	var err error
 	if method == "PUT" {
-		if err := s.CheckAct(act.ListBookId); err != nil {
+		if err := s.CheckAct(act.ListBookId, actId); err != nil {
 			return nil, fmt.Errorf("changeAct:%w", err)
 		}
 		if act.PreCost == 0 {
@@ -79,40 +81,53 @@ func (s *ActService) ChangeAct(act *IndTask.Act, actId int, method string) (*Ind
 		if err := s.CheckAmountActsByUser(act.UserId); err != nil {
 			return nil, fmt.Errorf("checkAmoutActsByUser:%w", err)
 		}
-		err := s.repo.AppAct.ChangeAct(act, actId)
+		oneAct, err = s.repo.AppAct.ChangeAct(act, actId)
 		if err != nil {
 			return nil, fmt.Errorf("error while updating act in database:%w", err)
 		}
 	} else {
-		oneAct, err := s.repo.AppAct.GetOneAct(actId)
+		oneAct, err = s.repo.AppAct.GetOneAct(actId)
 		if err != nil {
 			return nil, fmt.Errorf("error while getting act by id=%d in database:%w", actId, err)
 		}
-		return oneAct, nil
 	}
-	return nil, nil
+	return oneAct, nil
 }
 
-func (s *ActService) AddReturnAct(returnAct *IndTask.ReturnAct) error {
+func (s *ActService) AddReturnAct(returnAct *IndTask.ReturnAct) (*IndTask.Act, error) {
 	if err := s.CheckReturnAct(returnAct); err != nil {
-		return fmt.Errorf("addReturnAct:%w", err)
+		return nil, fmt.Errorf("addReturnAct:%w", err)
 	}
-	err := s.repo.AppAct.AddReturnAct(returnAct)
+	act, err := s.repo.AppAct.AddReturnAct(returnAct)
 	if err != nil {
-		return fmt.Errorf("error while adding return act in database:%w", err)
+		return nil, fmt.Errorf("error while adding return act in database:%w", err)
 	}
-	return nil
+	return act, nil
 }
 
-func (s *ActService) CheckAct(listBookId int) error {
+func (s *ActService) CheckAct(listBookId int, actId int) error {
 	book, err := s.repo.AppBook.GetOneListBook(listBookId)
 	if err != nil {
 		logger.Errorf("Error while getting instance of book whith id=%d", listBookId)
 		return fmt.Errorf("error while getting instance of book whith id=%d", listBookId)
 	}
-	if book.Scrapped == true || book.Issued == true {
-		logger.Errorf("That instance of book with id=%d is already issued or scrapped", listBookId)
-		return fmt.Errorf("that instance of book with id=%d is already issued or scrapped", listBookId)
+	if actId != 0 {
+		act, err := s.repo.AppAct.GetOneAct(actId)
+		if err != nil {
+			logger.Errorf("Error while getting act whith id=%d", actId)
+			return fmt.Errorf("error while getting act whith id=%d", actId)
+		}
+		if act.ListBookId == listBookId {
+			if book.Scrapped == true {
+				logger.Errorf("That instance of book with id=%d is already scrapped", listBookId)
+				return fmt.Errorf("that instance of book with id=%d is already scrapped", listBookId)
+			}
+		}
+	} else {
+		if book.Scrapped == true || book.Issued == true {
+			logger.Errorf("That instance of book with id=%d is already issued or scrapped", listBookId)
+			return fmt.Errorf("that instance of book with id=%d is already issued or scrapped", listBookId)
+		}
 	}
 	return nil
 }
@@ -129,7 +144,7 @@ func (s *ActService) CalcRentPreCost(listBookId int, rentalTime IndTask.MyDurati
 }
 
 func (s *ActService) CheckAmountActsByUser(userId int) error {
-	listAct, err := s.repo.GetActsByUser(userId, true, 0)
+	listAct, _, err := s.repo.GetActsByUser(userId, true, 0)
 	if err != nil {
 		logger.Errorf("Error getting instance of book by userId = %d:%s", userId, err)
 		return fmt.Errorf("error getting instance of book by userId = %d:%w", userId, err)
@@ -164,7 +179,7 @@ func (s *ActService) CheckReturnAct(returnAct *IndTask.ReturnAct) error {
 
 func (s *ActService) setCost(returnAct *IndTask.ReturnAct) error {
 	var discount float64
-	acts, err := s.repo.AppAct.GetActsByUser(returnAct.UserId, true, 0)
+	acts, _, err := s.repo.AppAct.GetActsByUser(returnAct.UserId, true, 0)
 	if err != nil {
 		return fmt.Errorf("error while getting acts from database:%w", err)
 	}
@@ -199,7 +214,7 @@ func (s *ActService) setCost(returnAct *IndTask.ReturnAct) error {
 	for _, act := range acts {
 		act.PreCost = act.PreCost * discount
 		act.Cost = act.PreCost
-		err := s.repo.AppAct.ChangeAct(&act, act.Id)
+		_, err := s.repo.AppAct.ChangeAct(&act, act.Id)
 		if err != nil {
 			logger.Errorf("Error while updating preCost and cost in act (id=%d):%s", act.Id, err)
 			return fmt.Errorf("error updating preCost and cost in act (id=%d):%s", act.Id, err)
@@ -212,6 +227,7 @@ func InputFineFoto(req *http.Request, actId int) ([]string, error) {
 	var filePathes []string
 	m := req.MultipartForm
 	files := m.File["file"]
+	fmt.Println(files)
 	for i, headers := range files {
 		reqfile, err := files[i].Open()
 		if err != nil {

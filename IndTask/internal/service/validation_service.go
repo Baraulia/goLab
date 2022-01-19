@@ -45,6 +45,14 @@ func (v *ValidationService) GetListBookById(id int) error {
 	}
 	return nil
 }
+func (v *ValidationService) GetBookById(id int) error {
+	err := v.repo.GetBookById(id)
+	if err != nil {
+		logger.Errorf("validation error:%s", err)
+		return fmt.Errorf("validation error:%s", err)
+	}
+	return nil
+}
 func (v *ValidationService) GetActById(id int, changing bool) error {
 	err := v.repo.GetActById(id, changing)
 	if err != nil {

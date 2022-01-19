@@ -14,34 +14,34 @@ func NewUserService(repo repository.AppUser) *UserService {
 	return &UserService{repo: repo}
 }
 
-func (u *UserService) GetUsers(page int) ([]IndTask.User, error) {
-	users, err := u.repo.GetUsers(page)
+func (u *UserService) GetUsers(page int) ([]IndTask.User, int, error) {
+	users, pages, err := u.repo.GetUsers(page)
 	if err != nil {
-		return nil, fmt.Errorf("error while getting users from database:%w", err)
+		return nil, 0, fmt.Errorf("error while getting users from database:%w", err)
 	}
-	return users, nil
+	return users, pages, nil
 }
 
-func (u *UserService) CreateUser(user *IndTask.User) (int, error) {
-	listUsers, err := u.repo.GetUsers(0)
+func (u *UserService) CreateUser(user *IndTask.User) (*IndTask.User, error) {
+	listUsers, _, err := u.repo.GetUsers(0)
 	if err != nil {
-		return 0, fmt.Errorf("error while getting users from database:%w", err)
+		return nil, fmt.Errorf("error while getting users from database:%w", err)
 	}
 	for _, bdUser := range listUsers {
 		if bdUser.Email == user.Email {
 			logger.Errorf("User with that email:%s already exists", user.Email)
-			return bdUser.Id, fmt.Errorf("user with that email:%s already exists", user.Email)
+			return nil, fmt.Errorf("user with that email:%s already exists", user.Email)
 		}
 	}
-	userId, err := u.repo.CreateUser(user)
+	newUser, err := u.repo.CreateUser(user)
 	if err != nil {
-		return 0, fmt.Errorf("error while creating user in database:%w", err)
+		return nil, fmt.Errorf("error while creating user in database:%w", err)
 	}
-	return userId, nil
+	return newUser, nil
 }
 
 func (u *UserService) ChangeUser(user *IndTask.User, userId int, method string) (*IndTask.User, error) {
-	listUsers, err := u.repo.GetUsers(0)
+	listUsers, _, err := u.repo.GetUsers(0)
 	if err != nil {
 		return nil, fmt.Errorf("error while getting users from database:%w", err)
 	}
@@ -56,17 +56,18 @@ func (u *UserService) ChangeUser(user *IndTask.User, userId int, method string) 
 		return nil, fmt.Errorf("such a user:%d does not exist", userId)
 	}
 	if method == "GET" {
-		user, err := u.repo.GetOneUser(userId)
+		oneUser, err := u.repo.GetOneUser(userId)
 		if err != nil {
 			return nil, fmt.Errorf("error while getting one user from database:%w", err)
 		}
-		return user, nil
+		return oneUser, nil
 	}
 	if method == "PUT" {
-		err := u.repo.ChangeUser(user, userId)
+		upUser, err := u.repo.ChangeUser(user, userId)
 		if err != nil {
 			return nil, fmt.Errorf("error while changing user in database:%w", err)
 		}
+		return upUser, nil
 	}
 	if method == "DELETE" {
 		err := u.repo.DeleteUser(userId)

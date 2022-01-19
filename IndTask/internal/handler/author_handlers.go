@@ -13,13 +13,13 @@ func (h *Handler) getAuthors(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working getAuthors")
 	CheckMethod(w, req, "GET", h.logger)
 	page, err := strconv.Atoi(req.URL.Query().Get("page"))
-	if err != nil || page < 1 {
+	if err != nil || page < 0 {
 		h.logger.Errorf("No url request:%s", err)
 		http.Error(w, fmt.Sprintf("No url request:%s", err), 400)
 		return
 	}
 	var listAuthors []IndTask.Author
-	listAuthors, err = h.services.AppAuthor.GetAuthors(page)
+	listAuthors, pages, err := h.services.AppAuthor.GetAuthors(page)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
@@ -31,6 +31,7 @@ func (h *Handler) getAuthors(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Pages", strconv.Itoa(pages))
 	_, err = w.Write(output)
 	if err != nil {
 		h.logger.Errorf("getAuthors: error while writing response:%s", err)
@@ -62,6 +63,7 @@ func (h *Handler) createAuthor(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, err.Error(), 500)
 			return
 		}
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusBadRequest)
 		_, err = w.Write(errors)
 		if err != nil {
@@ -71,13 +73,24 @@ func (h *Handler) createAuthor(w http.ResponseWriter, req *http.Request) {
 		}
 		return
 	}
-	authorId, err := h.services.AppAuthor.CreateAuthor(&input)
+	author, err := h.services.AppAuthor.CreateAuthor(&input)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	header := w.Header()
-	header.Add("id", strconv.Itoa(authorId))
+	output, err := json.Marshal(&author)
+	if err != nil {
+		h.logger.Errorf("AuthorHandler: error while marshaling author:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	_, err = w.Write(output)
+	if err != nil {
+		h.logger.Errorf("createAuthor: error while writing response:%s", err)
+		http.Error(w, err.Error(), 501)
+		return
+	}
 }
 
 func (h *Handler) changeAuthor(w http.ResponseWriter, req *http.Request) {
@@ -124,6 +137,7 @@ func (h *Handler) changeAuthor(w http.ResponseWriter, req *http.Request) {
 				http.Error(w, err.Error(), 500)
 				return
 			}
+			w.Header().Set("Content-Type", "application/json")
 			w.WriteHeader(http.StatusBadRequest)
 			_, err = w.Write(errors)
 			if err != nil {
@@ -141,7 +155,7 @@ func (h *Handler) changeAuthor(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	if author != nil {
-		output, err := json.Marshal(author)
+		output, err := json.Marshal(&author)
 		if err != nil {
 			h.logger.Errorf("AuthorHandler: error while marshaling author:%s", err)
 			http.Error(w, err.Error(), 500)

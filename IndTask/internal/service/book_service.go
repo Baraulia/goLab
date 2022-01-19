@@ -30,26 +30,26 @@ func (b *BookService) GetThreeBooks() ([]IndTask.MostPopularBook, error) {
 	return books, nil
 }
 
-func (b *BookService) GetBooks(page int) ([]IndTask.BookResponse, error) {
-	books, err := b.repo.GetBooks(page)
+func (b *BookService) GetBooks(page int) ([]IndTask.BookResponse, int, error) {
+	books, pages, err := b.repo.GetBooks(page)
+	if err != nil {
+		return nil, 0, fmt.Errorf("error while getting books from database:%w", err)
+	}
+	return books, pages, nil
+}
+
+func (b *BookService) GetListBooks(page int) ([]IndTask.ListBooksResponse, int, error) {
+	books, pages, err := b.repo.GetListBooks(page)
+	if err != nil {
+		return nil, 0, fmt.Errorf("error while getting instances of books from database:%w", err)
+	}
+	return books, pages, nil
+}
+
+func (b *BookService) CreateBook(book *IndTask.Book) (*IndTask.OneBookResponse, error) {
+	listBooks, _, err := b.repo.GetBooks(0)
 	if err != nil {
 		return nil, fmt.Errorf("error while getting books from database:%w", err)
-	}
-	return books, nil
-}
-
-func (b *BookService) GetListBooks(page int) ([]IndTask.ListBooksResponse, error) {
-	books, err := b.repo.GetListBooks(page)
-	if err != nil {
-		return nil, fmt.Errorf("error while getting instances of books from database:%w", err)
-	}
-	return books, nil
-}
-
-func (b *BookService) CreateBook(book *IndTask.Book) (int, error) {
-	listBooks, err := b.repo.GetBooks(0)
-	if err != nil {
-		return 0, fmt.Errorf("error while getting books from database:%w", err)
 	}
 	bookExists := false
 	for _, bdBook := range listBooks {
@@ -58,7 +58,7 @@ func (b *BookService) CreateBook(book *IndTask.Book) (int, error) {
 				authorsId, err := b.repo.GetAuthorsByBookId(bdBook.Id)
 				if err != nil {
 					logger.Errorf("Error when getting authorsId from bookId = %d:%s", bdBook.Id, err)
-					return 0, fmt.Errorf("error when getting authorsId from bookId = %d:%w", bdBook.Id, err)
+					return nil, fmt.Errorf("error when getting authorsId from bookId = %d:%w", bdBook.Id, err)
 				}
 				if len(authorsId) == len(book.AuthorsId) {
 					amountAuthors := 0
@@ -81,27 +81,27 @@ func (b *BookService) CreateBook(book *IndTask.Book) (int, error) {
 		if book.Cover != "" {
 			if err := os.Remove(book.Cover); err != nil {
 				logger.Errorf("BookExists = true, error deleting file %s:%s", book.Cover, err)
-				return 0, fmt.Errorf("BookExists = true, error deleting file %s:%s", book.Cover, err)
+				return nil, fmt.Errorf("BookExists = true, error deleting file %s:%s", book.Cover, err)
 			}
 		}
+		return nil, fmt.Errorf("BookExists = true for book_name = %s, book_published = %d", book.BookName, book.Published)
 	}
 	bookRentCost := b.CalcRentCost(book.Cost)
-	bookId, err := b.repo.CreateBook(book, bookExists, bookRentCost)
+	newBook, err := b.repo.CreateBook(book, bookRentCost)
 	if err != nil {
-		return 0, fmt.Errorf("error while creating book in database:%w", err)
+		return nil, fmt.Errorf("error while creating book in database:%w", err)
 	}
-	return bookId, nil
+	return newBook, nil
 }
 
-func (b *BookService) ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.BookResponse, error) {
-	listBooks, err := b.repo.GetBooks(0)
+func (b *BookService) ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.OneBookResponse, error) {
+	listBooks, err := b.repo.GetBooksId()
 	if err != nil {
-		return nil, fmt.Errorf("error while getting books from database:%w", err)
+		return nil, fmt.Errorf("error while getting booksId from database:%w", err)
 	}
-
 	var bookExist = false
-	for _, bdBook := range listBooks {
-		if bdBook.Id == bookId {
+	for _, bdBookId := range listBooks {
+		if bdBookId == bookId {
 			bookExist = true
 		}
 	}
@@ -110,18 +110,19 @@ func (b *BookService) ChangeBook(book *IndTask.Book, bookId int, method string) 
 		return nil, fmt.Errorf("such a book:%d does not exist", bookId)
 	}
 	if method == "GET" {
-		book, err := b.repo.GetOneBook(bookId)
+		oneBook, err := b.repo.GetOneBook(bookId)
 		if err != nil {
 			return nil, fmt.Errorf("error while getting one book from database:%w", err)
 		}
-		return book, nil
+		return oneBook, nil
 	}
 	if method == "PUT" {
 		bookRentCost := b.CalcRentCost(book.Cost)
-		err := b.repo.ChangeBook(book, bookId, bookRentCost)
+		upBook, err := b.repo.ChangeBook(book, bookId, bookRentCost)
 		if err != nil {
 			return nil, fmt.Errorf("error while changing book in database:%w", err)
 		}
+		return upBook, nil
 	}
 	if method == "DELETE" {
 		err := b.repo.DeleteBook(bookId)
@@ -133,14 +134,32 @@ func (b *BookService) ChangeBook(book *IndTask.Book, bookId int, method string) 
 	return nil, nil
 }
 
-func (b *BookService) ChangeListBook(listBook *IndTask.ListBooks, listBookId int, method string) (*IndTask.ListBooksResponse, error) {
-	listBooks, err := b.repo.GetListBooks(0)
+func (b *BookService) CreateListBook(bookId int) (*IndTask.ListBooksResponse, error) {
+	err := b.repo.Validation.GetBookById(bookId)
+	if err != nil {
+		logger.Errorf("Such book:%d does not exist", bookId)
+		return nil, fmt.Errorf("createListBook:%w", err)
+	}
+	book, err := b.repo.AppBook.GetOneBook(bookId)
+	if err != nil {
+		return nil, fmt.Errorf("error while getting book from database:%w", err)
+	}
+	bookRentCost := b.CalcRentCost(book.Cost)
+	listBook, err := b.repo.AppBook.CreateListBook(bookId, bookRentCost)
+	if err != nil {
+		return nil, fmt.Errorf("error while creating listBook in database:%w", err)
+	}
+	return listBook, nil
+}
+
+func (b *BookService) ChangeListBook(listBook *IndTask.ListBook, listBookId int, method string) (*IndTask.ListBooksResponse, error) {
+	listBooks, err := b.repo.GetListBooksId()
 	if err != nil {
 		return nil, fmt.Errorf("error while getting instances of books from database:%w", err)
 	}
 	var bookListExist = false
-	for _, listBook := range listBooks {
-		if listBook.Id == listBookId {
+	for _, dbListBookId := range listBooks {
+		if dbListBookId == listBookId {
 			bookListExist = true
 		}
 	}
@@ -148,7 +167,6 @@ func (b *BookService) ChangeListBook(listBook *IndTask.ListBooks, listBookId int
 		logger.Errorf("Such a instance of book:%d does not exist", listBookId)
 		return nil, fmt.Errorf("such a instance of book:%d does not exist", listBookId)
 	}
-
 	if method == "GET" {
 		book, err := b.repo.GetOneListBook(listBookId)
 		if err != nil {
@@ -157,10 +175,11 @@ func (b *BookService) ChangeListBook(listBook *IndTask.ListBooks, listBookId int
 		return book, nil
 	}
 	if method == "PUT" {
-		err := b.repo.ChangeListBook(listBook, listBookId)
+		upBook, err := b.repo.ChangeListBook(listBook, listBookId)
 		if err != nil {
 			return nil, fmt.Errorf("error while changing instance of book in database:%w", err)
 		}
+		return upBook, nil
 	}
 	if method == "DELETE" {
 		err := b.repo.DeleteListBook(listBookId)
@@ -171,6 +190,7 @@ func (b *BookService) ChangeListBook(listBook *IndTask.ListBooks, listBookId int
 	}
 	return nil, nil
 }
+
 func InputCoverFoto(req *http.Request, input *IndTask.Book) error {
 	reqFile, fileHeader, err := req.FormFile("file")
 	if err != nil {

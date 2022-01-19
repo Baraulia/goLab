@@ -24,7 +24,7 @@ CREATE TABLE users
     patronymic varchar(255),
     pasp_number varchar(50) unique,
     email varchar(255) not null unique default null,
-    adress varchar(255),
+    address varchar(255),
     birth_date date not null
 );
 

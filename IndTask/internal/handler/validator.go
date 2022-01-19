@@ -130,6 +130,18 @@ func (v UserExistValidator) Validate(val interface{}) error {
 	return nil
 }
 
+type BookExistValidator struct {
+	handler *Handler
+}
+
+func (v BookExistValidator) Validate(val interface{}) error {
+	err := v.handler.services.Validation.GetBookById(val.(int))
+	if err != nil {
+		return fmt.Errorf("listBookExistValidator:%w", err)
+	}
+	return nil
+}
+
 type ListBookExistValidator struct {
 	handler *Handler
 }
@@ -189,9 +201,12 @@ func getValidatorFromTag(tag string, h *Handler) Validator {
 		return ListBookExistValidator{handler: h}
 	case "rentalTime":
 		return RentalTimeValidator{}
-	case "ActExist":
+	case "actExist":
 		return ActExistValidator{handler: h}
+	case "bookExist":
+		return BookExistValidator{handler: h}
 	}
+
 	return DefaultValidator{}
 }
 

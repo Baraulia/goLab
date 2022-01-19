@@ -37,14 +37,14 @@ func (h *Handler) getThreeBooks(w http.ResponseWriter, req *http.Request) {
 func (h *Handler) getBooks(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working getBooks")
 	page, err := strconv.Atoi(req.URL.Query().Get("page"))
-	if err != nil || page < 1 {
+	if err != nil || page < 0 {
 		h.logger.Errorf("No url request:%s", err)
 		http.Error(w, fmt.Sprintf("No url request:%s", err), 400)
 		return
 	}
 	CheckMethod(w, req, "GET", h.logger)
 	var listBooks []IndTask.BookResponse
-	listBooks, err = h.services.AppBook.GetBooks(page)
+	listBooks, pages, err := h.services.AppBook.GetBooks(page)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
@@ -56,6 +56,7 @@ func (h *Handler) getBooks(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Pages", strconv.Itoa(pages))
 	_, err = w.Write(output)
 	if err != nil {
 		h.logger.Errorf("getBooks: error while writing response:%s", err)
@@ -68,13 +69,13 @@ func (h *Handler) getListBooks(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working getListBooks")
 	CheckMethod(w, req, "GET", h.logger)
 	page, err := strconv.Atoi(req.URL.Query().Get("page"))
-	if err != nil || page < 1 {
+	if err != nil || page < 0 {
 		h.logger.Errorf("No url request:%s", err)
 		http.Error(w, fmt.Sprintf("No url request:%s", err), 400)
 		return
 	}
 	var listBooks []IndTask.ListBooksResponse
-	listBooks, err = h.services.AppBook.GetListBooks(page)
+	listBooks, pages, err := h.services.AppBook.GetListBooks(page)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
@@ -86,6 +87,7 @@ func (h *Handler) getListBooks(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Pages", strconv.Itoa(pages))
 	_, err = w.Write(output)
 	if err != nil {
 		h.logger.Errorf("getListBooks: error while writing response:%s", err)
@@ -132,6 +134,7 @@ func (h *Handler) createBook(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, err.Error(), 500)
 			return
 		}
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusBadRequest)
 		_, err = w.Write(errors)
 		if err != nil {
@@ -141,13 +144,24 @@ func (h *Handler) createBook(w http.ResponseWriter, req *http.Request) {
 		}
 		return
 	}
-	bookId, err := h.services.AppBook.CreateBook(&input)
+	book, err := h.services.AppBook.CreateBook(&input)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	header := w.Header()
-	header.Add("id", strconv.Itoa(bookId))
+	output, err := json.Marshal(&book)
+	if err != nil {
+		h.logger.Errorf("BookHandler: error while marshaling book:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	_, err = w.Write(output)
+	if err != nil {
+		h.logger.Errorf("createBook: error while writing response:%s", err)
+		http.Error(w, err.Error(), 501)
+		return
+	}
 }
 
 func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
@@ -164,7 +178,6 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	var input IndTask.Book
-	var book *IndTask.BookResponse
 	if req.Method == "PUT" {
 		h.logger.Info("Method PUT, changeBook")
 		if req.Header.Get("Content-Type") == "application/json" {
@@ -201,6 +214,7 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 				http.Error(w, err.Error(), 500)
 				return
 			}
+			w.Header().Set("Content-Type", "application/json")
 			w.WriteHeader(http.StatusBadRequest)
 			_, err = w.Write(errors)
 			if err != nil {
@@ -210,22 +224,15 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 			}
 			return
 		}
-		_, err = h.services.AppBook.ChangeBook(&input, bookId, req.Method)
-		if err != nil {
-			h.logger.Errorf("Error while updating book: %s", err)
-			http.Error(w, err.Error(), 500)
-			return
-		}
-	} else {
-		h.logger.Infof("Method %s, changeBook", req.Method)
-		book, err = h.services.AppBook.ChangeBook(&input, bookId, req.Method)
-		if err != nil {
-			http.Error(w, err.Error(), 500)
-			return
-		}
+	}
+	h.logger.Infof("Method %s, changeBook", req.Method)
+	book, err := h.services.AppBook.ChangeBook(&input, bookId, req.Method)
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
 	}
 	if book != nil {
-		output, err := json.Marshal(book)
+		output, err := json.Marshal(&book)
 		if err != nil {
 			h.logger.Errorf("BookHandler: error while marshaling book:%s", err)
 			http.Error(w, err.Error(), 500)
@@ -243,6 +250,38 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
+func (h *Handler) createListBook(w http.ResponseWriter, req *http.Request) {
+	h.logger.Info("Working createListBook")
+	CheckMethod(w, req, "POST", h.logger)
+	var input struct {
+		BookId int `json:"book_id"`
+	}
+	decoder := json.NewDecoder(req.Body)
+	if err := decoder.Decode(&input); err != nil {
+		h.logger.Errorf("createListBook: error while decoding request:%s", err)
+		http.Error(w, err.Error(), 400)
+		return
+	}
+	book, err := h.services.AppBook.CreateListBook(input.BookId)
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	output, err := json.Marshal(&book)
+	if err != nil {
+		h.logger.Errorf("BookHandler: error while marshaling book:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	_, err = w.Write(output)
+	if err != nil {
+		h.logger.Errorf("createListBooks: error while writing response:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+}
+
 func (h *Handler) changeListBooks(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working changeListBooks")
 	listBookId, err := strconv.Atoi(req.URL.Query().Get("id"))
@@ -256,7 +295,7 @@ func (h *Handler) changeListBooks(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, fmt.Sprintf("Method %s Not Allowed", req.Method), 405)
 		return
 	}
-	var input IndTask.ListBooks
+	var input IndTask.ListBook
 	if req.Method == "PUT" {
 		h.logger.Info("Method PUT, changeListBooks")
 		decoder := json.NewDecoder(req.Body)
@@ -265,6 +304,7 @@ func (h *Handler) changeListBooks(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, err.Error(), 400)
 			return
 		}
+		input.BookId = 1
 		validationErrors := validateStruct(h, input)
 		if len(validationErrors) != 0 {
 			h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
@@ -274,6 +314,7 @@ func (h *Handler) changeListBooks(w http.ResponseWriter, req *http.Request) {
 				http.Error(w, err.Error(), 500)
 				return
 			}
+			w.Header().Set("Content-Type", "application/json")
 			w.WriteHeader(http.StatusBadRequest)
 			_, err = w.Write(errors)
 			if err != nil {
@@ -291,7 +332,7 @@ func (h *Handler) changeListBooks(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	if book != nil {
-		output, err := json.Marshal(book)
+		output, err := json.Marshal(&book)
 		if err != nil {
 			h.logger.Errorf("BookHandler: error while marshaling book:%s", err)
 			http.Error(w, err.Error(), 500)
@@ -307,5 +348,4 @@ func (h *Handler) changeListBooks(w http.ResponseWriter, req *http.Request) {
 	} else {
 		w.WriteHeader(http.StatusNoContent)
 	}
-
 }

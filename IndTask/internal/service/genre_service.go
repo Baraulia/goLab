@@ -22,22 +22,22 @@ func (g *GenreService) GetGenres() ([]IndTask.Genre, error) {
 	return genres, nil
 }
 
-func (g *GenreService) CreateGenre(genre *IndTask.Genre) (int, error) {
+func (g *GenreService) CreateGenre(genre *IndTask.Genre) (*IndTask.Genre, error) {
 	listGenres, err := g.repo.GetGenres()
 	if err != nil {
-		return 0, fmt.Errorf("error while getting genres from database:%w", err)
+		return nil, fmt.Errorf("error while getting genres from database:%w", err)
 	}
 	for _, bdGenre := range listGenres {
 		if bdGenre.GenreName == genre.GenreName {
 			logger.Errorf("Genre with that name:%s already exists", genre.GenreName)
-			return bdGenre.Id, fmt.Errorf("genre with that name:%s already exists", genre.GenreName)
+			return nil, fmt.Errorf("genre with that name:%s already exists", genre.GenreName)
 		}
 	}
-	genreId, err := g.repo.CreateGenre(genre)
+	newGenre, err := g.repo.CreateGenre(genre)
 	if err != nil {
-		return 0, fmt.Errorf("error while creating genre in database:%w", err)
+		return nil, fmt.Errorf("error while creating genre in database:%w", err)
 	}
-	return genreId, nil
+	return newGenre, nil
 }
 
 func (g *GenreService) ChangeGenre(genre *IndTask.Genre, genreId int, method string) (*IndTask.Genre, error) {
@@ -56,11 +56,11 @@ func (g *GenreService) ChangeGenre(genre *IndTask.Genre, genreId int, method str
 		return nil, fmt.Errorf("such a genre:%d does not exist", genreId)
 	}
 	if method == "GET" {
-		genre, err := g.repo.GetOneGenre(genreId)
+		oneGenre, err := g.repo.GetOneGenre(genreId)
 		if err != nil {
 			return nil, fmt.Errorf("error while getting one genre from database:%w", err)
 		}
-		return genre, nil
+		return oneGenre, nil
 	}
 	if method == "PUT" {
 		for _, bdGenre := range listGenres {
@@ -69,10 +69,11 @@ func (g *GenreService) ChangeGenre(genre *IndTask.Genre, genreId int, method str
 				return nil, fmt.Errorf("genre with that name:%s already exists", genre.GenreName)
 			}
 		}
-		err := g.repo.ChangeGenre(genre, genreId)
+		upGenre, err := g.repo.ChangeGenre(genre, genreId)
 		if err != nil {
 			return nil, fmt.Errorf("error while changing genre in database:%w", err)
 		}
+		return upGenre, nil
 	}
 	if method == "DELETE" {
 		err := g.repo.DeleteGenre(genreId)

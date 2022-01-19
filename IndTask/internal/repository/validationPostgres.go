@@ -67,6 +67,24 @@ func (v *ValidationPostgres) GetUserById(id int) error {
 	}
 	return transaction.Commit()
 }
+func (v *ValidationPostgres) GetBookById(id int) error {
+	transaction, err := v.db.Begin()
+	if err != nil {
+		logger.Errorf("GetBookById: can not starts transaction:%s", err)
+		return fmt.Errorf("getBookById: can not starts transaction:%w", err)
+	}
+	var exist bool
+	query := "SELECT EXISTS(SELECT 1 FROM books WHERE id=$1)"
+	row := transaction.QueryRow(query, id)
+	if err := row.Scan(&exist); err != nil {
+		logger.Errorf("Error while scanning for exist book:%s", err)
+		return fmt.Errorf("getBookById: repository error:%w", err)
+	}
+	if !exist {
+		return fmt.Errorf("such book %d does not exist", id)
+	}
+	return transaction.Commit()
+}
 func (v *ValidationPostgres) GetListBookById(id int) error {
 	transaction, err := v.db.Begin()
 	if err != nil {

@@ -12,13 +12,13 @@ func (h *Handler) getUsers(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working getUsers")
 	CheckMethod(w, req, "GET", h.logger)
 	page, err := strconv.Atoi(req.URL.Query().Get("page"))
-	if err != nil || page < 1 {
+	if err != nil || page < 0 {
 		h.logger.Errorf("No url request:%s", err)
 		http.Error(w, fmt.Sprintf("No url request:%s", err), 400)
 		return
 	}
 	var listUsers []IndTask.User
-	listUsers, err = h.services.AppUser.GetUsers(page)
+	listUsers, pages, err := h.services.AppUser.GetUsers(page)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
@@ -30,6 +30,7 @@ func (h *Handler) getUsers(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Pages", strconv.Itoa(pages))
 	_, err = w.Write(output)
 	if err != nil {
 		h.logger.Errorf("getUsers: error while writing response:%s", err)
@@ -57,6 +58,7 @@ func (h *Handler) createUser(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, err.Error(), 500)
 			return
 		}
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusBadRequest)
 		_, err = w.Write(errors)
 		if err != nil {
@@ -66,13 +68,24 @@ func (h *Handler) createUser(w http.ResponseWriter, req *http.Request) {
 		}
 		return
 	}
-	userId, err := h.services.AppUser.CreateUser(&input)
+	user, err := h.services.AppUser.CreateUser(&input)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	header := w.Header()
-	header.Add("id", strconv.Itoa(userId))
+	output, err := json.Marshal(&user)
+	if err != nil {
+		h.logger.Errorf("UserHandler: error while marshaling user:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	_, err = w.Write(output)
+	if err != nil {
+		h.logger.Errorf("createUser: error while writing response:%s", err)
+		http.Error(w, err.Error(), 501)
+		return
+	}
 }
 
 func (h *Handler) changeUser(w http.ResponseWriter, req *http.Request) {
@@ -106,6 +119,7 @@ func (h *Handler) changeUser(w http.ResponseWriter, req *http.Request) {
 				http.Error(w, err.Error(), 500)
 				return
 			}
+			w.Header().Set("Content-Type", "application/json")
 			w.WriteHeader(http.StatusBadRequest)
 			_, err = w.Write(errors)
 			if err != nil {
@@ -123,7 +137,7 @@ func (h *Handler) changeUser(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	if user != nil {
-		output, err := json.Marshal(user)
+		output, err := json.Marshal(&user)
 		if err != nil {
 			h.logger.Errorf("UserHandler: error while marshaling user:%s", err)
 			http.Error(w, err.Error(), 500)
@@ -136,5 +150,7 @@ func (h *Handler) changeUser(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, err.Error(), 500)
 			return
 		}
+	} else {
+		w.WriteHeader(http.StatusNoContent)
 	}
 }

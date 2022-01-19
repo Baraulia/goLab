@@ -51,6 +51,7 @@ func (h *Handler) createGenre(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, err.Error(), 500)
 			return
 		}
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusBadRequest)
 		_, err = w.Write(errors)
 		if err != nil {
@@ -60,13 +61,24 @@ func (h *Handler) createGenre(w http.ResponseWriter, req *http.Request) {
 		}
 		return
 	}
-	GenreId, err := h.services.AppGenre.CreateGenre(&input)
+	genre, err := h.services.AppGenre.CreateGenre(&input)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	header := w.Header()
-	header.Add("id", strconv.Itoa(GenreId))
+	output, err := json.Marshal(&genre)
+	if err != nil {
+		h.logger.Errorf("GenreHandler: error while marshaling genre:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	_, err = w.Write(output)
+	if err != nil {
+		h.logger.Errorf("createGenre: error while writing response:%s", err)
+		http.Error(w, err.Error(), 501)
+		return
+	}
 }
 
 func (h *Handler) changeGenre(w http.ResponseWriter, req *http.Request) {
@@ -100,6 +112,7 @@ func (h *Handler) changeGenre(w http.ResponseWriter, req *http.Request) {
 				http.Error(w, err.Error(), 500)
 				return
 			}
+			w.Header().Set("Content-Type", "application/json")
 			w.WriteHeader(http.StatusBadRequest)
 			_, err = w.Write(errors)
 			if err != nil {
@@ -117,7 +130,7 @@ func (h *Handler) changeGenre(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	if genre != nil {
-		output, err := json.Marshal(genre)
+		output, err := json.Marshal(&genre)
 		if err != nil {
 			h.logger.Errorf("GenreHandler: error while marshaling genre:%s", err)
 			http.Error(w, err.Error(), 500)

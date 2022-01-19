@@ -23,6 +23,7 @@ func (h *Handler) InitRoutes() *http.ServeMux {
 	router.HandleFunc("/books/create", h.createBook)
 	router.HandleFunc("/books/change", h.changeBook)
 	router.HandleFunc("/list_books", h.getListBooks)
+	router.HandleFunc("/list_books/create", h.createListBook)
 	router.HandleFunc("/list_books/change", h.changeListBooks)
 
 	router.HandleFunc("/users/", h.getUsers)

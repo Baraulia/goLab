@@ -14,13 +14,13 @@ func (h *Handler) getActs(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working getActs")
 	CheckMethod(w, req, "GET", h.logger)
 	page, err := strconv.Atoi(req.URL.Query().Get("page"))
-	if err != nil || page < 1 {
+	if err != nil || page < 0 {
 		h.logger.Errorf("No url request:%s", err)
 		http.Error(w, fmt.Sprintf("No url request:%s", err), 400)
 		return
 	}
 	var acts []IndTask.Act
-	acts, err = h.services.AppAct.GetActs(page)
+	acts, pages, err := h.services.AppAct.GetActs(page)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
@@ -32,6 +32,7 @@ func (h *Handler) getActs(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Pages", strconv.Itoa(pages))
 	_, err = w.Write(output)
 	if err != nil {
 		h.logger.Errorf("getActs: error while writing response:%s", err)
@@ -59,6 +60,7 @@ func (h *Handler) createIssueAct(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, err.Error(), 500)
 			return
 		}
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusBadRequest)
 		_, err = w.Write(errors)
 		if err != nil {
@@ -68,20 +70,31 @@ func (h *Handler) createIssueAct(w http.ResponseWriter, req *http.Request) {
 		}
 		return
 	}
-	actId, err := h.services.AppAct.CreateIssueAct(&input)
+	act, err := h.services.AppAct.CreateIssueAct(&input)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	header := w.Header()
-	header.Add("id", strconv.Itoa(actId))
+	output, err := json.Marshal(&act)
+	if err != nil {
+		h.logger.Errorf("ActHandler: error while marshaling act:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	_, err = w.Write(output)
+	if err != nil {
+		h.logger.Errorf("createIssueAct: error while writing response:%s", err)
+		http.Error(w, err.Error(), 501)
+		return
+	}
 }
 
 func (h *Handler) getActsByUser(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("Working getActsByUser")
 	CheckMethod(w, req, "GET", h.logger)
 	userId, err := strconv.Atoi(req.URL.Query().Get("user_id"))
-	if err != nil || userId < 1 {
+	if err != nil || userId < 0 {
 		h.logger.Errorf("No url request:%s", err)
 		http.Error(w, fmt.Sprintf("No url request:%s", err), 400)
 		return
@@ -93,7 +106,7 @@ func (h *Handler) getActsByUser(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	var acts []IndTask.Act
-	acts, err = h.services.AppAct.GetActsByUser(userId, page)
+	acts, pages, err := h.services.AppAct.GetActsByUser(userId, page)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
@@ -105,6 +118,7 @@ func (h *Handler) getActsByUser(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Pages", strconv.Itoa(pages))
 	_, err = w.Write(output)
 	if err != nil {
 		h.logger.Errorf("getActsByUser: error while writing response:%s", err)
@@ -126,13 +140,12 @@ func (h *Handler) changeAct(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, fmt.Sprintf("Method %s Not Allowed", req.Method), 405)
 		return
 	}
-	var act IndTask.Act
-	var oneAct *IndTask.Act
+	var input IndTask.Act
 	if req.Method == "PUT" {
 		h.logger.Info("Method PUT, changeIssueAct")
 		if req.Header.Get("Content-Type") == "application/json" {
 			decoder := json.NewDecoder(req.Body)
-			if err := decoder.Decode(&act); err != nil {
+			if err := decoder.Decode(&input); err != nil {
 				h.logger.Errorf("Error while decoding request(%s): %s", req.Body, err)
 				http.Error(w, err.Error(), 400)
 				return
@@ -145,19 +158,19 @@ func (h *Handler) changeAct(w http.ResponseWriter, req *http.Request) {
 			}
 			body := bytes.NewBufferString(req.PostFormValue("body"))
 			decoder := json.NewDecoder(body)
-			if err := decoder.Decode(&act); err != nil {
+			if err := decoder.Decode(&input); err != nil {
 				h.logger.Errorf("changeAct: error while decoding request:%s", err)
 				http.Error(w, err.Error(), 400)
 				return
 			}
-			photos, err := service.InputFineFoto(req, act.Id)
+			photos, err := service.InputFineFoto(req, input.Id)
 			if err != nil {
 				http.Error(w, err.Error(), 400)
 				return
 			}
-			act.Foto = photos
+			input.Foto = photos
 		}
-		validationErrors := validateStruct(h, act)
+		validationErrors := validateStruct(h, input)
 		if len(validationErrors) != 0 {
 			h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
 			errors, err := json.Marshal(validationErrors)
@@ -166,6 +179,7 @@ func (h *Handler) changeAct(w http.ResponseWriter, req *http.Request) {
 				http.Error(w, err.Error(), 500)
 				return
 			}
+			w.Header().Set("Content-Type", "application/json")
 			w.WriteHeader(http.StatusBadRequest)
 			_, err = w.Write(errors)
 			if err != nil {
@@ -175,36 +189,25 @@ func (h *Handler) changeAct(w http.ResponseWriter, req *http.Request) {
 			}
 			return
 		}
-		_, err = h.services.AppAct.ChangeAct(&act, actId, req.Method)
-		if err != nil {
-			h.logger.Errorf("Error while updating issue act: %s", err)
-			http.Error(w, err.Error(), 500)
-			return
-		}
-	} else {
-		h.logger.Infof("Method %s, changeAct", req.Method)
-		oneAct, err = h.services.AppAct.ChangeAct(nil, actId, req.Method)
-		if err != nil {
-			http.Error(w, err.Error(), 500)
-			return
-		}
 	}
-	if oneAct != nil {
-		output, err := json.Marshal(act)
-		if err != nil {
-			h.logger.Errorf("ActHandler: error while marshaling act:%s", err)
-			http.Error(w, err.Error(), 500)
-			return
-		}
-		w.Header().Set("Content-Type", "application/json")
-		_, err = w.Write(output)
-		if err != nil {
-			h.logger.Errorf("changeAct: error while writing response:%s", err)
-			http.Error(w, err.Error(), 500)
-			return
-		}
-	} else {
-		w.WriteHeader(http.StatusNoContent)
+	h.logger.Infof("Method %s, changeAct", req.Method)
+	oneAct, err := h.services.AppAct.ChangeAct(&input, actId, req.Method)
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	output, err := json.Marshal(&oneAct)
+	if err != nil {
+		h.logger.Errorf("ActHandler: error while marshaling act:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	_, err = w.Write(output)
+	if err != nil {
+		h.logger.Errorf("changeAct: error while writing response:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
 	}
 }
 
@@ -248,6 +251,7 @@ func (h *Handler) addReturnAct(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, err.Error(), 500)
 			return
 		}
+		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusBadRequest)
 		_, err = w.Write(errors)
 		if err != nil {
@@ -257,10 +261,22 @@ func (h *Handler) addReturnAct(w http.ResponseWriter, req *http.Request) {
 		}
 		return
 	}
-	err := h.services.AppAct.AddReturnAct(&input)
+	act, err := h.services.AppAct.AddReturnAct(&input)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	w.WriteHeader(http.StatusNoContent)
+	output, err := json.Marshal(act)
+	if err != nil {
+		h.logger.Errorf("ActHandler: error while marshaling act:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	_, err = w.Write(output)
+	if err != nil {
+		h.logger.Errorf("addReturnAct: error while writing response:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
 }
