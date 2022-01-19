@@ -30,8 +30,8 @@ func (b *BookService) GetThreeBooks() ([]IndTask.MostPopularBook, error) {
 	return books, nil
 }
 
-func (b *BookService) GetBooks(page int) ([]IndTask.BookResponse, int, error) {
-	books, pages, err := b.repo.GetBooks(page)
+func (b *BookService) GetBooks(page int, sorting string) ([]IndTask.BookResponse, int, error) {
+	books, pages, err := b.repo.GetBooks(page, sorting)
 	if err != nil {
 		return nil, 0, fmt.Errorf("error while getting books from database:%w", err)
 	}
@@ -47,7 +47,7 @@ func (b *BookService) GetListBooks(page int) ([]IndTask.ListBooksResponse, int, 
 }
 
 func (b *BookService) CreateBook(book *IndTask.Book) (*IndTask.OneBookResponse, error) {
-	listBooks, _, err := b.repo.GetBooks(0)
+	listBooks, _, err := b.repo.GetBooks(0, bookNameDesc)
 	if err != nil {
 		return nil, fmt.Errorf("error while getting books from database:%w", err)
 	}

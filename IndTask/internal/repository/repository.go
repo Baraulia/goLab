@@ -9,7 +9,7 @@ import (
 var logger = logging.GetLogger()
 
 type AppUser interface {
-	GetUsers(page int) ([]IndTask.User, int, error)
+	GetUsers(page int, sorting string) ([]IndTask.UserResponse, int, error)
 	CreateUser(user *IndTask.User) (*IndTask.User, error)
 	GetOneUser(userId int) (*IndTask.User, error)
 	ChangeUser(user *IndTask.User, userId int) (*IndTask.User, error)
@@ -18,7 +18,7 @@ type AppUser interface {
 
 type AppBook interface {
 	GetThreeBooks() ([]IndTask.MostPopularBook, error)
-	GetBooks(page int) ([]IndTask.BookResponse, int, error)
+	GetBooks(page int, sorting string) ([]IndTask.BookResponse, int, error)
 	CreateBook(book *IndTask.Book, bookRentCost float64) (*IndTask.OneBookResponse, error)
 	GetOneBook(bookId int) (*IndTask.OneBookResponse, error)
 	ChangeBook(book *IndTask.Book, bookId int, bookRentCost float64) (*IndTask.OneBookResponse, error)

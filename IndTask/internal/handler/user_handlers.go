@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
+	"github.com/Baraulia/goLab/IndTask.git/internal/service"
 	"net/http"
 	"strconv"
 )
@@ -17,8 +18,9 @@ func (h *Handler) getUsers(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, fmt.Sprintf("No url request:%s", err), 400)
 		return
 	}
-	var listUsers []IndTask.User
-	listUsers, pages, err := h.services.AppUser.GetUsers(page)
+	sorting := service.SortTypeUser(req.URL.Query().Get("sort"))
+	var listUsers []IndTask.UserResponse
+	listUsers, pages, err := h.services.AppUser.GetUsers(page, sorting)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return

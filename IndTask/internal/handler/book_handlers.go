@@ -42,9 +42,10 @@ func (h *Handler) getBooks(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, fmt.Sprintf("No url request:%s", err), 400)
 		return
 	}
+	sorting := service.SortTypeBook(req.URL.Query().Get("sort"))
 	CheckMethod(w, req, "GET", h.logger)
 	var listBooks []IndTask.BookResponse
-	listBooks, pages, err := h.services.AppBook.GetBooks(page)
+	listBooks, pages, err := h.services.AppBook.GetBooks(page, sorting)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return

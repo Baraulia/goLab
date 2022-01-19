@@ -16,24 +16,24 @@ func NewUserPostgres(db *sql.DB) *UserPostgres {
 
 var userLimit = 10
 
-func (r *UserPostgres) GetUsers(page int) ([]IndTask.User, int, error) {
+func (r *UserPostgres) GetUsers(page int, sorting string) ([]IndTask.UserResponse, int, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("GetUsers: can not starts transaction:%s", err)
 		return nil, 0, fmt.Errorf("getUsers: can not starts transaction:%w", err)
 	}
-	var listUsers []IndTask.User
+	var listUsers []IndTask.UserResponse
 	var rows *sql.Rows
 	var pages int
 	if page == 0 {
-		query := "SELECT id, surname, user_name, patronymic, pasp_number, email, adress, birth_date FROM users"
+		query := fmt.Sprintf("SELECT id, surname, user_name, email, adress, birth_date FROM users ORDER BY %s ", sorting)
 		rows, err = transaction.Query(query)
 		if err != nil {
 			logger.Errorf("GetUsers: can not executes a query:%s", err)
 			return nil, 0, fmt.Errorf("getUsers:repository error:%w", err)
 		}
 	} else {
-		query := "SELECT id, surname, user_name, patronymic, pasp_number, email, adress, birth_date FROM users ORDER BY Id LIMIT $1 OFFSET $2"
+		query := fmt.Sprintf("SELECT id, surname, user_name, email, adress, birth_date FROM users ORDER BY %s LIMIT $1 OFFSET $2", sorting)
 		rows, err = transaction.Query(query, userLimit, (page-1)*userLimit)
 		if err != nil {
 			logger.Errorf("GetUsers: can not executes a query:%s", err)
@@ -41,8 +41,8 @@ func (r *UserPostgres) GetUsers(page int) ([]IndTask.User, int, error) {
 		}
 	}
 	for rows.Next() {
-		var user IndTask.User
-		if err := rows.Scan(&user.Id, &user.Surname, &user.UserName, &user.Patronymic, &user.PaspNumber, &user.Email, &user.Adress, &user.BirthDate); err != nil {
+		var user IndTask.UserResponse
+		if err := rows.Scan(&user.Id, &user.Surname, &user.UserName, &user.Email, &user.Address, &user.BirthDate); err != nil {
 			logger.Errorf("Error while scanning for user:%s", err)
 			return nil, 0, fmt.Errorf("getUsers:repository error:%w", err)
 		}
@@ -67,8 +67,8 @@ func (r *UserPostgres) CreateUser(user *IndTask.User) (*IndTask.User, error) {
 	var newUser IndTask.User
 	createUserQuery := "INSERT INTO users (surname, user_name, patronymic, pasp_number, email, adress, birth_date) VALUES ($1, $2, $3, $4, $5, $6, $7) " +
 		"RETURNING id, surname, user_name, patronymic, pasp_number, email, adress, birth_date"
-	row := transaction.QueryRow(createUserQuery, user.Surname, user.UserName, user.Patronymic, user.PaspNumber, user.Email, user.Adress, user.BirthDate)
-	if err := row.Scan(&newUser.Id, &newUser.Surname, &newUser.UserName, &newUser.Patronymic, &newUser.PaspNumber, &newUser.Email, &newUser.Adress, &newUser.BirthDate); err != nil {
+	row := transaction.QueryRow(createUserQuery, user.Surname, user.UserName, user.Patronymic, user.PaspNumber, user.Email, user.Address, user.BirthDate)
+	if err := row.Scan(&newUser.Id, &newUser.Surname, &newUser.UserName, &newUser.Patronymic, &newUser.PaspNumber, &newUser.Email, &newUser.Address, &newUser.BirthDate); err != nil {
 		logger.Errorf("Error while scanning for user:%s", err)
 		return nil, fmt.Errorf("createUser: error while scanning for user:%w", err)
 	}
@@ -84,7 +84,7 @@ func (r *UserPostgres) GetOneUser(userId int) (*IndTask.User, error) {
 	var user IndTask.User
 	query := "SELECT id, surname, user_name, patronymic, pasp_number, email, adress, birth_date FROM users WHERE id = $1"
 	row := transaction.QueryRow(query, userId)
-	if err := row.Scan(&user.Id, &user.Surname, &user.UserName, &user.Patronymic, &user.PaspNumber, &user.Email, &user.Adress, &user.BirthDate); err != nil {
+	if err := row.Scan(&user.Id, &user.Surname, &user.UserName, &user.Patronymic, &user.PaspNumber, &user.Email, &user.Address, &user.BirthDate); err != nil {
 		logger.Errorf("Error while scanning for user:%s", err)
 		return nil, fmt.Errorf("getOneUser: repository error:%w", err)
 	}
@@ -101,8 +101,8 @@ func (r *UserPostgres) ChangeUser(user *IndTask.User, userId int) (*IndTask.User
 	var upUser IndTask.User
 	query := "UPDATE users SET surname=$1, user_name=$2, patronymic=$3, pasp_number=$4, email=$5, adress=$6, birth_date=$7 WHERE id = $8 " +
 		"RETURNING id, surname, user_name, patronymic, pasp_number, email, adress, birth_date"
-	row := transaction.QueryRow(query, user.Surname, user.UserName, user.Patronymic, user.PaspNumber, user.Email, user.Adress, user.BirthDate, userId)
-	if err := row.Scan(&upUser.Id, &upUser.Surname, &upUser.UserName, &upUser.Patronymic, &upUser.PaspNumber, &upUser.Email, &upUser.Adress, &upUser.BirthDate); err != nil {
+	row := transaction.QueryRow(query, user.Surname, user.UserName, user.Patronymic, user.PaspNumber, user.Email, user.Address, user.BirthDate, userId)
+	if err := row.Scan(&upUser.Id, &upUser.Surname, &upUser.UserName, &upUser.Patronymic, &upUser.PaspNumber, &upUser.Email, &upUser.Address, &upUser.BirthDate); err != nil {
 		logger.Errorf("Error while scanning for user:%s", err)
 		return nil, fmt.Errorf("createUser: error while scanning for user:%w", err)
 	}

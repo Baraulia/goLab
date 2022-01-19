@@ -44,26 +44,27 @@ func (r *BookPostgres) GetThreeBooks() ([]IndTask.MostPopularBook, error) {
 	return listBooks, transaction.Commit()
 }
 
-func (r *BookPostgres) GetBooks(page int) ([]IndTask.BookResponse, int, error) {
+func (r *BookPostgres) GetBooks(page int, sorting string) ([]IndTask.BookResponse, int, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("GetBooks: can not starts transaction:%s", err)
 		return nil, 0, fmt.Errorf("getBooks: can not starts transaction:%w", err)
 	}
+	fmt.Println(sorting)
 	var listBooks []IndTask.BookResponse
 	var rows *sql.Rows
 	var pages int
 	if page == 0 {
-		query := "SELECT books.id, books.book_name, books.published, books.amount, count(list_books.id) AS av_books FROM books " +
-			"JOIN list_books ON books.id=list_books.book_id AND list_books.issued='false' GROUP BY books.id ORDER BY av_books DESC, books.book_name"
+		query := fmt.Sprintf("SELECT books.id, books.book_name, books.published, books.amount, count(list_books.id) AS av_books"+
+			"FROM books JOIN list_books ON books.id=list_books.book_id AND list_books.issued='false' GROUP BY books.id ORDER BY %s", sorting)
 		rows, err = transaction.Query(query)
 		if err != nil {
 			logger.Errorf("GetBooks: can not executes a query:%s", err)
 			return nil, 0, fmt.Errorf("getBooks: repository error:%w", err)
 		}
 	} else {
-		query := "SELECT books.id, books.book_name, books.published, books.amount, count(list_books.id) AS av_books FROM books " +
-			"JOIN list_books ON books.id=list_books.book_id AND list_books.issued='false' GROUP BY books.id ORDER BY av_books DESC, books.book_name LIMIT $1 OFFSET $2"
+		query := fmt.Sprintf("SELECT books.id, books.book_name, books.published, books.amount, count(list_books.id) AS av_books FROM books "+
+			"JOIN list_books ON books.id=list_books.book_id AND list_books.issued='false' GROUP BY books.id ORDER BY %s LIMIT $1 OFFSET $2", sorting)
 		rows, err = transaction.Query(query, bookLimit, (page-1)*bookLimit)
 		if err != nil {
 			logger.Errorf("GetBooks: can not executes a query:%s", err)

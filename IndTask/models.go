@@ -162,13 +162,22 @@ type Author struct {
 
 type User struct {
 	Id         int    `json:"id"`
-	Surname    string `json:"surname" validate:"string,min=2,max=255""`
+	Surname    string `json:"surname" validate:"string,min=2,max=255"`
 	UserName   string `json:"user_name" validate:"string,min=2,max=255"`
 	Patronymic string `json:"patronymic" validate:"string,min=2,max=255"`
 	PaspNumber string `json:"pasp_number" validate:"string,min=6,max=50"`
 	Email      string `json:"email" validate:"email"`
-	Adress     string `json:"adress" validate:"string,min=2,max=255"`
+	Address    string `json:"address" validate:"string,min=2,max=255"`
 	BirthDate  MyTime `json:"birth_date" validate:"birthDay"`
+}
+
+type UserResponse struct {
+	Id        int    `json:"id"`
+	Surname   string `json:"surname"`
+	UserName  string `json:"user_name"`
+	Email     string `json:"email"`
+	Address   string `json:"address"`
+	BirthDate MyTime `json:"birth_date"`
 }
 
 type Genre struct {

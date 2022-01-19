@@ -14,8 +14,8 @@ func NewUserService(repo repository.AppUser) *UserService {
 	return &UserService{repo: repo}
 }
 
-func (u *UserService) GetUsers(page int) ([]IndTask.User, int, error) {
-	users, pages, err := u.repo.GetUsers(page)
+func (u *UserService) GetUsers(page int, sorting string) ([]IndTask.UserResponse, int, error) {
+	users, pages, err := u.repo.GetUsers(page, sorting)
 	if err != nil {
 		return nil, 0, fmt.Errorf("error while getting users from database:%w", err)
 	}
@@ -23,7 +23,7 @@ func (u *UserService) GetUsers(page int) ([]IndTask.User, int, error) {
 }
 
 func (u *UserService) CreateUser(user *IndTask.User) (*IndTask.User, error) {
-	listUsers, _, err := u.repo.GetUsers(0)
+	listUsers, _, err := u.repo.GetUsers(0, "email")
 	if err != nil {
 		return nil, fmt.Errorf("error while getting users from database:%w", err)
 	}
@@ -41,7 +41,7 @@ func (u *UserService) CreateUser(user *IndTask.User) (*IndTask.User, error) {
 }
 
 func (u *UserService) ChangeUser(user *IndTask.User, userId int, method string) (*IndTask.User, error) {
-	listUsers, _, err := u.repo.GetUsers(0)
+	listUsers, _, err := u.repo.GetUsers(0, "id")
 	if err != nil {
 		return nil, fmt.Errorf("error while getting users from database:%w", err)
 	}
