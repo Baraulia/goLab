@@ -5,6 +5,7 @@ import (
 	"github.com/Baraulia/goLab/IndTask.git/internal/config"
 	"github.com/Baraulia/goLab/IndTask.git/internal/repository"
 	"github.com/Baraulia/goLab/IndTask.git/pkg/logging"
+	"net/http"
 )
 
 var logger = logging.GetLogger()
@@ -13,6 +14,7 @@ type AppUser interface {
 	GetUsers(page int, sorting string) ([]IndTask.UserResponse, int, error)
 	CreateUser(user *IndTask.User) (*IndTask.User, error)
 	ChangeUser(user *IndTask.User, userId int, method string) (*IndTask.User, error)
+	FoundUser(userSurname string) (*IndTask.User, error)
 }
 
 type AppBook interface {
@@ -23,6 +25,7 @@ type AppBook interface {
 	GetListBooks(page int) ([]IndTask.ListBooksResponse, int, error)
 	ChangeListBook(books *IndTask.ListBook, bookId int, method string) (*IndTask.ListBooksResponse, error)
 	CreateListBook(bookId int) (*IndTask.ListBooksResponse, error)
+	InputCoverFoto(req *http.Request, book *IndTask.Book) error
 }
 
 type AppAct interface {
@@ -31,12 +34,14 @@ type AppAct interface {
 	GetActsByUser(userId int, page int) ([]IndTask.Act, int, error)
 	ChangeAct(act *IndTask.Act, actId int, method string) (*IndTask.Act, error)
 	AddReturnAct(act *IndTask.ReturnAct) (*IndTask.Act, error)
+	InputFineFoto(req *http.Request, actId int) ([]string, error)
 }
 
 type AppAuthor interface {
 	GetAuthors(page int) ([]IndTask.Author, int, error)
 	CreateAuthor(author *IndTask.Author) (*IndTask.Author, error)
 	ChangeAuthor(author *IndTask.Author, authorId int, method string) (*IndTask.Author, error)
+	InputAuthorFoto(req *http.Request, author *IndTask.Author) error
 }
 
 type AppGenre interface {
@@ -54,6 +59,10 @@ type Validation interface {
 	GetBookById(int) error
 }
 
+type AppFile interface {
+	GetFile(path string) ([]byte, error)
+}
+
 type Service struct {
 	AppUser
 	AppBook
@@ -61,16 +70,18 @@ type Service struct {
 	AppAuthor
 	AppGenre
 	Validation
+	AppFile
 }
 
 func NewService(rep *repository.Repository, cfg *config.Config) *Service {
 	return &Service{
 		NewUserService(rep.AppUser),
 		NewBookService(*rep, cfg),
-		NewActService(*rep),
-		NewAuthorService(rep.AppAuthor),
+		NewActService(*rep, cfg),
+		NewAuthorService(rep.AppAuthor, cfg),
 		NewGenreService(rep.AppGenre),
 		NewValidationService(rep.Validation),
+		NewFileService(cfg, logger),
 	}
 }
 

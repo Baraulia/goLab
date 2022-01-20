@@ -3,19 +3,22 @@ package service
 import (
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
+	"github.com/Baraulia/goLab/IndTask.git/internal/config"
 	"github.com/Baraulia/goLab/IndTask.git/internal/repository"
 	"github.com/Baraulia/goLab/IndTask.git/pkg/translate"
 	"io/ioutil"
 	"net/http"
 	"os"
+	"strings"
 )
 
 type ActService struct {
 	repo repository.Repository
+	cfg  *config.Config
 }
 
-func NewActService(repo repository.Repository) *ActService {
-	return &ActService{repo: repo}
+func NewActService(repo repository.Repository, cfg *config.Config) *ActService {
+	return &ActService{repo: repo, cfg: cfg}
 }
 
 func (s *ActService) GetActs(page int) ([]IndTask.Act, int, error) {
@@ -223,11 +226,10 @@ func (s *ActService) setCost(returnAct *IndTask.ReturnAct) error {
 	return nil
 }
 
-func InputFineFoto(req *http.Request, actId int) ([]string, error) {
+func (s *ActService) InputFineFoto(req *http.Request, actId int) ([]string, error) {
 	var filePathes []string
 	m := req.MultipartForm
 	files := m.File["file"]
-	fmt.Println(files)
 	for i, headers := range files {
 		reqfile, err := files[i].Open()
 		if err != nil {
@@ -240,7 +242,7 @@ func InputFineFoto(req *http.Request, actId int) ([]string, error) {
 			logger.Errorf("InputFineFoto: error while reading file from request:%s", err)
 			return nil, fmt.Errorf("inputFineFoto: error while reading file from request:%w", err)
 		}
-		directoryPath := fmt.Sprintf("images/fines/issueActId%d", actId)
+		directoryPath := fmt.Sprintf("%simages/fines/issueActId%d", s.cfg.FilePath, actId)
 		filePath := fmt.Sprintf("%s/%s", directoryPath, translate.Translate(headers.Filename))
 		err = os.MkdirAll(directoryPath, 0777)
 		if err != nil {
@@ -258,6 +260,7 @@ func InputFineFoto(req *http.Request, actId int) ([]string, error) {
 			logger.Errorf("InputFineFoto: error while writing file:%s", err)
 			return nil, fmt.Errorf("inputFineFoto: error while writing file:%w", err)
 		}
+		filePath = strings.Replace(filePath, s.cfg.FilePath, "", 1)
 		filePathes = append(filePathes, filePath)
 	}
 	return filePathes, nil

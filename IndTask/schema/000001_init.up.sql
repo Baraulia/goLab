@@ -101,7 +101,7 @@ insert into authors (author_name, author_foto) values ('Редьярд Кипл�
                                                             ('Роберт Говард', 'images/authors/Robert_Govard.jpeg'),
                                                             ('Эмиль Золя', 'images/authors/Emil_Zolia.jpg');
 
-insert into users (surname, user_name, patronymic, pasp_number, email, adress, birth_date) values ('Барауля', 'Сергей', 'Михайлович', '123456', 'baraulia@yandex.ru', 'Minsk', '1965-07-20'),
+insert into users (surname, user_name, patronymic, pasp_number, email, address, birth_date) values ('Барауля', 'Сергей', 'Михайлович', '123456', 'baraulia@yandex.ru', 'Minsk', '1965-07-20'),
                                                                                                   ('Иванов', 'Андрей', 'Александрович', '123457', 'baraulia1@yandex.ru', 'Pemza', '1990-08-15'),
                                                                                                   ('Петров', 'Илья', 'Дмитриевич', '123476', 'baraulia2@yandex.ru', 'Tagil', '1915-02-15'),
                                                                                                   ('Сидоров', 'Борис', 'Ильич', '127456', 'baraulia3@yandex.ru', 'Gomel', '2006-06-26'),

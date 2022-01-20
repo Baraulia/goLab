@@ -191,14 +191,14 @@ func (b *BookService) ChangeListBook(listBook *IndTask.ListBook, listBookId int,
 	return nil, nil
 }
 
-func InputCoverFoto(req *http.Request, input *IndTask.Book) error {
+func (b *BookService) InputCoverFoto(req *http.Request, input *IndTask.Book) error {
 	reqFile, fileHeader, err := req.FormFile("file")
 	if err != nil {
 		logger.Errorf("InputCoverFoto: error while getting file from multipart form:%s", err)
 		return fmt.Errorf("inputCoverFoto: error while getting file from multipart form:%w", err)
 	}
 	defer reqFile.Close()
-	filePath := fmt.Sprintf("images/book_covers/%s_%d.%s", translate.Translate(input.BookName), input.Published, (strings.Split(fileHeader.Filename, "."))[1])
+	filePath := fmt.Sprintf("%simages/book_covers/%s_%d.%s", b.cfg.FilePath, translate.Translate(input.BookName), input.Published, (strings.Split(fileHeader.Filename, "."))[1])
 	file, err := os.OpenFile(filePath, os.O_CREATE|os.O_RDWR, 0777)
 	if err != nil {
 		logger.Errorf("InputCoverFoto: error while opening file %s:%s", filePath, err)
@@ -215,6 +215,7 @@ func InputCoverFoto(req *http.Request, input *IndTask.Book) error {
 		logger.Errorf("InputCoverFoto: error while writing file:%s", err)
 		return fmt.Errorf("inputCoverFoto: error while writing file:%s", err)
 	}
+	filePath = strings.Replace(filePath, b.cfg.FilePath, "", 1)
 	input.Cover = filePath
 	return nil
 }

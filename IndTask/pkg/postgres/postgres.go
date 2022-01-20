@@ -23,7 +23,6 @@ func NewPostgresDB(database PostgresDB) (*sql.DB, error) {
 		database.logger.Panicf("Database open error:%s", err)
 		return nil, err
 	}
-
 	err = db.Ping()
 	if err != nil {
 		database.logger.Errorf("DB ping error:%s", err)

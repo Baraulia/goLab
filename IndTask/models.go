@@ -4,15 +4,12 @@ import (
 	"database/sql/driver"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git/pkg/logging"
-	"regexp"
 	"strconv"
 	"strings"
 	"time"
 )
 
 var logger logging.Logger
-
-var mailRe = regexp.MustCompile(`\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z`)
 
 const layout = "2006-01-02"
 
@@ -215,5 +212,5 @@ type Act struct {
 type Debtor struct {
 	Email string
 	Name  string
-	Book  string
+	Book  []string
 }

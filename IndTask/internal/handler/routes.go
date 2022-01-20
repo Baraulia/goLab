@@ -29,6 +29,7 @@ func (h *Handler) InitRoutes() *http.ServeMux {
 	router.HandleFunc("/users/", h.getUsers)
 	router.HandleFunc("/users/create", h.createUser)
 	router.HandleFunc("/users/change", h.changeUser)
+	router.HandleFunc("/users/found", h.foundUser)
 
 	router.HandleFunc("/act/getAll", h.getActs)
 	router.HandleFunc("/act/create", h.createIssueAct)
@@ -43,6 +44,8 @@ func (h *Handler) InitRoutes() *http.ServeMux {
 	router.HandleFunc("/genres/", h.getGenres)
 	router.HandleFunc("/genres/create", h.createGenre)
 	router.HandleFunc("/genres/change", h.changeGenre)
+
+	router.HandleFunc("/file", h.getFile)
 
 	return router
 }

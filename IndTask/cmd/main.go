@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-	"github.com/Baraulia/goLab/IndTask.git"
 	"github.com/Baraulia/goLab/IndTask.git/internal/config"
 	"github.com/Baraulia/goLab/IndTask.git/internal/handler"
 	"github.com/Baraulia/goLab/IndTask.git/internal/repository"
@@ -14,7 +12,6 @@ import (
 	"net/smtp"
 	"os"
 	"os/signal"
-	"strings"
 	"syscall"
 	"time"
 )
@@ -49,57 +46,12 @@ func main() {
 	logger.Info("IndTask started")
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGTERM, syscall.SIGINT)
+	ticker := time.NewTicker(10 * time.Second)
 
-	ticker := time.NewTicker(24 * time.Hour)
-	debtors := make(chan []IndTask.Debtor, 1)
-
-	go func() {
-		for {
-			select {
-			case <-ticker.C:
-				listDebtors, err := CheckReturnData(Rep)
-				if err != nil {
-					logger.Errorf("Can not check return data for acts (%s):%s", time.Now(), err)
-				}
-				if len(listDebtors) > 0 {
-					debtors <- listDebtors
-				}
-			}
-		}
-	}()
-	go func() {
-		for {
-			select {
-			case <-debtors:
-				listDebtors := <-debtors
-				from := cfg.Mail.From
-				password := cfg.Mail.Password
-				smtpHost := cfg.Mail.SmtpHost
-				smtpPort := cfg.Mail.SmtpPort
-				auth := smtp.PlainAuth("", from, password, smtpHost)
-				for _, debtor := range listDebtors {
-					msg := fmt.Sprintf(" Уважаемый %s, Вам необходимо вернуть книгу %s!", debtor.Name, debtor.Book)
-					message := strings.Replace("From: "+from+"~To: "+debtor.Email+"~Subject: "+cfg.Mail.Subject+"~~", "~", "\r\n", -1) + msg
-					err := smtp.SendMail(smtpHost+":"+smtpPort, auth, from, []string{debtor.Email}, []byte(message))
-					if err != nil {
-						logger.Errorf("Error while sending email to %s:%s", debtor.Email, err)
-						return
-					}
-				}
-				logger.Info("Email Sent Successfully!")
-			}
-		}
-
-	}()
+	auth := smtp.PlainAuth("", cfg.Mail.From, cfg.Mail.Password, cfg.Mail.SmtpHost)
+	go SendEmail(cfg, logger, auth)
+	go CheckData(ticker, Rep, logger)
 
 	<-quit
 	ticker.Stop()
-
-}
-func CheckReturnData(rep *repository.Repository) ([]IndTask.Debtor, error) {
-	listDeptors, err := rep.AppAct.CheckReturnData()
-	if err != nil {
-		return nil, fmt.Errorf("checkReturnData:%w", err)
-	}
-	return listDeptors, nil
 }

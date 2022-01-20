@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "35858567-9f50-4825-983e-0187e4217cfc",
-		"name": "Users",
+		"_postman_id": "2b6a25a5-944a-443d-a2fd-93e81dc0a9ce",
+		"name": "acts",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Get all users",
+			"name": "Get all acts",
 			"protocolProfileBehavior": {
 				"followOriginalHttpMethod": true
 			},
@@ -14,24 +14,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/users?page=1&sort=userSurnameDesc",
+					"raw": "http://localhost:8000/act/getAll?page=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"users"
+						"act",
+						"getAll"
 					],
 					"query": [
 						{
 							"key": "page",
 							"value": "1"
-						},
-						{
-							"key": "sort",
-							"value": "userSurnameDesc",
-							"description": "it is possible to set parameters: userSurnameDesc, \nuserSurnameAsc, userNameDesc, userNameAsc, emailDesc,\nemailAsc, addressDesc, addressAsc, birthDateDesc, birthDateAsc"
 						}
 					]
 				}
@@ -39,13 +35,13 @@
 			"response": []
 		},
 		{
-			"name": "Add user",
+			"name": "Add issue act",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"surname\":\"Baraulia\", \"user_name\":\"Sergey\", \"patronymic\":\"Mihalich\", \"pasp_number\":\"6sddffg8gf3\", \"email\":\"bdsgafsdhar@yandex.ru\", \"address\":\"jdkhfehwihi\", \"birth_date\":\"1980-07-20\"}",
+					"raw": "{\"user_id\":1, \"list_book_id\":6, \"rental_time\":10}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -53,14 +49,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/users/create",
+					"raw": "http://localhost:8000/act/create",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"users",
+						"act",
 						"create"
 					]
 				}
@@ -68,42 +64,48 @@
 			"response": []
 		},
 		{
-			"name": "Delete user",
-			"protocolProfileBehavior": {
-				"followOriginalHttpMethod": true
-			},
+			"name": "Add return act",
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "body",
+							"value": "{\"act_id\":14,  \"user_id\":1, \"list_book_id\":6, \"fine\":5, \"condition_decrese\":15, \"rating\":10}",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/sergey/Изображения/Damage3.jpg"
+						}
+					]
+				},
 				"url": {
-					"raw": "http://localhost:8000/users/change?id=13",
+					"raw": "http://localhost:8000/act/add",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"users",
-						"change"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "13"
-						}
+						"act",
+						"add"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Change user",
+			"name": "Change act",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"surname\":\"Bo\", \"user_name\":\"Sergey\", \"patronymic\":\"Mihalich\", \"pasp_number\":\"68sfdfg3\", \"email\":\"bagar@yandex.ru\", \"address\":\"jdkhfehwihi\", \"birth_date\":\"1965-12-05\"}",
+					"raw": "{\"user_id\":1, \"list_book_id\":6, \"rental_time\":18, \"status\":\"open\"}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -111,20 +113,21 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/users/change?id=10",
+					"raw": "http://localhost:8000/act/change?id=14",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"users",
+						"act",
 						"change"
 					],
 					"query": [
 						{
 							"key": "id",
-							"value": "10"
+							"value": "14",
+							"description": "it is possible to change only the fields: user_id, list_book_id, rental_time, status"
 						}
 					]
 				}
@@ -132,25 +135,25 @@
 			"response": []
 		},
 		{
-			"name": "Get one user by id",
+			"name": "Get act by id",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/users/change?id=2",
+					"raw": "http://localhost:8000/act/change?id=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"users",
+						"act",
 						"change"
 					],
 					"query": [
 						{
 							"key": "id",
-							"value": "2"
+							"value": "1"
 						}
 					]
 				}
@@ -158,25 +161,29 @@
 			"response": []
 		},
 		{
-			"name": "Get one user by surname",
+			"name": "Get acts by user",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/users/found?surname=Барауля",
+					"raw": "http://localhost:8000/act/getByUser?user_id=1&page=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"users",
-						"found"
+						"act",
+						"getByUser"
 					],
 					"query": [
 						{
-							"key": "surname",
-							"value": "Барауля"
+							"key": "user_id",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
 						}
 					]
 				}

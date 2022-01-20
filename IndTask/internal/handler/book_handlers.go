@@ -121,7 +121,7 @@ func (h *Handler) createBook(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, err.Error(), 400)
 			return
 		}
-		if err := service.InputCoverFoto(req, &input); err != nil {
+		if err := h.services.AppBook.InputCoverFoto(req, &input); err != nil {
 			http.Error(w, err.Error(), 400)
 			return
 		}
@@ -201,7 +201,7 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 				http.Error(w, err.Error(), 400)
 				return
 			}
-			if err := service.InputCoverFoto(req, &input); err != nil {
+			if err := h.services.AppBook.InputCoverFoto(req, &input); err != nil {
 				http.Error(w, err.Error(), 400)
 				return
 			}

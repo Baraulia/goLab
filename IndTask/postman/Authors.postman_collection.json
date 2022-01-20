@@ -110,7 +110,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"author_name\":\"gfhjjjsk\", \"author_foto\":\"images/authors/Aleksandr_Pushkin.png\"}",
+					"raw": "{\"author_name\":\"Pushkin\", \"author_foto\":\"images/authors/Aleksandr_Pushkin.png\"}",
 					"options": {
 						"raw": {
 							"language": "json"

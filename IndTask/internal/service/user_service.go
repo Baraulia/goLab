@@ -78,3 +78,11 @@ func (u *UserService) ChangeUser(user *IndTask.User, userId int, method string) 
 	}
 	return nil, nil
 }
+
+func (u *UserService) FoundUser(userSurname string) (*IndTask.User, error) {
+	oneUser, err := u.repo.FoundUser(userSurname)
+	if err != nil {
+		return nil, fmt.Errorf("error while getting one user by userSurname from database:%w", err)
+	}
+	return oneUser, nil
+}

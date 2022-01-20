@@ -206,7 +206,6 @@ func getValidatorFromTag(tag string, h *Handler) Validator {
 	case "bookExist":
 		return BookExistValidator{handler: h}
 	}
-
 	return DefaultValidator{}
 }
 

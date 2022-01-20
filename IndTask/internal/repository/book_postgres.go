@@ -50,13 +50,12 @@ func (r *BookPostgres) GetBooks(page int, sorting string) ([]IndTask.BookRespons
 		logger.Errorf("GetBooks: can not starts transaction:%s", err)
 		return nil, 0, fmt.Errorf("getBooks: can not starts transaction:%w", err)
 	}
-	fmt.Println(sorting)
 	var listBooks []IndTask.BookResponse
 	var rows *sql.Rows
 	var pages int
 	if page == 0 {
-		query := fmt.Sprintf("SELECT books.id, books.book_name, books.published, books.amount, count(list_books.id) AS av_books"+
-			"FROM books JOIN list_books ON books.id=list_books.book_id AND list_books.issued='false' GROUP BY books.id ORDER BY %s", sorting)
+		query := fmt.Sprintf("SELECT books.id, books.book_name, books.published, books.amount, count(list_books.id) AS av_books FROM books "+
+			"JOIN list_books ON books.id=list_books.book_id AND list_books.issued='false' GROUP BY books.id ORDER BY %s", sorting)
 		rows, err = transaction.Query(query)
 		if err != nil {
 			logger.Errorf("GetBooks: can not executes a query:%s", err)
@@ -154,7 +153,6 @@ func (r *BookPostgres) CreateBook(book *IndTask.Book, bookRentCost float64) (*In
 			return nil, fmt.Errorf("CreateBook: error while execution query for insert into list_books:%w", err)
 		}
 	}
-	fmt.Println(newBook)
 	return &newBook, transaction.Commit()
 }
 

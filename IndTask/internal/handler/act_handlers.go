@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
-	"github.com/Baraulia/goLab/IndTask.git/internal/service"
 	"net/http"
 	"strconv"
 )
@@ -163,7 +162,7 @@ func (h *Handler) changeAct(w http.ResponseWriter, req *http.Request) {
 				http.Error(w, err.Error(), 400)
 				return
 			}
-			photos, err := service.InputFineFoto(req, input.Id)
+			photos, err := h.services.AppAct.InputFineFoto(req, input.Id)
 			if err != nil {
 				http.Error(w, err.Error(), 400)
 				return
@@ -235,7 +234,7 @@ func (h *Handler) addReturnAct(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, err.Error(), 400)
 			return
 		}
-		photos, err := service.InputFineFoto(req, input.ActId)
+		photos, err := h.services.AppAct.InputFineFoto(req, input.ActId)
 		if err != nil {
 			http.Error(w, err.Error(), 400)
 			return

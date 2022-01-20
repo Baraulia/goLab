@@ -156,3 +156,27 @@ func (h *Handler) changeUser(w http.ResponseWriter, req *http.Request) {
 		w.WriteHeader(http.StatusNoContent)
 	}
 }
+
+func (h *Handler) foundUser(w http.ResponseWriter, req *http.Request) {
+	h.logger.Info("Working foundUser")
+	userSurname := req.URL.Query().Get("surname")
+	CheckMethod(w, req, "GET", h.logger)
+	user, err := h.services.AppUser.FoundUser(userSurname)
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	output, err := json.Marshal(&user)
+	if err != nil {
+		h.logger.Errorf("UserHandler: error while marshaling user:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	_, err = w.Write(output)
+	if err != nil {
+		h.logger.Errorf("foundUser: error while writing response:%s", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+}

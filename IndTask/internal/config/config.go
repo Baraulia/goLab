@@ -9,8 +9,9 @@ import (
 var logger = logging.GetLogger()
 
 type Config struct {
-	IsDebug bool `yaml:"is_debug" env:"IS_DEBUG"  env-default:"true"`
-	Listen  struct {
+	IsDebug  bool   `yaml:"is_debug" env:"IS_DEBUG"  env-default:"true"`
+	FilePath string `yaml:"file_path" env:"FILE_PATH" env-default:""`
+	Listen   struct {
 		Type   string `yaml:"type" env:"LISTEN_TYPE" env-default:"port"`
 		Port   string `yaml:"port"  env:"LISTEN_PORT" env-default:"8080"`
 		BindIp string `yaml:"bind_ip"  env:"LISTEN_HOST" env-default:"127.0.0.1"`

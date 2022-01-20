@@ -14,6 +14,7 @@ type AppUser interface {
 	GetOneUser(userId int) (*IndTask.User, error)
 	ChangeUser(user *IndTask.User, userId int) (*IndTask.User, error)
 	DeleteUser(userId int) error
+	FoundUser(userSurname string) (*IndTask.User, error)
 }
 
 type AppBook interface {
@@ -40,7 +41,7 @@ type AppAct interface {
 	ChangeAct(act *IndTask.Act, actId int) (*IndTask.Act, error)
 	GetOneAct(actId int) (*IndTask.Act, error)
 	AddReturnAct(returnAct *IndTask.ReturnAct) (*IndTask.Act, error)
-	CheckReturnData() ([]IndTask.Debtor, error)
+	CheckReturnData() ([]*IndTask.Debtor, error)
 	CheckDuplicateBook(act *IndTask.Act) error
 }
 

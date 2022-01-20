@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
-	"github.com/Baraulia/goLab/IndTask.git/internal/service"
 	"net/http"
 	"strconv"
 )
@@ -50,7 +49,7 @@ func (h *Handler) createAuthor(w http.ResponseWriter, req *http.Request) {
 	}
 	var input IndTask.Author
 	input.AuthorName = req.PostFormValue("author_name")
-	if err := service.InputAuthorFoto(req, &input); err != nil {
+	if err := h.services.AppAuthor.InputAuthorFoto(req, &input); err != nil {
 		http.Error(w, err.Error(), 400)
 		return
 	}
@@ -123,7 +122,7 @@ func (h *Handler) changeAuthor(w http.ResponseWriter, req *http.Request) {
 				return
 			}
 			input.AuthorName = req.PostFormValue("author_name")
-			if err := service.InputAuthorFoto(req, &input); err != nil {
+			if err := h.services.AppAuthor.InputAuthorFoto(req, &input); err != nil {
 				http.Error(w, err.Error(), 400)
 				return
 			}

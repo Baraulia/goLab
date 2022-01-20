@@ -1,5 +1,6 @@
 #Для работы с файлом .yaml устанавливаем библиотеку  go get -u github.com/ilyakaznacheev/cleanenv
 is_debug: true
+file_path: "/home/sergey/IndTask/"
 
 listen:
   type: "port"

@@ -35,7 +35,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"genre_name\":\"LoveStory5\"}",
+					"raw": "{\"genre_name\":\"LoveStory10\"}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -127,7 +127,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/genres/change?id=12",
+					"raw": "http://localhost:8000/genres/change?id=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -140,7 +140,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "12"
+							"value": "1"
 						}
 					]
 				}

@@ -3,6 +3,7 @@ package service
 import (
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
+	"github.com/Baraulia/goLab/IndTask.git/internal/config"
 	"github.com/Baraulia/goLab/IndTask.git/internal/repository"
 	"github.com/Baraulia/goLab/IndTask.git/pkg/translate"
 	"io/ioutil"
@@ -13,10 +14,11 @@ import (
 
 type AuthorService struct {
 	repo repository.AppAuthor
+	cfg  *config.Config
 }
 
-func NewAuthorService(repo repository.AppAuthor) *AuthorService {
-	return &AuthorService{repo: repo}
+func NewAuthorService(repo repository.AppAuthor, cfg *config.Config) *AuthorService {
+	return &AuthorService{repo: repo, cfg: cfg}
 }
 
 func (a *AuthorService) GetAuthors(page int) ([]IndTask.Author, int, error) {
@@ -90,14 +92,14 @@ func (a *AuthorService) ChangeAuthor(author *IndTask.Author, authorId int, metho
 	return nil, nil
 }
 
-func InputAuthorFoto(req *http.Request, input *IndTask.Author) error {
+func (a *AuthorService) InputAuthorFoto(req *http.Request, input *IndTask.Author) error {
 	reqFile, fileHeader, err := req.FormFile("file")
 	if err != nil {
 		logger.Errorf("InputAuthorFoto: error while getting file from multipart form:%s", err)
 		return fmt.Errorf("inputAuthorFoto: error while getting file from multipart form:%w", err)
 	}
 	defer reqFile.Close()
-	filePath := fmt.Sprintf("images/authors/%s.%s", translate.Translate(input.AuthorName), (strings.Split(fileHeader.Filename, "."))[1])
+	filePath := fmt.Sprintf("%simages/authors/%s.%s", a.cfg.FilePath, translate.Translate(input.AuthorName), (strings.Split(fileHeader.Filename, "."))[1])
 	file, err := os.OpenFile(filePath, os.O_CREATE|os.O_RDWR, 0777)
 	if err != nil {
 		logger.Errorf("InputAuthorFoto: error while opening file %s:%s", filePath, err)
@@ -114,6 +116,7 @@ func InputAuthorFoto(req *http.Request, input *IndTask.Author) error {
 		logger.Errorf("InputAuthorFoto: error while writing file:%s", err)
 		return fmt.Errorf("inputAuthorFoto: error while writing file:%w", err)
 	}
+	filePath = strings.Replace(filePath, a.cfg.FilePath, "", 1)
 	input.AuthorFoto = filePath
 	return nil
 }

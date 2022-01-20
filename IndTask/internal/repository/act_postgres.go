@@ -202,31 +202,41 @@ func (r *ActPostgres) AddReturnAct(returnAct *IndTask.ReturnAct) (*IndTask.Act, 
 	return &upAct, transaction.Commit()
 }
 
-func (r *ActPostgres) CheckReturnData() ([]IndTask.Debtor, error) {
+func (r *ActPostgres) CheckReturnData() ([]*IndTask.Debtor, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("CheckReturnData: can not starts transaction:%s", err)
 		return nil, fmt.Errorf("checkReturnData: can not starts transaction:%w", err)
 	}
-	query := fmt.Sprint("SELECT users.email, users.user_name, books.book_name FROM users JOIN " +
+	query := "SELECT users.email, users.user_name, books.book_name FROM users JOIN " +
 		"act ON act.status = 'open' AND act.return_date < $1 AND users.id = act.user_id JOIN " +
 		"list_books ON act.listbook_id = list_books.id JOIN " +
-		"books ON list_books.book_id = books.id ")
+		"books ON list_books.book_id = books.id "
 	rows, err := transaction.Query(query, time.Now().Add(24*time.Hour))
 	if err != nil {
 		logger.Errorf("CheckReturnData: can not executes a query:%s", err)
 		return nil, fmt.Errorf("checkReturnData:repository error:%w", err)
 	}
-	var listDeptors []IndTask.Debtor
+	var listDeptors []*IndTask.Debtor
 	for rows.Next() {
 		var debtor IndTask.Debtor
-		if err := rows.Scan(&debtor.Email, &debtor.Name, &debtor.Book); err != nil {
+		var book string
+		var manyBooks = false
+		if err := rows.Scan(&debtor.Email, &debtor.Name, &book); err != nil {
 			logger.Errorf("Error while scanning for debtor:%s", err)
 			return nil, fmt.Errorf("checkReturnData:repository error:%w", err)
 		}
-		listDeptors = append(listDeptors, debtor)
+		for _, debt := range listDeptors {
+			if debt.Name == debtor.Name {
+				debt.Book = append(debt.Book, book)
+				manyBooks = true
+			}
+		}
+		if manyBooks == false {
+			debtor.Book = append(debtor.Book, book)
+			listDeptors = append(listDeptors, &debtor)
+		}
 	}
-
 	return listDeptors, transaction.Commit()
 }
 
@@ -237,10 +247,10 @@ func (r *ActPostgres) CheckDuplicateBook(act *IndTask.Act) error {
 		return fmt.Errorf("checkDuplicateBook: can not starts transaction:%w", err)
 	}
 	var exist bool
-	query := "SELECT EXISTS(SELECT books.id FROM books " +
-		"JOIN list_books ON books.id=list_books.book_id AND list_books.id=$1 " +
-		"JOIN act ON act.listbook_id=list_books.id AND act.user_id=$2 AND act.status='open')"
-	row := transaction.QueryRow(query, act.ListBookId, act.UserId)
+	query := "SELECT EXISTS(SELECT list_books.id FROM list_books JOIN act ON list_books.id=act.listbook_id AND act.user_id=$1 AND act.status='open'" +
+		"AND list_books.book_id=(SELECT books.id FROM books JOIN list_books ON list_books.id=$2 AND list_books.book_id=books.id))"
+
+	row := transaction.QueryRow(query, act.UserId, act.ListBookId)
 	if err := row.Scan(&exist); err != nil {
 		logger.Errorf("Error while scanning for issued book:%s", err)
 		return fmt.Errorf("checkDuplicateBook: repository error:%w", err)
