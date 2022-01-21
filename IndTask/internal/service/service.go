@@ -19,7 +19,7 @@ type AppUser interface {
 
 type AppBook interface {
 	GetThreeBooks() ([]IndTask.MostPopularBook, error)
-	GetBooks(page int, sorting string) ([]IndTask.BookResponse, int, error)
+	GetBooks(page int, sorting string) ([]*IndTask.BookResponse, int, error)
 	CreateBook(*IndTask.Book) (*IndTask.OneBookResponse, error)
 	ChangeBook(book *IndTask.Book, bookId int, method string) (*IndTask.OneBookResponse, error)
 	GetListBooks(page int) ([]IndTask.ListBooksResponse, int, error)

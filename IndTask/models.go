@@ -103,6 +103,7 @@ type Book struct {
 }
 
 type MostPopularBook struct {
+	Id      int     `json:"id"`
 	Cover   string  `json:"cover"`
 	Readers int     `json:"readers"`
 	Rating  float32 `json:"rating"`

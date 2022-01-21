@@ -30,7 +30,7 @@ func (b *BookService) GetThreeBooks() ([]IndTask.MostPopularBook, error) {
 	return books, nil
 }
 
-func (b *BookService) GetBooks(page int, sorting string) ([]IndTask.BookResponse, int, error) {
+func (b *BookService) GetBooks(page int, sorting string) ([]*IndTask.BookResponse, int, error) {
 	books, pages, err := b.repo.GetBooks(page, sorting)
 	if err != nil {
 		return nil, 0, fmt.Errorf("error while getting books from database:%w", err)

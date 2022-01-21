@@ -44,7 +44,7 @@ func (h *Handler) getBooks(w http.ResponseWriter, req *http.Request) {
 	}
 	sorting := service.SortTypeBook(req.URL.Query().Get("sort"))
 	CheckMethod(w, req, "GET", h.logger)
-	var listBooks []IndTask.BookResponse
+	var listBooks []*IndTask.BookResponse
 	listBooks, pages, err := h.services.AppBook.GetBooks(page, sorting)
 	if err != nil {
 		http.Error(w, err.Error(), 500)

@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
+	"github.com/lib/pq"
 	"time"
 )
 
@@ -24,18 +25,17 @@ func (r *BookPostgres) GetThreeBooks() ([]IndTask.MostPopularBook, error) {
 		return nil, fmt.Errorf("getThreeBooks: can not starts transaction:%w", err)
 	}
 	var listBooks []IndTask.MostPopularBook
-	var rows *sql.Rows
-	query := "SELECT books.cover, SUM(list_books.rent_number) AS readers, SUM(act.rating)/COUNT(act.id) AS rating  FROM list_books JOIN act " +
+	query := "SELECT books.id, books.cover, SUM(list_books.rent_number) AS readers, SUM(act.rating)/COUNT(act.id) AS rating  FROM list_books JOIN act " +
 		"ON act.rating>0 AND act.listbook_id=list_books.id " +
-		"JOIN books ON books.id=list_books.book_id GROUP BY books.id ORDER BY readers DESC LIMIT 3"
-	rows, err = transaction.Query(query)
+		"JOIN books ON books.id=list_books.book_id GROUP BY books.id ORDER BY readers LIMIT 3"
+	rows, err := transaction.Query(query)
 	if err != nil {
 		logger.Errorf("GetThreeBooks: can not executes a query:%s", err)
 		return nil, fmt.Errorf("getThreeBooks: repository error:%w", err)
 	}
 	for rows.Next() {
 		var book IndTask.MostPopularBook
-		if err := rows.Scan(&book.Cover, &book.Readers, &book.Rating); err != nil {
+		if err := rows.Scan(&book.Id, &book.Cover, &book.Readers, &book.Rating); err != nil {
 			logger.Errorf("GetThreeBooks: error while scanning for book:%s", err)
 			return nil, fmt.Errorf("getThreeBooks: repository error:%w", err)
 		}
@@ -44,15 +44,17 @@ func (r *BookPostgres) GetThreeBooks() ([]IndTask.MostPopularBook, error) {
 	return listBooks, transaction.Commit()
 }
 
-func (r *BookPostgres) GetBooks(page int, sorting string) ([]IndTask.BookResponse, int, error) {
+func (r *BookPostgres) GetBooks(page int, sorting string) ([]*IndTask.BookResponse, int, error) {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("GetBooks: can not starts transaction:%s", err)
 		return nil, 0, fmt.Errorf("getBooks: can not starts transaction:%w", err)
 	}
-	var listBooks []IndTask.BookResponse
+	var listBooks []*IndTask.BookResponse
 	var rows *sql.Rows
 	var pages int
+	var booksId []int
+	var genres = make(map[int][]IndTask.Genre)
 	if page == 0 {
 		query := fmt.Sprintf("SELECT books.id, books.book_name, books.published, books.amount, count(list_books.id) AS av_books FROM books "+
 			"JOIN list_books ON books.id=list_books.book_id AND list_books.issued='false' GROUP BY books.id ORDER BY %s", sorting)
@@ -76,13 +78,29 @@ func (r *BookPostgres) GetBooks(page int, sorting string) ([]IndTask.BookRespons
 			logger.Errorf("GetBooks: error while scanning for book:%s", err)
 			return nil, 0, fmt.Errorf("getBooks: repository error:%w", err)
 		}
-		book.Genre, err = r.ReturnBindGenres(book.Id)
-		if err != nil {
-			return nil, 0, fmt.Errorf("error while getting bound genres:%w", err)
-		}
-		listBooks = append(listBooks, book)
+		booksId = append(booksId, book.Id)
+		listBooks = append(listBooks, &book)
 	}
-	query := "SELECT CEILING(COUNT(id)/$1::float) FROM books"
+	query := "SELECT book_genre.book_id, genre.id, genre.genre_name FROM genre JOIN book_genre ON genre.id = book_genre.genre_id AND book_genre.book_id = ANY ($1)"
+	rows, err = transaction.Query(query, pq.Array(booksId))
+	if err != nil {
+		logger.Errorf("GetBooks: can not executes a query:%s", err)
+		return nil, 0, fmt.Errorf("getBooks: repository error:%w", err)
+	}
+	for rows.Next() {
+		var genre IndTask.Genre
+		var bookId int
+		if err := rows.Scan(&bookId, &genre.Id, &genre.GenreName); err != nil {
+			logger.Errorf("GetBooks: error while scanning for genre:%s", err)
+			return nil, 0, fmt.Errorf("getBooks: repository error:%w", err)
+		}
+		genres[bookId] = append(genres[bookId], genre)
+	}
+	for _, book := range listBooks {
+		book.Genre = genres[book.Id]
+	}
+
+	query = "SELECT CEILING(COUNT(id)/$1::float) FROM books"
 	row := transaction.QueryRow(query, bookLimit)
 	if err := row.Scan(&pages); err != nil {
 		logger.Errorf("Error while scanning for pages:%s", err)
@@ -248,16 +266,23 @@ func (r *BookPostgres) GetListBooks(page int) ([]IndTask.ListBooksResponse, int,
 	}
 	var listBooks []IndTask.ListBooksResponse
 	var rows *sql.Rows
+	var booksId []int
+	var genres = make(map[int][]IndTask.Genre)
+	var authors = make(map[int][]IndTask.Author)
 	var pages int
 	if page == 0 {
-		query := "SELECT id, book_id, issued, rent_number, rent_cost, reg_date, condition, scrapped FROM list_books WHERE issued='false' issued='false' and scrapped='false'"
+		query := "SELECT list_books.id, list_books.book_id, list_books.issued, list_books.rent_number, list_books.rent_cost, list_books.reg_date, list_books.condition, list_books.scrapped, " +
+			"books.id, books.book_name, books.cost, books.cover, books.published, books.pages, books.amount FROM list_books JOIN books ON list_books.book_id = books.id " +
+			"WHERE list_books.issued='false' AND list_books.scrapped='false' ORDER BY list_books.Id"
 		rows, err = transaction.Query(query)
 		if err != nil {
 			logger.Errorf("GetListBooks: can not executes a query:%s", err)
 			return nil, 0, fmt.Errorf("getListBooks: repository error:%w", err)
 		}
 	} else {
-		query := "SELECT id, book_id, issued, rent_number, rent_cost, reg_date, condition, scrapped FROM list_books WHERE issued='false' and scrapped='false' ORDER BY Id LIMIT $1 OFFSET $2"
+		query := "SELECT list_books.id, list_books.book_id, list_books.issued, list_books.rent_number, list_books.rent_cost, list_books.reg_date, list_books.condition, list_books.scrapped, " +
+			"books.id, books.book_name, books.cost, books.cover, books.published, books.pages, books.amount FROM list_books JOIN books ON list_books.book_id = books.id " +
+			"WHERE list_books.issued='false' AND list_books.scrapped='false' ORDER BY list_books.Id LIMIT $1 OFFSET $2"
 		rows, err = transaction.Query(query, bookLimit, (page-1)*bookLimit)
 		if err != nil {
 			logger.Errorf("GetListBooks: can not executes a query:%s", err)
@@ -266,19 +291,52 @@ func (r *BookPostgres) GetListBooks(page int) ([]IndTask.ListBooksResponse, int,
 	}
 	for rows.Next() {
 		var book IndTask.ListBooksResponse
+		var unBook IndTask.OneBookResponse
 		var bookId int
-		if err := rows.Scan(&book.Id, &bookId, &book.Issued, &book.RentNumber, &book.RentCost, &book.RegDate, &book.Condition, &book.Scrapped); err != nil {
+		if err := rows.Scan(&book.Id, &bookId, &book.Issued, &book.RentNumber, &book.RentCost, &book.RegDate, &book.Condition, &book.Scrapped,
+			&unBook.Id, &unBook.BookName, &unBook.Cost, &unBook.Cover, &unBook.Published, &unBook.Pages, &unBook.Amount); err != nil {
 			logger.Errorf("GetListBooks: error while scanning for book:%s", err)
 			return nil, 0, fmt.Errorf("getListBooks: repository error:%w", err)
 		}
-		book.Book, err = r.GetOneBook(bookId)
-		if err != nil {
-			logger.Errorf("GetListBooks: error while getting book:%s", err)
-			return nil, 0, fmt.Errorf("getListBooks: repository error:%w", err)
-		}
+		booksId = append(booksId, bookId)
+		book.Book = &unBook
 		listBooks = append(listBooks, book)
 	}
-	query := "SELECT CEILING(COUNT(id)/$1::float) FROM list_books"
+	query := "SELECT book_genre.book_id, genre.id, genre.genre_name FROM genre JOIN book_genre ON genre.id = book_genre.genre_id AND book_genre.book_id = ANY ($1)"
+	rows, err = transaction.Query(query, pq.Array(booksId))
+	if err != nil {
+		logger.Errorf("GetBooks: can not executes a query:%s", err)
+		return nil, 0, fmt.Errorf("getBooks: repository error:%w", err)
+	}
+	for rows.Next() {
+		var genre IndTask.Genre
+		var bookId int
+		if err := rows.Scan(&bookId, &genre.Id, &genre.GenreName); err != nil {
+			logger.Errorf("GetBooks: error while scanning for genre:%s", err)
+			return nil, 0, fmt.Errorf("getBooks: repository error:%w", err)
+		}
+		genres[bookId] = append(genres[bookId], genre)
+	}
+	query = "SELECT book_author.book_id, authors.id, authors.author_name, authors.author_foto FROM authors JOIN book_author ON authors.id = book_author.author_id AND book_author.book_id = ANY ($1)"
+	rows, err = transaction.Query(query, pq.Array(booksId))
+	if err != nil {
+		logger.Errorf("GetListBooks: can not executes a query:%s", err)
+		return nil, 0, fmt.Errorf("getListBooks: repository error:%w", err)
+	}
+	for rows.Next() {
+		var author IndTask.Author
+		var authorId int
+		if err := rows.Scan(&authorId, &author.Id, &author.AuthorName, &author.AuthorFoto); err != nil {
+			logger.Errorf("GetListBooks: error while scanning for author:%s", err)
+			return nil, 0, fmt.Errorf("getListBooks: repository error:%w", err)
+		}
+		authors[authorId] = append(authors[authorId], author)
+	}
+	for _, book := range listBooks {
+		book.Book.Genre = genres[book.Book.Id]
+		book.Book.Authors = authors[book.Book.Id]
+	}
+	query = "SELECT CEILING(COUNT(id)/$1::float) FROM list_books"
 	row := transaction.QueryRow(query, bookLimit)
 	if err := row.Scan(&pages); err != nil {
 		logger.Errorf("Error while scanning for pages:%s", err)
