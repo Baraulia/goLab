@@ -73,8 +73,8 @@ func init() {
 
 		// FatalLevel level. Logs and then calls `logger.Exit(1)`. It will exit even if the logging level is set to Panic.
 
-		// ErrorLevel level. Logs. Used for errors that should definitely be noted.
-		// Commonly used for hooks to send errors to an error tracking service.
+		// ErrorLevel level. Logs. Used for myErrors that should definitely be noted.
+		// Commonly used for hooks to send myErrors to an error tracking service.
 
 		// WarnLevel level. Non-critical entries that deserve eyes.
 

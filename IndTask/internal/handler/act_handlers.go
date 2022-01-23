@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
+	"github.com/Baraulia/goLab/IndTask.git/internal/myErrors"
 	"net/http"
 	"strconv"
 )
@@ -21,8 +22,14 @@ func (h *Handler) getActs(w http.ResponseWriter, req *http.Request) {
 	var acts []IndTask.Act
 	acts, pages, err := h.services.AppAct.GetActs(page)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(&acts)
 	if err != nil {
@@ -55,7 +62,7 @@ func (h *Handler) createIssueAct(w http.ResponseWriter, req *http.Request) {
 		h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
 		errors, err := json.Marshal(validationErrors)
 		if err != nil {
-			h.logger.Errorf("ActHandler: error while marshaling list errors:%s", err)
+			h.logger.Errorf("ActHandler: error while marshaling list myErrors:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -63,7 +70,7 @@ func (h *Handler) createIssueAct(w http.ResponseWriter, req *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		_, err = w.Write(errors)
 		if err != nil {
-			h.logger.Errorf("ActHandler: can not write errors into response:%s", err)
+			h.logger.Errorf("ActHandler: can not write myErrors into response:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -71,8 +78,14 @@ func (h *Handler) createIssueAct(w http.ResponseWriter, req *http.Request) {
 	}
 	act, err := h.services.AppAct.CreateIssueAct(&input)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(&act)
 	if err != nil {
@@ -107,8 +120,14 @@ func (h *Handler) getActsByUser(w http.ResponseWriter, req *http.Request) {
 	var acts []IndTask.Act
 	acts, pages, err := h.services.AppAct.GetActsByUser(userId, page)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(&acts)
 	if err != nil {
@@ -164,8 +183,14 @@ func (h *Handler) changeAct(w http.ResponseWriter, req *http.Request) {
 			}
 			photos, err := h.services.AppAct.InputFineFoto(req, input.Id)
 			if err != nil {
-				http.Error(w, err.Error(), 400)
-				return
+				switch e := err.(type) {
+				case myErrors.Error:
+					http.Error(w, e.Error(), e.Status())
+					return
+				default:
+					http.Error(w, e.Error(), http.StatusInternalServerError)
+					return
+				}
 			}
 			input.Foto = photos
 		}
@@ -174,7 +199,7 @@ func (h *Handler) changeAct(w http.ResponseWriter, req *http.Request) {
 			h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
 			errors, err := json.Marshal(validationErrors)
 			if err != nil {
-				h.logger.Errorf("ActHandler: error while marshaling list errors:%s", err)
+				h.logger.Errorf("ActHandler: error while marshaling list myErrors:%s", err)
 				http.Error(w, err.Error(), 500)
 				return
 			}
@@ -182,7 +207,7 @@ func (h *Handler) changeAct(w http.ResponseWriter, req *http.Request) {
 			w.WriteHeader(http.StatusBadRequest)
 			_, err = w.Write(errors)
 			if err != nil {
-				h.logger.Errorf("ActHandler: can not write errors into response:%s", err)
+				h.logger.Errorf("ActHandler: can not write myErrors into response:%s", err)
 				http.Error(w, err.Error(), 500)
 				return
 			}
@@ -192,8 +217,14 @@ func (h *Handler) changeAct(w http.ResponseWriter, req *http.Request) {
 	h.logger.Infof("Method %s, changeAct", req.Method)
 	oneAct, err := h.services.AppAct.ChangeAct(&input, actId, req.Method)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(&oneAct)
 	if err != nil {
@@ -236,8 +267,14 @@ func (h *Handler) addReturnAct(w http.ResponseWriter, req *http.Request) {
 		}
 		photos, err := h.services.AppAct.InputFineFoto(req, input.ActId)
 		if err != nil {
-			http.Error(w, err.Error(), 400)
-			return
+			switch e := err.(type) {
+			case myErrors.Error:
+				http.Error(w, e.Error(), e.Status())
+				return
+			default:
+				http.Error(w, e.Error(), http.StatusInternalServerError)
+				return
+			}
 		}
 		input.Foto = photos
 	}
@@ -246,7 +283,7 @@ func (h *Handler) addReturnAct(w http.ResponseWriter, req *http.Request) {
 		h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
 		errors, err := json.Marshal(validationErrors)
 		if err != nil {
-			h.logger.Errorf("ActHandler: error while marshaling list errors:%s", err)
+			h.logger.Errorf("ActHandler: error while marshaling list myErrors:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -254,7 +291,7 @@ func (h *Handler) addReturnAct(w http.ResponseWriter, req *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		_, err = w.Write(errors)
 		if err != nil {
-			h.logger.Errorf("ActHandler: can not write errors into response:%s", err)
+			h.logger.Errorf("ActHandler: can not write myErrors into response:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -262,8 +299,14 @@ func (h *Handler) addReturnAct(w http.ResponseWriter, req *http.Request) {
 	}
 	act, err := h.services.AppAct.AddReturnAct(&input)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(act)
 	if err != nil {

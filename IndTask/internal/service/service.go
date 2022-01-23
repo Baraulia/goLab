@@ -15,6 +15,7 @@ type AppUser interface {
 	CreateUser(user *IndTask.User) (*IndTask.User, error)
 	ChangeUser(user *IndTask.User, userId int, method string) (*IndTask.User, error)
 	FoundUser(userSurname string) (*IndTask.User, error)
+	SortTypeUser(sorting string) string
 }
 
 type AppBook interface {
@@ -26,6 +27,7 @@ type AppBook interface {
 	ChangeListBook(books *IndTask.ListBook, bookId int, method string) (*IndTask.ListBooksResponse, error)
 	CreateListBook(bookId int) (*IndTask.ListBooksResponse, error)
 	InputCoverFoto(req *http.Request, book *IndTask.Book) error
+	SortTypeBook(sorting string) string
 }
 
 type AppAct interface {
@@ -75,10 +77,10 @@ type Service struct {
 
 func NewService(rep *repository.Repository, cfg *config.Config) *Service {
 	return &Service{
-		NewUserService(rep.AppUser),
+		NewUserService(*rep),
 		NewBookService(*rep, cfg),
 		NewActService(*rep, cfg),
-		NewAuthorService(rep.AppAuthor, cfg),
+		NewAuthorService(*rep, cfg),
 		NewGenreService(rep.AppGenre),
 		NewValidationService(rep.Validation),
 		NewFileService(cfg, logger),
@@ -107,51 +109,3 @@ const (
 	birthDateDesc   = "birth_date DESC"
 	birthDateAsc    = "birth_date ASC"
 )
-
-func SortTypeBook(sorting string) string {
-	switch sorting {
-	case "bookNameDesc":
-		return bookNameDesc
-	case "bookNameAsc":
-		return bookNameAsc
-	case "publishedDesc":
-		return publishedDesc
-	case "publishedAsc":
-		return publishedAsc
-	case "amountDesc":
-		return amountDesc
-	case "amountAsc":
-		return amountAsc
-	case "avAmountDesc":
-		return avAmountDesc
-	case "avAmountAsc":
-		return avAmountAsc
-	}
-	return "av_books DESC, books.book_name"
-}
-
-func SortTypeUser(sorting string) string {
-	switch sorting {
-	case "userSurnameDesc":
-		return userSurnameDesc
-	case "userSurnameAsc":
-		return userSurnameAsc
-	case "userNameDesc":
-		return userNameDesc
-	case "userNameAsc":
-		return userNameAsc
-	case "emailDesc":
-		return emailDesc
-	case "emailAsc":
-		return emailAsc
-	case "addressDesc":
-		return addressDesc
-	case "addressAsc":
-		return addressAsc
-	case "birthDateDesc":
-		return birthDateDesc
-	case "birthDateAsc":
-		return birthDateAsc
-	}
-	return "surname"
-}

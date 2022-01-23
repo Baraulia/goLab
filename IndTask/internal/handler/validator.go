@@ -80,7 +80,7 @@ func (v GenreExistValidator) Validate(val interface{}) error {
 	for _, genre := range val.([]int) {
 		err := v.handler.services.Validation.GetGenreById(genre)
 		if err != nil {
-			return fmt.Errorf("genreExistValidator:%w", err)
+			return err
 		}
 	}
 	return nil
@@ -94,7 +94,7 @@ func (v AuthorExistValidator) Validate(val interface{}) error {
 	for _, author := range val.([]int) {
 		err := v.handler.services.Validation.GetAuthorById(author)
 		if err != nil {
-			return fmt.Errorf("authorExistValidator:%w", err)
+			return err
 		}
 	}
 	return nil
@@ -124,7 +124,7 @@ type UserExistValidator struct {
 func (v UserExistValidator) Validate(val interface{}) error {
 	err := v.handler.services.Validation.GetUserById(val.(int))
 	if err != nil {
-		return fmt.Errorf("userExistValidator:%w", err)
+		return err
 	}
 
 	return nil
@@ -137,7 +137,7 @@ type BookExistValidator struct {
 func (v BookExistValidator) Validate(val interface{}) error {
 	err := v.handler.services.Validation.GetBookById(val.(int))
 	if err != nil {
-		return fmt.Errorf("listBookExistValidator:%w", err)
+		return err
 	}
 	return nil
 }
@@ -149,7 +149,7 @@ type ListBookExistValidator struct {
 func (v ListBookExistValidator) Validate(val interface{}) error {
 	err := v.handler.services.Validation.GetListBookById(val.(int))
 	if err != nil {
-		return fmt.Errorf("listBookExistValidator:%w", err)
+		return err
 	}
 	return nil
 }
@@ -171,7 +171,7 @@ type ActExistValidator struct {
 func (v ActExistValidator) Validate(val interface{}) error {
 	err := v.handler.services.Validation.GetActById(val.(int), false)
 	if err != nil {
-		return fmt.Errorf("actExistValidator:%w", err)
+		return err
 	}
 	return nil
 }

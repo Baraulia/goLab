@@ -3,6 +3,7 @@ package repository
 import (
 	"database/sql"
 	"fmt"
+	"github.com/Baraulia/goLab/IndTask.git/internal/myErrors"
 )
 
 type ValidationPostgres struct {
@@ -27,7 +28,7 @@ func (v *ValidationPostgres) GetGenreById(id int) error {
 		return fmt.Errorf("getGenreById: repository error:%w", err)
 	}
 	if !exist {
-		return fmt.Errorf("such genre %d does not exist", id)
+		return &myErrors.MyError{Err: fmt.Errorf("such genre %d does not exist", id), Code: 400}
 	}
 	return transaction.Commit()
 }
@@ -45,7 +46,7 @@ func (v *ValidationPostgres) GetAuthorById(id int) error {
 		return fmt.Errorf("getAuthorById: repository error:%w", err)
 	}
 	if !exist {
-		return fmt.Errorf("such author %d does not exist", id)
+		return &myErrors.MyError{Err: fmt.Errorf("such author %d does not exist", id), Code: 400}
 	}
 	return transaction.Commit()
 }
@@ -63,7 +64,7 @@ func (v *ValidationPostgres) GetUserById(id int) error {
 		return fmt.Errorf("getUserById: repository error:%w", err)
 	}
 	if !exist {
-		return fmt.Errorf("such user %d does not exist", id)
+		return &myErrors.MyError{Err: fmt.Errorf("such user %d does not exist", id), Code: 400}
 	}
 	return transaction.Commit()
 }
@@ -81,7 +82,7 @@ func (v *ValidationPostgres) GetBookById(id int) error {
 		return fmt.Errorf("getBookById: repository error:%w", err)
 	}
 	if !exist {
-		return fmt.Errorf("such book %d does not exist", id)
+		return &myErrors.MyError{Err: fmt.Errorf("such book %d does not exist", id), Code: 400}
 	}
 	return transaction.Commit()
 }
@@ -99,7 +100,7 @@ func (v *ValidationPostgres) GetListBookById(id int) error {
 		return fmt.Errorf("getListBookById: repository error:%w", err)
 	}
 	if !exist {
-		return fmt.Errorf("such instance of book %d does not exist", id)
+		return &myErrors.MyError{Err: fmt.Errorf("such instance of book %d does not exist", id), Code: 400}
 	}
 	return transaction.Commit()
 }
@@ -117,7 +118,7 @@ func (v *ValidationPostgres) GetActById(id int, changing bool) error {
 		return fmt.Errorf("getIssueActById: repository error:%w", err)
 	}
 	if !exist {
-		return fmt.Errorf("such act %d does not exist", id)
+		return &myErrors.MyError{Err: fmt.Errorf("such act %d does not exist", id), Code: 400}
 	}
 	if !changing {
 		query = "SELECT EXISTS(SELECT 1 FROM act WHERE id=$1 AND status='open')"
@@ -127,7 +128,7 @@ func (v *ValidationPostgres) GetActById(id int, changing bool) error {
 			return fmt.Errorf("getIssueActById: repository error:%w", err)
 		}
 		if !exist {
-			return fmt.Errorf("such act %d already closed", id)
+			return &myErrors.MyError{Err: fmt.Errorf("such act %d already closed", id), Code: 400}
 		}
 	}
 	return transaction.Commit()

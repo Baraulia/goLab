@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
+	"github.com/Baraulia/goLab/IndTask.git/internal/myErrors"
 	"net/http"
 	"strconv"
 )
@@ -20,8 +21,14 @@ func (h *Handler) getAuthors(w http.ResponseWriter, req *http.Request) {
 	var listAuthors []IndTask.Author
 	listAuthors, pages, err := h.services.AppAuthor.GetAuthors(page)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(&listAuthors)
 	if err != nil {
@@ -50,15 +57,21 @@ func (h *Handler) createAuthor(w http.ResponseWriter, req *http.Request) {
 	var input IndTask.Author
 	input.AuthorName = req.PostFormValue("author_name")
 	if err := h.services.AppAuthor.InputAuthorFoto(req, &input); err != nil {
-		http.Error(w, err.Error(), 400)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	validationErrors := validateStruct(h, input)
 	if len(validationErrors) != 0 {
 		h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
 		errors, err := json.Marshal(validationErrors)
 		if err != nil {
-			h.logger.Errorf("AuthorHandler: error while marshaling list errors:%s", err)
+			h.logger.Errorf("AuthorHandler: error while marshaling list myErrors:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -66,7 +79,7 @@ func (h *Handler) createAuthor(w http.ResponseWriter, req *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		_, err = w.Write(errors)
 		if err != nil {
-			h.logger.Errorf("AuthorHandler: can not write errors into response:%s", err)
+			h.logger.Errorf("AuthorHandler: can not write myErrors into response:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -74,8 +87,14 @@ func (h *Handler) createAuthor(w http.ResponseWriter, req *http.Request) {
 	}
 	author, err := h.services.AppAuthor.CreateAuthor(&input)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(&author)
 	if err != nil {
@@ -123,8 +142,14 @@ func (h *Handler) changeAuthor(w http.ResponseWriter, req *http.Request) {
 			}
 			input.AuthorName = req.PostFormValue("author_name")
 			if err := h.services.AppAuthor.InputAuthorFoto(req, &input); err != nil {
-				http.Error(w, err.Error(), 400)
-				return
+				switch e := err.(type) {
+				case myErrors.Error:
+					http.Error(w, e.Error(), e.Status())
+					return
+				default:
+					http.Error(w, e.Error(), http.StatusInternalServerError)
+					return
+				}
 			}
 		}
 		validationErrors := validateStruct(h, input)
@@ -132,7 +157,7 @@ func (h *Handler) changeAuthor(w http.ResponseWriter, req *http.Request) {
 			h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
 			errors, err := json.Marshal(validationErrors)
 			if err != nil {
-				h.logger.Errorf("GenreHandler: error while marshaling list errors:%s", err)
+				h.logger.Errorf("GenreHandler: error while marshaling list myErrors:%s", err)
 				http.Error(w, err.Error(), 500)
 				return
 			}
@@ -140,7 +165,7 @@ func (h *Handler) changeAuthor(w http.ResponseWriter, req *http.Request) {
 			w.WriteHeader(http.StatusBadRequest)
 			_, err = w.Write(errors)
 			if err != nil {
-				h.logger.Errorf("Can not write errors into response:%s", err)
+				h.logger.Errorf("Can not write myErrors into response:%s", err)
 				http.Error(w, err.Error(), 500)
 				return
 			}
@@ -150,8 +175,12 @@ func (h *Handler) changeAuthor(w http.ResponseWriter, req *http.Request) {
 	h.logger.Infof("Method %s, changeAuthor", req.Method)
 	author, err := h.services.AppAuthor.ChangeAuthor(&input, authorId, req.Method)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+		}
 	}
 	if author != nil {
 		output, err := json.Marshal(&author)

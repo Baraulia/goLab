@@ -30,8 +30,6 @@ type AppBook interface {
 	ChangeListBook(book *IndTask.ListBook, bookId int) (*IndTask.ListBooksResponse, error)
 	CreateListBook(bookId int, bookRentCost float64) (*IndTask.ListBooksResponse, error)
 	DeleteListBook(bookId int) error
-	GetListBooksId() ([]int, error)
-	GetBooksId() ([]int, error)
 }
 
 type AppAct interface {

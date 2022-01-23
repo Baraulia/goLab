@@ -2,6 +2,7 @@ package handler
 
 import (
 	"fmt"
+	"github.com/Baraulia/goLab/IndTask.git/internal/myErrors"
 	"net/http"
 )
 
@@ -16,8 +17,14 @@ func (h *Handler) getFile(w http.ResponseWriter, req *http.Request) {
 	}
 	file, err := h.services.AppFile.GetFile(path)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	_, err = w.Write(file)
 	if err != nil {

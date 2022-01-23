@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
-	"github.com/Baraulia/goLab/IndTask.git/internal/service"
+	"github.com/Baraulia/goLab/IndTask.git/internal/myErrors"
 	"net/http"
 	"strconv"
 )
@@ -18,7 +18,7 @@ func (h *Handler) getUsers(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, fmt.Sprintf("No url request:%s", err), 400)
 		return
 	}
-	sorting := service.SortTypeUser(req.URL.Query().Get("sort"))
+	sorting := h.services.SortTypeUser(req.URL.Query().Get("sort"))
 	var listUsers []IndTask.UserResponse
 	listUsers, pages, err := h.services.AppUser.GetUsers(page, sorting)
 	if err != nil {
@@ -27,9 +27,14 @@ func (h *Handler) getUsers(w http.ResponseWriter, req *http.Request) {
 	}
 	output, err := json.Marshal(&listUsers)
 	if err != nil {
-		h.logger.Errorf("UserHandler: error while marshaling list users:%s", err)
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Pages", strconv.Itoa(pages))
@@ -56,7 +61,7 @@ func (h *Handler) createUser(w http.ResponseWriter, req *http.Request) {
 		h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
 		errors, err := json.Marshal(validationErrors)
 		if err != nil {
-			h.logger.Errorf("UserHandler: error while marshaling list errors:%s", err)
+			h.logger.Errorf("UserHandler: error while marshaling list myErrors:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -64,7 +69,7 @@ func (h *Handler) createUser(w http.ResponseWriter, req *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		_, err = w.Write(errors)
 		if err != nil {
-			h.logger.Errorf("UserHandler: can not write errors into response:%s", err)
+			h.logger.Errorf("UserHandler: can not write myErrors into response:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -72,8 +77,14 @@ func (h *Handler) createUser(w http.ResponseWriter, req *http.Request) {
 	}
 	user, err := h.services.AppUser.CreateUser(&input)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(&user)
 	if err != nil {
@@ -117,7 +128,7 @@ func (h *Handler) changeUser(w http.ResponseWriter, req *http.Request) {
 			h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
 			errors, err := json.Marshal(validationErrors)
 			if err != nil {
-				h.logger.Errorf("UserHandler: error while marshaling list errors:%s", err)
+				h.logger.Errorf("UserHandler: error while marshaling list myErrors:%s", err)
 				http.Error(w, err.Error(), 500)
 				return
 			}
@@ -125,7 +136,7 @@ func (h *Handler) changeUser(w http.ResponseWriter, req *http.Request) {
 			w.WriteHeader(http.StatusBadRequest)
 			_, err = w.Write(errors)
 			if err != nil {
-				h.logger.Errorf("Can not write errors into response:%s", err)
+				h.logger.Errorf("Can not write myErrors into response:%s", err)
 				http.Error(w, err.Error(), 500)
 				return
 			}
@@ -135,8 +146,14 @@ func (h *Handler) changeUser(w http.ResponseWriter, req *http.Request) {
 	h.logger.Infof("Method %s, changeGenre", req.Method)
 	user, err := h.services.AppUser.ChangeUser(&input, userId, req.Method)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	if user != nil {
 		output, err := json.Marshal(&user)
@@ -163,8 +180,14 @@ func (h *Handler) foundUser(w http.ResponseWriter, req *http.Request) {
 	CheckMethod(w, req, "GET", h.logger)
 	user, err := h.services.AppUser.FoundUser(userSurname)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(&user)
 	if err != nil {

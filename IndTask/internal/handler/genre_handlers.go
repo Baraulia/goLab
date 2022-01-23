@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
+	"github.com/Baraulia/goLab/IndTask.git/internal/myErrors"
 	"net/http"
 	"strconv"
 )
@@ -14,8 +15,14 @@ func (h *Handler) getGenres(w http.ResponseWriter, req *http.Request) {
 	var listGenre []IndTask.Genre
 	listGenre, err := h.services.AppGenre.GetGenres()
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(&listGenre)
 	if err != nil {
@@ -47,7 +54,7 @@ func (h *Handler) createGenre(w http.ResponseWriter, req *http.Request) {
 		h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
 		errors, err := json.Marshal(validationErrors)
 		if err != nil {
-			h.logger.Errorf("GenreHandler: error while marshaling list errors:%s", err)
+			h.logger.Errorf("GenreHandler: error while marshaling list myErrors:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -55,7 +62,7 @@ func (h *Handler) createGenre(w http.ResponseWriter, req *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		_, err = w.Write(errors)
 		if err != nil {
-			h.logger.Errorf("GenreHandler: can not write errors into response:%s", err)
+			h.logger.Errorf("GenreHandler: can not write myErrors into response:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -63,8 +70,14 @@ func (h *Handler) createGenre(w http.ResponseWriter, req *http.Request) {
 	}
 	genre, err := h.services.AppGenre.CreateGenre(&input)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(&genre)
 	if err != nil {
@@ -108,7 +121,7 @@ func (h *Handler) changeGenre(w http.ResponseWriter, req *http.Request) {
 			h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
 			errors, err := json.Marshal(validationErrors)
 			if err != nil {
-				h.logger.Errorf("GenreHandler: error while marshaling list errors:%s", err)
+				h.logger.Errorf("GenreHandler: error while marshaling list myErrors:%s", err)
 				http.Error(w, err.Error(), 500)
 				return
 			}
@@ -116,7 +129,7 @@ func (h *Handler) changeGenre(w http.ResponseWriter, req *http.Request) {
 			w.WriteHeader(http.StatusBadRequest)
 			_, err = w.Write(errors)
 			if err != nil {
-				h.logger.Errorf("Can not write errors into response:%s", err)
+				h.logger.Errorf("Can not write myErrors into response:%s", err)
 				http.Error(w, err.Error(), 500)
 				return
 			}
@@ -126,8 +139,14 @@ func (h *Handler) changeGenre(w http.ResponseWriter, req *http.Request) {
 	h.logger.Infof("Method %s, changeGenre", req.Method)
 	genre, err := h.services.AppGenre.ChangeGenre(&input, genreId, req.Method)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	if genre != nil {
 		output, err := json.Marshal(&genre)

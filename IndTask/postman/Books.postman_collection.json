@@ -129,29 +129,23 @@
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "body",
-							"value": "{\"book_name\": \"Gol\", \"genre_id\":[6], \"cost\":60, \"authors\":[3],  \"published\":2022, \"pages\":400, \"amount\":1}",
-							"type": "text"
-						},
-						{
-							"key": "file",
-							"type": "file",
-							"src": "/home/sergey/2497334137.jpg"
+					"mode": "raw",
+					"raw": "{\"book_id\":1}",
+					"options": {
+						"raw": {
+							"language": "json"
 						}
-					]
+					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/books/create",
+					"raw": "http://localhost:8000/list_books/create",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"books",
+						"list_books",
 						"create"
 					]
 				}

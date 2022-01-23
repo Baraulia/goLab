@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
+	"github.com/Baraulia/goLab/IndTask.git/internal/myErrors"
 	"github.com/lib/pq"
 	"time"
 )
@@ -244,7 +245,7 @@ func (r *ActPostgres) CheckDuplicateBook(act *IndTask.Act) error {
 	transaction, err := r.db.Begin()
 	if err != nil {
 		logger.Errorf("CheckDuplicateBook: can not starts transaction:%s", err)
-		return fmt.Errorf("checkDuplicateBook: can not starts transaction:%w", err)
+		return &myErrors.MyError{Err: fmt.Errorf("checkDuplicateBook: can not starts transaction:%w", err), Code: 500}
 	}
 	var exist bool
 	query := "SELECT EXISTS(SELECT list_books.id FROM list_books JOIN act ON list_books.id=act.listbook_id AND act.user_id=$1 AND act.status='open'" +
@@ -253,10 +254,10 @@ func (r *ActPostgres) CheckDuplicateBook(act *IndTask.Act) error {
 	row := transaction.QueryRow(query, act.UserId, act.ListBookId)
 	if err := row.Scan(&exist); err != nil {
 		logger.Errorf("Error while scanning for issued book:%s", err)
-		return fmt.Errorf("checkDuplicateBook: repository error:%w", err)
+		return &myErrors.MyError{Err: fmt.Errorf("checkDuplicateBook: repository error:%w", err), Code: 500}
 	}
 	if exist {
-		return fmt.Errorf("such book is already issued to this user")
+		return &myErrors.MyError{Err: fmt.Errorf("such book is already issued to this user"), Code: 400}
 	}
 	return transaction.Commit()
 }

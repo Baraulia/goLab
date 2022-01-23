@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/Baraulia/goLab/IndTask.git"
-	"github.com/Baraulia/goLab/IndTask.git/internal/service"
+	"github.com/Baraulia/goLab/IndTask.git/internal/myErrors"
 	"net/http"
 	"strconv"
 )
@@ -16,8 +16,14 @@ func (h *Handler) getThreeBooks(w http.ResponseWriter, req *http.Request) {
 	var listBooks []IndTask.MostPopularBook
 	listBooks, err := h.services.AppBook.GetThreeBooks()
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(&listBooks)
 	if err != nil {
@@ -42,13 +48,19 @@ func (h *Handler) getBooks(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, fmt.Sprintf("No url request:%s", err), 400)
 		return
 	}
-	sorting := service.SortTypeBook(req.URL.Query().Get("sort"))
+	sorting := h.services.SortTypeBook(req.URL.Query().Get("sort"))
 	CheckMethod(w, req, "GET", h.logger)
 	var listBooks []*IndTask.BookResponse
 	listBooks, pages, err := h.services.AppBook.GetBooks(page, sorting)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(&listBooks)
 	if err != nil {
@@ -78,8 +90,14 @@ func (h *Handler) getListBooks(w http.ResponseWriter, req *http.Request) {
 	var listBooks []IndTask.ListBooksResponse
 	listBooks, pages, err := h.services.AppBook.GetListBooks(page)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(&listBooks)
 	if err != nil {
@@ -122,8 +140,14 @@ func (h *Handler) createBook(w http.ResponseWriter, req *http.Request) {
 			return
 		}
 		if err := h.services.AppBook.InputCoverFoto(req, &input); err != nil {
-			http.Error(w, err.Error(), 400)
-			return
+			switch e := err.(type) {
+			case myErrors.Error:
+				http.Error(w, e.Error(), e.Status())
+				return
+			default:
+				http.Error(w, e.Error(), http.StatusInternalServerError)
+				return
+			}
 		}
 	}
 	validationErrors := validateStruct(h, input)
@@ -131,7 +155,7 @@ func (h *Handler) createBook(w http.ResponseWriter, req *http.Request) {
 		h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
 		errors, err := json.Marshal(validationErrors)
 		if err != nil {
-			h.logger.Errorf("BookHandler: error while marshaling list errors:%s", err)
+			h.logger.Errorf("BookHandler: error while marshaling list myErrors:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -139,7 +163,7 @@ func (h *Handler) createBook(w http.ResponseWriter, req *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		_, err = w.Write(errors)
 		if err != nil {
-			h.logger.Errorf("BookHandler: can not write errors into response:%s", err)
+			h.logger.Errorf("BookHandler: can not write myErrors into response:%s", err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -147,8 +171,14 @@ func (h *Handler) createBook(w http.ResponseWriter, req *http.Request) {
 	}
 	book, err := h.services.AppBook.CreateBook(&input)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(&book)
 	if err != nil {
@@ -202,8 +232,14 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 				return
 			}
 			if err := h.services.AppBook.InputCoverFoto(req, &input); err != nil {
-				http.Error(w, err.Error(), 400)
-				return
+				switch e := err.(type) {
+				case myErrors.Error:
+					http.Error(w, e.Error(), e.Status())
+					return
+				default:
+					http.Error(w, e.Error(), http.StatusInternalServerError)
+					return
+				}
 			}
 		}
 		validationErrors := validateStruct(h, input)
@@ -211,7 +247,7 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 			h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
 			errors, err := json.Marshal(validationErrors)
 			if err != nil {
-				h.logger.Errorf("BookHandler: error while marshaling list errors:%s", err)
+				h.logger.Errorf("BookHandler: error while marshaling list myErrors:%s", err)
 				http.Error(w, err.Error(), 500)
 				return
 			}
@@ -219,7 +255,7 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 			w.WriteHeader(http.StatusBadRequest)
 			_, err = w.Write(errors)
 			if err != nil {
-				h.logger.Errorf("Can not write errors into response:%s", err)
+				h.logger.Errorf("Can not write myErrors into response:%s", err)
 				http.Error(w, err.Error(), 500)
 				return
 			}
@@ -229,8 +265,14 @@ func (h *Handler) changeBook(w http.ResponseWriter, req *http.Request) {
 	h.logger.Infof("Method %s, changeBook", req.Method)
 	book, err := h.services.AppBook.ChangeBook(&input, bookId, req.Method)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	if book != nil {
 		output, err := json.Marshal(&book)
@@ -265,8 +307,14 @@ func (h *Handler) createListBook(w http.ResponseWriter, req *http.Request) {
 	}
 	book, err := h.services.AppBook.CreateListBook(input.BookId)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	output, err := json.Marshal(&book)
 	if err != nil {
@@ -311,7 +359,7 @@ func (h *Handler) changeListBooks(w http.ResponseWriter, req *http.Request) {
 			h.logger.Warnf("Incorrect data came from the request:%s", validationErrors)
 			errors, err := json.Marshal(validationErrors)
 			if err != nil {
-				h.logger.Errorf("BookHandler: error while marshaling list errors:%s", err)
+				h.logger.Errorf("BookHandler: error while marshaling list myErrors:%s", err)
 				http.Error(w, err.Error(), 500)
 				return
 			}
@@ -319,7 +367,7 @@ func (h *Handler) changeListBooks(w http.ResponseWriter, req *http.Request) {
 			w.WriteHeader(http.StatusBadRequest)
 			_, err = w.Write(errors)
 			if err != nil {
-				h.logger.Errorf("Can not write errors into response:%s", err)
+				h.logger.Errorf("Can not write myErrors into response:%s", err)
 				http.Error(w, err.Error(), 500)
 				return
 			}
@@ -329,8 +377,14 @@ func (h *Handler) changeListBooks(w http.ResponseWriter, req *http.Request) {
 	h.logger.Infof("Method %s, changeListBooks", req.Method)
 	book, err := h.services.AppBook.ChangeListBook(&input, listBookId, req.Method)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
+		switch e := err.(type) {
+		case myErrors.Error:
+			http.Error(w, e.Error(), e.Status())
+			return
+		default:
+			http.Error(w, e.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	if book != nil {
 		output, err := json.Marshal(&book)
